@@ -9,7 +9,15 @@ body,
 }
 
 .settings-page {
-  min-height: 100vh;
+  /* The form is taller than the settings window (560x680, see
+     open_settings_window), so the page owns its scrolling rather than leaving
+     the overflow to the document — same pattern as .filmstrip in the overlay.
+     Sized off 100vh instead of a `height: 100%` chain on html/body/#root
+     deliberately: both windows share one bundled stylesheet, and a global
+     height on #root would also pin the overlay root that useOverlayHeight
+     measures, feeding a bogus height back to set_overlay_height. */
+  height: 100vh;
+  overflow-y: auto;
   padding: 20px 24px 28px;
   background: #16110c;
   color: #f0e6d2;
