@@ -146,6 +146,12 @@ then attach it manually if you choose to share it.
   the terminal. Run `rustup show` and confirm the active host is MSVC.
 - **WebView2 missing / blank window:** install or repair the Evergreen
   Runtime, then restart the app. Report persistent blank-window failures.
+- **`file watcher error: EBUSY` under `target\debug`:** update the preview
+  branch and restart the development command. Vite must ignore Cargo build
+  outputs and native sources; Windows locks running executables and symbols.
+  If the terminal reached `Running ...poe-copilot-app.exe`, the build itself
+  completed. Do not delete `target` or disable antivirus to fix this watcher
+  configuration issue.
 - **Port 1420 is already in use:** stop the previous Copilot/Vite process
   you started before launching another development session.
 - **Still waiting after traveling:** confirm Settings points to the PoE2
