@@ -141,13 +141,9 @@ pub fn diag(msg: &str) {
     write(msg);
 }
 
-/// Reads the newest `max_bytes` of the log at `path` as complete lines
-/// (the first, possibly byte-torn line of an over-cap read is dropped —
-/// same trick as `journal::load_lines`). `None` when the file is missing,
-/// unreadable, or has no non-blank content — callers (the bug-report
-/// prefill) then fall back to behaving as if there were no log at all.
-/// Read-only and side-effect-free: reporting a bug must never itself
-/// write to the log it is bundling.
+/// Legacy log-tail helper retained for its bounded-read tests. Bug reporting
+/// never reads diagnostics; users can review files through Open logs instead.
+#[cfg(test)]
 pub fn tail(path: &std::path::Path, max_bytes: u64) -> Option<String> {
     use std::io::{Read as _, Seek as _, SeekFrom};
 

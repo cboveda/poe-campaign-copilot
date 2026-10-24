@@ -21,7 +21,8 @@ fn act1_opening_golden_sequence() {
             ),
             SessionEvent::LevelUp { level, .. } => format!("level:{level}"),
             SessionEvent::Slain { .. } => "slain".to_string(),
-            SessionEvent::UnresolvedArea { display_name, .. } => {
+            SessionEvent::UnmappedArea { display_name, .. }
+            | SessionEvent::UnresolvedArea { display_name, .. } => {
                 format!("unresolved:{display_name}")
             }
         })

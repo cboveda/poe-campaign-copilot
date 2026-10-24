@@ -1,98 +1,87 @@
-# Development
+# Developing the PoE2 preview
 
-PoE Campaign Copilot is a Rust workspace plus a Tauri 2 frontend. It is
-developed on macOS; the release pipeline builds the Windows installer and the
-Linux AppImage.
+Use the existing checkout. The app is PoE2-only; retained PoE1 fixtures test
+shared engine behavior and do not enable a PoE1 product mode.
 
-## Build from source
+## Windows
 
-Install these three tools once:
+For first-time PC setup, follow [Run on Windows](RUN-ON-WINDOWS.md).
 
-1. **Rust** from [rustup.rs](https://rustup.rs). On Windows, accept the
-   default MSVC toolchain; if it asks for the Visual Studio C++ Build Tools,
-   let it install them.
-2. **Node.js 20 or newer** from [nodejs.org](https://nodejs.org).
-3. **Git** from [git-scm.com](https://git-scm.com).
+Install Node.js 24 LTS (or Node 22.12+ within the 22 LTS series), stable Rust through rustup, and the Visual Studio C++
+build tools with a Windows SDK. Tauri uses the Windows WebView2 runtime.
+From the repository root, run:
 
-On **Linux**, also install the system libraries Tauri needs (Debian/Ubuntu
-shown; use your distro's equivalents on Fedora/Arch):
+```powershell
+npm ci
+npm run tauri dev
+```
 
-    sudo apt update
-    sudo apt install libwebkit2gtk-4.1-dev build-essential curl wget file \
-      libxdo-dev libssl-dev libayatana-appindicator3-dev librsvg2-dev \
-      patchelf xdg-utils
+The current preview is 0.2.0-alpha.2. Use the source containing the PoE2
+changes; an older main checkout is not equivalent. Select the real PoE2 log
+from Settings. Normal tailing starts at EOF; enter a zone after starting it.
 
-Then, in a terminal (PowerShell is fine on Windows):
+To build a local Windows test installer (not a published/signed release):
 
-    git clone https://github.com/andrewli8/poe-campaign-copilot.git
-    cd poe-campaign-copilot
-    npm install
-    npm run tauri dev
+```powershell
+npm run tauri build -- --bundles nsis
+```
 
-The first build compiles a lot of Rust and can take 5 to 10 minutes. When
-it finishes, a small transparent bar appears reading "Waiting for
-Client.txt". Point it at your log and use it exactly as
-[First-time setup](../README.md#first-time-setup) in the README describes.
+Workspace output is in `target/release/bundle/nsis/`. Updates are disabled
+and the PoE2 identifier is distinct from the original application. Do not
+publish using the inherited release workflow; release identity, signing,
+Windows package validation and updater configuration remain separate work.
 
-The `POE_COPILOT_LOG` and `POE_COPILOT_LOG_REPLAY` environment variables
-are developer overrides for demos. They beat the configured log path but are
-never written to the config file.
+Run [the Windows checklist](POE2-WINDOWS-VALIDATION.md) and record actual
+results. Unit/replay tests do not establish in-game overlay correctness.
 
-## Testing status
+## Automated checks
 
-The overlay has been developed and tested primarily on macOS with simulated
-sessions, and the Windows and Linux builds compile clean in CI. Real-game
-behavior — click-through over the game window, focus handling, global hotkeys
-under XWayland on Linux, and log-line formats we haven't seen — is the area
-most in need of testing. If something looks wrong, the terminal you launched
-from usually says why.
+From the repository root:
 
-## Tests
+```text
+python tools/import_poe2_act1.py --check
+npm test
+npm run build
+cargo fmt --all -- --check
+cargo clippy --locked --workspace --all-targets -- -D warnings
+cargo test --locked --workspace
+```
 
-    cargo test --workspace
+The sanitized PoE2 fixture contains independently annotated expected output
+for 206 transitions. To inspect a log without a GUI:
 
-The pilot test drives the full pipeline from a log fixture through session,
-engines, and composer. It is the quickest way to see the whole system's
-behavior in one place:
+```text
+cargo run --locked -p replay --bin track-poe2 -- crates/replay/fixtures/poe2-sample.log
+```
 
-    cargo test -p composer --test pilot_act1
+Output contains observed location IDs/names and new/revisited instance flags;
+it does not print character/chat contents. Use your own file path to inspect
+another English log. Do not commit full private logs.
 
-## Live overlay demo (no game needed)
+## Cloud Linux development
 
-Two terminals. The app tails a scratch log file; `fake-play` appends
-fixture lines to it on a delay, so you can watch the overlay react on any
-OS.
+Activate the prepared local tools/libraries in each shell:
 
-The tailer normally starts reading at the *end* of the file, because a real
-`Client.txt` is a huge append-only history and replaying it on launch would
-be slow and wrong. The demo uses a fresh empty file, so it needs
-`POE_COPILOT_LOG_REPLAY=1` to read from the start.
+```sh
+. /workspace/.poe-setup/env.sh
+cd /workspace/poe-campaign-copilot
+```
 
-Terminal 1:
+The shared Rust/frontend tests and native compile work here. GUI startup is
+blocked by WebKit's fixed helper paths and container privileges. Linux GUI
+support is outside the agreed scope; use Windows for gameplay checks.
 
-    rm -f /tmp/fake-client.txt && touch /tmp/fake-client.txt
-    POE_COPILOT_LOG=/tmp/fake-client.txt POE_COPILOT_LOG_REPLAY=1 npm run tauri dev
+## Route content
 
-Terminal 2, once the bar appears:
+`content/poe2/observed-areas.json` is a partial observation catalog from the
+supplied log. `content/poe2/act1-route.json` is generated from pinned source
+in `vendor/poe2-leveling/`, with its MIT license. Run
+`python tools/import_poe2_act1.py` after deliberately updating/reviewing the
+source, or `--check` to verify reproducibility. Only objective text is
+imported; inline scripts, build advice, diagrams and league-mechanic notes
+are not executed or imported. Guide directions within objective text still
+require live verification. No network is needed while using the preview.
 
-    cargo run -p replay --bin fake-play -- crates/replay/fixtures/act1-opening.log /tmp/fake-client.txt 800
-
-The bar walks through: Waiting, Twilight Strand, Lioneye's Watch, The Coast
-(with layout images), an off-route banner on the early town revisit, then
-Mud Flats. Stop the app with Ctrl-C or the tray's Quit, and delete
-`/tmp/fake-client.txt` when done.
-
-## Content pipeline
-
-- `content/layouts/` has per-zone layout notes and diagram images for all
-  10 acts, keyed by exile-leveling area id, extracted from a community
-  layout compilation (see [CREDITS.md](../CREDITS.md)). Every note and image
-  carries audit metadata (`unaudited`, `verified`, `outdated`, `corrected`)
-  so stale guidance is visible instead of silently wrong.
-- `vendor/exile-leveling/` holds pinned route and game data (MIT), from
-  [exile-leveling](https://github.com/HeartofPhos/exile-leveling).
-- Layout images are by Engineering Eternity. See [CREDITS.md](../CREDITS.md).
-- Build the runtime content pack (routes, layouts, assets) into
-  `content-pack/`:
-
-      cargo run -p content --bin compile-content
+The original `compile-content` binary remains a PoE1 test/reference tool;
+it does not generate or validate the PoE2 embedded preview. Do not use its
+successful output as evidence of PoE2 campaign coverage.

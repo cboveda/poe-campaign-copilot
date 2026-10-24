@@ -20,6 +20,26 @@ pub enum RawEvent {
         display_name: String,
         at: String,
     },
+    /// PoE2's successful loading-screen completion; generation alone is
+    /// insufficient evidence that the player entered an instance.
+    LoadingCompleted {
+        display_name: String,
+        at: String,
+    },
+    /// Scene names corroborate an otherwise unknown area's loading completion;
+    /// they never independently trigger entry or route progress.
+    SceneSource {
+        display_name: String,
+        at: String,
+    },
+    /// Invalidates an earlier unfinished generation, including failed travel.
+    InstanceConnecting {
+        at: String,
+    },
+    /// Login attempts separate character sessions; the destination is not retained.
+    LoginConnecting {
+        at: String,
+    },
     LevelUp {
         character: String,
         class: String,
@@ -45,6 +65,7 @@ pub fn fingerprint(message: &str) -> String {
 }
 
 pub fn parse_line(line: &str) -> RawEvent {
+    let line = line.trim_end_matches(['\r', '\n']);
     let at = line.get(..19).unwrap_or("").to_string();
 
     let Some(bracket_end) = line.find("] ") else {
@@ -59,6 +80,36 @@ pub fn parse_line(line: &str) -> RawEvent {
         fingerprint: fingerprint(msg),
         at,
     };
+
+    if let Some(name) = msg
+        .strip_prefix("[SCENE] Set Source [")
+        .and_then(|value| value.strip_suffix(']'))
+        && !name.trim().is_empty()
+    {
+        return RawEvent::SceneSource {
+            display_name: name.to_string(),
+            at,
+        };
+    }
+    if msg.starts_with("Async connecting to ") {
+        return RawEvent::LoginConnecting { at };
+    }
+    if msg.starts_with("Connecting to instance server at ") {
+        return RawEvent::InstanceConnecting { at };
+    }
+    if let Some(rest) = msg.strip_prefix("[LOADING SCREEN] (")
+        && let Some((name, duration)) = rest.rsplit_once(") Duration = ")
+        && !name.trim().is_empty()
+        && let Some(duration) = duration.strip_suffix(" seconds")
+        && let Ok(seconds) = duration.parse::<f64>()
+        && seconds.is_finite()
+        && seconds >= 0.0
+    {
+        return RawEvent::LoadingCompleted {
+            display_name: name.to_string(),
+            at,
+        };
+    }
 
     if let Some(rest) = msg.strip_prefix(": ") {
         if let Some(name) = rest

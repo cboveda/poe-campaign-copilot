@@ -1,5 +1,5 @@
 import "./UpdateBanner.css";
-import type { UpdaterStatus } from "./useUpdater";
+export type UpdaterStatus = "idle" | "checking" | "available" | "none" | "downloading" | "error";
 
 export interface UpdateBannerProps {
   status: UpdaterStatus;

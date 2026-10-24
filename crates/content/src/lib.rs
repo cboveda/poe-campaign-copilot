@@ -9,3 +9,5 @@ pub mod layouts;
 pub mod route_dsl;
 pub mod vendor;
 pub mod walk;
+
+pub mod poe2;

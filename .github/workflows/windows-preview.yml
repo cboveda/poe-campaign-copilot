@@ -1,0 +1,33 @@
+name: Windows PoE2 preview
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  preview:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: Swatinem/rust-cache@v2
+      - run: npm ci
+      - run: python tools/import_poe2_act1.py --check
+      - run: npm test
+      - run: cargo test --locked --workspace
+      # A test installer, no release publication or signing secrets.
+      - run: npm run tauri build -- --bundles nsis
+      - uses: actions/upload-artifact@v4
+        with:
+          name: poe2-preview-windows
+          path: target/release/bundle/nsis/*.exe
+          if-no-files-found: error

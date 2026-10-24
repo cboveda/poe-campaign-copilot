@@ -12,6 +12,8 @@ import type { AppConfig, HotkeyConfig, PobSummary, RouteVariant } from "./types"
 const OPACITY_SLIDER_STEP_PCT = 5;
 
 export interface SettingsPageProps {
+  /** PoE2 release surface: legacy route variants and PoB are unavailable. */
+  poe2Only?: boolean;
   config: AppConfig;
   // Opens the file picker and resolves to the chosen path (or null if the
   // user cancelled). SettingsPage autosaves the picked path itself, so the
@@ -67,6 +69,7 @@ export function SettingsPage({
   savedAt,
   onOpacityPreview,
   banner,
+  poe2Only = false,
 }: SettingsPageProps) {
   const [variant, setVariant] = useState<RouteVariant>(config.variant);
   const [pobText, setPobText] = useState(config.pob_code ?? "");
@@ -87,8 +90,8 @@ export function SettingsPage({
     const trimmed = pobText.trim();
     return {
       client_log_path: config.client_log_path,
-      variant,
-      pob_code: trimmed === "" ? null : trimmed,
+      variant: poe2Only ? "league-start" : variant,
+      pob_code: poe2Only || trimmed === "" ? null : trimmed,
       overlay_opacity: opacityPct / 100,
       hotkeys: normalizeHotkeyConfig(hotkeys),
       show_run_timer: showRunTimer,
@@ -125,10 +128,10 @@ export function SettingsPage({
   return (
     <div className="settings-page">
       {banner}
-      <h1 className="settings-title">Settings</h1>
+      <h1 className="settings-title">PoE2 Campaign Copilot</h1>
 
       <section className="settings-row">
-        <label className="settings-label">Client.txt log path</label>
+        <label className="settings-label">PoE2 Client.txt log path</label>
         <div className="log-path-row">
           <span className={["log-path", !config.client_log_path && "unset"].filter(Boolean).join(" ")}>
             {config.client_log_path ?? "Not set"}
@@ -139,6 +142,7 @@ export function SettingsPage({
         </div>
       </section>
 
+      {!poe2Only && <>
       <section className="settings-row">
         <label className="settings-label" htmlFor="variant-select">
           Route variant
@@ -199,6 +203,8 @@ export function SettingsPage({
 
         {previewError && <div className="preview-error">{previewError}</div>}
       </section>
+
+      </>}
 
       <section className="settings-row">
         <label className="settings-label" htmlFor="opacity-slider">

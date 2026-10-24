@@ -283,3 +283,20 @@ describe("SettingsPage", () => {
     expect(screen.getByRole("button", { name: /reset progress/i })).toBeInTheDocument();
   });
 });
+
+describe("PoE2 settings", () => {
+  it("hides legacy route and build controls while preserving log and overlay settings", () => {
+    renderPage({ poe2Only: true });
+    expect(screen.queryByRole("combobox")).not.toBeInTheDocument();
+    expect(screen.queryByRole("button", { name: /preview import/i })).not.toBeInTheDocument();
+    expect(screen.getByRole("button", { name: /browse/i })).toBeInTheDocument();
+    expect(screen.getByLabelText(/overlay opacity/i)).toBeInTheDocument();
+  });
+
+  it("does not carry a legacy build import into a PoE2 settings save", () => {
+    const onSave = vi.fn();
+    renderPage({ poe2Only: true, config: config({ pob_code: "legacy-build", variant: "standard" }), onSave });
+    fireEvent.click(screen.getByLabelText(/show run timer/i));
+    expect(onSave).toHaveBeenCalledWith(expect.objectContaining({ pob_code: null, variant: "league-start" }));
+  });
+});

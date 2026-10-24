@@ -1,9 +1,7 @@
 import { invoke } from "@tauri-apps/api/core";
 import { useEffect, useState } from "react";
 import { SettingsPage } from "./SettingsPage";
-import { UpdateBanner } from "./UpdateBanner";
 import type { AppConfig, PobSummary } from "./types";
-import { useUpdater } from "./useUpdater";
 
 /// Thin, untested wiring layer (same split as useOverlay/FilmstripBar): all
 /// `invoke` calls and settings-window-local state live here, so the
@@ -23,12 +21,7 @@ export function SettingsContainer() {
   const [previewError, setPreviewError] = useState<string | null>(null);
   const [saving, setSaving] = useState(false);
   const [savedAt, setSavedAt] = useState<number | null>(null);
-  // useUpdater() fires its update check on mount, which happens exactly when
-  // this container mounts — i.e. when the Settings window opens. That is the
-  // ONLY place in the app that triggers network activity (see useUpdater's
-  // own doc comment): the main overlay window never mounts this hook, so the
-  // "no network during play" constraint holds.
-  const updater = useUpdater();
+  // No update checks until the PoE2 distribution channel is configured.
 
   useEffect(() => {
     let disposed = false;
@@ -137,6 +130,7 @@ export function SettingsContainer() {
 
   return (
     <SettingsPage
+      poe2Only
       config={config}
       onPick={handlePick}
       onImportPreview={handleImportPreview}
@@ -148,15 +142,6 @@ export function SettingsContainer() {
       saving={saving}
       savedAt={savedAt}
       onOpacityPreview={handleOpacityPreview}
-      banner={
-        <UpdateBanner
-          status={updater.status}
-          version={updater.version}
-          progressPct={updater.progressPct}
-          error={updater.error}
-          onUpdate={updater.installAndRestart}
-        />
-      }
     />
   );
 }

@@ -22,3 +22,12 @@ registered trademark of Grinding Gear Games.
   date from an older patch and are being audited zone-by-zone: most still
   carry `audit.status: "unaudited"`, while reviewed ones are marked
   `verified`, `outdated`, or `corrected` (with replacement text).
+
+- **PoE2 Act 1 route objectives** — adapted from
+  [domistae/poe2-leveling](https://github.com/domistae/poe2-leveling),
+  revision `916bd138286fe1307113ec044bcb4d565432b516`,
+  copyright (c) 2026 domistae, MIT. Pinned source and license are in
+  `vendor/poe2-leveling/`; `tools/import_poe2_act1.py` generates the preview.
+  Source patch/reward claims await live-game verification. Existing PoE1
+  content above remains only as legacy code/test references; the PoE2 app
+  does not display its diagrams or build reminders.

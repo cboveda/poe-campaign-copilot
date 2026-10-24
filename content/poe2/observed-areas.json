@@ -1,0 +1,110 @@
+{
+  "G1_4": {
+    "id": "G1_4",
+    "name": "The Grelwood",
+    "act": 1,
+    "level": 4,
+    "has_waypoint": false,
+    "is_town_area": false,
+    "parent_town_area_id": null
+  },
+  "G1_town": {
+    "id": "G1_town",
+    "name": "Clearfell Encampment",
+    "act": 1,
+    "level": 15,
+    "has_waypoint": false,
+    "is_town_area": true,
+    "parent_town_area_id": null
+  },
+  "G1_13_1": {
+    "id": "G1_13_1",
+    "name": "Ogham Farmlands",
+    "act": 1,
+    "level": 12,
+    "has_waypoint": false,
+    "is_town_area": false,
+    "parent_town_area_id": null
+  },
+  "G3_town": {
+    "id": "G3_town",
+    "name": "Ziggurat Encampment",
+    "act": 3,
+    "level": 44,
+    "has_waypoint": false,
+    "is_town_area": true,
+    "parent_town_area_id": null
+  },
+  "G1_1": {
+    "id": "G1_1",
+    "name": "The Riverbank",
+    "act": 1,
+    "level": 1,
+    "has_waypoint": false,
+    "is_town_area": false,
+    "parent_town_area_id": null
+  },
+  "G1_2": {
+    "id": "G1_2",
+    "name": "Clearfell",
+    "act": 1,
+    "level": 2,
+    "has_waypoint": false,
+    "is_town_area": false,
+    "parent_town_area_id": null
+  },
+  "G1_5": {
+    "id": "G1_5",
+    "name": "The Red Vale",
+    "act": 1,
+    "level": 5,
+    "has_waypoint": false,
+    "is_town_area": false,
+    "parent_town_area_id": null
+  },
+  "G1_6": {
+    "id": "G1_6",
+    "name": "The Grim Tangle",
+    "act": 1,
+    "level": 6,
+    "has_waypoint": false,
+    "is_town_area": false,
+    "parent_town_area_id": null
+  },
+  "G1_7": {
+    "id": "G1_7",
+    "name": "Cemetery of the Eternals",
+    "act": 1,
+    "level": 7,
+    "has_waypoint": false,
+    "is_town_area": false,
+    "parent_town_area_id": null
+  },
+  "G1_9": {
+    "id": "G1_9",
+    "name": "Tomb of the Consort",
+    "act": 1,
+    "level": 8,
+    "has_waypoint": false,
+    "is_town_area": false,
+    "parent_town_area_id": null
+  },
+  "G1_8": {
+    "id": "G1_8",
+    "name": "Mausoleum of the Praetor",
+    "act": 1,
+    "level": 9,
+    "has_waypoint": false,
+    "is_town_area": false,
+    "parent_town_area_id": null
+  },
+  "G1_11": {
+    "id": "G1_11",
+    "name": "Hunting Grounds",
+    "act": 1,
+    "level": 10,
+    "has_waypoint": false,
+    "is_town_area": false,
+    "parent_town_area_id": null
+  }
+}

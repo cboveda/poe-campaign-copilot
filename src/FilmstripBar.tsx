@@ -123,11 +123,11 @@ export function FilmstripBar({
         <>
           <div className="header-row">
             <span className="zone-name">{overlay.zone_name}</span>
-            <span className="act-badge">ACT {overlay.act}</span>
+            {overlay.act > 0 && <span className="act-badge">ACT {overlay.act}</span>}
             {/* Intentionally overlay.layout_images.length, not images.length below —
                 overlay.layout_images (composer) and images (pipeline-encoded, data-url-bearing)
                 are separate Rust-side lists that happen to be parallel in practice. */}
-            <span className="layout-count">{overlay.layout_images.length} images</span>
+            {overlay.layout_images.length > 0 && <span className="layout-count">{overlay.layout_images.length} images</span>}
             {overlay.pending_count > 0 && (
               <span className="pending-badge">&#9675; {overlay.pending_count} pending</span>
             )}

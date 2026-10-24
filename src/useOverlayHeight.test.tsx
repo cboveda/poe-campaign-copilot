@@ -5,7 +5,7 @@ import { useOverlayHeight } from "./useOverlayHeight";
 
 // Captures the observer callback so tests can drive resize events by hand.
 let observerCb: ResizeObserverCallback | null = null;
-let disconnectSpy: ReturnType<typeof vi.fn>;
+let disconnectSpy = vi.fn<() => void>();
 
 class FakeResizeObserver {
   constructor(cb: ResizeObserverCallback) {
@@ -44,7 +44,7 @@ function LateHarness({ show, send }: { show: boolean; send: (h: number) => void 
 
 beforeEach(() => {
   observerCb = null;
-  disconnectSpy = vi.fn();
+  disconnectSpy = vi.fn<() => void>();
   vi.stubGlobal("ResizeObserver", FakeResizeObserver);
   vi.useFakeTimers();
 });

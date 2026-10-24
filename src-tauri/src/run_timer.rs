@@ -80,14 +80,14 @@ pub fn elapsed_ms(state: &RunTimerState, now_ms: u64) -> u64 {
     state.accumulated_ms + live
 }
 
-/// True for a Client.txt line that records entering a zone — the trigger
-/// for auto-start. `AreaEnteredName` specifically ("You have entered X."):
-/// `AreaGenerated` fires for instance creation, which can happen without
-/// the player actually going in.
+/// True for an observed completed entry (legacy entry or PoE2 loading
+/// completion), never instance generation or a scene/menu change. The
+/// stopwatch can start without campaign metadata for the loaded area.
 pub fn is_area_entered(line: &str) -> bool {
     matches!(
         event_parser::parse_line(line),
         event_parser::RawEvent::AreaEnteredName { .. }
+            | event_parser::RawEvent::LoadingCompleted { .. }
     )
 }
 
@@ -308,5 +308,10 @@ mod tests {
         assert!(!is_area_entered("random chat line"));
         let level_up = "2023/12/09 20:20:00 76800000 f22b6b26 [INFO Client 22384] : Exile (Marauder) is now level 2";
         assert!(!is_area_entered(level_up));
+        let loading = "2026/10/04 03:55:53 88163156 abc [INFO Client 9476] [LOADING SCREEN] (The Grelwood) Duration = 0.988623 seconds";
+        assert!(is_area_entered(loading));
+        assert!(!is_area_entered(
+            "2026/10/04 03:55:53 88163156 abc [INFO Client 9476] [SCENE] Set Source [Atlas]"
+        ));
     }
 }

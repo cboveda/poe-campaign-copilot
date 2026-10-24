@@ -41,12 +41,12 @@ fn tailing_a_growing_file_matches_direct_replay() {
         write!(f, "{}", &line[..mid]).unwrap();
         f.flush().unwrap();
         for l in poller.poll().unwrap() {
-            got.extend(tracker.on_raw(&event_parser::parse_line(&l)));
+            got.extend(tracker.on_line(&l));
         }
         writeln!(f, "{}", &line[mid..]).unwrap();
         f.flush().unwrap();
         for l in poller.poll().unwrap() {
-            got.extend(tracker.on_raw(&event_parser::parse_line(&l)));
+            got.extend(tracker.on_line(&l));
         }
         std::thread::sleep(Duration::from_millis(1));
     }

@@ -159,9 +159,7 @@ impl RouteEngine {
     /// off-route / revisit / detour bookkeeping is cleared. Leaves `steps`
     /// and `areas` (the compiled route itself) intact.
     pub fn restart(&mut self) {
-        for s in &mut self.statuses {
-            *s = StepStatus::Pending;
-        }
+        self.statuses.fill(StepStatus::Pending);
         self.frontier = 0;
         self.focus = 0;
         self.focus_status = LocationStatus::OnTrack;

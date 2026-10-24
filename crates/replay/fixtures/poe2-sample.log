@@ -1,0 +1,1399 @@
+2026/09/15 13:43:37 48175640 7fbd1225 [INFO Client 9840] [SCENE] Set Source [Shoreline Hideout]
+2026/09/15 13:45:48 48307015 7fbd1225 [INFO Client 9840] [SCENE] Set Source [Atlas]
+2026/09/15 13:45:50 48308687 7fbd1225 [INFO Client 9840] [SCENE] Set Source [(null)]
+2026/09/15 13:45:50 48308703 7fbd1225 [INFO Client 9840] [SCENE] Set Source [Shoreline Hideout]
+2026/09/15 13:45:52 48310703 91c6cc1 [INFO Client 9840] Connecting to instance server at 192.0.2.1:21360
+2026/09/15 13:45:52 48310765 2caa229f [DEBUG Client 9840] Generating level 82 area "MapUberBoss_Ritual" with seed 3317959362
+2026/09/15 13:45:52 48311062 7fbd1225 [INFO Client 9840] [SCENE] Set Source [(null)]
+2026/09/15 13:45:52 48311062 7fbd1225 [INFO Client 9840] [SCENE] Set Source [Caer Tarth]
+2026/09/15 13:45:53 48311781 4cba6a94 [INFO Client 9840] [LOADING SCREEN] (Caer Tarth) Duration = 1.07494 seconds
+2026/09/15 13:46:00 48319078 7fbd1225 [INFO Client 9840] [SCENE] Set Source [Atlas]
+2026/09/15 13:46:22 48340578 7fbd1225 [INFO Client 9840] [SCENE] Set Source [(null)]
+2026/09/15 13:46:22 48340593 7fbd1225 [INFO Client 9840] [SCENE] Set Source [Caer Tarth]
+2026/09/15 13:46:23 48342031 7fbd1225 [INFO Client 9840] [SCENE] Set Source [Atlas]
+2026/09/15 13:47:05 48384031 7fbd1225 [INFO Client 9840] [SCENE] Set Source [(null)]
+2026/09/15 13:47:05 48384046 7fbd1225 [INFO Client 9840] [SCENE] Set Source [Caer Tarth]
+2026/09/15 13:47:07 48385906 7fbd1225 [INFO Client 9840] [SCENE] Set Source [Atlas]
+2026/09/15 13:47:58 48436656 7fbd1225 [INFO Client 9840] [SCENE] Set Source [(null)]
+2026/09/15 13:47:58 48436671 7fbd1225 [INFO Client 9840] [SCENE] Set Source [Caer Tarth]
+2026/09/15 13:48:03 48442171 91c6cc1 [INFO Client 9840] Connecting to instance server at 192.0.2.1:21360
+2026/09/15 13:48:03 48442218 2caa229f [DEBUG Client 9840] Generating level 65 area "HideoutShoreline" with seed 1
+2026/09/15 13:48:03 48442250 7fbd1225 [INFO Client 9840] [SCENE] Set Source [(null)]
+2026/09/15 13:48:03 48442265 7fbd1225 [INFO Client 9840] [SCENE] Set Source [Shoreline Hideout]
+2026/09/15 13:48:04 48443140 4cba6a94 [INFO Client 9840] [LOADING SCREEN] (Shoreline Hideout) Duration = 0.980462 seconds
+2026/09/15 13:49:19 48517750 7fbd1225 [INFO Client 9840] [SCENE] Set Source [Atlas]
+2026/09/15 13:49:31 48530203 7fbd1225 [INFO Client 9840] [SCENE] Set Source [(null)]
+2026/09/15 13:49:31 48530218 7fbd1225 [INFO Client 9840] [SCENE] Set Source [Shoreline Hideout]
+2026/09/15 13:49:34 48532984 91c6cc1 [INFO Client 9840] Connecting to instance server at 192.0.2.1:21360
+2026/09/15 13:49:34 48533046 2caa229f [DEBUG Client 9840] Generating level 79 area "MapSunTemple" with seed 2491469608
+2026/09/15 13:49:35 48533750 7fbd1225 [INFO Client 9840] [SCENE] Set Source [(null)]
+2026/09/15 13:49:35 48533765 7fbd1225 [INFO Client 9840] [SCENE] Set Source [Sun Temple]
+2026/09/15 13:49:36 48534843 4cba6a94 [INFO Client 9840] [LOADING SCREEN] (Sun Temple) Duration = 1.86028 seconds
+2026/09/15 13:50:22 48581390 7fbd1225 [INFO Client 9840] [SCENE] Set Source [(null)]
+2026/09/15 13:50:23 48581703 7fbd1225 [INFO Client 9840] [SCENE] Set Source [(unknown)]
+2026/09/15 13:50:29 48588500 4f3e4d2c [INFO Client 9840] Async connecting to example.invalid:21269
+2026/09/15 13:50:32 48591000 7fbd1225 [INFO Client 9840] [SCENE] Set Source [(null)]
+2026/09/15 13:50:32 48591015 91c6cc1 [INFO Client 9840] Connecting to instance server at 192.0.2.1:21360
+2026/09/15 13:50:32 48591062 2caa229f [DEBUG Client 9840] Generating level 65 area "HideoutShoreline" with seed 1
+2026/09/15 13:50:32 48591187 7fbd1225 [INFO Client 9840] [SCENE] Set Source [Shoreline Hideout]
+2026/09/15 13:50:33 48592312 4cba6a94 [INFO Client 9840] [LOADING SCREEN] (Shoreline Hideout) Duration = 1.30027 seconds
+2026/09/15 13:50:35 48594359 91c6cc1 [INFO Client 9840] Connecting to instance server at 192.0.2.1:21360
+2026/09/15 13:50:35 48594437 2caa229f [DEBUG Client 9840] Generating level 79 area "MapSunTemple" with seed 2491469608
+2026/09/15 13:50:36 48594609 7fbd1225 [INFO Client 9840] [SCENE] Set Source [(null)]
+2026/09/15 13:50:36 48594609 7fbd1225 [INFO Client 9840] [SCENE] Set Source [Sun Temple]
+2026/09/15 13:50:36 48595265 4cba6a94 [INFO Client 9840] [LOADING SCREEN] (Sun Temple) Duration = 0.911743 seconds
+2026/09/15 14:00:33 49192234 91c6cc1 [INFO Client 9840] Connecting to instance server at 192.0.2.1:21360
+2026/09/15 14:00:33 49192281 2caa229f [DEBUG Client 9840] Generating level 65 area "HideoutShoreline" with seed 1
+2026/09/15 14:00:33 49192328 7fbd1225 [INFO Client 9840] [SCENE] Set Source [(null)]
+2026/09/15 14:00:33 49192328 7fbd1225 [INFO Client 9840] [SCENE] Set Source [Shoreline Hideout]
+2026/09/15 14:00:34 49193328 4cba6a94 [INFO Client 9840] [LOADING SCREEN] (Shoreline Hideout) Duration = 1.0967 seconds
+2026/09/15 14:52:03 52281703 7fbd1225 [INFO Client 32864] [SCENE] Set Source [(unknown)]
+2026/09/15 14:52:07 52286234 4f3e4d2c [INFO Client 32864] Async connecting to example.invalid:21269
+2026/09/15 14:52:10 52289046 7fbd1225 [INFO Client 32864] [SCENE] Set Source [(null)]
+2026/09/15 14:52:10 52289062 91c6cc1 [INFO Client 32864] Connecting to instance server at 192.0.2.1:21360
+2026/09/15 14:52:10 52289109 2caa229f [DEBUG Client 32864] Generating level 65 area "HideoutShoreline" with seed 1
+2026/09/15 14:52:10 52289234 7fbd1225 [INFO Client 32864] [SCENE] Set Source [Shoreline Hideout]
+2026/09/15 14:52:11 52290453 4cba6a94 [INFO Client 32864] [LOADING SCREEN] (Shoreline Hideout) Duration = 1.39308 seconds
+2026/09/15 14:54:40 52439468 7fbd1225 [INFO Client 32864] [SCENE] Set Source [Atlas]
+2026/09/15 14:55:27 52486109 7fbd1225 [INFO Client 32864] [SCENE] Set Source [(null)]
+2026/09/15 14:55:27 52486109 7fbd1225 [INFO Client 32864] [SCENE] Set Source [Shoreline Hideout]
+2026/09/15 14:56:13 52532640 91c6cc1 [INFO Client 32864] Connecting to instance server at 192.0.2.1:21360
+2026/09/15 14:56:14 52532953 2caa229f [DEBUG Client 32864] Generating level 65 area "HideoutShoreline" with seed 1
+2026/09/15 14:56:14 52533015 7fbd1225 [INFO Client 32864] [SCENE] Set Source [(null)]
+2026/09/15 14:56:14 52533015 7fbd1225 [INFO Client 32864] [SCENE] Set Source [Shoreline Hideout]
+2026/09/15 14:56:16 52535156 4cba6a94 [INFO Client 32864] [LOADING SCREEN] (Shoreline Hideout) Duration = 2.51862 seconds
+2026/09/15 14:56:51 52570140 91c6cc1 [INFO Client 32864] Connecting to instance server at 192.0.2.1:21360
+2026/09/15 14:56:51 52570171 2caa229f [DEBUG Client 32864] Generating level 65 area "HideoutShoreline" with seed 1
+2026/09/15 14:56:51 52570218 7fbd1225 [INFO Client 32864] [SCENE] Set Source [(null)]
+2026/09/15 14:56:51 52570218 7fbd1225 [INFO Client 32864] [SCENE] Set Source [Shoreline Hideout]
+2026/09/15 14:56:52 52571421 4cba6a94 [INFO Client 32864] [LOADING SCREEN] (Shoreline Hideout) Duration = 1.29106 seconds
+2026/09/15 14:56:54 52573656 7fbd1225 [INFO Client 32864] [SCENE] Set Source [Atlas]
+2026/09/15 14:57:06 52585218 7fbd1225 [INFO Client 32864] [SCENE] Set Source [(null)]
+2026/09/15 14:57:06 52585234 7fbd1225 [INFO Client 32864] [SCENE] Set Source [Shoreline Hideout]
+2026/09/15 14:57:26 52604750 7fbd1225 [INFO Client 32864] [SCENE] Set Source [Atlas]
+2026/09/15 14:57:29 52608109 7fbd1225 [INFO Client 32864] [SCENE] Set Source [(null)]
+2026/09/15 14:57:29 52608109 7fbd1225 [INFO Client 32864] [SCENE] Set Source [Shoreline Hideout]
+2026/09/15 14:57:32 52610734 91c6cc1 [INFO Client 32864] Connecting to instance server at 192.0.2.1:21360
+2026/09/15 14:57:32 52610796 2caa229f [DEBUG Client 32864] Generating level 80 area "MapSunTemple" with seed 2576593533
+2026/09/15 14:57:32 52611312 7fbd1225 [INFO Client 32864] [SCENE] Set Source [(null)]
+2026/09/15 14:57:32 52611312 7fbd1225 [INFO Client 32864] [SCENE] Set Source [Sun Temple]
+2026/09/15 14:57:33 52612000 4cba6a94 [INFO Client 32864] [LOADING SCREEN] (Sun Temple) Duration = 1.27306 seconds
+2026/09/15 14:59:25 52724000 7fbd1225 [INFO Client 32864] [SCENE] Set Source [(null)]
+2026/09/15 14:59:25 52724562 7fbd1225 [INFO Client 32864] [SCENE] Set Source [(unknown)]
+2026/09/15 14:59:30 52729453 4f3e4d2c [INFO Client 32864] Async connecting to example.invalid:21269
+2026/09/15 14:59:32 52731468 7fbd1225 [INFO Client 32864] [SCENE] Set Source [(null)]
+2026/09/15 14:59:32 52731484 91c6cc1 [INFO Client 32864] Connecting to instance server at 192.0.2.1:21360
+2026/09/15 14:59:32 52731546 2caa229f [DEBUG Client 32864] Generating level 80 area "MapSunTemple" with seed 2576593533
+2026/09/15 14:59:33 52731671 7fbd1225 [INFO Client 32864] [SCENE] Set Source [Sun Temple]
+2026/09/15 14:59:33 52732515 4cba6a94 [INFO Client 32864] [LOADING SCREEN] (Sun Temple) Duration = 1.03894 seconds
+2026/09/15 15:17:13 53791937 91c6cc1 [INFO Client 32864] Connecting to instance server at 192.0.2.1:21360
+2026/09/15 15:17:13 53792000 2caa229f [DEBUG Client 32864] Generating level 65 area "HideoutShoreline" with seed 1
+2026/09/15 15:17:13 53792125 7fbd1225 [INFO Client 32864] [SCENE] Set Source [(null)]
+2026/09/15 15:17:13 53792140 7fbd1225 [INFO Client 32864] [SCENE] Set Source [Shoreline Hideout]
+2026/09/15 15:17:14 53793015 4cba6a94 [INFO Client 32864] [LOADING SCREEN] (Shoreline Hideout) Duration = 1.07528 seconds
+2026/09/15 15:17:16 53795421 7fbd1225 [INFO Client 32864] [SCENE] Set Source [Atlas]
+2026/09/15 15:17:29 53808609 7fbd1225 [INFO Client 32864] [SCENE] Set Source [(null)]
+2026/09/15 15:17:29 53808625 7fbd1225 [INFO Client 32864] [SCENE] Set Source [Shoreline Hideout]
+2026/09/15 15:18:26 53865640 7fbd1225 [INFO Client 32864] [SCENE] Set Source [Atlas]
+2026/09/15 15:18:37 53876375 7fbd1225 [INFO Client 32864] [SCENE] Set Source [(null)]
+2026/09/15 15:18:37 53876375 7fbd1225 [INFO Client 32864] [SCENE] Set Source [Shoreline Hideout]
+2026/09/15 15:18:39 53878671 91c6cc1 [INFO Client 32864] Connecting to instance server at 192.0.2.1:21360
+2026/09/15 15:18:40 53878734 2caa229f [DEBUG Client 32864] Generating level 80 area "MapSunTemple" with seed 2576593533
+2026/09/15 15:18:40 53878859 7fbd1225 [INFO Client 32864] [SCENE] Set Source [(null)]
+2026/09/15 15:18:40 53878859 7fbd1225 [INFO Client 32864] [SCENE] Set Source [Sun Temple]
+2026/09/15 15:18:41 53879781 4cba6a94 [INFO Client 32864] [LOADING SCREEN] (Sun Temple) Duration = 1.11246 seconds
+2026/09/15 15:19:19 53917796 91c6cc1 [INFO Client 32864] Connecting to instance server at 192.0.2.1:21360
+2026/09/15 15:19:19 53917859 2caa229f [DEBUG Client 32864] Generating level 81 area "IncursionHubEndgame" with seed 963105536
+2026/09/15 15:19:19 53917937 7fbd1225 [INFO Client 32864] [SCENE] Set Source [(null)]
+2026/09/15 15:19:19 53917953 7fbd1225 [INFO Client 32864] [SCENE] Set Source [Vaal Ruins]
+2026/09/15 15:19:20 53918828 4cba6a94 [INFO Client 32864] [LOADING SCREEN] (Vaal Ruins) Duration = 1.02789 seconds
+2026/09/15 15:21:03 54022578 91c6cc1 [INFO Client 32864] Connecting to instance server at 192.0.2.1:21360
+2026/09/15 15:21:03 54022640 2caa229f [DEBUG Client 32864] Generating level 80 area "IncursionTemple" with seed 1464471291
+2026/09/15 15:21:04 54023390 7fbd1225 [INFO Client 32864] [SCENE] Set Source [(null)]
+2026/09/15 15:21:04 54023390 7fbd1225 [INFO Client 32864] [SCENE] Set Source [Atziri's Temple]
+2026/09/15 15:21:06 54024781 4cba6a94 [INFO Client 32864] [LOADING SCREEN] (Atziri's Temple) Duration = 2.20017 seconds
+2026/09/15 15:29:18 54517187 91c6cc1 [INFO Client 32864] Connecting to instance server at 192.0.2.1:21360
+2026/09/15 15:29:18 54517234 2caa229f [DEBUG Client 32864] Generating level 81 area "IncursionHubEndgame" with seed 963105536
+2026/09/15 15:29:18 54517250 7fbd1225 [INFO Client 32864] [SCENE] Set Source [(null)]
+2026/09/15 15:29:18 54517265 7fbd1225 [INFO Client 32864] [SCENE] Set Source [Vaal Ruins]
+2026/09/15 15:29:19 54517953 4cba6a94 [INFO Client 32864] [LOADING SCREEN] (Vaal Ruins) Duration = 0.760925 seconds
+2026/09/15 15:30:23 54582562 91c6cc1 [INFO Client 32864] Connecting to instance server at 192.0.2.1:21360
+2026/09/15 15:30:23 54582625 2caa229f [DEBUG Client 32864] Generating level 80 area "MapSunTemple" with seed 2576593533
+2026/09/15 15:30:24 54583171 7fbd1225 [INFO Client 32864] [SCENE] Set Source [(null)]
+2026/09/15 15:30:24 54583171 7fbd1225 [INFO Client 32864] [SCENE] Set Source [Sun Temple]
+2026/09/15 15:30:25 54584515 4cba6a94 [INFO Client 32864] [LOADING SCREEN] (Sun Temple) Duration = 1.95681 seconds
+2026/09/15 15:30:30 54588906 91c6cc1 [INFO Client 32864] Connecting to instance server at 192.0.2.1:21360
+2026/09/15 15:30:30 54588984 2caa229f [DEBUG Client 32864] Generating level 65 area "HideoutShoreline" with seed 1
+2026/09/15 15:30:30 54589125 7fbd1225 [INFO Client 32864] [SCENE] Set Source [(null)]
+2026/09/15 15:30:30 54589140 7fbd1225 [INFO Client 32864] [SCENE] Set Source [Shoreline Hideout]
+2026/09/15 15:30:31 54590343 4cba6a94 [INFO Client 32864] [LOADING SCREEN] (Shoreline Hideout) Duration = 1.44277 seconds
+2026/09/15 15:31:26 54645312 91c6cc1 [INFO Client 32864] Connecting to instance server at 192.0.2.1:21360
+2026/09/15 15:31:26 54645515 2caa229f [DEBUG Client 32864] Generating level 65 area "HideoutVerdant" with seed 1
+2026/09/15 15:31:27 54645859 7fbd1225 [INFO Client 32864] [SCENE] Set Source [(null)]
+2026/09/15 15:31:27 54645859 7fbd1225 [INFO Client 32864] [SCENE] Set Source [Overgrown Apex Hideout]
+2026/09/15 15:31:30 54649625 4cba6a94 [INFO Client 32864] [LOADING SCREEN] (Overgrown Apex Hideout) Duration = 4.31435 seconds
+2026/09/15 15:31:43 54662093 91c6cc1 [INFO Client 32864] Connecting to instance server at 192.0.2.1:21360
+2026/09/15 15:31:43 54662140 2caa229f [DEBUG Client 32864] Generating level 65 area "HideoutShoreline" with seed 1
+2026/09/15 15:31:43 54662171 7fbd1225 [INFO Client 32864] [SCENE] Set Source [(null)]
+2026/09/15 15:31:43 54662171 7fbd1225 [INFO Client 32864] [SCENE] Set Source [Shoreline Hideout]
+2026/09/15 15:31:44 54663125 4cba6a94 [INFO Client 32864] [LOADING SCREEN] (Shoreline Hideout) Duration = 1.04121 seconds
+2026/09/15 15:31:46 54665562 7fbd1225 [INFO Client 32864] [SCENE] Set Source [Atlas]
+2026/09/15 15:32:01 54680343 7fbd1225 [INFO Client 32864] [SCENE] Set Source [(null)]
+2026/09/15 15:32:01 54680359 7fbd1225 [INFO Client 32864] [SCENE] Set Source [Shoreline Hideout]
+2026/09/15 15:32:05 54684343 91c6cc1 [INFO Client 32864] Connecting to instance server at 192.0.2.1:21360
+2026/09/15 15:32:05 54684406 2caa229f [DEBUG Client 32864] Generating level 80 area "MapBazaar" with seed 470313368
+2026/09/15 15:32:06 54685046 7fbd1225 [INFO Client 32864] [SCENE] Set Source [(null)]
+2026/09/15 15:32:06 54685062 7fbd1225 [INFO Client 32864] [SCENE] Set Source [Bazaar]
+2026/09/15 15:32:09 54688625 4cba6a94 [INFO Client 32864] [LOADING SCREEN] (Bazaar) Duration = 4.2796 seconds
+2026/09/15 15:53:53 55992015 91c6cc1 [INFO Client 32864] Connecting to instance server at 192.0.2.1:21360
+2026/09/15 15:53:53 55992078 2caa229f [DEBUG Client 32864] Generating level 65 area "HideoutShoreline" with seed 1
+2026/09/15 15:53:53 55992125 7fbd1225 [INFO Client 32864] [SCENE] Set Source [(null)]
+2026/09/15 15:53:53 55992140 7fbd1225 [INFO Client 32864] [SCENE] Set Source [Shoreline Hideout]
+2026/09/15 15:53:54 55993078 4cba6a94 [INFO Client 32864] [LOADING SCREEN] (Shoreline Hideout) Duration = 1.0613 seconds
+2026/09/15 15:54:30 56028718 7fbd1225 [INFO Client 32864] [SCENE] Set Source [Atlas]
+2026/09/15 15:55:03 56062296 7fbd1225 [INFO Client 32864] [SCENE] Set Source [(null)]
+2026/09/15 15:55:03 56062296 7fbd1225 [INFO Client 32864] [SCENE] Set Source [Shoreline Hideout]
+2026/09/15 15:56:10 56129265 91c6cc1 [INFO Client 32864] Connecting to instance server at 192.0.2.1:21360
+2026/09/15 15:56:10 56129453 2caa229f [DEBUG Client 32864] Generating level 65 area "HideoutShoreline" with seed 1
+2026/09/15 15:56:10 56129484 7fbd1225 [INFO Client 32864] [SCENE] Set Source [(null)]
+2026/09/15 15:56:10 56129484 7fbd1225 [INFO Client 32864] [SCENE] Set Source [Shoreline Hideout]
+2026/09/15 15:56:12 56130859 4cba6a94 [INFO Client 32864] [LOADING SCREEN] (Shoreline Hideout) Duration = 1.59281 seconds
+2026/09/15 15:56:22 56141359 91c6cc1 [INFO Client 32864] Connecting to instance server at 192.0.2.1:21360
+2026/09/15 15:56:22 56141437 2caa229f [DEBUG Client 32864] Generating level 65 area "HideoutShoreline" with seed 1
+2026/09/15 15:56:22 56141484 7fbd1225 [INFO Client 32864] [SCENE] Set Source [(null)]
+2026/09/15 15:56:22 56141484 7fbd1225 [INFO Client 32864] [SCENE] Set Source [Shoreline Hideout]
+2026/09/15 15:56:23 56142328 4cba6a94 [INFO Client 32864] [LOADING SCREEN] (Shoreline Hideout) Duration = 0.96917 seconds
+2026/09/15 16:05:53 56712203 7fbd1225 [INFO Client 32864] [SCENE] Set Source [Atlas]
+2026/09/15 16:06:02 56721109 7fbd1225 [INFO Client 32864] [SCENE] Set Source [(null)]
+2026/09/15 16:06:02 56721109 7fbd1225 [INFO Client 32864] [SCENE] Set Source [Shoreline Hideout]
+2026/09/15 16:06:07 56725859 91c6cc1 [INFO Client 32864] Connecting to instance server at 192.0.2.1:21360
+2026/09/15 16:06:07 56725921 2caa229f [DEBUG Client 32864] Generating level 80 area "MapVaalFactory" with seed 1396173997
+2026/09/15 16:06:07 56726328 7fbd1225 [INFO Client 32864] [SCENE] Set Source [(null)]
+2026/09/15 16:06:07 56726328 7fbd1225 [INFO Client 32864] [SCENE] Set Source [The Assembly]
+2026/09/15 16:06:08 56727171 4cba6a94 [INFO Client 32864] [LOADING SCREEN] (The Assembly) Duration = 1.31883 seconds
+2026/09/15 16:28:02 58041265 91c6cc1 [INFO Client 32864] Connecting to instance server at 192.0.2.1:21360
+2026/09/15 16:28:02 58041312 2caa229f [DEBUG Client 32864] Generating level 65 area "HideoutShoreline" with seed 1
+2026/09/15 16:28:02 58041359 7fbd1225 [INFO Client 32864] [SCENE] Set Source [(null)]
+2026/09/15 16:28:02 58041375 7fbd1225 [INFO Client 32864] [SCENE] Set Source [Shoreline Hideout]
+2026/09/15 16:28:03 58042140 4cba6a94 [INFO Client 32864] [LOADING SCREEN] (Shoreline Hideout) Duration = 0.882428 seconds
+2026/09/15 16:28:29 58068421 91c6cc1 [INFO Client 32864] Connecting to instance server at 192.0.2.1:21360
+2026/09/15 16:28:29 58068500 2caa229f [DEBUG Client 32864] Generating level 80 area "MapVaalFactory" with seed 1396173997
+2026/09/15 16:28:29 58068625 7fbd1225 [INFO Client 32864] [SCENE] Set Source [(null)]
+2026/09/15 16:28:29 58068625 7fbd1225 [INFO Client 32864] [SCENE] Set Source [The Assembly]
+2026/09/15 16:28:30 58069421 4cba6a94 [INFO Client 32864] [LOADING SCREEN] (The Assembly) Duration = 0.995324 seconds
+2026/09/15 16:28:58 58096859 91c6cc1 [INFO Client 32864] Connecting to instance server at 192.0.2.1:21360
+2026/09/15 16:28:58 58096937 2caa229f [DEBUG Client 32864] Generating level 65 area "HideoutShoreline" with seed 1
+2026/09/15 16:28:58 58096968 7fbd1225 [INFO Client 32864] [SCENE] Set Source [(null)]
+2026/09/15 16:28:58 58096968 7fbd1225 [INFO Client 32864] [SCENE] Set Source [Shoreline Hideout]
+2026/09/15 16:28:59 58097734 4cba6a94 [INFO Client 32864] [LOADING SCREEN] (Shoreline Hideout) Duration = 0.866886 seconds
+2026/09/15 16:30:44 58202796 7fbd1225 [INFO Client 32864] [SCENE] Set Source [Atlas]
+2026/09/15 16:30:45 58203968 7fbd1225 [INFO Client 32864] [SCENE] Set Source [(null)]
+2026/09/15 16:30:45 58203968 7fbd1225 [INFO Client 32864] [SCENE] Set Source [Shoreline Hideout]
+2026/09/15 16:31:42 58260828 91c6cc1 [INFO Client 32864] Connecting to instance server at 192.0.2.1:21360
+2026/09/15 16:31:42 58261171 2caa229f [DEBUG Client 32864] Generating level 65 area "HideoutTwisted" with seed 1
+2026/09/15 16:31:42 58261437 7fbd1225 [INFO Client 32864] [SCENE] Set Source [(null)]
+2026/09/15 16:31:42 58261453 7fbd1225 [INFO Client 32864] [SCENE] Set Source [Twisted Hideout]
+2026/09/15 16:31:45 58264671 4cba6a94 [INFO Client 32864] [LOADING SCREEN] (Twisted Hideout) Duration = 3.84 seconds
+2026/09/15 16:32:03 58282640 91c6cc1 [INFO Client 32864] Connecting to instance server at 192.0.2.1:21360
+2026/09/15 16:32:03 58282687 2caa229f [DEBUG Client 32864] Generating level 65 area "HideoutShoreline" with seed 1
+2026/09/15 16:32:04 58282750 7fbd1225 [INFO Client 32864] [SCENE] Set Source [(null)]
+2026/09/15 16:32:04 58282750 7fbd1225 [INFO Client 32864] [SCENE] Set Source [Shoreline Hideout]
+2026/09/15 16:32:05 58283906 4cba6a94 [INFO Client 32864] [LOADING SCREEN] (Shoreline Hideout) Duration = 1.27325 seconds
+2026/09/15 16:32:11 58290562 7fbd1225 [INFO Client 32864] [SCENE] Set Source [Atlas]
+2026/09/15 16:32:38 58316937 7fbd1225 [INFO Client 32864] [SCENE] Set Source [(null)]
+2026/09/15 16:32:38 58316953 7fbd1225 [INFO Client 32864] [SCENE] Set Source [Shoreline Hideout]
+2026/09/15 16:32:55 58334437 91c6cc1 [INFO Client 32864] Connecting to instance server at 192.0.2.1:21360
+2026/09/15 16:32:55 58334515 2caa229f [DEBUG Client 32864] Generating level 80 area "MapVaalCity" with seed 3272533591
+2026/09/15 16:32:57 58335984 7fbd1225 [INFO Client 32864] [SCENE] Set Source [(null)]
+2026/09/15 16:32:57 58335984 7fbd1225 [INFO Client 32864] [SCENE] Set Source [Vaal City]
+2026/09/15 16:32:58 58337062 4cba6a94 [INFO Client 32864] [LOADING SCREEN] (Vaal City) Duration = 2.61832 seconds
+2026/09/15 17:24:44 61443046 91c6cc1 [INFO Client 32864] Connecting to instance server at 192.0.2.1:21360
+2026/09/15 17:24:44 61443109 2caa229f [DEBUG Client 32864] Generating level 65 area "HideoutShoreline" with seed 1
+2026/09/15 17:24:44 61443250 7fbd1225 [INFO Client 32864] [SCENE] Set Source [(null)]
+2026/09/15 17:24:44 61443281 7fbd1225 [INFO Client 32864] [SCENE] Set Source [Shoreline Hideout]
+2026/09/15 17:24:45 61444218 4cba6a94 [INFO Client 32864] [LOADING SCREEN] (Shoreline Hideout) Duration = 1.17198 seconds
+2026/09/15 17:28:14 61652968 91c6cc1 [INFO Client 32864] Connecting to instance server at 192.0.2.1:21360
+2026/09/15 17:28:14 61653250 2caa229f [DEBUG Client 32864] Generating level 65 area "HideoutCanal" with seed 1
+2026/09/15 17:28:14 61653281 7fbd1225 [INFO Client 32864] [SCENE] Set Source [(null)]
+2026/09/15 17:28:14 61653281 7fbd1225 [INFO Client 32864] [SCENE] Set Source [Canal Hideout]
+2026/09/15 17:28:17 61655765 4cba6a94 [INFO Client 32864] [LOADING SCREEN] (Canal Hideout) Duration = 2.79176 seconds
+2026/09/15 17:28:24 61663703 91c6cc1 [INFO Client 32864] Connecting to instance server at 192.0.2.1:21360
+2026/09/15 17:28:25 61663750 2caa229f [DEBUG Client 32864] Generating level 65 area "HideoutShoreline" with seed 1
+2026/09/15 17:28:25 61663781 7fbd1225 [INFO Client 32864] [SCENE] Set Source [(null)]
+2026/09/15 17:28:25 61663796 7fbd1225 [INFO Client 32864] [SCENE] Set Source [Shoreline Hideout]
+2026/09/15 17:28:26 61664921 4cba6a94 [INFO Client 32864] [LOADING SCREEN] (Shoreline Hideout) Duration = 1.22356 seconds
+2026/09/15 17:28:31 61670078 7fbd1225 [INFO Client 32864] [SCENE] Set Source [Atlas]
+2026/09/15 17:28:39 61677968 7fbd1225 [INFO Client 32864] [SCENE] Set Source [(null)]
+2026/09/15 17:28:39 61677984 7fbd1225 [INFO Client 32864] [SCENE] Set Source [Shoreline Hideout]
+2026/09/15 17:28:52 61691062 7fbd1225 [INFO Client 32864] [SCENE] Set Source [Atlas]
+2026/09/15 17:30:20 61779718 7fbd1225 [INFO Client 32864] [SCENE] Set Source [(null)]
+2026/09/15 17:30:20 61779734 7fbd1225 [INFO Client 32864] [SCENE] Set Source [Shoreline Hideout]
+2026/09/15 17:30:26 61785718 7fbd1225 [INFO Client 32864] [SCENE] Set Source [Atlas]
+2026/09/15 17:30:41 61800734 7fbd1225 [INFO Client 32864] [SCENE] Set Source [(null)]
+2026/09/15 17:30:42 61800750 7fbd1225 [INFO Client 32864] [SCENE] Set Source [Shoreline Hideout]
+2026/09/15 17:30:44 61803515 91c6cc1 [INFO Client 32864] Connecting to instance server at 192.0.2.1:21360
+2026/09/15 17:30:44 61803609 2caa229f [DEBUG Client 32864] Generating level 80 area "MapVaalCity" with seed 394031276
+2026/09/15 17:30:46 61805031 7fbd1225 [INFO Client 32864] [SCENE] Set Source [(null)]
+2026/09/15 17:30:46 61805031 7fbd1225 [INFO Client 32864] [SCENE] Set Source [Vaal City]
+2026/09/15 17:30:47 61806109 4cba6a94 [INFO Client 32864] [LOADING SCREEN] (Vaal City) Duration = 2.59187 seconds
+2026/09/15 17:59:20 63518953 91c6cc1 [INFO Client 32864] Connecting to instance server at 192.0.2.1:21360
+2026/09/15 17:59:20 63519000 2caa229f [DEBUG Client 32864] Generating level 65 area "HideoutShoreline" with seed 1
+2026/09/15 17:59:20 63519062 7fbd1225 [INFO Client 32864] [SCENE] Set Source [(null)]
+2026/09/15 17:59:20 63519078 7fbd1225 [INFO Client 32864] [SCENE] Set Source [Shoreline Hideout]
+2026/09/15 17:59:21 63520078 4cba6a94 [INFO Client 32864] [LOADING SCREEN] (Shoreline Hideout) Duration = 1.12098 seconds
+2026/09/15 18:23:04 64943843 7fbd1225 [INFO Client 32864] [SCENE] Set Source [Act 3]
+2026/09/15 18:23:07 64945921 91c6cc1 [INFO Client 32864] Connecting to instance server at 192.0.2.1:21360
+2026/09/15 18:23:07 64945968 2caa229f [DEBUG Client 32864] Generating level 22 area "Abyss_Hub" with seed 2204795070
+2026/09/15 18:23:07 64946046 7fbd1225 [INFO Client 32864] [SCENE] Set Source [(null)]
+2026/09/15 18:23:07 64946046 7fbd1225 [INFO Client 32864] [SCENE] Set Source [The Well of Souls]
+2026/09/15 18:23:08 64947562 4cba6a94 [INFO Client 32864] [LOADING SCREEN] (The Well of Souls) Duration = 1.63877 seconds
+2026/09/15 18:27:00 65179281 7fbd1225 [INFO Client 32864] [SCENE] Set Source [Act 2]
+2026/09/15 18:27:02 65181859 91c6cc1 [INFO Client 32864] Connecting to instance server at 192.0.2.1:21360
+2026/09/15 18:27:03 65181906 2caa229f [DEBUG Client 32864] Generating level 65 area "HideoutShoreline" with seed 1
+2026/09/15 18:27:03 65181953 7fbd1225 [INFO Client 32864] [SCENE] Set Source [(null)]
+2026/09/15 18:27:03 65181953 7fbd1225 [INFO Client 32864] [SCENE] Set Source [Shoreline Hideout]
+2026/09/15 18:27:04 65182984 4cba6a94 [INFO Client 32864] [LOADING SCREEN] (Shoreline Hideout) Duration = 1.12892 seconds
+2026/09/15 18:30:28 65387796 91c6cc1 [INFO Client 32864] Connecting to instance server at 192.0.2.1:21360
+2026/09/15 18:30:28 65387859 2caa229f [DEBUG Client 32864] Generating level 65 area "HideoutShoreline" with seed 1
+2026/09/15 18:30:28 65387906 7fbd1225 [INFO Client 32864] [SCENE] Set Source [(null)]
+2026/09/15 18:30:28 65387906 7fbd1225 [INFO Client 32864] [SCENE] Set Source [Shoreline Hideout]
+2026/09/15 18:30:29 65388718 4cba6a94 [INFO Client 32864] [LOADING SCREEN] (Shoreline Hideout) Duration = 0.926157 seconds
+2026/09/15 18:30:33 65392234 91c6cc1 [INFO Client 32864] Connecting to instance server at 192.0.2.1:21360
+2026/09/15 18:30:33 65392296 2caa229f [DEBUG Client 32864] Generating level 65 area "HideoutShoreline" with seed 1
+2026/09/15 18:30:33 65392328 7fbd1225 [INFO Client 32864] [SCENE] Set Source [(null)]
+2026/09/15 18:30:33 65392343 7fbd1225 [INFO Client 32864] [SCENE] Set Source [Shoreline Hideout]
+2026/09/15 18:30:34 65393093 4cba6a94 [INFO Client 32864] [LOADING SCREEN] (Shoreline Hideout) Duration = 0.851331 seconds
+2026/09/15 18:31:22 65441015 7fbd1225 [INFO Client 32864] [SCENE] Set Source [Atlas]
+2026/09/15 18:31:46 65465015 7fbd1225 [INFO Client 32864] [SCENE] Set Source [(null)]
+2026/09/15 18:31:46 65465031 7fbd1225 [INFO Client 32864] [SCENE] Set Source [Shoreline Hideout]
+2026/09/15 20:30:40 72599359 7fbd1225 [INFO Client 38860] [SCENE] Set Source [(unknown)]
+2026/09/15 20:30:46 72605140 4f3e4d2c [INFO Client 38860] Async connecting to example.invalid:21269
+2026/09/15 20:30:49 72608125 7fbd1225 [INFO Client 38860] [SCENE] Set Source [(null)]
+2026/09/15 20:30:49 72608156 91c6cc1 [INFO Client 38860] Connecting to instance server at 192.0.2.1:21360
+2026/09/15 20:30:49 72608203 2caa229f [DEBUG Client 38860] Generating level 65 area "HideoutShoreline" with seed 1
+2026/09/15 20:30:49 72608328 7fbd1225 [INFO Client 38860] [SCENE] Set Source [Shoreline Hideout]
+2026/09/15 20:30:50 72609625 4cba6a94 [INFO Client 38860] [LOADING SCREEN] (Shoreline Hideout) Duration = 1.46904 seconds
+2026/09/15 23:47:05 84384375 7fbd1225 [INFO Client 12248] [SCENE] Set Source [(unknown)]
+2026/09/15 23:47:25 84405250 4f3e4d2c [INFO Client 12248] Async connecting to example.invalid:21269
+2026/09/15 23:47:28 84408031 7fbd1225 [INFO Client 12248] [SCENE] Set Source [(null)]
+2026/09/15 23:47:28 84408046 91c6cc1 [INFO Client 12248] Connecting to instance server at 192.0.2.1:21360
+2026/09/15 23:47:28 84408093 2caa229f [DEBUG Client 12248] Generating level 65 area "HideoutShoreline" with seed 1
+2026/09/15 23:47:29 84408296 7fbd1225 [INFO Client 12248] [SCENE] Set Source [Shoreline Hideout]
+2026/09/15 23:47:30 84409781 4cba6a94 [INFO Client 12248] [LOADING SCREEN] (Shoreline Hideout) Duration = 1.73196 seconds
+2026/09/16 00:03:34 85373953 91c6cc1 [INFO Client 12248] Connecting to instance server at 192.0.2.1:21360
+2026/09/16 00:03:35 85374328 2caa229f [DEBUG Client 12248] Generating level 65 area "HideoutShoreline" with seed 1
+2026/09/16 00:03:35 85374359 7fbd1225 [INFO Client 12248] [SCENE] Set Source [(null)]
+2026/09/16 00:03:35 85374359 7fbd1225 [INFO Client 12248] [SCENE] Set Source [Shoreline Hideout]
+2026/09/16 00:03:36 85375937 4cba6a94 [INFO Client 12248] [LOADING SCREEN] (Shoreline Hideout) Duration = 1.99314 seconds
+2026/09/16 00:04:07 85406796 91c6cc1 [INFO Client 12248] Connecting to instance server at 192.0.2.1:21360
+2026/09/16 00:04:07 85406859 2caa229f [DEBUG Client 12248] Generating level 65 area "HideoutShoreline" with seed 1
+2026/09/16 00:04:07 85406875 7fbd1225 [INFO Client 12248] [SCENE] Set Source [(null)]
+2026/09/16 00:04:07 85406890 7fbd1225 [INFO Client 12248] [SCENE] Set Source [Shoreline Hideout]
+2026/09/16 00:04:08 85407953 4cba6a94 [INFO Client 12248] [LOADING SCREEN] (Shoreline Hideout) Duration = 1.15653 seconds
+2026/09/16 00:05:14 85473390 7fbd1225 [INFO Client 12248] [SCENE] Set Source [Atlas]
+2026/09/16 00:05:16 85475500 7fbd1225 [INFO Client 12248] [SCENE] Set Source [(null)]
+2026/09/16 00:05:16 85475515 7fbd1225 [INFO Client 12248] [SCENE] Set Source [Shoreline Hideout]
+2026/09/16 00:05:42 85501968 7fbd1225 [INFO Client 12248] [SCENE] Set Source [Interlude]
+2026/09/16 00:05:45 85504562 7fbd1225 [INFO Client 12248] [SCENE] Set Source [(null)]
+2026/09/16 00:05:45 85504562 7fbd1225 [INFO Client 12248] [SCENE] Set Source [Shoreline Hideout]
+2026/09/16 00:05:46 85505765 7fbd1225 [INFO Client 12248] [SCENE] Set Source [Atlas]
+2026/09/16 00:05:49 85508937 7fbd1225 [INFO Client 12248] [SCENE] Set Source [(null)]
+2026/09/16 00:05:49 85508953 7fbd1225 [INFO Client 12248] [SCENE] Set Source [Shoreline Hideout]
+2026/09/16 00:05:51 85510515 91c6cc1 [INFO Client 12248] Connecting to instance server at 192.0.2.1:21360
+2026/09/16 00:05:51 85510562 2caa229f [DEBUG Client 12248] Generating level 82 area "MapUberBoss_Delirium" with seed 2798617620
+2026/09/16 00:05:51 85510968 7fbd1225 [INFO Client 12248] [SCENE] Set Source [(null)]
+2026/09/16 00:05:51 85510968 7fbd1225 [INFO Client 12248] [SCENE] Set Source [The Withered Willow]
+2026/09/16 00:05:52 85511531 4cba6a94 [INFO Client 12248] [LOADING SCREEN] (The Withered Willow) Duration = 1.01658 seconds
+2026/09/16 00:06:46 85565843 91c6cc1 [INFO Client 12248] Connecting to instance server at 192.0.2.1:21360
+2026/09/16 00:06:46 85565890 2caa229f [DEBUG Client 12248] Generating level 65 area "HideoutShoreline" with seed 1
+2026/09/16 00:06:46 85565921 7fbd1225 [INFO Client 12248] [SCENE] Set Source [(null)]
+2026/09/16 00:06:46 85565921 7fbd1225 [INFO Client 12248] [SCENE] Set Source [Shoreline Hideout]
+2026/09/16 00:06:47 85566937 4cba6a94 [INFO Client 12248] [LOADING SCREEN] (Shoreline Hideout) Duration = 1.09098 seconds
+2026/09/16 00:42:12 87691609 7fbd1225 [INFO Client 12248] [SCENE] Set Source [Interlude]
+2026/09/16 00:42:13 87692781 7fbd1225 [INFO Client 12248] [SCENE] Set Source [Act 1]
+2026/09/16 00:43:18 87757718 7fbd1225 [INFO Client 12248] [SCENE] Set Source [(null)]
+2026/09/16 00:43:18 87757718 7fbd1225 [INFO Client 12248] [SCENE] Set Source [Shoreline Hideout]
+2026/09/16 02:29:50 94150140 7fbd1225 [INFO Client 44592] [SCENE] Set Source [(unknown)]
+2026/09/16 02:29:52 94152187 4f3e4d2c [INFO Client 44592] Async connecting to example.invalid:21269
+2026/09/16 02:29:55 94154640 7fbd1225 [INFO Client 44592] [SCENE] Set Source [(null)]
+2026/09/16 02:29:55 94154656 91c6cc1 [INFO Client 44592] Connecting to instance server at 192.0.2.1:21360
+2026/09/16 02:29:55 94154703 2caa229f [DEBUG Client 44592] Generating level 65 area "HideoutShoreline" with seed 1
+2026/09/16 02:29:55 94154843 7fbd1225 [INFO Client 44592] [SCENE] Set Source [Shoreline Hideout]
+2026/09/16 02:29:56 94155968 4cba6a94 [INFO Client 44592] [LOADING SCREEN] (Shoreline Hideout) Duration = 1.31736 seconds
+2026/09/16 02:42:20 94899953 7fbd1225 [INFO Client 44592] [SCENE] Set Source [Atlas]
+2026/09/16 02:42:27 94906703 7fbd1225 [INFO Client 44592] [SCENE] Set Source [(null)]
+2026/09/16 02:42:27 94906703 7fbd1225 [INFO Client 44592] [SCENE] Set Source [Shoreline Hideout]
+2026/09/16 02:42:40 94920281 7fbd1225 [INFO Client 44592] [SCENE] Set Source [Atlas]
+2026/09/16 02:43:17 94957343 7fbd1225 [INFO Client 44592] [SCENE] Set Source [(null)]
+2026/09/16 02:43:17 94957359 7fbd1225 [INFO Client 44592] [SCENE] Set Source [Shoreline Hideout]
+2026/09/16 02:59:46 95945671 91c6cc1 [INFO Client 44592] Connecting to instance server at 192.0.2.1:21360
+2026/09/16 02:59:46 95946000 2caa229f [DEBUG Client 44592] Generating level 65 area "HideoutShipwreck" with seed 1
+2026/09/16 02:59:46 95946234 7fbd1225 [INFO Client 44592] [SCENE] Set Source [(null)]
+2026/09/16 02:59:46 95946234 7fbd1225 [INFO Client 44592] [SCENE] Set Source [Kraken's Cove Hideout]
+2026/09/16 02:59:51 95951078 4cba6a94 [INFO Client 44592] [LOADING SCREEN] (Kraken's Cove Hideout) Duration = 5.39896 seconds
+2026/09/16 03:00:12 95971843 91c6cc1 [INFO Client 44592] Connecting to instance server at 192.0.2.1:21360
+2026/09/16 03:00:12 95971890 2caa229f [DEBUG Client 44592] Generating level 65 area "HideoutShoreline" with seed 1
+2026/09/16 03:00:12 95971937 7fbd1225 [INFO Client 44592] [SCENE] Set Source [(null)]
+2026/09/16 03:00:12 95971937 7fbd1225 [INFO Client 44592] [SCENE] Set Source [Shoreline Hideout]
+2026/09/16 03:00:13 95972968 4cba6a94 [INFO Client 44592] [LOADING SCREEN] (Shoreline Hideout) Duration = 1.13043 seconds
+2026/09/16 03:02:17 96097343 91c6cc1 [INFO Client 44592] Connecting to instance server at 192.0.2.1:21360
+2026/09/16 03:02:18 96097625 2caa229f [DEBUG Client 44592] Generating level 65 area "HideoutShoreline" with seed 1
+2026/09/16 03:02:18 96097671 7fbd1225 [INFO Client 44592] [SCENE] Set Source [(null)]
+2026/09/16 03:02:18 96097671 7fbd1225 [INFO Client 44592] [SCENE] Set Source [Shoreline Hideout]
+2026/09/16 03:02:19 96099234 4cba6a94 [INFO Client 44592] [LOADING SCREEN] (Shoreline Hideout) Duration = 1.90312 seconds
+2026/09/16 03:02:45 96124546 91c6cc1 [INFO Client 44592] Connecting to instance server at 192.0.2.1:21360
+2026/09/16 03:02:45 96124609 2caa229f [DEBUG Client 44592] Generating level 65 area "HideoutShoreline" with seed 1
+2026/09/16 03:02:45 96124640 7fbd1225 [INFO Client 44592] [SCENE] Set Source [(null)]
+2026/09/16 03:02:45 96124640 7fbd1225 [INFO Client 44592] [SCENE] Set Source [Shoreline Hideout]
+2026/09/16 03:02:46 96125609 4cba6a94 [INFO Client 44592] [LOADING SCREEN] (Shoreline Hideout) Duration = 1.07044 seconds
+2026/09/16 03:03:02 96142000 7fbd1225 [INFO Client 44592] [SCENE] Set Source [Atlas]
+2026/09/16 03:03:06 96145765 7fbd1225 [INFO Client 44592] [SCENE] Set Source [(null)]
+2026/09/16 03:03:06 96145781 7fbd1225 [INFO Client 44592] [SCENE] Set Source [Shoreline Hideout]
+2026/09/16 03:03:07 96147453 91c6cc1 [INFO Client 44592] Connecting to instance server at 192.0.2.1:21360
+2026/09/16 03:03:08 96147500 2caa229f [DEBUG Client 44592] Generating level 65 area "ChayulaLeague" with seed 1839975519
+2026/09/16 03:03:08 96147906 7fbd1225 [INFO Client 44592] [SCENE] Set Source [(null)]
+2026/09/16 03:03:08 96147921 7fbd1225 [INFO Client 44592] [SCENE] Set Source [Monastery of the Keepers]
+2026/09/16 03:03:09 96148484 4cba6a94 [INFO Client 44592] [LOADING SCREEN] (Monastery of the Keepers) Duration = 1.03634 seconds
+2026/09/16 03:06:25 96345437 91c6cc1 [INFO Client 44592] Connecting to instance server at 192.0.2.1:21360
+2026/09/16 03:06:25 96345484 2caa229f [DEBUG Client 44592] Generating level 65 area "HideoutShoreline" with seed 1
+2026/09/16 03:06:26 96345515 7fbd1225 [INFO Client 44592] [SCENE] Set Source [(null)]
+2026/09/16 03:06:26 96345515 7fbd1225 [INFO Client 44592] [SCENE] Set Source [Shoreline Hideout]
+2026/09/16 03:06:26 96346421 4cba6a94 [INFO Client 44592] [LOADING SCREEN] (Shoreline Hideout) Duration = 0.992808 seconds
+2026/09/16 03:06:47 96366890 7fbd1225 [INFO Client 44592] [SCENE] Set Source [Atlas]
+2026/09/16 03:06:50 96370125 7fbd1225 [INFO Client 44592] [SCENE] Set Source [(null)]
+2026/09/16 03:06:50 96370125 7fbd1225 [INFO Client 44592] [SCENE] Set Source [Shoreline Hideout]
+2026/09/16 03:06:51 96371296 7fbd1225 [INFO Client 44592] [SCENE] Set Source [Atlas]
+2026/09/16 03:06:55 96375265 7fbd1225 [INFO Client 44592] [SCENE] Set Source [(null)]
+2026/09/16 03:06:55 96375296 7fbd1225 [INFO Client 44592] [SCENE] Set Source [Shoreline Hideout]
+2026/09/16 03:07:42 96422093 7fbd1225 [INFO Client 44592] [SCENE] Set Source [Atlas]
+2026/09/16 03:08:09 96449375 7fbd1225 [INFO Client 44592] [SCENE] Set Source [(null)]
+2026/09/16 03:08:09 96449390 7fbd1225 [INFO Client 44592] [SCENE] Set Source [Shoreline Hideout]
+2026/09/16 03:08:12 96451718 91c6cc1 [INFO Client 44592] Connecting to instance server at 192.0.2.1:21360
+2026/09/16 03:08:12 96451781 2caa229f [DEBUG Client 44592] Generating level 82 area "ExpeditionLogBook_Tundra" with seed 1627806741
+2026/09/16 03:08:13 96452687 7fbd1225 [INFO Client 44592] [SCENE] Set Source [(null)]
+2026/09/16 03:08:13 96452687 7fbd1225 [INFO Client 44592] [SCENE] Set Source [Frigid Bluffs]
+2026/09/16 03:08:15 96454843 4cba6a94 [INFO Client 44592] [LOADING SCREEN] (Frigid Bluffs) Duration = 3.12208 seconds
+2026/09/16 03:23:49 97389421 91c6cc1 [INFO Client 44592] Connecting to instance server at 192.0.2.1:21360
+2026/09/16 03:23:49 97389484 2caa229f [DEBUG Client 44592] Generating level 65 area "HideoutShoreline" with seed 1
+2026/09/16 03:23:50 97389515 7fbd1225 [INFO Client 44592] [SCENE] Set Source [(null)]
+2026/09/16 03:23:50 97389546 7fbd1225 [INFO Client 44592] [SCENE] Set Source [Shoreline Hideout]
+2026/09/16 03:23:50 97390312 4cba6a94 [INFO Client 44592] [LOADING SCREEN] (Shoreline Hideout) Duration = 0.892093 seconds
+2026/09/16 07:48:04 113243781 7fbd1225 [INFO Client 47744] [SCENE] Set Source [(unknown)]
+2026/09/16 07:48:08 113248093 4f3e4d2c [INFO Client 47744] Async connecting to example.invalid:21269
+2026/09/16 07:48:11 113250687 7fbd1225 [INFO Client 47744] [SCENE] Set Source [(null)]
+2026/09/16 07:48:11 113250703 91c6cc1 [INFO Client 47744] Connecting to instance server at 192.0.2.1:21360
+2026/09/16 07:48:11 113250750 2caa229f [DEBUG Client 47744] Generating level 65 area "HideoutShoreline" with seed 1
+2026/09/16 07:48:11 113250953 7fbd1225 [INFO Client 47744] [SCENE] Set Source [Shoreline Hideout]
+2026/09/16 07:48:12 113252515 4cba6a94 [INFO Client 47744] [LOADING SCREEN] (Shoreline Hideout) Duration = 1.8123 seconds
+2026/09/16 10:37:57 123436406 7fbd1225 [INFO Client 28360] [SCENE] Set Source [(unknown)]
+2026/09/16 10:38:06 123446000 4f3e4d2c [INFO Client 28360] Async connecting to example.invalid:21269
+2026/09/16 10:38:10 123449406 7fbd1225 [INFO Client 28360] [SCENE] Set Source [(null)]
+2026/09/16 10:38:10 123449437 91c6cc1 [INFO Client 28360] Connecting to instance server at 192.0.2.1:21360
+2026/09/16 10:38:10 123449484 2caa229f [DEBUG Client 28360] Generating level 65 area "HideoutShoreline" with seed 1
+2026/09/16 10:38:10 123449718 7fbd1225 [INFO Client 28360] [SCENE] Set Source [Shoreline Hideout]
+2026/09/16 10:38:12 123451328 4cba6a94 [INFO Client 28360] [LOADING SCREEN] (Shoreline Hideout) Duration = 1.90233 seconds
+2026/09/16 11:39:54 127154078 7fbd1225 [INFO Client 35680] [SCENE] Set Source [(unknown)]
+2026/09/16 11:40:06 127165562 4f3e4d2c [INFO Client 35680] Async connecting to example.invalid:21269
+2026/09/16 11:40:08 127167968 7fbd1225 [INFO Client 35680] [SCENE] Set Source [(null)]
+2026/09/16 11:40:08 127167984 91c6cc1 [INFO Client 35680] Connecting to instance server at 192.0.2.1:21360
+2026/09/16 11:40:08 127168046 2caa229f [DEBUG Client 35680] Generating level 65 area "HideoutShoreline" with seed 1
+2026/09/16 11:40:09 127168187 7fbd1225 [INFO Client 35680] [SCENE] Set Source [Shoreline Hideout]
+2026/09/16 11:40:10 127169390 4cba6a94 [INFO Client 35680] [LOADING SCREEN] (Shoreline Hideout) Duration = 1.39948 seconds
+2026/09/16 11:40:56 127215875 7fbd1225 [INFO Client 35680] [SCENE] Set Source [Atlas]
+2026/09/16 11:41:15 127234437 7fbd1225 [INFO Client 35680] [SCENE] Set Source [(null)]
+2026/09/16 11:41:15 127234437 7fbd1225 [INFO Client 35680] [SCENE] Set Source [Shoreline Hideout]
+2026/09/16 11:41:17 127236765 7fbd1225 [INFO Client 35680] [SCENE] Set Source [Interlude]
+2026/09/16 11:41:18 127238046 7fbd1225 [INFO Client 35680] [SCENE] Set Source [Act 1]
+2026/09/16 11:41:24 127243234 91c6cc1 [INFO Client 35680] Connecting to instance server at 192.0.2.1:21360
+2026/09/16 11:41:24 127243281 2caa229f [DEBUG Client 35680] Generating level 4 area "G1_4" with seed 1311440097
+2026/09/16 11:41:24 127243609 7fbd1225 [INFO Client 35680] [SCENE] Set Source [(null)]
+2026/09/16 11:41:24 127243609 7fbd1225 [INFO Client 35680] [SCENE] Set Source [The Grelwood]
+2026/09/16 11:41:26 127245437 4cba6a94 [INFO Client 35680] [LOADING SCREEN] (The Grelwood) Duration = 2.20582 seconds
+2026/09/16 11:42:35 127314281 91c6cc1 [INFO Client 35680] Connecting to instance server at 192.0.2.1:21360
+2026/09/16 11:42:35 127314328 2caa229f [DEBUG Client 35680] Generating level 15 area "G1_town" with seed 1
+2026/09/16 11:42:35 127314593 7fbd1225 [INFO Client 35680] [SCENE] Set Source [(null)]
+2026/09/16 11:42:35 127314609 7fbd1225 [INFO Client 35680] [SCENE] Set Source [Clearfell Encampment]
+2026/09/16 11:42:36 127315796 4cba6a94 [INFO Client 35680] [LOADING SCREEN] (Clearfell Encampment) Duration = 1.50664 seconds
+2026/09/16 11:42:41 127320125 7fbd1225 [INFO Client 35680] [SCENE] Set Source [Act 1]
+2026/09/16 11:42:42 127321687 91c6cc1 [INFO Client 35680] Connecting to instance server at 192.0.2.1:21360
+2026/09/16 11:42:42 127321734 2caa229f [DEBUG Client 35680] Generating level 65 area "HideoutShoreline" with seed 1
+2026/09/16 11:42:42 127321875 7fbd1225 [INFO Client 35680] [SCENE] Set Source [(null)]
+2026/09/16 11:42:42 127321875 7fbd1225 [INFO Client 35680] [SCENE] Set Source [Shoreline Hideout]
+2026/09/16 11:42:44 127323140 4cba6a94 [INFO Client 35680] [LOADING SCREEN] (Shoreline Hideout) Duration = 1.45969 seconds
+2026/09/16 11:44:12 127411828 7fbd1225 [INFO Client 35680] [SCENE] Set Source [Atlas]
+2026/09/16 11:44:15 127414500 7fbd1225 [INFO Client 35680] [SCENE] Set Source [(null)]
+2026/09/16 11:44:15 127414500 7fbd1225 [INFO Client 35680] [SCENE] Set Source [Shoreline Hideout]
+2026/09/16 11:44:17 127416203 91c6cc1 [INFO Client 35680] Connecting to instance server at 192.0.2.1:21360
+2026/09/16 11:44:17 127416250 2caa229f [DEBUG Client 35680] Generating level 82 area "MapUberBoss_FallenStar" with seed 2121374179
+2026/09/16 11:44:17 127417093 7fbd1225 [INFO Client 35680] [SCENE] Set Source [(null)]
+2026/09/16 11:44:17 127417109 7fbd1225 [INFO Client 35680] [SCENE] Set Source [Ruins of Kingsmarch]
+2026/09/16 11:44:23 127422125 4cba6a94 [INFO Client 35680] [LOADING SCREEN] (Ruins of Kingsmarch) Duration = 5.9245 seconds
+2026/09/16 11:48:07 127646671 7fbd1225 [INFO Client 35680] [SCENE] Set Source [Atlas]
+2026/09/16 11:49:23 127722937 7fbd1225 [INFO Client 35680] [SCENE] Set Source [(null)]
+2026/09/16 11:49:23 127722953 7fbd1225 [INFO Client 35680] [SCENE] Set Source [Ruins of Kingsmarch]
+2026/09/16 11:49:27 127726437 91c6cc1 [INFO Client 35680] Connecting to instance server at 192.0.2.1:21360
+2026/09/16 11:49:27 127726484 2caa229f [DEBUG Client 35680] Generating level 65 area "HideoutShoreline" with seed 1
+2026/09/16 11:49:27 127726531 7fbd1225 [INFO Client 35680] [SCENE] Set Source [(null)]
+2026/09/16 11:49:27 127726531 7fbd1225 [INFO Client 35680] [SCENE] Set Source [Shoreline Hideout]
+2026/09/16 11:49:28 127727593 4cba6a94 [INFO Client 35680] [LOADING SCREEN] (Shoreline Hideout) Duration = 1.14742 seconds
+2026/09/16 11:49:58 127758078 7fbd1225 [INFO Client 35680] [SCENE] Set Source [Atlas]
+2026/09/16 11:50:02 127761843 7fbd1225 [INFO Client 35680] [SCENE] Set Source [(null)]
+2026/09/16 11:50:02 127761859 7fbd1225 [INFO Client 35680] [SCENE] Set Source [Shoreline Hideout]
+2026/09/16 11:50:05 127764609 7fbd1225 [INFO Client 35680] [SCENE] Set Source [Act 1]
+2026/09/16 11:50:09 127768296 7fbd1225 [INFO Client 35680] [SCENE] Set Source [Atlas]
+2026/09/16 11:50:12 127771625 7fbd1225 [INFO Client 35680] [SCENE] Set Source [(null)]
+2026/09/16 11:50:12 127771640 7fbd1225 [INFO Client 35680] [SCENE] Set Source [Shoreline Hideout]
+2026/09/16 11:50:14 127773812 91c6cc1 [INFO Client 35680] Connecting to instance server at 192.0.2.1:21360
+2026/09/16 11:50:14 127773890 2caa229f [DEBUG Client 35680] Generating level 82 area "MapUberBoss_Ritual" with seed 2648444631
+2026/09/16 11:50:15 127774218 7fbd1225 [INFO Client 35680] [SCENE] Set Source [(null)]
+2026/09/16 11:50:15 127774218 7fbd1225 [INFO Client 35680] [SCENE] Set Source [Caer Tarth]
+2026/09/16 11:50:15 127774906 4cba6a94 [INFO Client 35680] [LOADING SCREEN] (Caer Tarth) Duration = 1.08061 seconds
+2026/09/16 11:50:23 127782718 7fbd1225 [INFO Client 35680] [SCENE] Set Source [Atlas]
+2026/09/16 11:51:08 127827734 7fbd1225 [INFO Client 35680] [SCENE] Set Source [(null)]
+2026/09/16 11:51:08 127827750 7fbd1225 [INFO Client 35680] [SCENE] Set Source [Caer Tarth]
+2026/09/16 11:51:14 127833484 91c6cc1 [INFO Client 35680] Connecting to instance server at 192.0.2.1:21360
+2026/09/16 11:51:14 127833546 2caa229f [DEBUG Client 35680] Generating level 65 area "HideoutShoreline" with seed 1
+2026/09/16 11:51:14 127833578 7fbd1225 [INFO Client 35680] [SCENE] Set Source [(null)]
+2026/09/16 11:51:14 127833593 7fbd1225 [INFO Client 35680] [SCENE] Set Source [Shoreline Hideout]
+2026/09/16 11:51:15 127834406 4cba6a94 [INFO Client 35680] [LOADING SCREEN] (Shoreline Hideout) Duration = 0.915679 seconds
+2026/09/16 11:51:22 127841171 7fbd1225 [INFO Client 35680] [SCENE] Set Source [Atlas]
+2026/09/16 11:51:32 127851687 7fbd1225 [INFO Client 35680] [SCENE] Set Source [(null)]
+2026/09/16 11:51:32 127851703 7fbd1225 [INFO Client 35680] [SCENE] Set Source [Shoreline Hideout]
+2026/09/16 11:51:36 127855296 7fbd1225 [INFO Client 35680] [SCENE] Set Source [Atlas]
+2026/09/16 11:51:48 127867234 7fbd1225 [INFO Client 35680] [SCENE] Set Source [(null)]
+2026/09/16 11:51:48 127867234 7fbd1225 [INFO Client 35680] [SCENE] Set Source [Shoreline Hideout]
+2026/09/16 11:54:24 128024000 91c6cc1 [INFO Client 35680] Connecting to instance server at 192.0.2.1:21360
+2026/09/16 11:54:25 128024281 2caa229f [DEBUG Client 35680] Generating level 65 area "HideoutCanal" with seed 1
+2026/09/16 11:54:25 128024421 7fbd1225 [INFO Client 35680] [SCENE] Set Source [(null)]
+2026/09/16 11:54:25 128024421 7fbd1225 [INFO Client 35680] [SCENE] Set Source [Canal Hideout]
+2026/09/16 11:54:27 128026703 4cba6a94 [INFO Client 35680] [LOADING SCREEN] (Canal Hideout) Duration = 2.70732 seconds
+2026/09/16 11:54:58 128057937 91c6cc1 [INFO Client 35680] Connecting to instance server at 192.0.2.1:21360
+2026/09/16 11:54:58 128058000 2caa229f [DEBUG Client 35680] Generating level 65 area "HideoutShoreline" with seed 1
+2026/09/16 11:54:58 128058031 7fbd1225 [INFO Client 35680] [SCENE] Set Source [(null)]
+2026/09/16 11:54:58 128058031 7fbd1225 [INFO Client 35680] [SCENE] Set Source [Shoreline Hideout]
+2026/09/16 11:55:00 128059203 4cba6a94 [INFO Client 35680] [LOADING SCREEN] (Shoreline Hideout) Duration = 1.26792 seconds
+2026/09/16 11:55:02 128062078 7fbd1225 [INFO Client 35680] [SCENE] Set Source [Atlas]
+2026/09/16 11:55:31 128090937 7fbd1225 [INFO Client 35680] [SCENE] Set Source [(null)]
+2026/09/16 11:55:31 128090937 7fbd1225 [INFO Client 35680] [SCENE] Set Source [Shoreline Hideout]
+2026/09/16 11:55:35 128094687 91c6cc1 [INFO Client 35680] Connecting to instance server at 192.0.2.1:21360
+2026/09/16 11:55:35 128094765 2caa229f [DEBUG Client 35680] Generating level 80 area "MapVaalCity" with seed 2957041935
+2026/09/16 11:55:37 128096625 7fbd1225 [INFO Client 35680] [SCENE] Set Source [(null)]
+2026/09/16 11:55:37 128096625 7fbd1225 [INFO Client 35680] [SCENE] Set Source [Vaal City]
+2026/09/16 11:55:38 128097968 4cba6a94 [INFO Client 35680] [LOADING SCREEN] (Vaal City) Duration = 3.28871 seconds
+2026/09/16 12:05:56 128715234 91c6cc1 [INFO Client 35680] Connecting to instance server at 192.0.2.1:21360
+2026/09/16 12:05:56 128715281 2caa229f [DEBUG Client 35680] Generating level 81 area "IncursionHubEndgame" with seed 3276765642
+2026/09/16 12:05:56 128715359 7fbd1225 [INFO Client 35680] [SCENE] Set Source [(null)]
+2026/09/16 12:05:56 128715375 7fbd1225 [INFO Client 35680] [SCENE] Set Source [Vaal Ruins]
+2026/09/16 12:05:57 128716468 4cba6a94 [INFO Client 35680] [LOADING SCREEN] (Vaal Ruins) Duration = 1.23145 seconds
+2026/09/16 12:06:49 128768578 91c6cc1 [INFO Client 35680] Connecting to instance server at 192.0.2.1:21360
+2026/09/16 12:06:49 128768625 2caa229f [DEBUG Client 35680] Generating level 81 area "IncursionTemple" with seed 3112693989
+2026/09/16 12:06:50 128769375 7fbd1225 [INFO Client 35680] [SCENE] Set Source [(null)]
+2026/09/16 12:06:50 128769375 7fbd1225 [INFO Client 35680] [SCENE] Set Source [Atziri's Temple]
+2026/09/16 12:06:51 128770781 4cba6a94 [INFO Client 35680] [LOADING SCREEN] (Atziri's Temple) Duration = 2.19546 seconds
+2026/09/16 12:11:55 129074734 91c6cc1 [INFO Client 35680] Connecting to instance server at 192.0.2.1:21360
+2026/09/16 12:11:55 129074781 2caa229f [DEBUG Client 35680] Generating level 81 area "IncursionHubEndgame" with seed 3276765642
+2026/09/16 12:11:55 129074796 7fbd1225 [INFO Client 35680] [SCENE] Set Source [(null)]
+2026/09/16 12:11:55 129074796 7fbd1225 [INFO Client 35680] [SCENE] Set Source [Vaal Ruins]
+2026/09/16 12:11:56 129075562 4cba6a94 [INFO Client 35680] [LOADING SCREEN] (Vaal Ruins) Duration = 0.826079 seconds
+2026/09/16 12:12:09 129088843 91c6cc1 [INFO Client 35680] Connecting to instance server at 192.0.2.1:21360
+2026/09/16 12:12:09 129088921 2caa229f [DEBUG Client 35680] Generating level 80 area "MapVaalCity" with seed 2957041935
+2026/09/16 12:12:11 129090765 7fbd1225 [INFO Client 35680] [SCENE] Set Source [(null)]
+2026/09/16 12:12:11 129090781 7fbd1225 [INFO Client 35680] [SCENE] Set Source [Vaal City]
+2026/09/16 12:12:13 129092937 4cba6a94 [INFO Client 35680] [LOADING SCREEN] (Vaal City) Duration = 4.0888 seconds
+2026/09/16 12:25:29 129888421 91c6cc1 [INFO Client 35680] Connecting to instance server at 192.0.2.1:21360
+2026/09/16 12:25:29 129888468 2caa229f [DEBUG Client 35680] Generating level 65 area "HideoutShoreline" with seed 1
+2026/09/16 12:25:29 129888593 7fbd1225 [INFO Client 35680] [SCENE] Set Source [(null)]
+2026/09/16 12:25:29 129888609 7fbd1225 [INFO Client 35680] [SCENE] Set Source [Shoreline Hideout]
+2026/09/16 12:25:31 129890687 4cba6a94 [INFO Client 35680] [LOADING SCREEN] (Shoreline Hideout) Duration = 2.27227 seconds
+2026/09/16 12:27:41 130020859 91c6cc1 [INFO Client 35680] Connecting to instance server at 192.0.2.1:21360
+2026/09/16 12:27:41 130021031 2caa229f [DEBUG Client 35680] Generating level 65 area "HideoutLimestone" with seed 1
+2026/09/16 12:27:41 130021109 7fbd1225 [INFO Client 35680] [SCENE] Set Source [(null)]
+2026/09/16 12:27:41 130021109 7fbd1225 [INFO Client 35680] [SCENE] Set Source [Limestone Hideout]
+2026/09/16 12:27:43 130022265 4cba6a94 [INFO Client 35680] [LOADING SCREEN] (Limestone Hideout) Duration = 1.40301 seconds
+2026/09/16 12:27:48 130027203 91c6cc1 [INFO Client 35680] Connecting to instance server at 192.0.2.1:21360
+2026/09/16 12:27:48 130027250 2caa229f [DEBUG Client 35680] Generating level 65 area "HideoutShoreline" with seed 1
+2026/09/16 12:27:48 130027281 7fbd1225 [INFO Client 35680] [SCENE] Set Source [(null)]
+2026/09/16 12:27:48 130027281 7fbd1225 [INFO Client 35680] [SCENE] Set Source [Shoreline Hideout]
+2026/09/16 12:27:49 130028250 4cba6a94 [INFO Client 35680] [LOADING SCREEN] (Shoreline Hideout) Duration = 1.04618 seconds
+2026/09/16 12:29:20 130119359 7fbd1225 [INFO Client 35680] [SCENE] Set Source [Atlas]
+2026/09/16 12:35:25 130485093 7fbd1225 [INFO Client 35680] [SCENE] Set Source [(null)]
+2026/09/16 12:35:25 130485109 7fbd1225 [INFO Client 35680] [SCENE] Set Source [Shoreline Hideout]
+2026/09/16 12:35:38 130497906 91c6cc1 [INFO Client 35680] Connecting to instance server at 192.0.2.1:21360
+2026/09/16 12:35:38 130497968 2caa229f [DEBUG Client 35680] Generating level 80 area "MapDecay" with seed 958085850
+2026/09/16 12:35:39 130498359 7fbd1225 [INFO Client 35680] [SCENE] Set Source [(null)]
+2026/09/16 12:35:39 130498359 7fbd1225 [INFO Client 35680] [SCENE] Set Source [Decay]
+2026/09/16 12:35:40 130499343 4cba6a94 [INFO Client 35680] [LOADING SCREEN] (Decay) Duration = 1.43003 seconds
+2026/09/16 12:52:22 131502015 91c6cc1 [INFO Client 35680] Connecting to instance server at 192.0.2.1:21360
+2026/09/16 12:52:22 131502062 2caa229f [DEBUG Client 35680] Generating level 65 area "HideoutShoreline" with seed 1
+2026/09/16 12:52:22 131502125 7fbd1225 [INFO Client 35680] [SCENE] Set Source [(null)]
+2026/09/16 12:52:22 131502125 7fbd1225 [INFO Client 35680] [SCENE] Set Source [Shoreline Hideout]
+2026/09/16 12:52:23 131503046 4cba6a94 [INFO Client 35680] [LOADING SCREEN] (Shoreline Hideout) Duration = 1.03424 seconds
+2026/09/16 12:52:37 131516484 91c6cc1 [INFO Client 35680] Connecting to instance server at 192.0.2.1:21360
+2026/09/16 12:52:37 131516828 2caa229f [DEBUG Client 35680] Generating level 65 area "HideoutCanal" with seed 1
+2026/09/16 12:52:37 131516953 7fbd1225 [INFO Client 35680] [SCENE] Set Source [(null)]
+2026/09/16 12:52:37 131516953 7fbd1225 [INFO Client 35680] [SCENE] Set Source [Canal Hideout]
+2026/09/16 12:52:39 131519046 4cba6a94 [INFO Client 35680] [LOADING SCREEN] (Canal Hideout) Duration = 2.56107 seconds
+2026/09/16 12:52:44 131523515 91c6cc1 [INFO Client 35680] Connecting to instance server at 192.0.2.1:21360
+2026/09/16 12:52:44 131523578 2caa229f [DEBUG Client 35680] Generating level 65 area "HideoutShoreline" with seed 1
+2026/09/16 12:52:44 131523609 7fbd1225 [INFO Client 35680] [SCENE] Set Source [(null)]
+2026/09/16 12:52:44 131523609 7fbd1225 [INFO Client 35680] [SCENE] Set Source [Shoreline Hideout]
+2026/09/16 12:52:45 131524656 4cba6a94 [INFO Client 35680] [LOADING SCREEN] (Shoreline Hideout) Duration = 1.13503 seconds
+2026/09/16 12:52:48 131527734 7fbd1225 [INFO Client 35680] [SCENE] Set Source [Atlas]
+2026/09/16 12:52:59 131539109 7fbd1225 [INFO Client 35680] [SCENE] Set Source [(null)]
+2026/09/16 12:52:59 131539125 7fbd1225 [INFO Client 35680] [SCENE] Set Source [Shoreline Hideout]
+2026/09/16 12:53:40 131580234 91c6cc1 [INFO Client 35680] Connecting to instance server at 192.0.2.1:21360
+2026/09/16 12:53:41 131580296 2caa229f [DEBUG Client 35680] Generating level 80 area "MapTrenches" with seed 2985144348
+2026/09/16 12:53:41 131580906 7fbd1225 [INFO Client 35680] [SCENE] Set Source [(null)]
+2026/09/16 12:53:41 131580906 7fbd1225 [INFO Client 35680] [SCENE] Set Source [Trenches]
+2026/09/16 12:53:42 131582031 4cba6a94 [INFO Client 35680] [LOADING SCREEN] (Trenches) Duration = 1.79485 seconds
+2026/09/16 13:14:56 132855906 91c6cc1 [INFO Client 35680] Connecting to instance server at 192.0.2.1:21360
+2026/09/16 13:14:56 132855968 2caa229f [DEBUG Client 35680] Generating level 65 area "HideoutShoreline" with seed 1
+2026/09/16 13:14:56 132856000 7fbd1225 [INFO Client 35680] [SCENE] Set Source [(null)]
+2026/09/16 13:14:56 132856015 7fbd1225 [INFO Client 35680] [SCENE] Set Source [Shoreline Hideout]
+2026/09/16 13:14:57 132857125 4cba6a94 [INFO Client 35680] [LOADING SCREEN] (Shoreline Hideout) Duration = 1.21362 seconds
+2026/09/16 13:17:46 133025843 91c6cc1 [INFO Client 35680] Connecting to instance server at 192.0.2.1:21360
+2026/09/16 13:17:46 133026046 2caa229f [DEBUG Client 35680] Generating level 65 area "HideoutCanal" with seed 1
+2026/09/16 13:17:46 133026109 7fbd1225 [INFO Client 35680] [SCENE] Set Source [(null)]
+2026/09/16 13:17:46 133026109 7fbd1225 [INFO Client 35680] [SCENE] Set Source [Canal Hideout]
+2026/09/16 13:17:48 133027625 4cba6a94 [INFO Client 35680] [LOADING SCREEN] (Canal Hideout) Duration = 1.77296 seconds
+2026/09/16 13:17:52 133031687 91c6cc1 [INFO Client 35680] Connecting to instance server at 192.0.2.1:21360
+2026/09/16 13:17:52 133031734 2caa229f [DEBUG Client 35680] Generating level 65 area "HideoutShoreline" with seed 1
+2026/09/16 13:17:52 133031781 7fbd1225 [INFO Client 35680] [SCENE] Set Source [(null)]
+2026/09/16 13:17:52 133031781 7fbd1225 [INFO Client 35680] [SCENE] Set Source [Shoreline Hideout]
+2026/09/16 13:17:53 133032593 4cba6a94 [INFO Client 35680] [LOADING SCREEN] (Shoreline Hideout) Duration = 0.910299 seconds
+2026/09/16 13:17:57 133036343 7fbd1225 [INFO Client 35680] [SCENE] Set Source [Atlas]
+2026/09/16 13:18:29 133069265 7fbd1225 [INFO Client 35680] [SCENE] Set Source [(null)]
+2026/09/16 13:18:29 133069265 7fbd1225 [INFO Client 35680] [SCENE] Set Source [Shoreline Hideout]
+2026/09/16 13:18:32 133071718 91c6cc1 [INFO Client 35680] Connecting to instance server at 192.0.2.1:21360
+2026/09/16 13:18:32 133071796 2caa229f [DEBUG Client 35680] Generating level 80 area "MapCenotes" with seed 1152278934
+2026/09/16 13:18:32 133072203 7fbd1225 [INFO Client 35680] [SCENE] Set Source [(null)]
+2026/09/16 13:18:32 133072203 7fbd1225 [INFO Client 35680] [SCENE] Set Source [Cenotes]
+2026/09/16 13:18:35 133074531 4cba6a94 [INFO Client 35680] [LOADING SCREEN] (Cenotes) Duration = 2.81182 seconds
+2026/09/16 13:39:29 134329187 91c6cc1 [INFO Client 35680] Connecting to instance server at 192.0.2.1:21360
+2026/09/16 13:39:29 134329234 2caa229f [DEBUG Client 35680] Generating level 65 area "HideoutShoreline" with seed 1
+2026/09/16 13:39:29 134329281 7fbd1225 [INFO Client 35680] [SCENE] Set Source [(null)]
+2026/09/16 13:39:29 134329281 7fbd1225 [INFO Client 35680] [SCENE] Set Source [Shoreline Hideout]
+2026/09/16 13:39:30 134330343 4cba6a94 [INFO Client 35680] [LOADING SCREEN] (Shoreline Hideout) Duration = 1.16356 seconds
+2026/09/16 13:54:01 135201015 7fbd1225 [INFO Client 35680] [SCENE] Set Source [Atlas]
+2026/09/16 13:57:12 135392046 7fbd1225 [INFO Client 35680] [SCENE] Set Source [(null)]
+2026/09/16 13:57:12 135392062 7fbd1225 [INFO Client 35680] [SCENE] Set Source [Shoreline Hideout]
+2026/09/16 14:09:11 136110578 91c6cc1 [INFO Client 35680] Connecting to instance server at 192.0.2.1:21360
+2026/09/16 14:09:11 136110875 2caa229f [DEBUG Client 35680] Generating level 65 area "HideoutShoreline" with seed 1
+2026/09/16 14:09:11 136110953 7fbd1225 [INFO Client 35680] [SCENE] Set Source [(null)]
+2026/09/16 14:09:11 136110953 7fbd1225 [INFO Client 35680] [SCENE] Set Source [Shoreline Hideout]
+2026/09/16 14:09:13 136113203 4cba6a94 [INFO Client 35680] [LOADING SCREEN] (Shoreline Hideout) Duration = 2.62924 seconds
+2026/09/16 14:09:47 136146921 91c6cc1 [INFO Client 35680] Connecting to instance server at 192.0.2.1:21360
+2026/09/16 14:09:47 136146984 2caa229f [DEBUG Client 35680] Generating level 65 area "HideoutShoreline" with seed 1
+2026/09/16 14:09:47 136147015 7fbd1225 [INFO Client 35680] [SCENE] Set Source [(null)]
+2026/09/16 14:09:47 136147031 7fbd1225 [INFO Client 35680] [SCENE] Set Source [Shoreline Hideout]
+2026/09/16 14:09:49 136148406 4cba6a94 [INFO Client 35680] [LOADING SCREEN] (Shoreline Hideout) Duration = 1.48638 seconds
+2026/09/16 14:09:52 136151859 7fbd1225 [INFO Client 35680] [SCENE] Set Source [Atlas]
+2026/09/16 14:11:31 136251390 7fbd1225 [INFO Client 35680] [SCENE] Set Source [(null)]
+2026/09/16 14:11:31 136251390 7fbd1225 [INFO Client 35680] [SCENE] Set Source [Shoreline Hideout]
+2026/09/16 14:11:36 136255406 91c6cc1 [INFO Client 35680] Connecting to instance server at 192.0.2.1:21360
+2026/09/16 14:11:36 136255468 2caa229f [DEBUG Client 35680] Generating level 80 area "MapBackwash" with seed 2844856160
+2026/09/16 14:11:36 136256031 7fbd1225 [INFO Client 35680] [SCENE] Set Source [(null)]
+2026/09/16 14:11:36 136256031 7fbd1225 [INFO Client 35680] [SCENE] Set Source [Backwash]
+2026/09/16 14:11:38 136257484 4cba6a94 [INFO Client 35680] [LOADING SCREEN] (Backwash) Duration = 2.08506 seconds
+2026/09/16 14:35:34 137693734 91c6cc1 [INFO Client 35680] Connecting to instance server at 192.0.2.1:21360
+2026/09/16 14:35:34 137693781 2caa229f [DEBUG Client 35680] Generating level 65 area "HideoutShoreline" with seed 1
+2026/09/16 14:35:34 137694000 7fbd1225 [INFO Client 35680] [SCENE] Set Source [(null)]
+2026/09/16 14:35:34 137694015 7fbd1225 [INFO Client 35680] [SCENE] Set Source [Shoreline Hideout]
+2026/09/16 14:35:35 137694984 4cba6a94 [INFO Client 35680] [LOADING SCREEN] (Shoreline Hideout) Duration = 1.2527 seconds
+2026/09/16 15:11:13 139833203 91c6cc1 [INFO Client 35680] Connecting to instance server at 192.0.2.1:21360
+2026/09/16 15:11:13 139833390 2caa229f [DEBUG Client 35680] Generating level 65 area "HideoutShoreline" with seed 1
+2026/09/16 15:11:13 139833437 7fbd1225 [INFO Client 35680] [SCENE] Set Source [(null)]
+2026/09/16 15:11:13 139833437 7fbd1225 [INFO Client 35680] [SCENE] Set Source [Shoreline Hideout]
+2026/09/16 15:11:15 139835343 4cba6a94 [INFO Client 35680] [LOADING SCREEN] (Shoreline Hideout) Duration = 2.13026 seconds
+2026/09/16 15:13:07 139946593 91c6cc1 [INFO Client 35680] Connecting to instance server at 192.0.2.1:21360
+2026/09/16 15:13:07 139946921 2caa229f [DEBUG Client 35680] Generating level 65 area "HideoutShoreline" with seed 1
+2026/09/16 15:13:07 139946953 7fbd1225 [INFO Client 35680] [SCENE] Set Source [(null)]
+2026/09/16 15:13:07 139946968 7fbd1225 [INFO Client 35680] [SCENE] Set Source [Shoreline Hideout]
+2026/09/16 15:13:08 139948375 4cba6a94 [INFO Client 35680] [LOADING SCREEN] (Shoreline Hideout) Duration = 1.77385 seconds
+2026/09/16 15:13:24 139964078 91c6cc1 [INFO Client 35680] Connecting to instance server at 192.0.2.1:21360
+2026/09/16 15:13:24 139964125 2caa229f [DEBUG Client 35680] Generating level 65 area "HideoutShoreline" with seed 1
+2026/09/16 15:13:24 139964156 7fbd1225 [INFO Client 35680] [SCENE] Set Source [(null)]
+2026/09/16 15:13:24 139964156 7fbd1225 [INFO Client 35680] [SCENE] Set Source [Shoreline Hideout]
+2026/09/16 15:13:25 139965218 4cba6a94 [INFO Client 35680] [LOADING SCREEN] (Shoreline Hideout) Duration = 1.14084 seconds
+2026/09/16 15:18:40 140280375 91c6cc1 [INFO Client 35680] Connecting to instance server at 192.0.2.1:21360
+2026/09/16 15:18:41 140280671 2caa229f [DEBUG Client 35680] Generating level 65 area "HideoutShip" with seed 1
+2026/09/16 15:18:41 140280796 7fbd1225 [INFO Client 35680] [SCENE] Set Source [(null)]
+2026/09/16 15:18:41 140280796 7fbd1225 [INFO Client 35680] [SCENE] Set Source [The Sovereign Hideout]
+2026/09/16 15:18:49 140289265 4cba6a94 [INFO Client 35680] [LOADING SCREEN] (The Sovereign Hideout) Duration = 8.88055 seconds
+2026/09/16 15:19:04 140303953 91c6cc1 [INFO Client 35680] Connecting to instance server at 192.0.2.1:21360
+2026/09/16 15:19:04 140304015 2caa229f [DEBUG Client 35680] Generating level 65 area "HideoutShoreline" with seed 1
+2026/09/16 15:19:04 140304046 7fbd1225 [INFO Client 35680] [SCENE] Set Source [(null)]
+2026/09/16 15:19:04 140304046 7fbd1225 [INFO Client 35680] [SCENE] Set Source [Shoreline Hideout]
+2026/09/16 15:19:05 140305359 4cba6a94 [INFO Client 35680] [LOADING SCREEN] (Shoreline Hideout) Duration = 1.40215 seconds
+2026/09/16 15:35:17 141277234 91c6cc1 [INFO Client 35680] Connecting to instance server at 192.0.2.1:21360
+2026/09/16 15:35:18 141277578 2caa229f [DEBUG Client 35680] Generating level 65 area "HideoutShrine" with seed 1
+2026/09/16 15:35:18 141277671 7fbd1225 [INFO Client 35680] [SCENE] Set Source [(null)]
+2026/09/16 15:35:18 141277671 7fbd1225 [INFO Client 35680] [SCENE] Set Source [Shrine Hideout]
+2026/09/16 15:35:20 141279609 4cba6a94 [INFO Client 35680] [LOADING SCREEN] (Shrine Hideout) Duration = 2.36667 seconds
+2026/09/16 15:35:41 141300968 91c6cc1 [INFO Client 35680] Connecting to instance server at 192.0.2.1:21360
+2026/09/16 15:35:41 141301015 2caa229f [DEBUG Client 35680] Generating level 65 area "HideoutShoreline" with seed 1
+2026/09/16 15:35:41 141301062 7fbd1225 [INFO Client 35680] [SCENE] Set Source [(null)]
+2026/09/16 15:35:41 141301062 7fbd1225 [INFO Client 35680] [SCENE] Set Source [Shoreline Hideout]
+2026/09/16 15:35:42 141302140 4cba6a94 [INFO Client 35680] [LOADING SCREEN] (Shoreline Hideout) Duration = 1.17589 seconds
+2026/09/16 15:39:19 141519375 7fbd1225 [INFO Client 35680] [SCENE] Set Source [Atlas]
+2026/09/16 15:39:45 141545156 7fbd1225 [INFO Client 35680] [SCENE] Set Source [(null)]
+2026/09/16 15:39:45 141545171 7fbd1225 [INFO Client 35680] [SCENE] Set Source [Shoreline Hideout]
+2026/09/16 15:43:43 141782625 91c6cc1 [INFO Client 35680] Connecting to instance server at 192.0.2.1:21360
+2026/09/16 15:43:43 141783000 2caa229f [DEBUG Client 35680] Generating level 65 area "HideoutShoreline" with seed 1
+2026/09/16 15:43:43 141783046 7fbd1225 [INFO Client 35680] [SCENE] Set Source [(null)]
+2026/09/16 15:43:43 141783046 7fbd1225 [INFO Client 35680] [SCENE] Set Source [Shoreline Hideout]
+2026/09/16 15:43:45 141784578 4cba6a94 [INFO Client 35680] [LOADING SCREEN] (Shoreline Hideout) Duration = 1.95919 seconds
+2026/09/16 15:43:50 141790093 91c6cc1 [INFO Client 35680] Connecting to instance server at 192.0.2.1:21360
+2026/09/16 15:43:50 141790140 2caa229f [DEBUG Client 35680] Generating level 65 area "HideoutShoreline" with seed 1
+2026/09/16 15:43:50 141790171 7fbd1225 [INFO Client 35680] [SCENE] Set Source [(null)]
+2026/09/16 15:43:50 141790171 7fbd1225 [INFO Client 35680] [SCENE] Set Source [Shoreline Hideout]
+2026/09/16 15:43:51 141791078 4cba6a94 [INFO Client 35680] [LOADING SCREEN] (Shoreline Hideout) Duration = 0.981181 seconds
+2026/09/16 15:43:54 141793500 7fbd1225 [INFO Client 35680] [SCENE] Set Source [Atlas]
+2026/09/16 15:44:13 141813000 7fbd1225 [INFO Client 35680] [SCENE] Set Source [(null)]
+2026/09/16 15:44:13 141813015 7fbd1225 [INFO Client 35680] [SCENE] Set Source [Shoreline Hideout]
+2026/09/16 15:44:18 141818140 91c6cc1 [INFO Client 35680] Connecting to instance server at 192.0.2.1:21360
+2026/09/16 15:44:18 141818234 2caa229f [DEBUG Client 35680] Generating level 80 area "Delirium_Act1Town" with seed 1642606102
+2026/09/16 15:44:19 141818953 7fbd1225 [INFO Client 35680] [SCENE] Set Source [(null)]
+2026/09/16 15:44:19 141818953 7fbd1225 [INFO Client 35680] [SCENE] Set Source [Simulacrum of Delusion]
+2026/09/16 15:44:20 141820125 4cba6a94 [INFO Client 35680] [LOADING SCREEN] (Simulacrum of Delusion) Duration = 1.98498 seconds
+2026/09/16 15:48:21 142060515 3ef23348 [INFO Client 35680] : SampleExile has been slain.
+2026/09/16 15:48:25 142065296 91c6cc1 [INFO Client 35680] Connecting to instance server at 192.0.2.1:21360
+2026/09/16 15:48:25 142065359 2caa229f [DEBUG Client 35680] Generating level 65 area "HideoutShoreline" with seed 1
+2026/09/16 15:48:25 142065421 7fbd1225 [INFO Client 35680] [SCENE] Set Source [(null)]
+2026/09/16 15:48:25 142065437 7fbd1225 [INFO Client 35680] [SCENE] Set Source [Shoreline Hideout]
+2026/09/16 15:48:26 142066406 4cba6a94 [INFO Client 35680] [LOADING SCREEN] (Shoreline Hideout) Duration = 1.10464 seconds
+2026/09/16 15:49:43 142143281 7fbd1225 [INFO Client 35680] [SCENE] Set Source [Atlas]
+2026/09/16 15:49:51 142150921 7fbd1225 [INFO Client 35680] [SCENE] Set Source [(null)]
+2026/09/16 15:49:51 142150937 7fbd1225 [INFO Client 35680] [SCENE] Set Source [Shoreline Hideout]
+2026/09/16 15:52:54 142333687 7fbd1225 [INFO Client 35680] [SCENE] Set Source [Atlas]
+2026/09/16 15:53:30 142369984 7fbd1225 [INFO Client 35680] [SCENE] Set Source [(null)]
+2026/09/16 15:53:30 142370000 7fbd1225 [INFO Client 35680] [SCENE] Set Source [Shoreline Hideout]
+2026/09/16 15:53:57 142396718 7fbd1225 [INFO Client 35680] [SCENE] Set Source [Atlas]
+2026/09/16 15:54:02 142402343 7fbd1225 [INFO Client 35680] [SCENE] Set Source [(null)]
+2026/09/16 15:54:02 142402375 7fbd1225 [INFO Client 35680] [SCENE] Set Source [Shoreline Hideout]
+2026/09/16 15:54:44 142444250 91c6cc1 [INFO Client 35680] Connecting to instance server at 192.0.2.1:21360
+2026/09/16 15:54:45 142444531 2caa229f [DEBUG Client 35680] Generating level 65 area "HideoutShoreline" with seed 1
+2026/09/16 15:54:45 142444578 7fbd1225 [INFO Client 35680] [SCENE] Set Source [(null)]
+2026/09/16 15:54:45 142444578 7fbd1225 [INFO Client 35680] [SCENE] Set Source [Shoreline Hideout]
+2026/09/16 15:54:47 142446640 4cba6a94 [INFO Client 35680] [LOADING SCREEN] (Shoreline Hideout) Duration = 2.40579 seconds
+2026/09/16 15:54:54 142453562 91c6cc1 [INFO Client 35680] Connecting to instance server at 192.0.2.1:21360
+2026/09/16 15:54:54 142453640 2caa229f [DEBUG Client 35680] Generating level 65 area "HideoutShoreline" with seed 1
+2026/09/16 15:54:54 142453687 7fbd1225 [INFO Client 35680] [SCENE] Set Source [(null)]
+2026/09/16 15:54:54 142453703 7fbd1225 [INFO Client 35680] [SCENE] Set Source [Shoreline Hideout]
+2026/09/16 15:54:55 142454718 4cba6a94 [INFO Client 35680] [LOADING SCREEN] (Shoreline Hideout) Duration = 1.15867 seconds
+2026/09/16 15:55:07 142466609 7fbd1225 [INFO Client 35680] [SCENE] Set Source [Atlas]
+2026/09/16 15:55:29 142488687 7fbd1225 [INFO Client 35680] [SCENE] Set Source [(null)]
+2026/09/16 15:55:29 142488703 7fbd1225 [INFO Client 35680] [SCENE] Set Source [Shoreline Hideout]
+2026/09/16 15:55:32 142491796 91c6cc1 [INFO Client 35680] Connecting to instance server at 192.0.2.1:21360
+2026/09/16 15:55:32 142491890 2caa229f [DEBUG Client 35680] Generating level 80 area "MapSlick" with seed 20917460
+2026/09/16 15:55:32 142492171 7fbd1225 [INFO Client 35680] [SCENE] Set Source [(null)]
+2026/09/16 15:55:32 142492171 7fbd1225 [INFO Client 35680] [SCENE] Set Source [Slick]
+2026/09/16 15:55:33 142492859 4cba6a94 [INFO Client 35680] [LOADING SCREEN] (Slick) Duration = 1.0599 seconds
+2026/09/16 16:10:50 143410406 91c6cc1 [INFO Client 35680] Connecting to instance server at 192.0.2.1:21360
+2026/09/16 16:10:50 143410453 2caa229f [DEBUG Client 35680] Generating level 81 area "Abyss_Depths3" with seed 2567118745
+2026/09/16 16:10:51 143410578 7fbd1225 [INFO Client 35680] [SCENE] Set Source [(null)]
+2026/09/16 16:10:51 143410578 7fbd1225 [INFO Client 35680] [SCENE] Set Source [Abyssal Depths]
+2026/09/16 16:10:52 143411640 4cba6a94 [INFO Client 35680] [LOADING SCREEN] (Abyssal Depths) Duration = 1.24169 seconds
+2026/09/16 16:13:42 143582125 91c6cc1 [INFO Client 35680] Connecting to instance server at 192.0.2.1:21360
+2026/09/16 16:13:42 143582203 2caa229f [DEBUG Client 35680] Generating level 80 area "MapSlick" with seed 20917460
+2026/09/16 16:13:42 143582312 7fbd1225 [INFO Client 35680] [SCENE] Set Source [(null)]
+2026/09/16 16:13:42 143582328 7fbd1225 [INFO Client 35680] [SCENE] Set Source [Slick]
+2026/09/16 16:13:43 143583359 4cba6a94 [INFO Client 35680] [LOADING SCREEN] (Slick) Duration = 1.23509 seconds
+2026/09/16 16:13:54 143594359 91c6cc1 [INFO Client 35680] Connecting to instance server at 192.0.2.1:21360
+2026/09/16 16:13:54 143594406 2caa229f [DEBUG Client 35680] Generating level 65 area "HideoutShoreline" with seed 1
+2026/09/16 16:13:55 143594546 7fbd1225 [INFO Client 35680] [SCENE] Set Source [(null)]
+2026/09/16 16:13:55 143594546 7fbd1225 [INFO Client 35680] [SCENE] Set Source [Shoreline Hideout]
+2026/09/16 16:13:56 143595781 4cba6a94 [INFO Client 35680] [LOADING SCREEN] (Shoreline Hideout) Duration = 1.41584 seconds
+2026/09/16 16:14:04 143604062 91c6cc1 [INFO Client 35680] Connecting to instance server at 192.0.2.1:21360
+2026/09/16 16:14:04 143604140 2caa229f [DEBUG Client 35680] Generating level 80 area "MapSlick" with seed 20917460
+2026/09/16 16:14:04 143604250 7fbd1225 [INFO Client 35680] [SCENE] Set Source [(null)]
+2026/09/16 16:14:04 143604250 7fbd1225 [INFO Client 35680] [SCENE] Set Source [Slick]
+2026/09/16 16:14:05 143605421 4cba6a94 [INFO Client 35680] [LOADING SCREEN] (Slick) Duration = 1.35254 seconds
+2026/09/16 16:16:08 143728390 91c6cc1 [INFO Client 35680] Connecting to instance server at 192.0.2.1:21360
+2026/09/16 16:16:08 143728437 2caa229f [DEBUG Client 35680] Generating level 65 area "HideoutShoreline" with seed 1
+2026/09/16 16:16:09 143728468 7fbd1225 [INFO Client 35680] [SCENE] Set Source [(null)]
+2026/09/16 16:16:09 143728484 7fbd1225 [INFO Client 35680] [SCENE] Set Source [Shoreline Hideout]
+2026/09/16 16:16:10 143729562 4cba6a94 [INFO Client 35680] [LOADING SCREEN] (Shoreline Hideout) Duration = 1.18195 seconds
+2026/09/16 16:54:32 146031500 91c6cc1 [INFO Client 35680] Connecting to instance server at 192.0.2.1:21360
+2026/09/16 16:54:32 146031562 2caa229f [DEBUG Client 35680] Generating level 65 area "HideoutShoreline" with seed 1
+2026/09/16 16:54:32 146031609 7fbd1225 [INFO Client 35680] [SCENE] Set Source [(null)]
+2026/09/16 16:54:32 146031625 7fbd1225 [INFO Client 35680] [SCENE] Set Source [Shoreline Hideout]
+2026/09/16 16:54:33 146033468 4cba6a94 [INFO Client 35680] [LOADING SCREEN] (Shoreline Hideout) Duration = 1.96016 seconds
+2026/09/16 16:55:01 146060593 91c6cc1 [INFO Client 35680] Connecting to instance server at 192.0.2.1:21360
+2026/09/16 16:55:01 146060656 2caa229f [DEBUG Client 35680] Generating level 80 area "MapSevenWaters" with seed 3282126310
+2026/09/16 16:55:01 146061015 7fbd1225 [INFO Client 35680] [SCENE] Set Source [(null)]
+2026/09/16 16:55:01 146061015 7fbd1225 [INFO Client 35680] [SCENE] Set Source [Confluence]
+2026/09/16 16:55:02 146062234 4cba6a94 [INFO Client 35680] [LOADING SCREEN] (Confluence) Duration = 1.63585 seconds
+2026/09/16 16:55:21 146081234 91c6cc1 [INFO Client 35680] Connecting to instance server at 192.0.2.1:21360
+2026/09/16 16:55:21 146081281 2caa229f [DEBUG Client 35680] Generating level 65 area "HideoutShoreline" with seed 1
+2026/09/16 16:55:21 146081328 7fbd1225 [INFO Client 35680] [SCENE] Set Source [(null)]
+2026/09/16 16:55:21 146081343 7fbd1225 [INFO Client 35680] [SCENE] Set Source [Shoreline Hideout]
+2026/09/16 16:55:23 146082843 4cba6a94 [INFO Client 35680] [LOADING SCREEN] (Shoreline Hideout) Duration = 1.62037 seconds
+2026/09/16 16:55:44 146104328 7fbd1225 [INFO Client 35680] [SCENE] Set Source [Act 2]
+2026/09/16 16:55:46 146106296 91c6cc1 [INFO Client 35680] Connecting to instance server at 192.0.2.1:21360
+2026/09/16 16:55:46 146106359 2caa229f [DEBUG Client 35680] Generating level 65 area "HideoutShoreline" with seed 1
+2026/09/16 16:55:46 146106406 7fbd1225 [INFO Client 35680] [SCENE] Set Source [(null)]
+2026/09/16 16:55:46 146106406 7fbd1225 [INFO Client 35680] [SCENE] Set Source [Shoreline Hideout]
+2026/09/16 16:55:48 146108015 4cba6a94 [INFO Client 35680] [LOADING SCREEN] (Shoreline Hideout) Duration = 1.71993 seconds
+2026/09/16 22:11:17 165037593 7fbd1225 [INFO Client 36076] [SCENE] Set Source [(unknown)]
+2026/09/16 22:11:35 165055906 4f3e4d2c [INFO Client 36076] Async connecting to example.invalid:21269
+2026/09/16 22:11:39 165059453 7fbd1225 [INFO Client 36076] [SCENE] Set Source [(null)]
+2026/09/16 22:11:39 165059468 91c6cc1 [INFO Client 36076] Connecting to instance server at 192.0.2.1:21360
+2026/09/16 22:11:39 165059515 2caa229f [DEBUG Client 36076] Generating level 65 area "HideoutShoreline" with seed 1
+2026/09/16 22:11:39 165059765 7fbd1225 [INFO Client 36076] [SCENE] Set Source [Shoreline Hideout]
+2026/09/16 22:11:41 165061234 4cba6a94 [INFO Client 36076] [LOADING SCREEN] (Shoreline Hideout) Duration = 1.76286 seconds
+2026/09/16 22:46:28 167148625 91c6cc1 [INFO Client 36076] Connecting to instance server at 192.0.2.1:21360
+2026/09/16 22:46:28 167148671 2caa229f [DEBUG Client 36076] Generating level 65 area "HideoutShoreline" with seed 1
+2026/09/16 22:46:28 167148703 7fbd1225 [INFO Client 36076] [SCENE] Set Source [(null)]
+2026/09/16 22:46:28 167148703 7fbd1225 [INFO Client 36076] [SCENE] Set Source [Shoreline Hideout]
+2026/09/16 22:46:29 167149593 4cba6a94 [INFO Client 36076] [LOADING SCREEN] (Shoreline Hideout) Duration = 0.969551 seconds
+2026/09/16 22:50:35 167395093 91c6cc1 [INFO Client 36076] Connecting to instance server at 192.0.2.1:21360
+2026/09/16 22:50:35 167395140 2caa229f [DEBUG Client 36076] Generating level 65 area "HideoutShoreline" with seed 1
+2026/09/16 22:50:35 167395171 7fbd1225 [INFO Client 36076] [SCENE] Set Source [(null)]
+2026/09/16 22:50:35 167395171 7fbd1225 [INFO Client 36076] [SCENE] Set Source [Shoreline Hideout]
+2026/09/16 22:50:36 167396015 4cba6a94 [INFO Client 36076] [LOADING SCREEN] (Shoreline Hideout) Duration = 0.925126 seconds
+2026/09/16 23:12:24 168704609 91c6cc1 [INFO Client 36076] Connecting to instance server at 192.0.2.1:21360
+2026/09/16 23:12:24 168704671 2caa229f [DEBUG Client 36076] Generating level 65 area "HideoutShoreline" with seed 1
+2026/09/16 23:12:24 168704703 7fbd1225 [INFO Client 36076] [SCENE] Set Source [(null)]
+2026/09/16 23:12:24 168704703 7fbd1225 [INFO Client 36076] [SCENE] Set Source [Shoreline Hideout]
+2026/09/16 23:12:25 168705546 4cba6a94 [INFO Client 36076] [LOADING SCREEN] (Shoreline Hideout) Duration = 0.937598 seconds
+2026/09/16 23:20:19 169179546 91c6cc1 [INFO Client 36076] Connecting to instance server at 192.0.2.1:21360
+2026/09/16 23:20:19 169179593 2caa229f [DEBUG Client 36076] Generating level 65 area "HideoutShoreline" with seed 1
+2026/09/16 23:20:19 169179625 7fbd1225 [INFO Client 36076] [SCENE] Set Source [(null)]
+2026/09/16 23:20:19 169179625 7fbd1225 [INFO Client 36076] [SCENE] Set Source [Shoreline Hideout]
+2026/09/16 23:20:20 169180453 4cba6a94 [INFO Client 36076] [LOADING SCREEN] (Shoreline Hideout) Duration = 0.899825 seconds
+2026/09/17 09:06:23 27048484 7fbd1225 [INFO Client 35520] [SCENE] Set Source [(unknown)]
+2026/09/17 09:06:26 27051453 4f3e4d2c [INFO Client 35520] Async connecting to example.invalid:21269
+2026/09/17 09:06:28 27054031 7fbd1225 [INFO Client 35520] [SCENE] Set Source [(null)]
+2026/09/17 09:06:28 27054062 91c6cc1 [INFO Client 35520] Connecting to instance server at 192.0.2.1:21360
+2026/09/17 09:06:28 27054109 2caa229f [DEBUG Client 35520] Generating level 65 area "HideoutShoreline" with seed 1
+2026/09/17 09:06:29 27054312 7fbd1225 [INFO Client 35520] [SCENE] Set Source [Shoreline Hideout]
+2026/09/17 09:06:30 27055687 4cba6a94 [INFO Client 35520] [LOADING SCREEN] (Shoreline Hideout) Duration = 1.62374 seconds
+2026/09/17 10:23:36 31682171 7fbd1225 [INFO Client 16028] [SCENE] Set Source [(unknown)]
+2026/09/17 10:23:41 31687593 4f3e4d2c [INFO Client 16028] Async connecting to example.invalid:21269
+2026/09/17 10:23:58 31704562 7fbd1225 [INFO Client 16028] [SCENE] Set Source [(null)]
+2026/09/17 10:23:58 31704578 91c6cc1 [INFO Client 16028] Connecting to instance server at 192.0.2.1:21360
+2026/09/17 10:23:58 31704625 2caa229f [DEBUG Client 16028] Generating level 65 area "HideoutShoreline" with seed 1
+2026/09/17 10:23:59 31704843 7fbd1225 [INFO Client 16028] [SCENE] Set Source [Shoreline Hideout]
+2026/09/17 10:24:00 31706281 4cba6a94 [INFO Client 16028] [LOADING SCREEN] (Shoreline Hideout) Duration = 1.70599 seconds
+2026/09/17 10:24:52 31758187 4f3e4d2c [INFO Client 16028] Async connecting to example.invalid:21269
+2026/09/17 10:24:53 31758703 7fbd1225 [INFO Client 16028] [SCENE] Set Source [(null)]
+2026/09/17 10:24:53 31758890 7fbd1225 [INFO Client 16028] [SCENE] Set Source [(unknown)]
+2026/09/17 10:25:05 31770937 7fbd1225 [INFO Client 16028] [SCENE] Set Source [(null)]
+2026/09/17 10:25:05 31770953 91c6cc1 [INFO Client 16028] Connecting to instance server at 192.0.2.1:21360
+2026/09/17 10:25:05 31771000 2caa229f [DEBUG Client 16028] Generating level 65 area "HideoutShoreline" with seed 1
+2026/09/17 10:25:05 31771046 7fbd1225 [INFO Client 16028] [SCENE] Set Source [Shoreline Hideout]
+2026/09/17 10:25:07 31772875 4cba6a94 [INFO Client 16028] [LOADING SCREEN] (Shoreline Hideout) Duration = 1.92778 seconds
+2026/09/17 10:25:29 31795500 7fbd1225 [INFO Client 16028] [SCENE] Set Source [(null)]
+2026/09/17 10:25:29 31795640 7fbd1225 [INFO Client 16028] [SCENE] Set Source [(unknown)]
+2026/09/17 10:25:31 31797656 4f3e4d2c [INFO Client 16028] Async connecting to example.invalid:21269
+2026/09/17 10:25:35 31801468 7fbd1225 [INFO Client 16028] [SCENE] Set Source [(null)]
+2026/09/17 10:25:35 31801484 91c6cc1 [INFO Client 16028] Connecting to instance server at 192.0.2.1:21360
+2026/09/17 10:25:35 31801531 2caa229f [DEBUG Client 16028] Generating level 65 area "HideoutShoreline" with seed 1
+2026/09/17 10:25:35 31801578 7fbd1225 [INFO Client 16028] [SCENE] Set Source [Shoreline Hideout]
+2026/09/17 10:25:36 31802515 4cba6a94 [INFO Client 16028] [LOADING SCREEN] (Shoreline Hideout) Duration = 1.03012 seconds
+2026/09/17 10:25:58 31824562 4f3e4d2c [INFO Client 16028] Async connecting to example.invalid:21269
+2026/09/17 10:25:59 31824906 7fbd1225 [INFO Client 16028] [SCENE] Set Source [(null)]
+2026/09/17 10:25:59 31825078 7fbd1225 [INFO Client 16028] [SCENE] Set Source [(unknown)]
+2026/09/17 10:26:09 31834984 7fbd1225 [INFO Client 16028] [SCENE] Set Source [(null)]
+2026/09/17 10:26:09 31835000 91c6cc1 [INFO Client 16028] Connecting to instance server at 192.0.2.1:21360
+2026/09/17 10:26:09 31835046 2caa229f [DEBUG Client 16028] Generating level 65 area "HideoutShoreline" with seed 1
+2026/09/17 10:26:09 31835093 7fbd1225 [INFO Client 16028] [SCENE] Set Source [Shoreline Hideout]
+2026/09/17 10:26:10 31836640 4cba6a94 [INFO Client 16028] [LOADING SCREEN] (Shoreline Hideout) Duration = 1.64097 seconds
+2026/09/17 10:32:40 32225906 4f3e4d2c [INFO Client 16028] Async connecting to example.invalid:21269
+2026/09/17 10:32:40 32226250 7fbd1225 [INFO Client 16028] [SCENE] Set Source [(null)]
+2026/09/17 10:32:40 32226406 7fbd1225 [INFO Client 16028] [SCENE] Set Source [(unknown)]
+2026/09/17 10:33:26 32271750 7fbd1225 [INFO Client 16028] [SCENE] Set Source [(null)]
+2026/09/17 10:33:26 32271765 91c6cc1 [INFO Client 16028] Connecting to instance server at 192.0.2.1:21360
+2026/09/17 10:33:26 32271796 2caa229f [DEBUG Client 16028] Generating level 65 area "HideoutShoreline" with seed 1
+2026/09/17 10:33:26 32271843 7fbd1225 [INFO Client 16028] [SCENE] Set Source [Shoreline Hideout]
+2026/09/17 10:33:27 32273046 4cba6a94 [INFO Client 16028] [LOADING SCREEN] (Shoreline Hideout) Duration = 1.28731 seconds
+2026/09/17 10:36:13 32438984 7fbd1225 [INFO Client 16028] [SCENE] Set Source [Atlas]
+2026/09/17 10:37:40 32525734 7fbd1225 [INFO Client 16028] [SCENE] Set Source [(null)]
+2026/09/17 10:37:40 32525750 7fbd1225 [INFO Client 16028] [SCENE] Set Source [Shoreline Hideout]
+2026/09/17 10:38:49 32595312 7fbd1225 [INFO Client 16028] [SCENE] Set Source [Interlude]
+2026/09/17 10:38:50 32596671 7fbd1225 [INFO Client 16028] [SCENE] Set Source [(null)]
+2026/09/17 10:38:50 32596671 7fbd1225 [INFO Client 16028] [SCENE] Set Source [Shoreline Hideout]
+2026/09/17 12:31:42 39367937 7fbd1225 [INFO Client 28484] [SCENE] Set Source [(unknown)]
+2026/09/17 12:31:46 39372437 4f3e4d2c [INFO Client 28484] Async connecting to example.invalid:21269
+2026/09/17 12:31:51 39377171 7fbd1225 [INFO Client 28484] [SCENE] Set Source [(null)]
+2026/09/17 12:31:51 39377203 91c6cc1 [INFO Client 28484] Connecting to instance server at 192.0.2.1:21360
+2026/09/17 12:31:51 39377250 2caa229f [DEBUG Client 28484] Generating level 65 area "HideoutShoreline" with seed 1
+2026/09/17 12:31:51 39377453 7fbd1225 [INFO Client 28484] [SCENE] Set Source [Shoreline Hideout]
+2026/09/17 12:31:52 39378687 4cba6a94 [INFO Client 28484] [LOADING SCREEN] (Shoreline Hideout) Duration = 1.49177 seconds
+2026/09/17 13:20:52 42318000 7fbd1225 [INFO Client 28484] [SCENE] Set Source [Atlas]
+2026/09/17 13:20:54 42320906 7fbd1225 [INFO Client 28484] [SCENE] Set Source [(null)]
+2026/09/17 13:20:54 42320921 7fbd1225 [INFO Client 28484] [SCENE] Set Source [Shoreline Hideout]
+2026/09/17 13:21:13 42339250 7fbd1225 [INFO Client 28484] [SCENE] Set Source [Atlas]
+2026/09/17 13:21:20 42346781 7fbd1225 [INFO Client 28484] [SCENE] Set Source [(null)]
+2026/09/17 13:21:20 42346812 7fbd1225 [INFO Client 28484] [SCENE] Set Source [Shoreline Hideout]
+2026/09/17 13:21:28 42354796 91c6cc1 [INFO Client 28484] Connecting to instance server at 192.0.2.1:21360
+2026/09/17 13:21:28 42354843 2caa229f [DEBUG Client 28484] Generating level 80 area "MapSlick" with seed 2314710285
+2026/09/17 13:21:29 42355218 7fbd1225 [INFO Client 28484] [SCENE] Set Source [(null)]
+2026/09/17 13:21:29 42355218 7fbd1225 [INFO Client 28484] [SCENE] Set Source [Slick]
+2026/09/17 13:21:29 42355859 4cba6a94 [INFO Client 28484] [LOADING SCREEN] (Slick) Duration = 1.07561 seconds
+2026/09/17 13:23:19 42465062 91c6cc1 [INFO Client 28484] Connecting to instance server at 192.0.2.1:21360
+2026/09/17 13:23:19 42465109 2caa229f [DEBUG Client 28484] Generating level 65 area "HideoutShoreline" with seed 1
+2026/09/17 13:23:19 42465140 7fbd1225 [INFO Client 28484] [SCENE] Set Source [(null)]
+2026/09/17 13:23:19 42465156 7fbd1225 [INFO Client 28484] [SCENE] Set Source [Shoreline Hideout]
+2026/09/17 13:23:20 42466156 4cba6a94 [INFO Client 28484] [LOADING SCREEN] (Shoreline Hideout) Duration = 1.10326 seconds
+2026/09/17 17:33:41 57487343 7fbd1225 [INFO Client 14936] [SCENE] Set Source [(unknown)]
+2026/09/17 17:34:20 57526640 4f3e4d2c [INFO Client 14936] Async connecting to example.invalid:21269
+2026/09/17 17:34:23 57529671 7fbd1225 [INFO Client 14936] [SCENE] Set Source [(null)]
+2026/09/17 17:34:23 57529687 91c6cc1 [INFO Client 14936] Connecting to instance server at 192.0.2.1:21360
+2026/09/17 17:34:23 57529734 2caa229f [DEBUG Client 14936] Generating level 65 area "HideoutShoreline" with seed 1
+2026/09/17 17:34:23 57529875 7fbd1225 [INFO Client 14936] [SCENE] Set Source [Shoreline Hideout]
+2026/09/17 17:34:25 57531187 4cba6a94 [INFO Client 14936] [LOADING SCREEN] (Shoreline Hideout) Duration = 1.50331 seconds
+2026/09/17 17:34:29 57535437 4f3e4d2c [INFO Client 14936] Async connecting to example.invalid:21269
+2026/09/17 17:34:29 57535796 7fbd1225 [INFO Client 14936] [SCENE] Set Source [(null)]
+2026/09/17 17:34:29 57535953 7fbd1225 [INFO Client 14936] [SCENE] Set Source [(unknown)]
+2026/09/17 17:34:32 57538531 7fbd1225 [INFO Client 14936] [SCENE] Set Source [(null)]
+2026/09/17 17:34:32 57538546 91c6cc1 [INFO Client 14936] Connecting to instance server at 192.0.2.1:21360
+2026/09/17 17:34:32 57538593 2caa229f [DEBUG Client 14936] Generating level 65 area "HideoutShoreline" with seed 1
+2026/09/17 17:34:32 57538640 7fbd1225 [INFO Client 14936] [SCENE] Set Source [Shoreline Hideout]
+2026/09/17 17:34:33 57539671 4cba6a94 [INFO Client 14936] [LOADING SCREEN] (Shoreline Hideout) Duration = 1.11244 seconds
+2026/10/03 03:46:58 1222359 7fbd1225 [INFO Client 40396] [SCENE] Set Source [(unknown)]
+2026/10/03 03:50:59 1463750 7fbd1225 [INFO Client 41904] [SCENE] Set Source [(unknown)]
+2026/10/03 03:51:17 1481171 4f3e4d2c [INFO Client 41904] Async connecting to example.invalid:21269
+2026/10/03 03:51:24 1488078 7fbd1225 [INFO Client 41904] [SCENE] Set Source [(null)]
+2026/10/03 03:51:24 1488109 91c6cc1 [INFO Client 41904] Connecting to instance server at 192.0.2.1:21360
+2026/10/03 03:51:24 1488171 2caa229f [DEBUG Client 41904] Generating level 65 area "HideoutShoreline" with seed 1
+2026/10/03 03:51:24 1488421 7fbd1225 [INFO Client 41904] [SCENE] Set Source [Shoreline Hideout]
+2026/10/03 03:51:41 1505609 4cba6a94 [INFO Client 41904] [LOADING SCREEN] (Shoreline Hideout) Duration = 17.4867 seconds
+2026/10/03 03:52:49 1573609 4f3e4d2c [INFO Client 41904] Async connecting to example.invalid:21269
+2026/10/03 03:52:50 1573937 7fbd1225 [INFO Client 41904] [SCENE] Set Source [(null)]
+2026/10/03 03:52:50 1574109 7fbd1225 [INFO Client 41904] [SCENE] Set Source [(unknown)]
+2026/10/03 03:52:56 1580218 7fbd1225 [INFO Client 41904] [SCENE] Set Source [(null)]
+2026/10/03 03:52:56 1580234 91c6cc1 [INFO Client 41904] Connecting to instance server at 192.0.2.1:21360
+2026/10/03 03:52:56 1580296 2caa229f [DEBUG Client 41904] Generating level 65 area "HideoutShoreline" with seed 1
+2026/10/03 03:52:56 1580343 7fbd1225 [INFO Client 41904] [SCENE] Set Source [Shoreline Hideout]
+2026/10/03 03:53:07 1591109 4cba6a94 [INFO Client 41904] [LOADING SCREEN] (Shoreline Hideout) Duration = 10.8722 seconds
+2026/10/03 03:54:23 1667703 7fbd1225 [INFO Client 41904] [SCENE] Set Source [Atlas]
+2026/10/03 03:54:41 1685390 7fbd1225 [INFO Client 41904] [SCENE] Set Source [(null)]
+2026/10/03 03:54:41 1685421 7fbd1225 [INFO Client 41904] [SCENE] Set Source [Shoreline Hideout]
+2026/10/03 03:54:43 1687125 91c6cc1 [INFO Client 41904] Connecting to instance server at 192.0.2.1:21360
+2026/10/03 03:54:43 1687203 2caa229f [DEBUG Client 41904] Generating level 80 area "MapPrecursorTowerForest" with seed 2572104016
+2026/10/03 03:54:44 1688125 7fbd1225 [INFO Client 41904] [SCENE] Set Source [(null)]
+2026/10/03 03:54:44 1688140 7fbd1225 [INFO Client 41904] [SCENE] Set Source [Precursor Tower]
+2026/10/03 03:54:46 1690000 4cba6a94 [INFO Client 41904] [LOADING SCREEN] (Precursor Tower) Duration = 2.88364 seconds
+2026/10/03 03:57:26 1850546 91c6cc1 [INFO Client 41904] Connecting to instance server at 192.0.2.1:21360
+2026/10/03 03:57:26 1850609 2caa229f [DEBUG Client 41904] Generating level 65 area "HideoutShoreline" with seed 1
+2026/10/03 03:57:26 1850656 7fbd1225 [INFO Client 41904] [SCENE] Set Source [(null)]
+2026/10/03 03:57:26 1850656 7fbd1225 [INFO Client 41904] [SCENE] Set Source [Shoreline Hideout]
+2026/10/03 03:57:27 1851656 4cba6a94 [INFO Client 41904] [LOADING SCREEN] (Shoreline Hideout) Duration = 1.10905 seconds
+2026/10/03 04:01:48 2111906 7fbd1225 [INFO Client 41904] [SCENE] Set Source [Atlas]
+2026/10/03 04:03:05 2189203 7fbd1225 [INFO Client 41904] [SCENE] Set Source [(null)]
+2026/10/03 04:03:05 2189218 7fbd1225 [INFO Client 41904] [SCENE] Set Source [Shoreline Hideout]
+2026/10/03 04:04:08 2252250 7fbd1225 [INFO Client 41904] [SCENE] Set Source [Atlas]
+2026/10/03 04:04:09 2253515 7fbd1225 [INFO Client 41904] [SCENE] Set Source [(null)]
+2026/10/03 04:04:09 2253531 7fbd1225 [INFO Client 41904] [SCENE] Set Source [Shoreline Hideout]
+2026/10/03 04:04:11 2255546 91c6cc1 [INFO Client 41904] Connecting to instance server at 192.0.2.1:21360
+2026/10/03 04:04:11 2255609 2caa229f [DEBUG Client 41904] Generating level 82 area "Abyss_Pinnacle" with seed 312180344
+2026/10/03 04:04:11 2255765 7fbd1225 [INFO Client 41904] [SCENE] Set Source [(null)]
+2026/10/03 04:04:11 2255765 7fbd1225 [INFO Client 41904] [SCENE] Set Source [The Well of Souls]
+2026/10/03 04:04:14 2257859 4cba6a94 [INFO Client 41904] [LOADING SCREEN] (The Well of Souls) Duration = 2.31395 seconds
+2026/10/03 04:07:04 2428140 91c6cc1 [INFO Client 41904] Connecting to instance server at 192.0.2.1:21360
+2026/10/03 04:07:04 2428187 2caa229f [DEBUG Client 41904] Generating level 65 area "HideoutShoreline" with seed 1
+2026/10/03 04:07:04 2428234 7fbd1225 [INFO Client 41904] [SCENE] Set Source [(null)]
+2026/10/03 04:07:04 2428234 7fbd1225 [INFO Client 41904] [SCENE] Set Source [Shoreline Hideout]
+2026/10/03 04:07:05 2429000 4cba6a94 [INFO Client 41904] [LOADING SCREEN] (Shoreline Hideout) Duration = 0.868976 seconds
+2026/10/03 04:07:46 2470484 7fbd1225 [INFO Client 41904] [SCENE] Set Source [Atlas]
+2026/10/03 04:07:51 2475281 7fbd1225 [INFO Client 41904] [SCENE] Set Source [(null)]
+2026/10/03 04:07:51 2475296 7fbd1225 [INFO Client 41904] [SCENE] Set Source [Shoreline Hideout]
+2026/10/03 04:07:53 2477484 91c6cc1 [INFO Client 41904] Connecting to instance server at 192.0.2.1:21360
+2026/10/03 04:07:53 2477562 2caa229f [DEBUG Client 41904] Generating level 82 area "MapUberBoss_Delirium" with seed 3954635483
+2026/10/03 04:07:54 2477968 7fbd1225 [INFO Client 41904] [SCENE] Set Source [(null)]
+2026/10/03 04:07:54 2477968 7fbd1225 [INFO Client 41904] [SCENE] Set Source [The Withered Willow]
+2026/10/03 04:07:56 2480734 4cba6a94 [INFO Client 41904] [LOADING SCREEN] (The Withered Willow) Duration = 3.23754 seconds
+2026/10/03 04:09:44 2588750 91c6cc1 [INFO Client 41904] Connecting to instance server at 192.0.2.1:21360
+2026/10/03 04:09:44 2588796 2caa229f [DEBUG Client 41904] Generating level 65 area "HideoutShoreline" with seed 1
+2026/10/03 04:09:44 2588828 7fbd1225 [INFO Client 41904] [SCENE] Set Source [(null)]
+2026/10/03 04:09:44 2588828 7fbd1225 [INFO Client 41904] [SCENE] Set Source [Shoreline Hideout]
+2026/10/03 04:09:45 2589734 4cba6a94 [INFO Client 41904] [LOADING SCREEN] (Shoreline Hideout) Duration = 0.99007 seconds
+2026/10/03 04:10:22 2625890 7fbd1225 [INFO Client 41904] [SCENE] Set Source [Atlas]
+2026/10/03 04:10:23 2627765 7fbd1225 [INFO Client 41904] [SCENE] Set Source [(null)]
+2026/10/03 04:10:23 2627781 7fbd1225 [INFO Client 41904] [SCENE] Set Source [Shoreline Hideout]
+2026/10/03 04:10:26 2630000 91c6cc1 [INFO Client 41904] Connecting to instance server at 192.0.2.1:21360
+2026/10/03 04:10:26 2630062 2caa229f [DEBUG Client 41904] Generating level 79 area "MapUberBoss_Ritual" with seed 3089371645
+2026/10/03 04:10:26 2630375 7fbd1225 [INFO Client 41904] [SCENE] Set Source [(null)]
+2026/10/03 04:10:26 2630390 7fbd1225 [INFO Client 41904] [SCENE] Set Source [Caer Tarth]
+2026/10/03 04:10:29 2633218 4cba6a94 [INFO Client 41904] [LOADING SCREEN] (Caer Tarth) Duration = 3.21512 seconds
+2026/10/03 04:10:53 2657437 91c6cc1 [INFO Client 41904] Connecting to instance server at 192.0.2.1:21360
+2026/10/03 04:10:53 2657515 2caa229f [DEBUG Client 41904] Generating level 65 area "HideoutShoreline" with seed 1
+2026/10/03 04:10:53 2657562 7fbd1225 [INFO Client 41904] [SCENE] Set Source [(null)]
+2026/10/03 04:10:53 2657562 7fbd1225 [INFO Client 41904] [SCENE] Set Source [Shoreline Hideout]
+2026/10/03 04:10:54 2658421 4cba6a94 [INFO Client 41904] [LOADING SCREEN] (Shoreline Hideout) Duration = 0.974728 seconds
+2026/10/03 04:10:56 2660062 7fbd1225 [INFO Client 41904] [SCENE] Set Source [Atlas]
+2026/10/03 04:10:58 2662375 7fbd1225 [INFO Client 41904] [SCENE] Set Source [(null)]
+2026/10/03 04:10:58 2662406 7fbd1225 [INFO Client 41904] [SCENE] Set Source [Shoreline Hideout]
+2026/10/03 04:11:23 2687406 7fbd1225 [INFO Client 41904] [SCENE] Set Source [Atlas]
+2026/10/03 04:11:39 2703609 7fbd1225 [INFO Client 41904] [SCENE] Set Source [(null)]
+2026/10/03 04:11:39 2703609 7fbd1225 [INFO Client 41904] [SCENE] Set Source [Shoreline Hideout]
+2026/10/03 04:11:41 2705468 91c6cc1 [INFO Client 41904] Connecting to instance server at 192.0.2.1:21360
+2026/10/03 04:11:41 2705546 2caa229f [DEBUG Client 41904] Generating level 80 area "MapRiverside" with seed 3930746968
+2026/10/03 04:11:42 2705953 7fbd1225 [INFO Client 41904] [SCENE] Set Source [(null)]
+2026/10/03 04:11:42 2705953 7fbd1225 [INFO Client 41904] [SCENE] Set Source [Riverside]
+2026/10/03 04:11:45 2709546 4cba6a94 [INFO Client 41904] [LOADING SCREEN] (Riverside) Duration = 4.07992 seconds
+2026/10/03 04:18:00 3084250 91c6cc1 [INFO Client 41904] Connecting to instance server at 192.0.2.1:21360
+2026/10/03 04:18:00 3084296 2caa229f [DEBUG Client 41904] Generating level 65 area "HideoutShoreline" with seed 1
+2026/10/03 04:18:00 3084328 7fbd1225 [INFO Client 41904] [SCENE] Set Source [(null)]
+2026/10/03 04:18:00 3084343 7fbd1225 [INFO Client 41904] [SCENE] Set Source [Shoreline Hideout]
+2026/10/03 04:18:01 3085265 4cba6a94 [INFO Client 41904] [LOADING SCREEN] (Shoreline Hideout) Duration = 1.01714 seconds
+2026/10/03 04:18:14 3098406 7fbd1225 [INFO Client 41904] [SCENE] Set Source [Atlas]
+2026/10/03 04:18:25 3109265 7fbd1225 [INFO Client 41904] [SCENE] Set Source [(null)]
+2026/10/03 04:18:25 3109281 7fbd1225 [INFO Client 41904] [SCENE] Set Source [Shoreline Hideout]
+2026/10/03 04:18:50 3134140 91c6cc1 [INFO Client 41904] Connecting to instance server at 192.0.2.1:21360
+2026/10/03 04:18:50 3134203 2caa229f [DEBUG Client 41904] Generating level 80 area "MapReservoir" with seed 3018145526
+2026/10/03 04:18:50 3134796 7fbd1225 [INFO Client 41904] [SCENE] Set Source [(null)]
+2026/10/03 04:18:50 3134796 7fbd1225 [INFO Client 41904] [SCENE] Set Source [Reservoir]
+2026/10/03 04:18:56 3139968 4cba6a94 [INFO Client 41904] [LOADING SCREEN] (Reservoir) Duration = 5.81785 seconds
+2026/10/03 04:24:52 3496375 91c6cc1 [INFO Client 41904] Connecting to instance server at 192.0.2.1:21360
+2026/10/03 04:24:52 3496453 2caa229f [DEBUG Client 41904] Generating level 65 area "HideoutShoreline" with seed 1
+2026/10/03 04:24:52 3496484 7fbd1225 [INFO Client 41904] [SCENE] Set Source [(null)]
+2026/10/03 04:24:52 3496484 7fbd1225 [INFO Client 41904] [SCENE] Set Source [Shoreline Hideout]
+2026/10/03 04:24:53 3497343 4cba6a94 [INFO Client 41904] [LOADING SCREEN] (Shoreline Hideout) Duration = 0.953768 seconds
+2026/10/03 04:35:29 4133250 7fbd1225 [INFO Client 41904] [SCENE] Set Source [Atlas]
+2026/10/03 04:36:07 4171609 7fbd1225 [INFO Client 41904] [SCENE] Set Source [(null)]
+2026/10/03 04:36:07 4171625 7fbd1225 [INFO Client 41904] [SCENE] Set Source [Shoreline Hideout]
+2026/10/03 04:36:10 4174343 91c6cc1 [INFO Client 41904] Connecting to instance server at 192.0.2.1:21360
+2026/10/03 04:36:10 4174421 2caa229f [DEBUG Client 41904] Generating level 80 area "MapNecropolis" with seed 2307347407
+2026/10/03 04:36:10 4174671 7fbd1225 [INFO Client 41904] [SCENE] Set Source [(null)]
+2026/10/03 04:36:10 4174671 7fbd1225 [INFO Client 41904] [SCENE] Set Source [Necropolis]
+2026/10/03 04:36:13 4176875 4cba6a94 [INFO Client 41904] [LOADING SCREEN] (Necropolis) Duration = 2.53457 seconds
+2026/10/03 04:44:09 4653203 91c6cc1 [INFO Client 41904] Connecting to instance server at 192.0.2.1:21360
+2026/10/03 04:44:09 4653281 2caa229f [DEBUG Client 41904] Generating level 81 area "Abyss_Depths3" with seed 1685792560
+2026/10/03 04:44:09 4653375 7fbd1225 [INFO Client 41904] [SCENE] Set Source [(null)]
+2026/10/03 04:44:09 4653390 7fbd1225 [INFO Client 41904] [SCENE] Set Source [Abyssal Depths]
+2026/10/03 04:44:10 4654515 4cba6a94 [INFO Client 41904] [LOADING SCREEN] (Abyssal Depths) Duration = 1.31887 seconds
+2026/10/03 04:45:21 4725062 91c6cc1 [INFO Client 41904] Connecting to instance server at 192.0.2.1:21360
+2026/10/03 04:45:21 4725140 2caa229f [DEBUG Client 41904] Generating level 80 area "MapNecropolis" with seed 2307347407
+2026/10/03 04:45:21 4725218 7fbd1225 [INFO Client 41904] [SCENE] Set Source [(null)]
+2026/10/03 04:45:21 4725218 7fbd1225 [INFO Client 41904] [SCENE] Set Source [Necropolis]
+2026/10/03 04:45:22 4726203 4cba6a94 [INFO Client 41904] [LOADING SCREEN] (Necropolis) Duration = 1.12691 seconds
+2026/10/03 04:45:27 4731078 91c6cc1 [INFO Client 41904] Connecting to instance server at 192.0.2.1:21360
+2026/10/03 04:45:27 4731125 2caa229f [DEBUG Client 41904] Generating level 65 area "HideoutShoreline" with seed 1
+2026/10/03 04:45:27 4731328 7fbd1225 [INFO Client 41904] [SCENE] Set Source [(null)]
+2026/10/03 04:45:27 4731343 7fbd1225 [INFO Client 41904] [SCENE] Set Source [Shoreline Hideout]
+2026/10/03 04:45:28 4732609 4cba6a94 [INFO Client 41904] [LOADING SCREEN] (Shoreline Hideout) Duration = 1.54049 seconds
+2026/10/03 04:46:15 4779500 7fbd1225 [INFO Client 41904] [SCENE] Set Source [Atlas]
+2026/10/03 04:46:26 4789859 7fbd1225 [INFO Client 41904] [SCENE] Set Source [(null)]
+2026/10/03 04:46:26 4789875 7fbd1225 [INFO Client 41904] [SCENE] Set Source [Shoreline Hideout]
+2026/10/03 04:46:38 4802578 91c6cc1 [INFO Client 41904] Connecting to instance server at 192.0.2.1:21360
+2026/10/03 04:46:38 4802671 2caa229f [DEBUG Client 41904] Generating level 80 area "MapOvergrown" with seed 1458838028
+2026/10/03 04:46:39 4802953 7fbd1225 [INFO Client 41904] [SCENE] Set Source [(null)]
+2026/10/03 04:46:39 4802953 7fbd1225 [INFO Client 41904] [SCENE] Set Source [Overgrown]
+2026/10/03 04:46:42 4806578 4cba6a94 [INFO Client 41904] [LOADING SCREEN] (Overgrown) Duration = 3.99634 seconds
+2026/10/03 04:51:31 5094921 91c6cc1 [INFO Client 41904] Connecting to instance server at 192.0.2.1:21360
+2026/10/03 04:51:31 5094984 2caa229f [DEBUG Client 41904] Generating level 65 area "HideoutShoreline" with seed 1
+2026/10/03 04:51:31 5095031 7fbd1225 [INFO Client 41904] [SCENE] Set Source [(null)]
+2026/10/03 04:51:31 5095046 7fbd1225 [INFO Client 41904] [SCENE] Set Source [Shoreline Hideout]
+2026/10/03 04:51:32 5095875 4cba6a94 [INFO Client 41904] [LOADING SCREEN] (Shoreline Hideout) Duration = 0.954683 seconds
+2026/10/03 04:51:39 5103046 7fbd1225 [INFO Client 41904] [SCENE] Set Source [Atlas]
+2026/10/03 04:51:48 5112359 7fbd1225 [INFO Client 41904] [SCENE] Set Source [(null)]
+2026/10/03 04:51:48 5112375 7fbd1225 [INFO Client 41904] [SCENE] Set Source [Shoreline Hideout]
+2026/10/03 04:52:43 5167531 7fbd1225 [INFO Client 41904] [SCENE] Set Source [Atlas]
+2026/10/03 04:53:01 5185125 7fbd1225 [INFO Client 41904] [SCENE] Set Source [(null)]
+2026/10/03 04:53:01 5185125 7fbd1225 [INFO Client 41904] [SCENE] Set Source [Shoreline Hideout]
+2026/10/03 04:53:03 5187750 91c6cc1 [INFO Client 41904] Connecting to instance server at 192.0.2.1:21360
+2026/10/03 04:53:03 5187828 2caa229f [DEBUG Client 41904] Generating level 80 area "MapReservoir" with seed 2000993744
+2026/10/03 04:53:04 5188000 7fbd1225 [INFO Client 41904] [SCENE] Set Source [(null)]
+2026/10/03 04:53:04 5188000 7fbd1225 [INFO Client 41904] [SCENE] Set Source [Reservoir]
+2026/10/03 04:53:05 5189203 4cba6a94 [INFO Client 41904] [LOADING SCREEN] (Reservoir) Duration = 1.44237 seconds
+2026/10/03 04:59:21 5565031 91c6cc1 [INFO Client 41904] Connecting to instance server at 192.0.2.1:21360
+2026/10/03 04:59:21 5565078 2caa229f [DEBUG Client 41904] Generating level 65 area "HideoutShoreline" with seed 1
+2026/10/03 04:59:21 5565109 7fbd1225 [INFO Client 41904] [SCENE] Set Source [(null)]
+2026/10/03 04:59:21 5565125 7fbd1225 [INFO Client 41904] [SCENE] Set Source [Shoreline Hideout]
+2026/10/03 04:59:22 5566062 4cba6a94 [INFO Client 41904] [LOADING SCREEN] (Shoreline Hideout) Duration = 1.03043 seconds
+2026/10/03 04:59:56 5600562 7fbd1225 [INFO Client 41904] [SCENE] Set Source [Atlas]
+2026/10/03 04:59:57 5601187 7fbd1225 [INFO Client 41904] [SCENE] Set Source [(null)]
+2026/10/03 04:59:57 5601203 7fbd1225 [INFO Client 41904] [SCENE] Set Source [Shoreline Hideout]
+2026/10/03 04:59:59 5603734 7fbd1225 [INFO Client 41904] [SCENE] Set Source [Atlas]
+2026/10/03 05:00:01 5604937 7fbd1225 [INFO Client 41904] [SCENE] Set Source [(null)]
+2026/10/03 05:00:01 5604937 7fbd1225 [INFO Client 41904] [SCENE] Set Source [Shoreline Hideout]
+2026/10/03 05:00:03 5607218 91c6cc1 [INFO Client 41904] Connecting to instance server at 192.0.2.1:21360
+2026/10/03 05:00:03 5607265 2caa229f [DEBUG Client 41904] Generating level 79 area "MapUberBoss_Ritual" with seed 3834870049
+2026/10/03 05:00:03 5607500 7fbd1225 [INFO Client 41904] [SCENE] Set Source [(null)]
+2026/10/03 05:00:03 5607500 7fbd1225 [INFO Client 41904] [SCENE] Set Source [Caer Tarth]
+2026/10/03 05:00:05 5609312 4cba6a94 [INFO Client 41904] [LOADING SCREEN] (Caer Tarth) Duration = 2.09858 seconds
+2026/10/03 05:02:28 5751906 91c6cc1 [INFO Client 41904] Connecting to instance server at 192.0.2.1:21360
+2026/10/03 05:02:28 5751953 2caa229f [DEBUG Client 41904] Generating level 65 area "HideoutShoreline" with seed 1
+2026/10/03 05:02:28 5752000 7fbd1225 [INFO Client 41904] [SCENE] Set Source [(null)]
+2026/10/03 05:02:28 5752000 7fbd1225 [INFO Client 41904] [SCENE] Set Source [Shoreline Hideout]
+2026/10/03 05:02:29 5752953 4cba6a94 [INFO Client 41904] [LOADING SCREEN] (Shoreline Hideout) Duration = 1.03618 seconds
+2026/10/03 05:04:15 5858953 7fbd1225 [INFO Client 41904] [SCENE] Set Source [Act 2]
+2026/10/03 05:04:30 5874078 7fbd1225 [INFO Client 41904] [SCENE] Set Source [Act 1]
+2026/10/03 05:04:39 5883234 91c6cc1 [INFO Client 41904] Connecting to instance server at 192.0.2.1:21360
+2026/10/03 05:04:39 5883296 2caa229f [DEBUG Client 41904] Generating level 12 area "G1_13_1" with seed 812612733
+2026/10/03 05:04:39 5883562 7fbd1225 [INFO Client 41904] [SCENE] Set Source [(null)]
+2026/10/03 05:04:39 5883562 7fbd1225 [INFO Client 41904] [SCENE] Set Source [Ogham Farmlands]
+2026/10/03 05:04:43 5887750 4cba6a94 [INFO Client 41904] [LOADING SCREEN] (Ogham Farmlands) Duration = 4.51906 seconds
+2026/10/03 05:05:17 5921250 7fbd1225 [INFO Client 41904] [SCENE] Set Source [Act 1]
+2026/10/03 05:05:24 5928281 7fbd1225 [INFO Client 41904] [SCENE] Set Source [(null)]
+2026/10/03 05:05:24 5928281 7fbd1225 [INFO Client 41904] [SCENE] Set Source [Ogham Farmlands]
+2026/10/03 05:05:30 5933859 7fbd1225 [INFO Client 41904] [SCENE] Set Source [Act 1]
+2026/10/03 05:05:31 5935406 91c6cc1 [INFO Client 41904] Connecting to instance server at 192.0.2.1:21360
+2026/10/03 05:05:31 5935468 2caa229f [DEBUG Client 41904] Generating level 4 area "G1_4" with seed 3153083621
+2026/10/03 05:05:31 5935750 7fbd1225 [INFO Client 41904] [SCENE] Set Source [(null)]
+2026/10/03 05:05:31 5935750 7fbd1225 [INFO Client 41904] [SCENE] Set Source [The Grelwood]
+2026/10/03 05:05:36 5940015 4cba6a94 [INFO Client 41904] [LOADING SCREEN] (The Grelwood) Duration = 4.60811 seconds
+2026/10/03 05:05:48 5952203 91c6cc1 [INFO Client 41904] Connecting to instance server at 192.0.2.1:21360
+2026/10/03 05:05:48 5952265 2caa229f [DEBUG Client 41904] Generating level 12 area "ExpeditionSubArea_Kalguur_Act1" with seed 1229894594
+2026/10/03 05:05:48 5952671 7fbd1225 [INFO Client 41904] [SCENE] Set Source [(null)]
+2026/10/03 05:05:48 5952671 7fbd1225 [INFO Client 41904] [SCENE] Set Source [Lost Catacombs]
+2026/10/03 05:05:50 5954531 4cba6a94 [INFO Client 41904] [LOADING SCREEN] (Lost Catacombs) Duration = 2.3317 seconds
+2026/10/03 05:07:29 6053375 91c6cc1 [INFO Client 41904] Connecting to instance server at 192.0.2.1:21360
+2026/10/03 05:07:29 6053437 2caa229f [DEBUG Client 41904] Generating level 15 area "G1_town" with seed 1
+2026/10/03 05:07:29 6053734 7fbd1225 [INFO Client 41904] [SCENE] Set Source [(null)]
+2026/10/03 05:07:29 6053750 7fbd1225 [INFO Client 41904] [SCENE] Set Source [Clearfell Encampment]
+2026/10/03 05:07:34 6058093 4cba6a94 [INFO Client 41904] [LOADING SCREEN] (Clearfell Encampment) Duration = 4.71615 seconds
+2026/10/03 05:08:36 6120203 7fbd1225 [INFO Client 41904] [SCENE] Set Source [Act 1]
+2026/10/03 05:08:37 6121687 91c6cc1 [INFO Client 41904] Connecting to instance server at 192.0.2.1:21360
+2026/10/03 05:08:37 6121734 2caa229f [DEBUG Client 41904] Generating level 65 area "HideoutShoreline" with seed 1
+2026/10/03 05:08:38 6121921 7fbd1225 [INFO Client 41904] [SCENE] Set Source [(null)]
+2026/10/03 05:08:38 6121921 7fbd1225 [INFO Client 41904] [SCENE] Set Source [Shoreline Hideout]
+2026/10/03 05:08:39 6123453 4cba6a94 [INFO Client 41904] [LOADING SCREEN] (Shoreline Hideout) Duration = 1.77494 seconds
+2026/10/03 05:14:59 6503156 91c6cc1 [INFO Client 41904] Connecting to instance server at 192.0.2.1:21360
+2026/10/03 05:14:59 6503500 2caa229f [DEBUG Client 41904] Generating level 65 area "HideoutLimestone" with seed 1
+2026/10/03 05:14:59 6503531 7fbd1225 [INFO Client 41904] [SCENE] Set Source [(null)]
+2026/10/03 05:14:59 6503531 7fbd1225 [INFO Client 41904] [SCENE] Set Source [Limestone Hideout]
+2026/10/03 05:15:01 6505406 4cba6a94 [INFO Client 41904] [LOADING SCREEN] (Limestone Hideout) Duration = 2.25528 seconds
+2026/10/03 05:15:06 6510593 91c6cc1 [INFO Client 41904] Connecting to instance server at 192.0.2.1:21360
+2026/10/03 05:15:06 6510640 2caa229f [DEBUG Client 41904] Generating level 65 area "HideoutShoreline" with seed 1
+2026/10/03 05:15:06 6510671 7fbd1225 [INFO Client 41904] [SCENE] Set Source [(null)]
+2026/10/03 05:15:06 6510671 7fbd1225 [INFO Client 41904] [SCENE] Set Source [Shoreline Hideout]
+2026/10/03 05:15:07 6511781 4cba6a94 [INFO Client 41904] [LOADING SCREEN] (Shoreline Hideout) Duration = 1.19504 seconds
+2026/10/03 05:15:51 6554984 7fbd1225 [INFO Client 41904] [SCENE] Set Source [(null)]
+2026/10/03 05:15:51 6555187 7fbd1225 [INFO Client 41904] [SCENE] Set Source [(unknown)]
+2026/10/03 05:15:54 6558078 4f3e4d2c [INFO Client 41904] Async connecting to example.invalid:21269
+2026/10/03 08:46:28 19198375 7fbd1225 [INFO Client 11844] [SCENE] Set Source [(unknown)]
+2026/10/03 08:47:25 19254968 4f3e4d2c [INFO Client 11844] Async connecting to example.invalid:21269
+2026/10/03 08:47:30 19260031 7fbd1225 [INFO Client 11844] [SCENE] Set Source [(null)]
+2026/10/03 08:47:30 19260062 91c6cc1 [INFO Client 11844] Connecting to instance server at 192.0.2.1:21360
+2026/10/03 08:47:30 19260109 2caa229f [DEBUG Client 11844] Generating level 65 area "HideoutShoreline" with seed 1
+2026/10/03 08:47:30 19260296 7fbd1225 [INFO Client 11844] [SCENE] Set Source [Shoreline Hideout]
+2026/10/03 08:47:36 19266203 4cba6a94 [INFO Client 11844] [LOADING SCREEN] (Shoreline Hideout) Duration = 6.14662 seconds
+2026/10/03 08:48:15 19305265 7fbd1225 [INFO Client 11844] [SCENE] Set Source [Atlas]
+2026/10/03 08:48:26 19316046 7fbd1225 [INFO Client 11844] [SCENE] Set Source [(null)]
+2026/10/03 08:48:26 19316062 7fbd1225 [INFO Client 11844] [SCENE] Set Source [Shoreline Hideout]
+2026/10/03 08:48:31 19320625 7fbd1225 [INFO Client 11844] [SCENE] Set Source [Atlas]
+2026/10/03 08:48:34 19324328 7fbd1225 [INFO Client 11844] [SCENE] Set Source [(null)]
+2026/10/03 08:48:34 19324343 7fbd1225 [INFO Client 11844] [SCENE] Set Source [Shoreline Hideout]
+2026/10/03 08:50:29 19439046 7fbd1225 [INFO Client 11844] [SCENE] Set Source [Atlas]
+2026/10/03 08:50:32 19442343 7fbd1225 [INFO Client 11844] [SCENE] Set Source [(null)]
+2026/10/03 08:50:32 19442359 7fbd1225 [INFO Client 11844] [SCENE] Set Source [Shoreline Hideout]
+2026/10/03 08:51:34 19503796 7fbd1225 [INFO Client 35100] [SCENE] Set Source [(unknown)]
+2026/10/03 08:51:38 19507734 4f3e4d2c [INFO Client 35100] Async connecting to example.invalid:21269
+2026/10/03 08:51:41 19510687 7fbd1225 [INFO Client 35100] [SCENE] Set Source [(null)]
+2026/10/03 08:51:41 19510703 91c6cc1 [INFO Client 35100] Connecting to instance server at 192.0.2.1:21360
+2026/10/03 08:51:41 19510750 2caa229f [DEBUG Client 35100] Generating level 65 area "HideoutShoreline" with seed 1
+2026/10/03 08:51:41 19510937 7fbd1225 [INFO Client 35100] [SCENE] Set Source [Shoreline Hideout]
+2026/10/03 08:51:42 19512312 4cba6a94 [INFO Client 35100] [LOADING SCREEN] (Shoreline Hideout) Duration = 1.61172 seconds
+2026/10/03 08:52:35 19564765 4f3e4d2c [INFO Client 35100] Async connecting to example.invalid:21269
+2026/10/03 08:52:35 19565062 7fbd1225 [INFO Client 35100] [SCENE] Set Source [(null)]
+2026/10/03 08:52:35 19565234 7fbd1225 [INFO Client 35100] [SCENE] Set Source [(unknown)]
+2026/10/03 08:53:10 19600281 7fbd1225 [INFO Client 35100] [SCENE] Set Source [(null)]
+2026/10/03 08:53:10 19600296 91c6cc1 [INFO Client 35100] Connecting to instance server at 192.0.2.1:21360
+2026/10/03 08:53:10 19600359 2caa229f [DEBUG Client 35100] Generating level 65 area "HideoutShoreline" with seed 1
+2026/10/03 08:53:10 19600390 7fbd1225 [INFO Client 35100] [SCENE] Set Source [Shoreline Hideout]
+2026/10/03 08:53:18 19607656 4cba6a94 [INFO Client 35100] [LOADING SCREEN] (Shoreline Hideout) Duration = 7.35468 seconds
+2026/10/03 08:54:11 19661109 4f3e4d2c [INFO Client 35100] Async connecting to example.invalid:21269
+2026/10/03 08:54:12 19661468 7fbd1225 [INFO Client 35100] [SCENE] Set Source [(null)]
+2026/10/03 08:54:12 19661625 7fbd1225 [INFO Client 35100] [SCENE] Set Source [(unknown)]
+2026/10/03 08:54:54 19704390 7fbd1225 [INFO Client 35100] [SCENE] Set Source [(null)]
+2026/10/03 08:54:54 19704406 91c6cc1 [INFO Client 35100] Connecting to instance server at 192.0.2.1:21360
+2026/10/03 08:54:54 19704453 2caa229f [DEBUG Client 35100] Generating level 44 area "G3_town" with seed 1
+2026/10/03 08:54:55 19705343 7fbd1225 [INFO Client 35100] [SCENE] Set Source [Ziggurat Encampment]
+2026/10/03 08:54:59 19708656 4cba6a94 [INFO Client 35100] [LOADING SCREEN] (Ziggurat Encampment) Duration = 4.25705 seconds
+2026/10/03 08:56:08 19777984 4f3e4d2c [INFO Client 35100] Async connecting to example.invalid:21269
+2026/10/03 08:56:08 19778406 7fbd1225 [INFO Client 35100] [SCENE] Set Source [(null)]
+2026/10/03 08:56:09 19778562 7fbd1225 [INFO Client 35100] [SCENE] Set Source [(unknown)]
+2026/10/03 08:58:52 19941984 7fbd1225 [INFO Client 35100] [SCENE] Set Source [(null)]
+2026/10/03 08:58:52 19942000 91c6cc1 [INFO Client 35100] Connecting to instance server at 192.0.2.1:21360
+2026/10/03 08:58:52 19942046 2caa229f [DEBUG Client 35100] Generating level 65 area "HideoutShoreline" with seed 1
+2026/10/03 08:58:52 19942093 7fbd1225 [INFO Client 35100] [SCENE] Set Source [Shoreline Hideout]
+2026/10/03 08:58:53 19943296 4cba6a94 [INFO Client 35100] [LOADING SCREEN] (Shoreline Hideout) Duration = 1.29287 seconds
+2026/10/03 08:59:11 19960546 7fbd1225 [INFO Client 35100] [SCENE] Set Source [(unknown)]
+2026/10/03 08:59:15 19964484 7fbd1225 [INFO Client 35100] [SCENE] Set Source [Shoreline Hideout]
+2026/10/03 10:19:16 24766109 7fbd1225 [INFO Client 30776] [SCENE] Set Source [(unknown)]
+2026/10/03 10:19:40 24790234 4f3e4d2c [INFO Client 30776] Async connecting to example.invalid:21269
+2026/10/03 10:22:27 24956562 7fbd1225 [INFO Client 30776] [SCENE] Set Source [(null)]
+2026/10/03 10:22:27 24956578 91c6cc1 [INFO Client 30776] Connecting to instance server at 192.0.2.1:21360
+2026/10/03 10:22:27 24956640 2caa229f [DEBUG Client 30776] Generating level 1 area "G1_1" with seed 572425507
+2026/10/03 10:22:27 24956828 7fbd1225 [INFO Client 30776] [SCENE] Set Source [The Riverbank]
+2026/10/03 10:22:29 24958750 4cba6a94 [INFO Client 30776] [LOADING SCREEN] (The Riverbank) Duration = 2.16471 seconds
+2026/10/03 10:26:37 25206609 3ef23348 [INFO Client 30776] : SampleExile (Sorceress) is now level 2
+2026/10/03 10:26:58 25227921 91c6cc1 [INFO Client 30776] Connecting to instance server at 192.0.2.1:21360
+2026/10/03 10:26:58 25227968 2caa229f [DEBUG Client 30776] Generating level 15 area "G1_town" with seed 1
+2026/10/03 10:26:58 25228296 7fbd1225 [INFO Client 30776] [SCENE] Set Source [(null)]
+2026/10/03 10:26:58 25228312 7fbd1225 [INFO Client 30776] [SCENE] Set Source [Clearfell Encampment]
+2026/10/03 10:26:59 25228671 4cba6a94 [INFO Client 30776] [LOADING SCREEN] (Clearfell Encampment) Duration = 0.753516 seconds
+2026/10/03 10:27:40 25269531 4f3e4d2c [INFO Client 30776] Async connecting to example.invalid:21269
+2026/10/03 10:27:40 25269828 7fbd1225 [INFO Client 30776] [SCENE] Set Source [(null)]
+2026/10/03 10:27:40 25269984 7fbd1225 [INFO Client 30776] [SCENE] Set Source [(unknown)]
+2026/10/03 10:28:02 25292109 7fbd1225 [INFO Client 30776] [SCENE] Set Source [(null)]
+2026/10/03 10:28:02 25292125 91c6cc1 [INFO Client 30776] Connecting to instance server at 192.0.2.1:21360
+2026/10/03 10:28:02 25292171 2caa229f [DEBUG Client 30776] Generating level 65 area "HideoutShoreline" with seed 1
+2026/10/03 10:28:02 25292421 7fbd1225 [INFO Client 30776] [SCENE] Set Source [Shoreline Hideout]
+2026/10/03 10:28:04 25294000 4cba6a94 [INFO Client 30776] [LOADING SCREEN] (Shoreline Hideout) Duration = 1.86776 seconds
+2026/10/03 10:28:35 25324687 91c6cc1 [INFO Client 30776] Connecting to instance server at 192.0.2.1:21360
+2026/10/03 10:28:35 25324750 2caa229f [DEBUG Client 30776] Generating level 65 area "HideoutCanal" with seed 1
+2026/10/03 10:28:35 25324859 7fbd1225 [INFO Client 30776] [SCENE] Set Source [(null)]
+2026/10/03 10:28:35 25324859 7fbd1225 [INFO Client 30776] [SCENE] Set Source [Canal Hideout]
+2026/10/03 10:28:37 25326703 4cba6a94 [INFO Client 30776] [LOADING SCREEN] (Canal Hideout) Duration = 2.0156 seconds
+2026/10/03 10:29:16 25366203 7fbd1225 [INFO Client 30776] [SCENE] Set Source [(unknown)]
+2026/10/03 10:29:17 25367218 7fbd1225 [INFO Client 30776] [SCENE] Set Source [Canal Hideout]
+2026/10/03 10:29:31 25381328 7fbd1225 [INFO Client 30776] [SCENE] Set Source [(unknown)]
+2026/10/03 10:30:46 25456125 7fbd1225 [INFO Client 30776] [SCENE] Set Source [Canal Hideout]
+2026/10/03 10:39:17 25966906 7fbd1225 [INFO Client 30776] [SCENE] Set Source [Interlude]
+2026/10/03 10:39:19 25969312 7fbd1225 [INFO Client 30776] [SCENE] Set Source [Act 2]
+2026/10/03 10:39:23 25973046 7fbd1225 [INFO Client 30776] [SCENE] Set Source [Act 3]
+2026/10/03 10:39:25 25974484 7fbd1225 [INFO Client 30776] [SCENE] Set Source [Act 4]
+2026/10/03 10:39:26 25975687 7fbd1225 [INFO Client 30776] [SCENE] Set Source [Atlas]
+2026/10/03 10:40:06 26016296 7fbd1225 [INFO Client 30776] [SCENE] Set Source [(null)]
+2026/10/03 10:40:06 26016312 7fbd1225 [INFO Client 30776] [SCENE] Set Source [Canal Hideout]
+2026/10/03 10:40:14 26023703 4f3e4d2c [INFO Client 30776] Async connecting to example.invalid:21269
+2026/10/03 10:40:14 26024000 7fbd1225 [INFO Client 30776] [SCENE] Set Source [(null)]
+2026/10/03 10:40:14 26024234 7fbd1225 [INFO Client 30776] [SCENE] Set Source [(unknown)]
+2026/10/03 10:40:19 26029281 7fbd1225 [INFO Client 30776] [SCENE] Set Source [(null)]
+2026/10/03 10:40:19 26029296 91c6cc1 [INFO Client 30776] Connecting to instance server at 192.0.2.1:21360
+2026/10/03 10:40:19 26029343 2caa229f [DEBUG Client 30776] Generating level 65 area "HideoutCanal" with seed 1
+2026/10/03 10:40:19 26029359 7fbd1225 [INFO Client 30776] [SCENE] Set Source [Canal Hideout]
+2026/10/03 10:40:21 26030765 4cba6a94 [INFO Client 30776] [LOADING SCREEN] (Canal Hideout) Duration = 1.46548 seconds
+2026/10/03 10:41:11 26080953 7fbd1225 [INFO Client 30776] [SCENE] Set Source [Atlas]
+2026/10/03 10:41:14 26083859 7fbd1225 [INFO Client 30776] [SCENE] Set Source [(null)]
+2026/10/03 10:41:14 26083875 7fbd1225 [INFO Client 30776] [SCENE] Set Source [Canal Hideout]
+2026/10/03 10:42:14 26143718 91c6cc1 [INFO Client 30776] Connecting to instance server at 192.0.2.1:21360
+2026/10/03 10:42:14 26143781 2caa229f [DEBUG Client 30776] Generating level 65 area "HideoutShoreline" with seed 1
+2026/10/03 10:42:14 26143906 7fbd1225 [INFO Client 30776] [SCENE] Set Source [(null)]
+2026/10/03 10:42:14 26143906 7fbd1225 [INFO Client 30776] [SCENE] Set Source [Shoreline Hideout]
+2026/10/03 10:42:15 26144765 4cba6a94 [INFO Client 30776] [LOADING SCREEN] (Shoreline Hideout) Duration = 1.0377 seconds
+2026/10/03 10:44:17 26267171 7fbd1225 [INFO Client 35928] [SCENE] Set Source [(unknown)]
+2026/10/03 10:44:29 26279031 4f3e4d2c [INFO Client 35928] Async connecting to example.invalid:21269
+2026/10/03 10:55:25 26935218 7fbd1225 [INFO Client 35928] [SCENE] Set Source [(null)]
+2026/10/03 10:55:25 26935234 91c6cc1 [INFO Client 35928] Connecting to instance server at 192.0.2.1:21360
+2026/10/03 10:55:25 26935281 2caa229f [DEBUG Client 35928] Generating level 65 area "HideoutShoreline" with seed 1
+2026/10/03 10:55:25 26935437 7fbd1225 [INFO Client 35928] [SCENE] Set Source [Shoreline Hideout]
+2026/10/03 10:55:27 26936656 4cba6a94 [INFO Client 35928] [LOADING SCREEN] (Shoreline Hideout) Duration = 1.41951 seconds
+2026/10/03 10:56:04 26974437 7fbd1225 [INFO Client 35928] [SCENE] Set Source [Atlas]
+2026/10/03 10:59:04 27153578 7fbd1225 [INFO Client 35928] [SCENE] Set Source [(null)]
+2026/10/03 10:59:04 27153593 7fbd1225 [INFO Client 35928] [SCENE] Set Source [Shoreline Hideout]
+2026/10/03 10:59:09 27159093 7fbd1225 [INFO Client 35928] [SCENE] Set Source [Atlas]
+2026/10/03 11:01:27 27297421 7fbd1225 [INFO Client 35928] [SCENE] Set Source [(null)]
+2026/10/03 11:01:27 27297437 7fbd1225 [INFO Client 35928] [SCENE] Set Source [Shoreline Hideout]
+2026/10/03 11:48:25 30115406 4f3e4d2c [INFO Client 35928] Async connecting to example.invalid:21269
+2026/10/03 11:48:26 30115796 7fbd1225 [INFO Client 35928] [SCENE] Set Source [(null)]
+2026/10/03 11:48:26 30116078 7fbd1225 [INFO Client 35928] [SCENE] Set Source [(unknown)]
+2026/10/03 11:49:11 30161375 7fbd1225 [INFO Client 35928] [SCENE] Set Source [(null)]
+2026/10/03 11:49:11 30161390 91c6cc1 [INFO Client 35928] Connecting to instance server at 192.0.2.1:21360
+2026/10/03 11:49:11 30161437 2caa229f [DEBUG Client 35928] Generating level 65 area "HideoutShoreline" with seed 1
+2026/10/03 11:49:12 30161468 7fbd1225 [INFO Client 35928] [SCENE] Set Source [Shoreline Hideout]
+2026/10/03 11:49:13 30162468 4cba6a94 [INFO Client 35928] [LOADING SCREEN] (Shoreline Hideout) Duration = 1.08629 seconds
+2026/10/03 11:50:06 30215609 4f3e4d2c [INFO Client 35928] Async connecting to example.invalid:21269
+2026/10/03 11:50:06 30216015 7fbd1225 [INFO Client 35928] [SCENE] Set Source [(null)]
+2026/10/03 11:50:06 30216156 7fbd1225 [INFO Client 35928] [SCENE] Set Source [(unknown)]
+2026/10/03 11:50:09 30219281 7fbd1225 [INFO Client 35928] [SCENE] Set Source [(null)]
+2026/10/03 11:50:09 30219296 91c6cc1 [INFO Client 35928] Connecting to instance server at 192.0.2.1:21360
+2026/10/03 11:50:09 30219343 2caa229f [DEBUG Client 35928] Generating level 65 area "HideoutShoreline" with seed 1
+2026/10/03 11:50:09 30219375 7fbd1225 [INFO Client 35928] [SCENE] Set Source [Shoreline Hideout]
+2026/10/03 11:50:10 30220218 4cba6a94 [INFO Client 35928] [LOADING SCREEN] (Shoreline Hideout) Duration = 0.923291 seconds
+2026/10/04 03:46:30 87600625 7fbd1225 [INFO Client 9476] [SCENE] Set Source [(unknown)]
+2026/10/04 03:46:42 87612156 4f3e4d2c [INFO Client 9476] Async connecting to example.invalid:21269
+2026/10/04 03:47:34 87664453 7fbd1225 [INFO Client 9476] [SCENE] Set Source [(null)]
+2026/10/04 03:47:34 87664484 91c6cc1 [INFO Client 9476] Connecting to instance server at 192.0.2.1:21360
+2026/10/04 03:47:34 87664531 2caa229f [DEBUG Client 9476] Generating level 1 area "G1_1" with seed 1690174600
+2026/10/04 03:47:34 87664734 7fbd1225 [INFO Client 9476] [SCENE] Set Source [The Riverbank]
+2026/10/04 03:47:35 87665609 4cba6a94 [INFO Client 9476] [LOADING SCREEN] (The Riverbank) Duration = 1.13274 seconds
+2026/10/04 03:49:45 87795328 3ef23348 [INFO Client 9476] : SampleExile (Mercenary) is now level 2
+2026/10/04 03:50:26 87836343 91c6cc1 [INFO Client 9476] Connecting to instance server at 192.0.2.1:21360
+2026/10/04 03:50:26 87836390 2caa229f [DEBUG Client 9476] Generating level 15 area "G1_town" with seed 1
+2026/10/04 03:50:26 87836718 7fbd1225 [INFO Client 9476] [SCENE] Set Source [(null)]
+2026/10/04 03:50:26 87836718 7fbd1225 [INFO Client 9476] [SCENE] Set Source [Clearfell Encampment]
+2026/10/04 03:50:27 87837093 4cba6a94 [INFO Client 9476] [LOADING SCREEN] (Clearfell Encampment) Duration = 0.751917 seconds
+2026/10/04 03:51:25 87895328 91c6cc1 [INFO Client 9476] Connecting to instance server at 192.0.2.1:21360
+2026/10/04 03:51:25 87895375 2caa229f [DEBUG Client 9476] Generating level 2 area "G1_2" with seed 2573348757
+2026/10/04 03:51:25 87895625 7fbd1225 [INFO Client 9476] [SCENE] Set Source [(null)]
+2026/10/04 03:51:25 87895625 7fbd1225 [INFO Client 9476] [SCENE] Set Source [Clearfell]
+2026/10/04 03:51:26 87896718 4cba6a94 [INFO Client 9476] [LOADING SCREEN] (Clearfell) Duration = 1.40446 seconds
+2026/10/04 03:55:03 88113296 3ef23348 [INFO Client 9476] : SampleExile (Mercenary) is now level 3
+2026/10/04 03:55:52 88162171 91c6cc1 [INFO Client 9476] Connecting to instance server at 192.0.2.1:21360
+2026/10/04 03:55:52 88162218 2caa229f [DEBUG Client 9476] Generating level 4 area "G1_4" with seed 2883703718
+2026/10/04 03:55:52 88162453 7fbd1225 [INFO Client 9476] [SCENE] Set Source [(null)]
+2026/10/04 03:55:52 88162468 7fbd1225 [INFO Client 9476] [SCENE] Set Source [The Grelwood]
+2026/10/04 03:55:53 88163156 4cba6a94 [INFO Client 9476] [LOADING SCREEN] (The Grelwood) Duration = 0.988623 seconds
+2026/10/04 03:59:04 88354265 3ef23348 [INFO Client 9476] : SampleExile (Mercenary) is now level 4
+2026/10/04 04:01:19 88489281 3ef23348 [INFO Client 9476] : SampleExile has been slain.
+2026/10/04 04:01:22 88492953 91c6cc1 [INFO Client 9476] Connecting to instance server at 192.0.2.1:21360
+2026/10/04 04:01:23 88493015 2caa229f [DEBUG Client 9476] Generating level 4 area "G1_4" with seed 2883703718
+2026/10/04 04:01:23 88493125 7fbd1225 [INFO Client 9476] [SCENE] Set Source [(null)]
+2026/10/04 04:01:23 88493140 7fbd1225 [INFO Client 9476] [SCENE] Set Source [The Grelwood]
+2026/10/04 04:01:23 88493750 4cba6a94 [INFO Client 9476] [LOADING SCREEN] (The Grelwood) Duration = 0.800531 seconds
+2026/10/04 04:03:53 88643328 91c6cc1 [INFO Client 9476] Connecting to instance server at 192.0.2.1:21360
+2026/10/04 04:03:53 88643390 2caa229f [DEBUG Client 9476] Generating level 15 area "G1_town" with seed 1
+2026/10/04 04:03:53 88643531 7fbd1225 [INFO Client 9476] [SCENE] Set Source [(null)]
+2026/10/04 04:03:53 88643531 7fbd1225 [INFO Client 9476] [SCENE] Set Source [Clearfell Encampment]
+2026/10/04 04:03:54 88644343 4cba6a94 [INFO Client 9476] [LOADING SCREEN] (Clearfell Encampment) Duration = 1.00994 seconds
+2026/10/04 04:03:56 88646296 91c6cc1 [INFO Client 9476] Connecting to instance server at 192.0.2.1:21360
+2026/10/04 04:03:56 88646359 2caa229f [DEBUG Client 9476] Generating level 4 area "G1_4" with seed 2883703718
+2026/10/04 04:03:56 88646484 7fbd1225 [INFO Client 9476] [SCENE] Set Source [(null)]
+2026/10/04 04:03:56 88646484 7fbd1225 [INFO Client 9476] [SCENE] Set Source [The Grelwood]
+2026/10/04 04:03:57 88647203 4cba6a94 [INFO Client 9476] [LOADING SCREEN] (The Grelwood) Duration = 0.904216 seconds
+2026/10/04 04:04:55 88705546 91c6cc1 [INFO Client 9476] Connecting to instance server at 192.0.2.1:21360
+2026/10/04 04:04:55 88705609 2caa229f [DEBUG Client 9476] Generating level 5 area "G1_5" with seed 1920527242
+2026/10/04 04:04:55 88705828 7fbd1225 [INFO Client 9476] [SCENE] Set Source [(null)]
+2026/10/04 04:04:55 88705828 7fbd1225 [INFO Client 9476] [SCENE] Set Source [The Red Vale]
+2026/10/04 04:04:56 88706812 4cba6a94 [INFO Client 9476] [LOADING SCREEN] (The Red Vale) Duration = 1.275 seconds
+2026/10/04 04:05:36 88746156 3ef23348 [INFO Client 9476] : SampleExile (Mercenary) is now level 5
+2026/10/04 04:09:28 88978015 3ef23348 [INFO Client 9476] : SampleExile (Mercenary) is now level 6
+2026/10/04 04:09:36 88986218 91c6cc1 [INFO Client 9476] Connecting to instance server at 192.0.2.1:21360
+2026/10/04 04:09:36 88986296 2caa229f [DEBUG Client 9476] Generating level 15 area "G1_town" with seed 1
+2026/10/04 04:09:36 88986437 7fbd1225 [INFO Client 9476] [SCENE] Set Source [(null)]
+2026/10/04 04:09:36 88986437 7fbd1225 [INFO Client 9476] [SCENE] Set Source [Clearfell Encampment]
+2026/10/04 04:09:37 88987453 4cba6a94 [INFO Client 9476] [LOADING SCREEN] (Clearfell Encampment) Duration = 1.23386 seconds
+2026/10/04 04:09:49 88999750 7fbd1225 [INFO Client 9476] [SCENE] Set Source [Act 1]
+2026/10/04 04:09:54 89004265 91c6cc1 [INFO Client 9476] Connecting to instance server at 192.0.2.1:21360
+2026/10/04 04:09:54 89004343 2caa229f [DEBUG Client 9476] Generating level 4 area "G1_4" with seed 2883703718
+2026/10/04 04:09:54 89004562 7fbd1225 [INFO Client 9476] [SCENE] Set Source [(null)]
+2026/10/04 04:09:54 89004562 7fbd1225 [INFO Client 9476] [SCENE] Set Source [The Grelwood]
+2026/10/04 04:09:55 89005531 4cba6a94 [INFO Client 9476] [LOADING SCREEN] (The Grelwood) Duration = 1.26712 seconds
+2026/10/04 04:10:09 89019984 91c6cc1 [INFO Client 9476] Connecting to instance server at 192.0.2.1:21360
+2026/10/04 04:10:10 89020031 2caa229f [DEBUG Client 9476] Generating level 6 area "G1_6" with seed 832485646
+2026/10/04 04:10:10 89020343 7fbd1225 [INFO Client 9476] [SCENE] Set Source [(null)]
+2026/10/04 04:10:10 89020359 7fbd1225 [INFO Client 9476] [SCENE] Set Source [The Grim Tangle]
+2026/10/04 04:10:11 89021015 4cba6a94 [INFO Client 9476] [LOADING SCREEN] (The Grim Tangle) Duration = 1.04197 seconds
+2026/10/04 04:10:17 89027265 91c6cc1 [INFO Client 9476] Connecting to instance server at 192.0.2.1:21360
+2026/10/04 04:10:17 89027328 2caa229f [DEBUG Client 9476] Generating level 4 area "G1_4" with seed 2883703718
+2026/10/04 04:10:17 89027453 7fbd1225 [INFO Client 9476] [SCENE] Set Source [(null)]
+2026/10/04 04:10:17 89027468 7fbd1225 [INFO Client 9476] [SCENE] Set Source [The Grelwood]
+2026/10/04 04:10:18 89028109 4cba6a94 [INFO Client 9476] [LOADING SCREEN] (The Grelwood) Duration = 0.834452 seconds
+2026/10/04 04:10:27 89037156 91c6cc1 [INFO Client 9476] Connecting to instance server at 192.0.2.1:21360
+2026/10/04 04:10:27 89037203 2caa229f [DEBUG Client 9476] Generating level 15 area "G1_town" with seed 1
+2026/10/04 04:10:27 89037328 7fbd1225 [INFO Client 9476] [SCENE] Set Source [(null)]
+2026/10/04 04:10:27 89037328 7fbd1225 [INFO Client 9476] [SCENE] Set Source [Clearfell Encampment]
+2026/10/04 04:10:28 89038265 4cba6a94 [INFO Client 9476] [LOADING SCREEN] (Clearfell Encampment) Duration = 1.10428 seconds
+2026/10/04 04:10:49 89059750 91c6cc1 [INFO Client 9476] Connecting to instance server at 192.0.2.1:21360
+2026/10/04 04:10:49 89059812 2caa229f [DEBUG Client 9476] Generating level 4 area "G1_4" with seed 2883703718
+2026/10/04 04:10:49 89059921 7fbd1225 [INFO Client 9476] [SCENE] Set Source [(null)]
+2026/10/04 04:10:49 89059921 7fbd1225 [INFO Client 9476] [SCENE] Set Source [The Grelwood]
+2026/10/04 04:10:50 89060625 4cba6a94 [INFO Client 9476] [LOADING SCREEN] (The Grelwood) Duration = 0.872878 seconds
+2026/10/04 04:11:05 89075171 7fbd1225 [INFO Client 9476] [SCENE] Set Source [Act 1]
+2026/10/04 04:11:06 89076296 7fbd1225 [INFO Client 9476] [SCENE] Set Source [(null)]
+2026/10/04 04:11:06 89076296 7fbd1225 [INFO Client 9476] [SCENE] Set Source [The Grelwood]
+2026/10/04 04:11:10 89080921 91c6cc1 [INFO Client 9476] Connecting to instance server at 192.0.2.1:21360
+2026/10/04 04:11:10 89080984 2caa229f [DEBUG Client 9476] Generating level 6 area "G1_6" with seed 832485646
+2026/10/04 04:11:11 89081156 7fbd1225 [INFO Client 9476] [SCENE] Set Source [(null)]
+2026/10/04 04:11:11 89081156 7fbd1225 [INFO Client 9476] [SCENE] Set Source [The Grim Tangle]
+2026/10/04 04:11:11 89081718 4cba6a94 [INFO Client 9476] [LOADING SCREEN] (The Grim Tangle) Duration = 0.802781 seconds
+2026/10/04 04:11:13 89083921 7fbd1225 [INFO Client 9476] [SCENE] Set Source [Act 1]
+2026/10/04 04:11:16 89086375 91c6cc1 [INFO Client 9476] Connecting to instance server at 192.0.2.1:21360
+2026/10/04 04:11:16 89086421 2caa229f [DEBUG Client 9476] Generating level 15 area "G1_town" with seed 1
+2026/10/04 04:11:16 89086546 7fbd1225 [INFO Client 9476] [SCENE] Set Source [(null)]
+2026/10/04 04:11:16 89086546 7fbd1225 [INFO Client 9476] [SCENE] Set Source [Clearfell Encampment]
+2026/10/04 04:11:17 89087515 4cba6a94 [INFO Client 9476] [LOADING SCREEN] (Clearfell Encampment) Duration = 1.15163 seconds
+2026/10/04 04:11:24 89094562 7fbd1225 [INFO Client 9476] [SCENE] Set Source [Act 1]
+2026/10/04 04:11:27 89097500 91c6cc1 [INFO Client 9476] Connecting to instance server at 192.0.2.1:21360
+2026/10/04 04:11:27 89097562 2caa229f [DEBUG Client 9476] Generating level 6 area "G1_6" with seed 832485646
+2026/10/04 04:11:27 89097625 7fbd1225 [INFO Client 9476] [SCENE] Set Source [(null)]
+2026/10/04 04:11:27 89097625 7fbd1225 [INFO Client 9476] [SCENE] Set Source [The Grim Tangle]
+2026/10/04 04:11:28 89098234 4cba6a94 [INFO Client 9476] [LOADING SCREEN] (The Grim Tangle) Duration = 0.724629 seconds
+2026/10/04 04:14:37 89287296 3ef23348 [INFO Client 9476] : SampleExile has been slain.
+2026/10/04 04:14:41 89291515 91c6cc1 [INFO Client 9476] Connecting to instance server at 192.0.2.1:21360
+2026/10/04 04:14:41 89291578 2caa229f [DEBUG Client 9476] Generating level 6 area "G1_6" with seed 832485646
+2026/10/04 04:14:41 89291703 7fbd1225 [INFO Client 9476] [SCENE] Set Source [(null)]
+2026/10/04 04:14:41 89291703 7fbd1225 [INFO Client 9476] [SCENE] Set Source [The Grim Tangle]
+2026/10/04 04:14:42 89292218 4cba6a94 [INFO Client 9476] [LOADING SCREEN] (The Grim Tangle) Duration = 0.706761 seconds
+2026/10/04 04:17:29 89459140 91c6cc1 [INFO Client 9476] Connecting to instance server at 192.0.2.1:21360
+2026/10/04 04:17:29 89459203 2caa229f [DEBUG Client 9476] Generating level 7 area "G1_7" with seed 1864724921
+2026/10/04 04:17:29 89459468 7fbd1225 [INFO Client 9476] [SCENE] Set Source [(null)]
+2026/10/04 04:17:29 89459468 7fbd1225 [INFO Client 9476] [SCENE] Set Source [Cemetery of the Eternals]
+2026/10/04 04:17:30 89460187 4cba6a94 [INFO Client 9476] [LOADING SCREEN] (Cemetery of the Eternals) Duration = 1.04373 seconds
+2026/10/04 04:18:18 89508953 3ef23348 [INFO Client 9476] : SampleExile (Mercenary) is now level 7
+2026/10/04 04:19:00 89550937 91c6cc1 [INFO Client 9476] Connecting to instance server at 192.0.2.1:21360
+2026/10/04 04:19:01 89551000 2caa229f [DEBUG Client 9476] Generating level 8 area "G1_9" with seed 1015952693
+2026/10/04 04:19:01 89551109 7fbd1225 [INFO Client 9476] [SCENE] Set Source [(null)]
+2026/10/04 04:19:01 89551125 7fbd1225 [INFO Client 9476] [SCENE] Set Source [Tomb of the Consort]
+2026/10/04 04:19:01 89551687 4cba6a94 [INFO Client 9476] [LOADING SCREEN] (Tomb of the Consort) Duration = 0.76072 seconds
+2026/10/04 04:21:30 89700375 3ef23348 [INFO Client 9476] : SampleExile (Mercenary) is now level 8
+2026/10/04 04:22:58 89788609 91c6cc1 [INFO Client 9476] Connecting to instance server at 192.0.2.1:21360
+2026/10/04 04:22:58 89788671 2caa229f [DEBUG Client 9476] Generating level 7 area "G1_7" with seed 1864724921
+2026/10/04 04:22:58 89788750 7fbd1225 [INFO Client 9476] [SCENE] Set Source [(null)]
+2026/10/04 04:22:58 89788750 7fbd1225 [INFO Client 9476] [SCENE] Set Source [Cemetery of the Eternals]
+2026/10/04 04:22:59 89789296 4cba6a94 [INFO Client 9476] [LOADING SCREEN] (Cemetery of the Eternals) Duration = 0.672792 seconds
+2026/10/04 04:24:34 89884265 91c6cc1 [INFO Client 9476] Connecting to instance server at 192.0.2.1:21360
+2026/10/04 04:24:34 89884312 2caa229f [DEBUG Client 9476] Generating level 9 area "G1_8" with seed 595357975
+2026/10/04 04:24:34 89884390 7fbd1225 [INFO Client 9476] [SCENE] Set Source [(null)]
+2026/10/04 04:24:34 89884406 7fbd1225 [INFO Client 9476] [SCENE] Set Source [Mausoleum of the Praetor]
+2026/10/04 04:24:34 89884906 4cba6a94 [INFO Client 9476] [LOADING SCREEN] (Mausoleum of the Praetor) Duration = 0.655131 seconds
+2026/10/04 04:28:47 90137562 91c6cc1 [INFO Client 9476] Connecting to instance server at 192.0.2.1:21360
+2026/10/04 04:28:47 90137625 2caa229f [DEBUG Client 9476] Generating level 7 area "G1_7" with seed 1864724921
+2026/10/04 04:28:47 90137671 7fbd1225 [INFO Client 9476] [SCENE] Set Source [(null)]
+2026/10/04 04:28:47 90137671 7fbd1225 [INFO Client 9476] [SCENE] Set Source [Cemetery of the Eternals]
+2026/10/04 04:28:48 90138156 4cba6a94 [INFO Client 9476] [LOADING SCREEN] (Cemetery of the Eternals) Duration = 0.603403 seconds
+2026/10/04 04:28:59 90149765 91c6cc1 [INFO Client 9476] Connecting to instance server at 192.0.2.1:21360
+2026/10/04 04:28:59 90149828 2caa229f [DEBUG Client 9476] Generating level 15 area "G1_town" with seed 1
+2026/10/04 04:28:59 90149984 7fbd1225 [INFO Client 9476] [SCENE] Set Source [(null)]
+2026/10/04 04:28:59 90150000 7fbd1225 [INFO Client 9476] [SCENE] Set Source [Clearfell Encampment]
+2026/10/04 04:29:00 90150734 4cba6a94 [INFO Client 9476] [LOADING SCREEN] (Clearfell Encampment) Duration = 0.976571 seconds
+2026/10/04 04:30:21 90231171 91c6cc1 [INFO Client 9476] Connecting to instance server at 192.0.2.1:21360
+2026/10/04 04:30:21 90231218 2caa229f [DEBUG Client 9476] Generating level 7 area "G1_7" with seed 1864724921
+2026/10/04 04:30:21 90231265 7fbd1225 [INFO Client 9476] [SCENE] Set Source [(null)]
+2026/10/04 04:30:21 90231281 7fbd1225 [INFO Client 9476] [SCENE] Set Source [Cemetery of the Eternals]
+2026/10/04 04:30:21 90231781 4cba6a94 [INFO Client 9476] [LOADING SCREEN] (Cemetery of the Eternals) Duration = 0.615806 seconds
+2026/10/04 04:31:45 90315546 3ef23348 [INFO Client 9476] : SampleExile (Mercenary) is now level 9
+2026/10/04 04:32:05 90335937 91c6cc1 [INFO Client 9476] Connecting to instance server at 192.0.2.1:21360
+2026/10/04 04:32:05 90336000 2caa229f [DEBUG Client 9476] Generating level 10 area "G1_11" with seed 2586827967
+2026/10/04 04:32:06 90336281 7fbd1225 [INFO Client 9476] [SCENE] Set Source [(null)]
+2026/10/04 04:32:06 90336296 7fbd1225 [INFO Client 9476] [SCENE] Set Source [Hunting Grounds]
+2026/10/04 04:32:07 90337125 4cba6a94 [INFO Client 9476] [LOADING SCREEN] (Hunting Grounds) Duration = 1.18291 seconds
+2026/10/04 04:35:18 90528015 3ef23348 [INFO Client 9476] : SampleExile (Mercenary) is now level 10
+2026/10/04 04:40:22 90832437 91c6cc1 [INFO Client 9476] Connecting to instance server at 192.0.2.1:21360
+2026/10/04 04:40:22 90832484 2caa229f [DEBUG Client 9476] Generating level 15 area "G1_town" with seed 1
+2026/10/04 04:40:22 90832640 7fbd1225 [INFO Client 9476] [SCENE] Set Source [(null)]
+2026/10/04 04:40:22 90832656 7fbd1225 [INFO Client 9476] [SCENE] Set Source [Clearfell Encampment]
+2026/10/04 04:40:23 90833546 4cba6a94 [INFO Client 9476] [LOADING SCREEN] (Clearfell Encampment) Duration = 1.10866 seconds
+2026/10/04 04:41:03 90873937 7fbd1225 [INFO Client 3680] [SCENE] Set Source [(unknown)]
+2026/10/16 13:08:21 116596718 7fbd1225 [INFO Client 42680] [SCENE] Set Source [(unknown)]
+2026/10/16 13:09:18 116653921 4f3e4d2c [INFO Client 42680] Async connecting to example.invalid:21269
+2026/10/16 13:09:29 116664140 7fbd1225 [INFO Client 42680] [SCENE] Set Source [(null)]
+2026/10/16 13:09:29 116664156 91c6cc1 [INFO Client 42680] Connecting to instance server at 192.0.2.1:21360
+2026/10/16 13:09:29 116664218 2caa229f [DEBUG Client 42680] Generating level 65 area "HideoutShoreline" with seed 1
+2026/10/16 13:09:29 116664468 7fbd1225 [INFO Client 42680] [SCENE] Set Source [Shoreline Hideout]
+2026/10/16 13:09:31 116666328 4cba6a94 [INFO Client 42680] [LOADING SCREEN] (Shoreline Hideout) Duration = 2.16978 seconds
+2026/10/18 12:06:53 285709218 7fbd1225 [INFO Client 46644] [SCENE] Set Source [(unknown)]
+2026/10/18 12:07:10 285726187 4f3e4d2c [INFO Client 46644] Async connecting to example.invalid:21269
+2026/10/22 23:23:37 671917109 7fbd1225 [INFO Client 29752] [SCENE] Set Source [(unknown)]
+2026/10/22 23:23:51 671930765 4f3e4d2c [INFO Client 29752] Async connecting to example.invalid:21269
+2026/10/22 23:23:56 671936234 7fbd1225 [INFO Client 29752] [SCENE] Set Source [(null)]
+2026/10/22 23:23:56 671936265 91c6cc1 [INFO Client 29752] Connecting to instance server at 192.0.2.1:21360
+2026/10/22 23:23:56 671936328 2caa229f [DEBUG Client 29752] Generating level 65 area "HideoutShoreline" with seed 1
+2026/10/22 23:23:56 671936562 7fbd1225 [INFO Client 29752] [SCENE] Set Source [Shoreline Hideout]
+2026/10/22 23:23:58 671938281 4cba6a94 [INFO Client 29752] [LOADING SCREEN] (Shoreline Hideout) Duration = 2.026 seconds
+2026/10/22 23:24:11 671951046 4f3e4d2c [INFO Client 29752] Async connecting to example.invalid:21269
+2026/10/22 23:24:11 671951484 7fbd1225 [INFO Client 29752] [SCENE] Set Source [(null)]
+2026/10/22 23:24:12 671951656 7fbd1225 [INFO Client 29752] [SCENE] Set Source [(unknown)]
+2026/10/22 23:24:15 671954812 7fbd1225 [INFO Client 29752] [SCENE] Set Source [(null)]
+2026/10/22 23:24:15 671954828 91c6cc1 [INFO Client 29752] Connecting to instance server at 192.0.2.1:21360
+2026/10/22 23:24:15 671954875 2caa229f [DEBUG Client 29752] Generating level 44 area "G3_town" with seed 1
+2026/10/22 23:24:15 671955593 7fbd1225 [INFO Client 29752] [SCENE] Set Source [Ziggurat Encampment]
+2026/10/22 23:24:18 671958531 4cba6a94 [INFO Client 29752] [LOADING SCREEN] (Ziggurat Encampment) Duration = 3.69581 seconds
+2026/10/22 23:43:32 673111640 4f3e4d2c [INFO Client 29752] Async connecting to example.invalid:21269
+2026/10/22 23:43:32 673112062 7fbd1225 [INFO Client 29752] [SCENE] Set Source [(null)]
+2026/10/22 23:43:32 673112312 7fbd1225 [INFO Client 29752] [SCENE] Set Source [(unknown)]
+2026/10/22 23:43:57 673136843 7fbd1225 [INFO Client 29752] [SCENE] Set Source [(null)]
+2026/10/22 23:43:57 673136859 91c6cc1 [INFO Client 29752] Connecting to instance server at 192.0.2.1:21360
+2026/10/22 23:43:57 673136921 2caa229f [DEBUG Client 29752] Generating level 1 area "G1_1" with seed 3869435218
+2026/10/22 23:43:57 673137125 7fbd1225 [INFO Client 29752] [SCENE] Set Source [The Riverbank]
+2026/10/22 23:43:58 673138421 4cba6a94 [INFO Client 29752] [LOADING SCREEN] (The Riverbank) Duration = 1.55551 seconds
+2026/10/22 23:46:15 673275593 3ef23348 [INFO Client 29752] : SampleExile (Sorceress) is now level 2
+2026/10/22 23:46:28 673288265 91c6cc1 [INFO Client 29752] Connecting to instance server at 192.0.2.1:21360
+2026/10/22 23:46:28 673288312 2caa229f [DEBUG Client 29752] Generating level 15 area "G1_town" with seed 1
+2026/10/22 23:46:28 673288625 7fbd1225 [INFO Client 29752] [SCENE] Set Source [(null)]
+2026/10/22 23:46:28 673288625 7fbd1225 [INFO Client 29752] [SCENE] Set Source [Clearfell Encampment]
+2026/10/22 23:46:29 673288984 4cba6a94 [INFO Client 29752] [LOADING SCREEN] (Clearfell Encampment) Duration = 0.728093 seconds
+2026/10/22 23:47:33 673352750 4f3e4d2c [INFO Client 29752] Async connecting to example.invalid:21269
+2026/10/22 23:47:33 673353062 7fbd1225 [INFO Client 29752] [SCENE] Set Source [(null)]
+2026/10/22 23:47:33 673353250 7fbd1225 [INFO Client 29752] [SCENE] Set Source [(unknown)]
+2026/10/22 23:47:42 673362281 7fbd1225 [INFO Client 29752] [SCENE] Set Source [(null)]
+2026/10/22 23:47:42 673362296 91c6cc1 [INFO Client 29752] Connecting to instance server at 192.0.2.1:21360
+2026/10/22 23:47:42 673362359 2caa229f [DEBUG Client 29752] Generating level 65 area "HideoutShoreline" with seed 1
+2026/10/22 23:47:42 673362484 7fbd1225 [INFO Client 29752] [SCENE] Set Source [Shoreline Hideout]
+2026/10/22 23:47:44 673363828 4cba6a94 [INFO Client 29752] [LOADING SCREEN] (Shoreline Hideout) Duration = 1.52561 seconds

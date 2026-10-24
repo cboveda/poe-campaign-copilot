@@ -1,8 +1,8 @@
 {
   "$schema": "https://schema.tauri.app/config/2",
-  "productName": "PoE Campaign Copilot",
-  "version": "0.1.12",
-  "identifier": "com.andrewli.poe-campaign-copilot",
+  "productName": "PoE2 Campaign Copilot",
+  "version": "0.2.0-alpha.2",
+  "identifier": "com.andrewli.poe-campaign-copilot-poe2",
   "build": {
     "beforeDevCommand": "npm run dev",
     "devUrl": "http://localhost:1420",
@@ -14,7 +14,7 @@
     "windows": [
       {
         "label": "main",
-        "title": "PoE Campaign Copilot",
+        "title": "PoE2 Campaign Copilot",
         "width": 960,
         "height": 150,
         "transparent": true,
@@ -32,24 +32,26 @@
   },
   "bundle": {
     "active": true,
-    "targets": ["nsis"],
-    "createUpdaterArtifacts": true,
-    "icon": ["icons/32x32.png", "icons/128x128.png", "icons/icon.icns", "icons/icon.ico"],
-    "resources": { "../vendor": "vendor", "../content/layouts": "content/layouts" },
+    "targets": [
+      "nsis"
+    ],
+    "createUpdaterArtifacts": false,
+    "icon": [
+      "icons/32x32.png",
+      "icons/128x128.png",
+      "icons/icon.icns",
+      "icons/icon.ico"
+    ],
+    "resources": {
+      "../content/poe2/": "content/poe2/",
+      "../vendor/poe2-leveling/LICENSE": "licenses/poe2-leveling-LICENSE"
+    },
     "windows": {
       "nsis": {
         "installMode": "currentUser",
         "installerIcon": "icons/icon.ico",
         "uninstallerIcon": "icons/icon.ico"
       }
-    }
-  },
-  "plugins": {
-    "updater": {
-      "endpoints": [
-        "https://github.com/andrewli8/poe-campaign-copilot/releases/latest/download/latest.json"
-      ],
-      "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IDZCQTE1NERGNkIxMTg3MUYKUldRZmh4RnIzMVNoYThzZXNHbjk2aDFiY2plWnlhRnd5cUEwbEhidVJya1RabVlmRlVWRHV4WDgK"
     }
   }
 }

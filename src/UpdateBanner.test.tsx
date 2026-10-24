@@ -1,7 +1,7 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import { describe, expect, it, vi } from "vitest";
 import { UpdateBanner } from "./UpdateBanner";
-import type { UpdaterStatus } from "./useUpdater";
+import type { UpdaterStatus } from "./UpdateBanner";
 
 function noop() {}
 

@@ -20,6 +20,15 @@ pub enum SessionEvent {
         new_instance: bool,
         at: String,
     },
+    /// Confirmed PoE2 location absent from the campaign catalog. Preserve the
+    /// observed identity without inventing chapter, town or route metadata.
+    UnmappedArea {
+        area_id: String,
+        display_name: String,
+        area_level: u8,
+        new_instance: bool,
+        at: String,
+    },
     LevelUp {
         character: String,
         class: String,
@@ -59,6 +68,10 @@ pub struct SessionTracker {
     last_seed_by_area: std::collections::BTreeMap<String, u64>,
     pinned_character: Option<String>,
     player_level: Option<u16>,
+    client_process: Option<u32>,
+    last_tick: Option<u64>,
+    pending_tick: Option<u64>,
+    pending_scenes: Vec<String>,
 }
 
 impl SessionTracker {
@@ -72,6 +85,10 @@ impl SessionTracker {
             last_seed_by_area: std::collections::BTreeMap::new(),
             pinned_character: None,
             player_level: None,
+            client_process: None,
+            last_tick: None,
+            pending_tick: None,
+            pending_scenes: Vec::new(),
         }
     }
 
@@ -91,6 +108,46 @@ impl SessionTracker {
         self.player_level
     }
 
+    /// Use this entry point for real log streams/replay. The client process
+    /// and monotonic millisecond counter bound pending transitions across
+    /// restarts, log rotation and slow/aborted loads. No clock/timezone parsing.
+    pub fn on_line(&mut self, line: &str) -> Vec<SessionEvent> {
+        if let Some((process, tick)) = client_clock(line) {
+            let restarted = self.client_process.is_some_and(|old| old != process)
+                || self.last_tick.is_some_and(|old| tick < old);
+            if restarted {
+                self.pending = None;
+                self.pending_scenes.clear();
+                self.pending_tick = None;
+                self.current_area_id = None;
+                self.current_act = None;
+                self.last_seed_by_area.clear();
+                self.pinned_character = None;
+                self.player_level = None;
+                self.started = false;
+            }
+            self.client_process = Some(process);
+            self.last_tick = Some(tick);
+            if self
+                .pending_tick
+                .is_some_and(|start| tick.saturating_sub(start) > 180_000)
+            {
+                self.pending = None;
+                self.pending_scenes.clear();
+                self.pending_tick = None;
+            }
+        }
+        let event = event_parser::parse_line(line);
+        let generated = matches!(event, RawEvent::AreaGenerated { .. });
+        let out = self.on_raw(&event);
+        if generated {
+            self.pending_tick = self.last_tick;
+        } else if self.pending.is_none() {
+            self.pending_tick = None;
+        }
+        out
+    }
+
     pub fn on_raw(&mut self, event: &RawEvent) -> Vec<SessionEvent> {
         let mut out = Vec::new();
         if !self.started
@@ -106,6 +163,7 @@ impl SessionTracker {
                 seed,
                 ..
             } => {
+                self.pending_scenes.clear();
                 self.pending = Some(PendingGenerated {
                     area_id: area_id.clone(),
                     area_level: *area_level,
@@ -114,6 +172,33 @@ impl SessionTracker {
             }
             RawEvent::AreaEnteredName { display_name, at } => {
                 out.extend(self.resolve_entry(display_name, at));
+            }
+            RawEvent::SceneSource { display_name, .. } => {
+                if self.pending.is_some() && !self.pending_scenes.contains(display_name) {
+                    if self.pending_scenes.len() == 8 {
+                        self.pending_scenes.remove(0);
+                    }
+                    self.pending_scenes.push(display_name.clone());
+                }
+            }
+            RawEvent::LoadingCompleted { display_name, at } => {
+                out.extend(self.resolve_loading(display_name, at));
+            }
+            RawEvent::LoginConnecting { .. } => {
+                self.pending = None;
+                self.pending_scenes.clear();
+                self.pending_tick = None;
+                self.current_area_id = None;
+                self.current_act = None;
+                self.last_seed_by_area.clear();
+                self.pinned_character = None;
+                self.player_level = None;
+                self.started = false;
+            }
+            RawEvent::InstanceConnecting { .. } => {
+                self.pending = None;
+                self.pending_scenes.clear();
+                self.pending_tick = None;
             }
             RawEvent::LevelUp {
                 character,
@@ -145,6 +230,50 @@ impl SessionTracker {
             RawEvent::Unknown { .. } => {}
         }
         out
+    }
+
+    fn resolve_loading(&mut self, display_name: &str, at: &str) -> Vec<SessionEvent> {
+        // Consume exactly once. Never resolve a loading completion by name:
+        // without its generation it might belong to a stale/different load.
+        let Some(pending) = self.pending.take() else {
+            return Vec::new();
+        };
+        let area = self.areas.get(&pending.area_id);
+        let scene_matches = self.pending_scenes.iter().any(|name| name == display_name);
+        self.pending_scenes.clear();
+        if area.is_some_and(|area| area.name != display_name) || (area.is_none() && !scene_matches)
+        {
+            self.current_area_id = None;
+            self.current_act = None;
+            return vec![SessionEvent::UnresolvedArea {
+                display_name: display_name.to_string(),
+                at: at.to_string(),
+            }];
+        }
+        let new_instance = self.last_seed_by_area.get(&pending.area_id) != Some(&pending.seed);
+        self.last_seed_by_area
+            .insert(pending.area_id.clone(), pending.seed);
+        self.current_area_id = Some(pending.area_id.clone());
+        self.current_act = area.map(|area| area.act);
+        let event = match area {
+            Some(area) => SessionEvent::AreaEntered {
+                area_id: pending.area_id,
+                display_name: display_name.to_string(),
+                act: area.act,
+                area_level: pending.area_level,
+                is_town: area.is_town_area,
+                new_instance,
+                at: at.to_string(),
+            },
+            None => SessionEvent::UnmappedArea {
+                area_id: pending.area_id,
+                display_name: display_name.to_string(),
+                area_level: pending.area_level,
+                new_instance,
+                at: at.to_string(),
+            },
+        };
+        vec![event]
     }
 
     fn resolve_entry(&mut self, display_name: &str, at: &str) -> Vec<SessionEvent> {
@@ -207,10 +336,21 @@ impl SessionTracker {
     }
 }
 
+fn client_clock(line: &str) -> Option<(u32, u64)> {
+    let (prefix, _) = line.split_once("] ")?;
+    let process = prefix.rsplit_once(" Client ")?.1.parse().ok()?;
+    let tick = prefix.split_whitespace().nth(2)?.parse().ok()?;
+    Some((process, tick))
+}
+
 fn event_at(event: &RawEvent) -> Option<&str> {
     match event {
         RawEvent::AreaGenerated { at, .. }
         | RawEvent::AreaEnteredName { at, .. }
+        | RawEvent::LoadingCompleted { at, .. }
+        | RawEvent::SceneSource { at, .. }
+        | RawEvent::InstanceConnecting { at, .. }
+        | RawEvent::LoginConnecting { at, .. }
         | RawEvent::LevelUp { at, .. }
         | RawEvent::Slain { at, .. }
         | RawEvent::Unknown { at, .. } => Some(at),

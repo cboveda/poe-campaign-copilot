@@ -15,7 +15,6 @@ use config::AppConfig;
 use content::compile::Variant;
 use input_log::TailerHandle;
 use pipeline::{Pipeline, UiModel};
-use pob_import::LevelingBuildPlan;
 use serde::Serialize;
 use tauri::menu::{CheckMenuItem, Menu, MenuItem};
 use tauri::tray::TrayIconBuilder;
@@ -114,13 +113,8 @@ fn pick_log_file(app: tauri::AppHandle) -> Option<String> {
 /// pasted code before the user commits to `apply_settings`.
 #[tauri::command]
 fn import_pob(code: String) -> Result<PobSummary, String> {
-    let plan = parse_pob_code(&code)?;
-    Ok(PobSummary {
-        class_name: plan.class_name,
-        ascend_name: plan.ascend_name,
-        milestone_count: plan.milestones.len(),
-        reliability: reliability_str(plan.reliability),
-    })
+    let _ = code;
+    Err("PoE2 build imports are not supported in this release.".to_string())
 }
 
 #[tauri::command]
@@ -147,17 +141,13 @@ fn apply_settings(app: tauri::AppHandle, cfg: AppConfig) -> Result<(), String> {
 
     // (a) Validate first: nothing below should mutate shared state or the
     // config file on disk if the submitted settings don't even parse.
-    let variant = map_variant(&cfg.variant)?;
+    map_variant(&cfg.variant)?;
     hotkeys::validate(&cfg.hotkeys)?;
 
     // Pipeline/tailer rebuild only when a field that FEEDS it changed —
     // an opacity/hotkey-only Save must not reset in-progress route state.
     let pipeline_changed = !config::pipeline_configs_equal(&old_cfg, &cfg);
     if pipeline_changed {
-        let build = match cfg.pob_code.as_deref().map(str::trim) {
-            Some(code) if !code.is_empty() => Some(parse_pob_code(code)?),
-            _ => None,
-        };
         if let Some(path) = &cfg.client_log_path
             && !is_regular_file(path)
         {
@@ -175,7 +165,7 @@ fn apply_settings(app: tauri::AppHandle, cfg: AppConfig) -> Result<(), String> {
         // bad settings submission can't leave the live app (or the next
         // launch, which re-`Pipeline::new`s from the saved config and
         // `.expect()`s success) in a broken state.
-        let new_pipeline = Pipeline::new(variant, build).map_err(|e| e.to_string())?;
+        let new_pipeline = Pipeline::new_poe2().map_err(|e| e.to_string())?;
 
         // (c) Stop the OLD tailer's producer thread BEFORE swapping the
         // pipeline into state.pipeline. This ordering matters: the tailer's
@@ -500,23 +490,6 @@ fn map_variant(s: &str) -> Result<Variant, String> {
         "standard" => Ok(Variant::Standard),
         other => Err(format!("unknown route variant: {other}")),
     }
-}
-
-fn reliability_str(r: pob_import::Reliability) -> String {
-    match r {
-        pob_import::Reliability::Explicit => "explicit",
-        pob_import::Reliability::Structured => "structured",
-        pob_import::Reliability::Inferred => "inferred",
-        pob_import::Reliability::Unsupported => "unsupported",
-    }
-    .to_string()
-}
-
-fn parse_pob_code(code: &str) -> Result<LevelingBuildPlan, String> {
-    let gems = content::game_data::load_vendored_gems().map_err(|e| e.to_string())?;
-    let (areas, quests) = content::game_data::load_vendored().map_err(|e| e.to_string())?;
-    let xml = pob_import::decode_share_code(code).map_err(|e| e.to_string())?;
-    pob_import::parse_build(&xml, &gems, &quests, &areas).map_err(|e| e.to_string())
 }
 
 fn apply_setup_mode(app: &tauri::AppHandle, enabled: bool) {
@@ -878,20 +851,13 @@ fn open_logs_impl(app: &tauri::AppHandle) {
     }
 }
 
-/// Opens the bug-report issue form in the user's default browser (tray
-/// "Report a bug" item), with the newest diagnostics-log lines prefilled
-/// into the form's free-text field (see `bug_report::bug_report_url`).
-/// The browser page is the only place that data goes — nothing is
-/// transmitted until the user reviews the form and submits it on GitHub.
-/// A missing/empty log degrades to the plain, unprefilled form. "Open
-/// logs" remains the path for attaching the FULL file when the tail
-/// isn't enough.
+/// Opens only the fixed bug-report form. No diagnostics are read or encoded
+/// into the outgoing URL; users review/redact and attach logs explicitly.
 fn report_bug_impl(app: &tauri::AppHandle) {
-    let version = app.package_info().version.to_string();
-    let log_tail = diagnostics::log_path(app)
-        .and_then(|path| diagnostics::tail(&path, bug_report::LOG_TAIL_BYTES));
-    let url = bug_report::bug_report_url(&version, log_tail.as_deref());
-    if let Err(e) = app.opener().open_url(&url, None::<&str>) {
+    if let Err(e) = app
+        .opener()
+        .open_url(bug_report::bug_report_url(), None::<&str>)
+    {
         diagnostics::diag(&format!("report-bug: failed to open bug report page: {e}"));
     }
 }
@@ -929,8 +895,6 @@ fn main() {
         // handler (`on_shortcut`), so no builder-level handler either.
         .plugin(tauri_plugin_global_shortcut::Builder::new().build())
         .plugin(tauri_plugin_dialog::init())
-        .plugin(tauri_plugin_updater::Builder::new().build())
-        .plugin(tauri_plugin_process::init())
         .plugin(tauri_plugin_opener::init())
         .invoke_handler(tauri::generate_handler![
             get_model,
@@ -959,50 +923,10 @@ fn main() {
             diagnostics::init(app.handle());
             diagnostics::diag(&format!("app starting v{}", env!("CARGO_PKG_VERSION")));
 
-            // Packaged-build data root detection: MUST run before anything
-            // below that can trigger a `content::*_dir()` lookup (the
-            // config-load-triggered `parse_pob_code` call a few lines down
-            // loads vendored gem data; `Pipeline::new` further down loads
-            // the full vendored game data and layouts). `data_root::
-            // set_data_root` is a set-once `OnceLock` — once any lookup
-            // has happened, later calls can't relocate data mid-run — so
-            // this has to be the first thing `.setup()` does.
-            //
-            // A bundled install ships `vendor/` and `content/layouts/` as
-            // Tauri resources (see `tauri.conf.json`'s `bundle.resources`),
-            // copied next to the resolved resource dir. Detecting
-            // `resource_dir/vendor/exile-leveling` is how we tell a
-            // packaged run (resources present) apart from `tauri dev`
-            // (resource dir has no `vendor/`) — the latter falls through
-            // to `content::data_root`'s repo-root default untouched.
-            if let Ok(resource_dir) = app.path().resource_dir()
-                && resource_dir.join("vendor").join("exile-leveling").is_dir()
-                && let Err(rejected) = content::data_root::set_data_root(resource_dir.clone())
-            {
-                diagnostics::diag(&format!("data root already set; ignoring {rejected:?}"));
-            }
-
-            // Config load and initial Pipeline construction happen here
-            // (rather than before the Builder chain) because building the
-            // real pipeline needs the resolved variant/build from the
-            // config file, which in turn needs an AppHandle to locate the
-            // app config dir.
+            // PoE2 preview content is embedded at build time; runtime startup
+            // must not discover or load the legacy PoE1 vendor/resources.
             let cfg = config::load(app.handle());
-            let variant = map_variant(&cfg.variant).unwrap_or_else(|e| {
-                diagnostics::diag(&format!("config: {e}; falling back to league-start"));
-                Variant::LeagueStart
-            });
-            let build = cfg
-                .pob_code
-                .as_deref()
-                .and_then(|code| match parse_pob_code(code) {
-                    Ok(plan) => Some(plan),
-                    Err(e) => {
-                        diagnostics::diag(&format!("config: failed to parse saved PoB code: {e}"));
-                        None
-                    }
-                });
-            let mut pipeline = Pipeline::new(variant, build).expect("content data must load");
+            let mut pipeline = Pipeline::new_poe2().expect("PoE2 observation data must load");
 
             // Restore the previous session's route/session progress from
             // the on-disk journal BEFORE the state is managed (and thus

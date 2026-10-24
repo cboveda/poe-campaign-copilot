@@ -26,8 +26,7 @@ pub fn replay_lines<'a>(
     let mut tracker = SessionTracker::new(areas);
     let mut out = Vec::new();
     for line in lines {
-        let raw = event_parser::parse_line(line);
-        out.extend(tracker.on_raw(&raw));
+        out.extend(tracker.on_line(line));
     }
     out
 }

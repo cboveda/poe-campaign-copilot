@@ -1,0 +1,189 @@
+{
+  "format_version": 1,
+  "game": "poe2",
+  "coverage": "act1-preview",
+  "validation": "source-imported; live-patch and gameplay review pending",
+  "source": {
+    "project": "domistae/poe2-leveling",
+    "reference": "916bd138286fe1307113ec044bcb4d565432b516",
+    "url": "https://domistae.github.io/poe2-leveling/poe2_act1_guide.html",
+    "claimed_patch": "0.5.5",
+    "license": "MIT",
+    "sha256": "2de9136e350034c05028f4d905a4b57c032e25f5871991dfda199222a57533e0"
+  },
+  "visits": [
+    {
+      "name": "The Riverbank",
+      "source_heading": "Riverbank",
+      "objectives": [
+        "Talk to Wounded Man, equip starter weapon",
+        "Loot Large Chests, equip items + skills",
+        "Kill The Bloated Miller",
+        "Enter Clearfell Encampment behind boss"
+      ]
+    },
+    {
+      "name": "Clearfell Encampment",
+      "source_heading": "Clearfell Encampment",
+      "objectives": [
+        "Talk to Renly Skill Gem Lv1",
+        "Enter Clearfell"
+      ]
+    },
+    {
+      "name": "Clearfell",
+      "source_heading": "Clearfell",
+      "objectives": [
+        "Kill Beira of the Rotten Pack (north) +10% Cold Res",
+        "(Opt) Mud Burrow → The Devourer Skill Gem Lv2",
+        "(Opt) Abandoned Stash (inside the Mysterious Campsite) Skill Gem Lv1",
+        "Enter The Grelwood"
+      ]
+    },
+    {
+      "name": "The Grelwood",
+      "source_heading": "The Grelwood",
+      "objectives": [
+        "Find/summon/talk Una",
+        "Take waypoint",
+        "Enter Grim Tangle → take WP → return",
+        "Enter The Red Vale → take WP → return",
+        "(Opt) Kill Gerung, the Brambleghast Skill Gem Lv2",
+        "(Opt) Hut with Cauldron (medium life + mana flasks) → Areagne Support Gem Lv1",
+        "Enter The Red Vale"
+      ]
+    },
+    {
+      "name": "The Red Vale",
+      "source_heading": "The Red Vale",
+      "objectives": [
+        "Find 3 Obelisks of Rust, loot Runed Girdle each",
+        "The Rust King spawns on last obelisk Skill Gem Lv3",
+        "TP back to town"
+      ]
+    },
+    {
+      "name": "Clearfell Encampment",
+      "source_heading": "Clearfell Encampment",
+      "objectives": [
+        "Talk to Renly, get Runed Spikes",
+        "TP to Grelwood"
+      ]
+    },
+    {
+      "name": "The Grelwood",
+      "source_heading": "The Grelwood (Return)",
+      "objectives": [
+        "Activate 3 Runic Seals",
+        "Talk to Una",
+        "TP back to town"
+      ]
+    },
+    {
+      "name": "Clearfell Encampment",
+      "source_heading": "Clearfell Encampment",
+      "objectives": [
+        "Talk to Una",
+        "TP to Grim Tangle"
+      ]
+    },
+    {
+      "name": "The Grim Tangle",
+      "source_heading": "Grim Tangle",
+      "objectives": [
+        "(Opt) Kill Ervig, the Rotted Druid Support Gem",
+        "Enter Cemetery of the Eternals"
+      ]
+    },
+    {
+      "name": "Cemetery of the Eternals",
+      "source_heading": "Cemetery of the Eternals",
+      "objectives": [
+        "Talk to Lachlann the Lost",
+        "(Opt) Ancient Ruins (sarcophagus near checkpoint) Iron or Lazuli Ring",
+        "Mausoleum of the Praetor → Draven → Draven's Memorial Key Piece, TP back",
+        "(Opt) Mausoleum of the Praetor — Forgotten Riches hidden cache Support Gem 1 Loot Gold",
+        "Tomb of the Consort → Asinia → Asinia's Memorial Key Piece, TP back",
+        "(Opt) Haunted Treasure secret Support Gem Lv1",
+        "Open Memorial Gate next to Lachlann",
+        "Kill Lachlann, loot Ring Skill Gem Lv3",
+        "Exit to Hunting Grounds — take Waypoint WP",
+        "TP to town"
+      ]
+    },
+    {
+      "name": "Clearfell Encampment",
+      "source_heading": "Clearfell Encampment",
+      "objectives": [
+        "Talk to Finn, Una, The Hooded One"
+      ]
+    },
+    {
+      "name": "Hunting Grounds",
+      "source_heading": "Hunting Grounds",
+      "objectives": [
+        "(Opt) Talk to Delwyn — starts the wisp mechanic only",
+        "Kill The Crowbell +2 Skill Points",
+        "Enter Freythorn → take WP → return",
+        "Enter Ogham Farmlands → take WP → return",
+        "Small ritual event (not near the start of the zone) — do this one, it spawns the locust trail Support Gem Lv1",
+        "TP to Freythorn"
+      ]
+    },
+    {
+      "name": "Freythorn",
+      "source_heading": "Freythorn",
+      "objectives": [
+        "Activate 3 small Ritual Altars",
+        "Big Ritual Altar → kill The King in the Mists +30 Spirit Spirit Gem Lv4 (Persistent Buff)",
+        "(Opt) Ominous Altars → cleanse, then claim a Charm from Finn in town Ruby/Sapphire/Topaz Charm",
+        "TP to Ogham Farmlands"
+      ]
+    },
+    {
+      "name": "Ogham Farmlands",
+      "source_heading": "Ogham Farmlands",
+      "objectives": [
+        "Una's Lute Box in house near checkpoint → Una's Lute +2 Skill Points",
+        "(Opt) Rare dogs in crop circle Skill Gem Lv4",
+        "Enter Ogham Village"
+      ]
+    },
+    {
+      "name": "Ogham Village",
+      "source_heading": "Ogham Village",
+      "objectives": [
+        "(1st char) Smithing Tools in house Salvage Bench",
+        "(Opt) Blacksmith's Chest same house Blank Rune + Artificer's Orb",
+        "Kill The Executioner Support Gem Lv1",
+        "Upstairs → Lever → talk to Leitis",
+        "Enter The Manor Ramparts"
+      ]
+    },
+    {
+      "name": "The Manor Ramparts",
+      "source_heading": "The Manor Ramparts",
+      "objectives": [
+        "(Opt) Gallows secret (rope on hanging man, near checkpoint) Support Gem Lv1",
+        "Enter Ogham Manor"
+      ]
+    },
+    {
+      "name": "Ogham Manor",
+      "source_heading": "Ogham Manor",
+      "objectives": [
+        "Kill Candlemass (1st floor) +20 Max Life",
+        "Downstairs → kill Geonor (Act Boss)",
+        "TP back to town"
+      ]
+    },
+    {
+      "name": "Clearfell Encampment",
+      "source_heading": "Clearfell Encampment (End of Act)",
+      "objectives": [
+        "Talk to all NPCs",
+        "Talk to The Hooded One → \"Follow the Beast's Trail\""
+      ]
+    }
+  ]
+}
