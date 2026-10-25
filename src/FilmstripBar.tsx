@@ -1,4 +1,5 @@
 import "./FilmstripBar.css";
+import { groupObjectives } from "./objectiveGroups";
 import { TownReturnButton } from "./TownReturnButton";
 import {
   elapsedMs,
@@ -75,6 +76,10 @@ export function FilmstripBar({
   }
 
   const { overlay, images } = model;
+  const { campaign, optional } = groupObjectives(
+    overlay.steps_in_zone.length ? overlay.steps_in_zone : overlay.primary ? [overlay.primary] : [],
+  );
+  const compactPrimary = campaign[0] ?? optional[0] ?? "";
 
   const locationChip =
     overlay.location_status !== "on_track" ? (
@@ -120,7 +125,11 @@ export function FilmstripBar({
         <div className="compact-row">
           <span className="zone-name">{overlay.zone_name}</span>
           {locationChip}
-          <span className="compact-primary">{overlay.primary}</span>
+          {!campaign.length && optional.length > 0 && <span className="optional-chip">Optional</span>}
+          <span className="compact-primary">{compactPrimary}</span>
+          {campaign.length > 0 && optional.length > 0 && (
+            <span className="optional-chip">{optional.length} optional</span>
+          )}
           {overlay.next_zone && (
             <span className="compact-next">&rarr; {overlay.next_zone}</span>
           )}
@@ -167,30 +176,30 @@ export function FilmstripBar({
             </div>
           )}
 
-          {/* Objective card — the current route step, styled as the
-              gold "do this" card. Zone sub-steps and directional hints sit
-              beneath it. */}
-          {overlay.primary && (
-            <div className="note-card objective">
+          {campaign.length > 0 && (
+            <section className="note-card objective" aria-label="Campaign objectives">
               <span className="nc-ic" aria-hidden="true">{NOTE_ICON.objective}</span>
               <div className="nc-body">
-                <div className="nc-kicker">{NOTE_LABEL.objective}</div>
-                <div className="nc-text">{overlay.primary}</div>
-                {overlay.steps_in_zone.length > 1 && (
-                  <ul className="nc-sub">
-                    {overlay.steps_in_zone.slice(1).map((step, i) => (
-                      <li key={i}>{step}</li>
-                    ))}
-                  </ul>
-                )}
-                {overlay.sub_hints.map((hint, i) => (
-                  <div key={i} className="nc-hint">
-                    {hint}
-                  </div>
-                ))}
+                <div className="nc-kicker">{overlay.steps_in_zone.length ? "Campaign" : "Route status"}</div>
+                <div className="nc-text">{campaign[0]}</div>
+                {campaign.length > 1 && <ul className="nc-sub">
+                  {campaign.slice(1).map((step, i) => <li key={i}>{step}</li>)}
+                </ul>}
               </div>
-            </div>
+            </section>
           )}
+          {optional.length > 0 && (
+            <section className="note-card optional" aria-label="Optional objectives">
+              <span className="nc-ic" aria-hidden="true">◇</span>
+              <div className="nc-body">
+                <div className="nc-kicker">Optional</div>
+                <ul className="nc-sub optional-list">
+                  {optional.map((step, i) => <li key={i}>{step}</li>)}
+                </ul>
+              </div>
+            </section>
+          )}
+          {overlay.sub_hints.map((hint, i) => <div key={i} className="nc-hint">{hint}</div>)}
 
           {/* Layout / danger note cards — colour-coded by category.
               Outdated notes are dropped upstream, so every note shown is

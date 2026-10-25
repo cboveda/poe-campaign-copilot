@@ -160,3 +160,16 @@ shows guidance unavailable, include only its sanitized generation, scene and
 loading-completion lines so the display name/ID can be verified. Parent-zone
 labels describe route context; they do not instruct a specific portal method.
 These Windows/gameplay checks remain pending until reported.
+
+## Campaign / optional display check
+
+After pulling the objective-grouping update, restart the preview and enter
+Clearfell (an existing character is fine). Expected: Beira/permanent-bonus
+and onward travel guidance appear under **Campaign**; Mud Burrow and stash
+objectives appear under **Optional**, with no `(Opt)` prefix. This changes
+presentation only; it does not mark any quest/reward complete.
+
+Toggle compact mode (Alt+Shift+C). Expected: a campaign objective remains
+primary and a separate optional-item count appears. In an optional-only
+area such as Mud Burrow, the compact objective should be labeled Optional.
+Confirm the grouping/readability on Windows; no boss re-kill is required.

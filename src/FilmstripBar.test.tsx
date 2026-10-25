@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen, within } from "@testing-library/react";
 import { describe, expect, it, vi } from "vitest";
 import { FilmstripBar, type FilmstripBarProps } from "./FilmstripBar";
 import { IDLE_RUN_TIMER } from "./runTimer";
@@ -419,5 +419,44 @@ describe("FilmstripBar", () => {
       });
       expect(screen.getByText("0:00:05")).toBeInTheDocument();
     });
+  });
+});
+
+
+describe("campaign and optional objective groups", () => {
+  it("separates optional loot from campaign/permanent-bonus steps, even when the source starts optional", () => {
+    renderBar({model:model({primary:"(Opt) Talk to Delwyn",steps_in_zone:[
+      "(Opt) Talk to Delwyn", "Kill The Crowbell +2 Skill Points", "(Opt) Find a cache", "Enter Freythorn",
+    ]})});
+    const campaign = screen.getByRole("region",{name:"Campaign objectives"});
+    const optional = screen.getByRole("region",{name:"Optional objectives"});
+    expect(within(campaign).getByText("Kill The Crowbell +2 Skill Points")).toBeInTheDocument();
+    expect(within(campaign).getByText("Enter Freythorn")).toBeInTheDocument();
+    expect(within(campaign).queryByText("Talk to Delwyn")).not.toBeInTheDocument();
+    expect(within(optional).getByText("Talk to Delwyn")).toBeInTheDocument();
+    expect(within(optional).getByText("Find a cache")).toBeInTheDocument();
+    expect(screen.queryByText(/\(Opt\)/)).not.toBeInTheDocument();
+  });
+  it("shows an optional-only side area without an empty campaign card or losing route hints", () => {
+    renderBar({model:model({primary:"(Opt) Kill The Devourer",steps_in_zone:["(Opt) Kill The Devourer"],sub_hints:["Parent route: Clearfell"]})});
+    expect(screen.queryByRole("region",{name:"Campaign objectives"})).not.toBeInTheDocument();
+    expect(within(screen.getByRole("region",{name:"Optional objectives"})).getByText("Kill The Devourer")).toBeInTheDocument();
+    expect(screen.getByText("Parent route: Clearfell")).toBeInTheDocument();
+  });
+  it("does not render an empty optional section", () => {
+    renderBar({model:model()});
+    expect(screen.queryByRole("region",{name:"Optional objectives"})).not.toBeInTheDocument();
+  });
+  it("prioritizes campaign guidance in compact mode and summarizes optional items separately", () => {
+    renderBar({compact:true,model:model({primary:"(Opt) Find a cache",steps_in_zone:["(Opt) Find a cache","Enter The Grelwood"]})});
+    expect(screen.getByText("Enter The Grelwood")).toBeInTheDocument();
+    expect(screen.getByText("1 optional")).toBeInTheDocument();
+    expect(screen.queryByText("Find a cache")).not.toBeInTheDocument();
+  });
+  it("labels optional-only compact guidance without the source marker", () => {
+    renderBar({compact:true,model:model({primary:"(Opt) Kill The Devourer",steps_in_zone:["(Opt) Kill The Devourer"]})});
+    expect(screen.getByText("Optional")).toBeInTheDocument();
+    expect(screen.getByText("Kill The Devourer")).toBeInTheDocument();
+    expect(screen.queryByText(/\(Opt\)/)).not.toBeInTheDocument();
   });
 });

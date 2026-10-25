@@ -363,3 +363,10 @@ body,
 .town-return-button:disabled { opacity: 0.65; cursor: default; }
 .town-return-help { font-size: 11px; color: var(--parch-dim); }
 .town-return-error { color: var(--coral); font-size: 12px; }
+
+.note-card.optional { --nc-accent: var(--teal); }
+.optional-list { margin-top: 3px; }
+.optional-chip {
+  color: var(--teal); font-size: 10px; flex-shrink: 0;
+  border: 1px solid rgba(111, 182, 176, 0.35); border-radius: 3px; padding: 1px 4px;
+}
