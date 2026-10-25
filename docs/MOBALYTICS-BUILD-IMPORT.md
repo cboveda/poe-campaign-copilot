@@ -1,4 +1,4 @@
-# Mobalytics campaign build import (alpha.6)
+# Mobalytics campaign build import (alpha.7)
 
 The app can import a public English Mobalytics PoE2 build page directly,
 without PoB, a Mobalytics account, browser automation, or executing page
@@ -60,7 +60,7 @@ To refresh a blocked build, save a new copy from the browser and repeat.
 ## If saving the page stalls
 
 A Complete save can wait on remote images, ads or other assets. Cancel it
-and try **Webpage, HTML Only**, or use the no-download option in alpha.6:
+and try **Webpage, HTML Only**, or use the no-download option in alpha.7:
 
 1. Open the build page in your normal browser and press **Ctrl+U**.
 2. In the source tab, press **Ctrl+A**, then **Ctrl+C**.
@@ -71,7 +71,12 @@ and try **Webpage, HTML Only**, or use the no-download option in alpha.6:
 Copy the source HTML, not the rendered article's visible text. This sends
 text only to the local native parser; there is no external fetch, automatic
 clipboard access, or script execution. The same 8 MiB cap and matching-build
-checks apply. The text field clears after a successful preview. Nothing is
+checks apply. The source transfers in small messages with a percentage indicator, followed
+by **Parsing build stages…**. A native request that does not respond within
+20 seconds produces a restart instruction. After success, **Preview ready —
+build has not been saved** and the focused **Save imported build** button
+appear at the top of Build guide. Errors also appear at the top. The source
+text field clears only after a usable preview is returned. Nothing is
 saved until the explicit Save action.
 
 ## Scope and limitations
@@ -150,3 +155,14 @@ No in-game execution is automated. When checking on Windows:
    guidance should disappear. No boss kill or fresh character is required.
 5. Disconnect from the network and restart: the saved build should remain
    usable. A failed update check should show an error and keep that snapshot.
+
+## If preview stays on Working or no Save button appears
+
+Quit the app using its tray menu and stop the development process with
+Ctrl+C before pulling changes and restarting. The frontend and native
+commands must both be current. Re-paste the source and preview again. Note
+whether the status stops at Starting source import, Reading page source,
+or Parsing build stages, or shows an error. Report that status if it fails.
+Windows runtime validation remains manual. The small-message transport is
+covered with Unicode, timeout, cancellation,
+size-limit and stale-transfer tests.

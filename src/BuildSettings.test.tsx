@@ -15,8 +15,10 @@ const plan: BuildPlan = {
   {id: "act2", title: "ACT 2", acts: [2], passive_nodes: [], items: [], notes: ["Act 2 instructions"]}],
 };
 let saved: SavedBuild;
+let finishResult: BuildPlan | null;
 beforeEach(() => {
   saved = {plan: null, profile: "Current character", profiles: {}};
+  finishResult = structuredClone(plan);
   invoke.mockReset(); listen.mockReset();
   listen.mockResolvedValue(() => {});
   invoke.mockImplementation(async (command: string, args?: Record<string, unknown>) => {
@@ -24,8 +26,11 @@ beforeEach(() => {
       case "get_build": return structuredClone(saved);
       case "get_model": return {build_act: 1};
       case "preview_mobalytics":
-      case "preview_mobalytics_file":
-      case "preview_mobalytics_source": return structuredClone(plan);
+      case "preview_mobalytics_file": return structuredClone(plan);
+      case "begin_source_import": return "transfer-1";
+      case "append_source_import":
+      case "cancel_source_import": return;
+      case "finish_source_import": return structuredClone(finishResult);
       case "save_imported_build": saved.plan = structuredClone(plan); return structuredClone(saved);
       case "remove_build": saved.plan = null; return structuredClone(saved);
       case "set_build_profile": {
@@ -53,6 +58,8 @@ async function imported() {
 describe("Mobalytics build settings", () => {
   it("previews before saving and renders a stage's linked targets and plain-text notes", async () => {
     await imported();
+    expect(screen.getByRole("status")).toHaveTextContent("Preview ready — build has not been saved.");
+    await waitFor(() => expect(screen.getByRole("button", {name: "Save imported build"})).toHaveFocus());
     expect(invoke).not.toHaveBeenCalledWith("save_imported_build", undefined);
     expect(screen.getByText(/Endgame stages excluded/)).toBeInTheDocument();
     fireEvent.click(screen.getByRole("button", {name: "Save imported build"}));
@@ -94,10 +101,24 @@ describe("Mobalytics build settings", () => {
     fireEvent.change(screen.getByLabelText("Page source HTML"), {target: {value: html}});
     fireEvent.click(screen.getByRole("button", {name: "Preview pasted source"}));
     await screen.findByRole("region", {name: "Import preview"});
-    expect(invoke).toHaveBeenCalledWith("preview_mobalytics_source", {url: plan.source_url, html});
+    expect(invoke).toHaveBeenCalledWith("begin_source_import", {url: plan.source_url});
+    expect(invoke).toHaveBeenCalledWith("append_source_import", {token: "transfer-1", chunk: html});
+    expect(invoke).toHaveBeenCalledWith("finish_source_import", {token: "transfer-1"});
     expect(invoke.mock.calls.some(call => call[0] === "preview_mobalytics")).toBe(false);
     expect(invoke.mock.calls.some(call => call[0] === "save_imported_build")).toBe(false);
     expect(screen.getByLabelText("Page source HTML")).toHaveValue("");
+  });
+  it("reports an empty preview response instead of silently hiding the save action", async () => {
+    render(<BuildSettings />);
+    await waitFor(() => expect(screen.queryByText("Loading saved build…")).not.toBeInTheDocument());
+    fireEvent.change(screen.getByLabelText("Mobalytics PoE2 build link"), {target: {value: plan.source_url}});
+    fireEvent.click(screen.getByText("Paste page source instead (no download)"));
+    fireEvent.change(screen.getByLabelText("Page source HTML"), {target: {value: "example source"}});
+    finishResult = null;
+    fireEvent.click(screen.getByRole("button", {name: "Preview pasted source"}));
+    expect(await screen.findByRole("alert")).toHaveTextContent("No usable build preview was returned");
+    expect(screen.getByLabelText("Page source HTML")).toHaveValue("example source");
+    expect(screen.queryByRole("button", {name: "Save imported build"})).not.toBeInTheDocument();
   });
   it("keeps the saved build when a refresh fails", async () => {
     saved.plan = structuredClone(plan);

@@ -1,16 +1,19 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { invoke } from "@tauri-apps/api/core";
 import { listen, type UnlistenFn } from "@tauri-apps/api/event";
 import type { BuildPlan, SavedBuild, UiModel } from "./types";
 import "./BuildSettings.css";
+import { previewSourceChunks } from "./sourceImport";
 
 export function BuildSettings() {
+  const saveButton = useRef<HTMLButtonElement>(null);
   const [saved, setSaved] = useState<SavedBuild | null>(null);
   const [preview, setPreview] = useState<BuildPlan | null>(null);
   const [url, setUrl] = useState("");
   const [pageSource, setPageSource] = useState("");
   const [profile, setProfile] = useState("");
   const [act, setAct] = useState<number | null>(null);
+  const [transferStatus, setTransferStatus] = useState("");
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
   useEffect(() => {
@@ -32,6 +35,17 @@ export function BuildSettings() {
     return () => { disposed = true; stop?.(); };
   }, []);
 
+  useEffect(() => {
+    if (preview) saveButton.current?.focus();
+  }, [preview]);
+
+  function showPreview(value: BuildPlan) {
+    if (!value || typeof value.title !== "string" || !Array.isArray(value.stages) || value.stages.length === 0) {
+      throw new Error("No usable build preview was returned. Restart the app and try previewing the source again.");
+    }
+    setPreview(value);
+  }
+
   async function mutate(command: string, args?: Record<string, unknown>) {
     setBusy(true); setError(null);
     try {
@@ -42,20 +56,23 @@ export function BuildSettings() {
   }
   async function fetchPreview(target: string) {
     setBusy(true); setError(null); setPreview(null);
-    try { setPreview(await invoke<BuildPlan>("preview_mobalytics", {url: target})); }
+    try { showPreview(await invoke<BuildPlan>("preview_mobalytics", {url: target})); }
     catch (e) { setError(String(e)); } finally { setBusy(false); }
   }
   async function previewSavedPage() {
     setBusy(true); setError(null); setPreview(null);
-    try { setPreview(await invoke<BuildPlan | null>("preview_mobalytics_file", {url})); }
+    try {
+      const value = await invoke<BuildPlan | null>("preview_mobalytics_file", {url});
+      if (value !== null) showPreview(value);
+    }
     catch (e) { setError(String(e)); } finally { setBusy(false); }
   }
   async function previewSource() {
     setBusy(true); setError(null); setPreview(null);
     try {
-      setPreview(await invoke<BuildPlan>("preview_mobalytics_source", {url, html: pageSource}));
+      showPreview(await previewSourceChunks(url, pageSource, setTransferStatus));
       setPageSource("");
-    } catch (e) { setError(String(e)); } finally { setBusy(false); }
+    } catch (e) { setError(String(e)); } finally { setBusy(false); setTransferStatus(""); }
   }
   const plan = saved?.plan;
   const progress = saved?.profiles[saved.profile];
@@ -66,6 +83,21 @@ export function BuildSettings() {
 
   return <section className="settings-row build-settings" aria-label="Mobalytics build">
     <h2>Build guide</h2>
+    {busy && <p role="status">{transferStatus || "Working…"}</p>}
+    {error && <p role="alert" className="preview-error">{error}</p>}
+    {!saved && !error && <p>Loading saved build…</p>}
+    {preview && <section className="build-preview" aria-label="Import preview">
+      <p role="status"><strong>Preview ready — build has not been saved.</strong></p>
+      <div className="build-actions">
+        <button ref={saveButton} type="button" className="btn btn-secondary" disabled={busy} onClick={() => mutate("save_imported_build")}>Save imported build</button>
+        <button type="button" className="btn btn-secondary" disabled={busy} onClick={() => setPreview(null)}>Cancel preview</button>
+      </div>
+      <strong>{preview.title}</strong><p>By {preview.author} · {preview.stages.length} campaign stages</p>
+      <ul>{preview.stages.map(s => <li key={s.id}>{s.title}: {s.items.length} targets{s.acts.length === 0 ? " (manual stage selection)" : ""}</li>)}</ul>
+      {preview.skipped_stages.length > 0 && <p>Endgame stages excluded: {preview.skipped_stages.join(", ")}</p>}
+      <p>Saving replaces the current build and clears its completion checkmarks for all profiles. Campaign progress is kept.</p>
+    </section>}
+
     <label className="settings-label" htmlFor="build-url">Mobalytics PoE2 build link</label>
     <input id="build-url" className="build-input" type="url" value={url} disabled={busy}
       onChange={e => { setUrl(e.target.value); setPreview(null); }} placeholder="https://mobalytics.gg/poe-2/builds/…" />
@@ -88,21 +120,11 @@ export function BuildSettings() {
         onChange={e => { setPageSource(e.target.value); setPreview(null); }} />
       <button type="button" className="btn btn-secondary" disabled={busy || !saved || !url.trim() || !pageSource.trim()}
         onClick={previewSource}>Preview pasted source</button>
+      {(!url.trim() || !pageSource.trim()) && !preview && <p>Enter the build link and paste its source to enable this preview.</p>}
     </details>
     <p>You can also save the page as Webpage, HTML Only and choose Preview saved page.
       If a Complete save stalls while downloading assets, cancel it and use HTML Only
       or paste the source above. PDF and MHTML files are not supported.</p>
-    {busy && <p role="status">Working…</p>}
-    {error && <p role="alert" className="preview-error">{error}</p>}
-    {!saved && !error && <p>Loading saved build…</p>}
-    {preview && <section className="build-preview" aria-label="Import preview">
-      <strong>{preview.title}</strong><p>By {preview.author} · {preview.stages.length} campaign stages</p>
-      <ul>{preview.stages.map(s => <li key={s.id}>{s.title}: {s.items.length} targets{s.acts.length === 0 ? " (manual stage selection)" : ""}</li>)}</ul>
-      {preview.skipped_stages.length > 0 && <p>Endgame stages excluded: {preview.skipped_stages.join(", ")}</p>}
-      <p>Saving replaces the current build and clears its completion checkmarks for all profiles. Campaign progress is kept.</p>
-      <button type="button" className="btn btn-secondary" disabled={busy} onClick={() => mutate("save_imported_build")}>Save imported build</button>
-      <button type="button" className="btn btn-secondary" disabled={busy} onClick={() => setPreview(null)}>Cancel preview</button>
-    </section>}
     {plan && <>
       <h3>{plan.title}</h3>
       <p className="build-source">By {plan.author} · source updated {plan.source_updated || "unknown"}<br />

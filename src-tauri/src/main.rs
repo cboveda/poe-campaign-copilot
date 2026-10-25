@@ -11,6 +11,7 @@ mod mobalytics;
 mod overlay_hit_test;
 mod pipeline;
 mod run_timer;
+mod source_upload;
 
 use std::sync::Mutex;
 use std::sync::atomic::{AtomicBool, Ordering};
@@ -28,6 +29,7 @@ use tauri_plugin_opener::OpenerExt;
 use tauri_plugin_window_state::StateFlags;
 
 struct AppState {
+    source_upload: Mutex<source_upload::SourceUpload>,
     pending_build: Mutex<Option<build_plan::BuildPlan>>,
     pipeline: Mutex<Pipeline>,
     overlay_action_bounds: Mutex<Option<(overlay_hit_test::ActionBounds, std::time::Instant)>>,
@@ -103,14 +105,48 @@ fn preview_mobalytics_file(
 }
 
 #[tauri::command]
-fn preview_mobalytics_source(
+fn begin_source_import(app: tauri::AppHandle, url: String) -> Result<String, String> {
+    let url = mobalytics::canonical_url(&url)?;
+    let state = app.state::<AppState>();
+    let mut upload = state.source_upload.lock().unwrap();
+    let token = upload.begin(url);
+    *state.pending_build.lock().unwrap() = None;
+    Ok(token)
+}
+#[tauri::command]
+fn append_source_import(
+    state: State<AppState>,
+    token: String,
+    chunk: String,
+) -> Result<(), String> {
+    state.source_upload.lock().unwrap().append(&token, &chunk)
+}
+#[tauri::command]
+fn cancel_source_import(state: State<AppState>, token: String) {
+    state.source_upload.lock().unwrap().cancel(&token);
+}
+#[tauri::command]
+async fn finish_source_import(
     app: tauri::AppHandle,
-    url: String,
-    html: String,
+    token: String,
 ) -> Result<build_plan::BuildPlan, String> {
-    *app.state::<AppState>().pending_build.lock().unwrap() = None;
-    let plan = mobalytics::parse_page(&html, &url)?;
-    *app.state::<AppState>().pending_build.lock().unwrap() = Some(plan.clone());
+    let transfer = app
+        .state::<AppState>()
+        .source_upload
+        .lock()
+        .unwrap()
+        .take(&token)?;
+    let plan = tauri::async_runtime::spawn_blocking(move || {
+        mobalytics::parse_page(&transfer.html, &transfer.url)
+    })
+    .await
+    .map_err(|e| format!("Source parser could not finish: {e}"))??;
+    let state = app.state::<AppState>();
+    let upload = state.source_upload.lock().unwrap();
+    if !upload.is_latest(&token) {
+        return Err("Source preview was cancelled. Try again.".into());
+    }
+    *state.pending_build.lock().unwrap() = Some(plan.clone());
     Ok(plan)
 }
 
@@ -1149,7 +1185,10 @@ fn main() {
             get_build,
             preview_mobalytics,
             preview_mobalytics_file,
-            preview_mobalytics_source,
+            begin_source_import,
+            append_source_import,
+            finish_source_import,
+            cancel_source_import,
             save_imported_build,
             set_build_profile,
             set_build_item,
@@ -1208,6 +1247,7 @@ fn main() {
             }
 
             app.manage(AppState {
+                source_upload: Mutex::new(Default::default()),
                 pending_build: Mutex::new(None),
                 pipeline: Mutex::new(pipeline),
                 overlay_action_bounds: Mutex::new(None),

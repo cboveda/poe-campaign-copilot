@@ -16,7 +16,7 @@ npm ci
 npm run tauri dev
 ```
 
-The current preview is 0.2.0-alpha.6. Use the source containing the PoE2
+The current preview is 0.2.0-alpha.7. Use the source containing the PoE2
 changes; an older main checkout is not equivalent. Select the real PoE2 log
 from Settings. Normal tailing starts at EOF; enter a zone after starting it.
 
