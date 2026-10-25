@@ -460,3 +460,11 @@ describe("campaign and optional objective groups", () => {
     expect(screen.queryByText(/\(Opt\)/)).not.toBeInTheDocument();
   });
 });
+
+describe("remaining chapter labels", () => {
+  it("uses the Interlude label rather than calling it Act 5", () => {
+    renderBar({model:model({act:5,zone_name:"Kriar Village"},{chapter_label:"Interlude 5.3"})});
+    expect(screen.getByText("Interlude 5.3")).toBeInTheDocument();
+    expect(screen.queryByText("ACT 5")).not.toBeInTheDocument();
+  });
+});

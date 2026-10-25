@@ -45,6 +45,7 @@ export interface UiModel {
   images: UiImage[];
   waiting_for_log: boolean;
   pending_town_return?: boolean;
+  chapter_label?: string | null;
   build_summary: string | null;
 }
 

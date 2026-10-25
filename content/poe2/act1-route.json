@@ -11,6 +11,7 @@
     "url": "https://domistae.github.io/poe2-leveling/poe2_act1_guide.html",
     "claimed_patch": "0.5.5",
     "license": "MIT",
+    "checksum_normalization": "UTF-8 with LF line endings",
     "sha256": "2de9136e350034c05028f4d905a4b57c032e25f5871991dfda199222a57533e0"
   },
   "visits": [

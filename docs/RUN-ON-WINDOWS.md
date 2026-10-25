@@ -1,8 +1,8 @@
 # Run PoE2 Campaign Copilot on Windows
 
-These instructions are for **0.2.0-alpha.2**, an Act 1 development preview.
-It has not yet been validated on a Windows gaming PC. The full campaign,
-build imports, diagrams and automatic updates are not available yet.
+These instructions are for **0.2.0-alpha.3**, a campaign-guide development preview for Acts 1–4 and Interludes.
+It has not yet been validated on a Windows gaming PC. Campaign content is source-imported and still needs gameplay validation.
+Build imports, diagrams, endgame guidance and automatic updates remain unavailable.
 
 ## 1. Install the tools once
 
@@ -47,7 +47,7 @@ using a GitHub account with repository access. Do not put tokens into URLs.
 Use this preview branch rather than the PoE1 `main` branch.
 
 Alternatively, on GitHub select `codex/poe2-preview-alpha2`, then choose
-**Code → Download ZIP**, or use the supplied alpha.2 source ZIP if available.
+**Code → Download ZIP**, or use a source ZIP generated from that branch.
 
 Right-click the ZIP → **Extract All**. Open the extracted project folder
 containing `package.json`, `Cargo.toml`, `src` and `src-tauri`. Click File
@@ -61,7 +61,7 @@ Confirm that this is the preview:
 (Get-Content .\package.json -Raw | ConvertFrom-Json).version
 ```
 
-Expected: `0.2.0-alpha.2`.
+Expected: `0.2.0-alpha.3`.
 
 ## 3. Install dependencies and launch
 
@@ -92,9 +92,10 @@ necessary. The overlay intentionally does not have a normal taskbar button.
 5. Enter another area in PoE2. The app starts reading at the end of the log,
    so it does not replay your earlier travels on first launch.
 
-Expected: the overlay shows the area you entered. Supported Act 1 zones
-also show advisory route objectives and an **Act 1 preview** note. Other
-areas show their location with guidance unavailable. Entering an area does
+Expected: the overlay shows the area you entered. Known campaign areas show advisory route objectives. Acts 2/3 use the
+sequential guide; Act 4 islands and Interludes use local guidance without
+automatically completing other branches. Other areas show their location
+with guidance unavailable. Entering an area does
 not confirm that you killed its boss or collected its rewards.
 
 ### Planned town returns

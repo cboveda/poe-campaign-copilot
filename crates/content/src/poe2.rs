@@ -170,3 +170,233 @@ mod side_area_tests {
         assert!(sides[2].objectives[0].contains("Asinia"));
     }
 }
+
+#[derive(Deserialize)]
+struct RemainingCampaign {
+    format_version: u32,
+    game: String,
+    target_patch: String,
+    chapters: Vec<Chapter>,
+}
+#[derive(Deserialize)]
+struct Chapter {
+    id: String,
+    label: String,
+    act: u8,
+    mode: String,
+    visits: Vec<CampaignVisit>,
+    #[serde(default)]
+    context_objectives: Vec<String>,
+}
+#[derive(Deserialize)]
+struct CampaignVisit {
+    #[serde(default)]
+    parent: Option<String>,
+    name: String,
+    aliases: Vec<String>,
+    source_heading: String,
+    is_town: bool,
+    objectives: Vec<String>,
+}
+#[derive(Debug, Clone)]
+pub struct LocalGuidance {
+    pub area_id: String,
+    pub return_to: Option<String>,
+    pub label: String,
+    pub objectives: Vec<String>,
+    pub context_objectives: Vec<String>,
+}
+pub struct CampaignPreview {
+    pub areas: AreaMap,
+    pub steps: Vec<CompiledStep>,
+    pub aliases: std::collections::BTreeMap<String, Vec<String>>,
+    pub local_guidance: Vec<LocalGuidance>,
+}
+
+/// Names are compared exactly except for leading The and apostrophe style.
+/// No substring/fuzzy match and no fabricated game identifier is involved.
+pub fn normalize_area_name(name: &str) -> String {
+    let name = name.trim().replace('\u{2019}', "'").to_lowercase();
+    name.strip_prefix("the ").unwrap_or(&name).to_string()
+}
+
+/// Candidate campaign-style namespace; a known guide name must also match.
+/// The number is only an ambiguity hint;
+/// chapter metadata comes from the matched source area, not an ID guess.
+pub fn campaign_namespace(id: &str) -> Option<u8> {
+    let (number, rest) = id.strip_prefix('G')?.split_once('_')?;
+    let number = number.parse::<u8>().ok()?;
+    (number > 0 && !rest.is_empty()).then_some(number)
+}
+
+pub fn load_campaign_preview() -> Result<CampaignPreview, GameDataError> {
+    let remaining: RemainingCampaign = serde_json::from_str(include_str!(
+        "../../../content/poe2/remaining-campaign.json"
+    ))?;
+    if remaining.format_version != 1
+        || remaining.game != "poe2"
+        || remaining.target_patch != "0.5.5"
+    {
+        return Err(std::io::Error::new(
+            std::io::ErrorKind::InvalidData,
+            "unsupported remaining campaign pack",
+        )
+        .into());
+    }
+    let (mut areas, mut steps) = load_act1_preview()?;
+    let mut aliases: std::collections::BTreeMap<String, Vec<String>> = Default::default();
+    for area in areas.values() {
+        aliases
+            .entry(normalize_area_name(&area.name))
+            .or_default()
+            .push(area.id.clone());
+    }
+    let mut local_guidance: Vec<LocalGuidance> = Vec::new();
+    for chapter in remaining.chapters {
+        if !(2..=5).contains(&chapter.act)
+            || !["sequential", "area_guidance"].contains(&chapter.mode.as_str())
+        {
+            return Err(std::io::Error::new(
+                std::io::ErrorKind::InvalidData,
+                "invalid campaign chapter",
+            )
+            .into());
+        }
+        for (visit_index, visit) in chapter.visits.into_iter().enumerate() {
+            if visit.name.trim().is_empty()
+                || visit.objectives.is_empty()
+                || visit.aliases.is_empty()
+            {
+                return Err(std::io::Error::new(
+                    std::io::ErrorKind::InvalidData,
+                    "empty campaign visit",
+                )
+                .into());
+            }
+            let area_id = areas
+                .values()
+                .find(|area| {
+                    area.act == chapter.act
+                        && normalize_area_name(&area.name) == normalize_area_name(&visit.name)
+                })
+                .map(|area| area.id.clone())
+                .unwrap_or_else(|| {
+                    format!(
+                        "poe2-guide:{}:{}",
+                        chapter.id,
+                        normalize_area_name(&visit.name).replace(' ', "-")
+                    )
+                });
+            let area = areas.entry(area_id.clone()).or_insert_with(|| Area {
+                id: area_id.clone(),
+                name: visit.name.clone(),
+                act: chapter.act,
+                level: None,
+                has_waypoint: false,
+                is_town_area: visit.is_town,
+                parent_town_area_id: None,
+                connection_ids: Vec::new(),
+                crafting_recipes: Vec::new(),
+            });
+            area.is_town_area |= visit.is_town;
+            for alias in visit.aliases.iter().chain(std::iter::once(&visit.name)) {
+                let ids = aliases.entry(normalize_area_name(alias)).or_default();
+                if !ids.contains(&area_id) {
+                    ids.push(area_id.clone());
+                }
+            }
+            if chapter.mode == "sequential" {
+                for (index, text) in visit.objectives.into_iter().enumerate() {
+                    steps.push(CompiledStep {
+                        id: format!("poe2-{}-v{visit_index}-s{index}", chapter.id),
+                        act: chapter.act,
+                        section: visit.source_heading.clone(),
+                        area_context: area_id.clone(),
+                        fragments: vec![Fragment::Text { value: text }],
+                        sub_steps: Vec::new(),
+                    });
+                }
+            } else if let Some(existing) = local_guidance
+                .iter_mut()
+                .find(|guide| guide.area_id == area_id)
+            {
+                existing.objectives.extend(visit.objectives);
+            } else {
+                local_guidance.push(LocalGuidance {
+                    area_id,
+                    return_to: visit.parent,
+                    label: chapter.label.clone(),
+                    objectives: visit.objectives,
+                    context_objectives: chapter.context_objectives.clone(),
+                });
+            }
+        }
+    }
+    Ok(CampaignPreview {
+        areas,
+        steps,
+        aliases,
+        local_guidance,
+    })
+}
+
+#[cfg(test)]
+mod campaign_tests {
+    use super::*;
+    #[test]
+    fn remaining_campaign_has_referenced_unique_sequential_steps_and_branch_guidance() {
+        let pack = load_campaign_preview().unwrap();
+        let counts: Vec<_> = (1..=3)
+            .map(|act| pack.steps.iter().filter(|step| step.act == act).count())
+            .collect();
+        assert_eq!(counts, [65, 78, 79]);
+        let ids: std::collections::BTreeSet<_> = pack.steps.iter().map(|step| &step.id).collect();
+        assert_eq!(ids.len(), pack.steps.len());
+        assert!(
+            pack.steps
+                .iter()
+                .all(|step| pack.areas.contains_key(&step.area_context))
+        );
+        for label in ["Act 4", "Interlude 5.1", "Interlude 5.2", "Interlude 5.3"] {
+            assert!(
+                pack.local_guidance.iter().any(|guide| guide.label == label),
+                "missing {label}"
+            );
+        }
+        let text = format!("{:?} {:?}", pack.steps, pack.local_guidance);
+        for objective in [
+            "Jamanra",
+            "Doryani",
+            "Tavakai",
+            "Warden's Ledger",
+            "Molten One's Gift",
+            "Gemcrust Skull",
+        ] {
+            assert!(text.contains(objective), "missing {objective}");
+        }
+        assert!(!text.contains("start your first map"));
+        assert!(!text.contains("Endgame Atlas / Maps unlock"));
+    }
+    #[test]
+    fn only_explicit_campaign_namespaces_are_accepted_and_aliases_do_not_fuzz() {
+        for id in [
+            "MapG4_test",
+            "HideoutShip",
+            "IncursionTemple",
+            "G0_1",
+            "G1_",
+        ] {
+            assert_eq!(campaign_namespace(id), None);
+        }
+        assert_eq!(campaign_namespace("G4_example"), Some(4));
+        assert_eq!(campaign_namespace("G7_interlude"), Some(7));
+        assert_eq!(
+            normalize_area_name("The Ardura Caravan"),
+            normalize_area_name("Ardura Caravan")
+        );
+        assert_ne!(
+            normalize_area_name("Lost City"),
+            normalize_area_name("Lost City Map")
+        );
+    }
+}

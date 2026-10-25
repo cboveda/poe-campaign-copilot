@@ -1050,7 +1050,7 @@ fn main() {
             // PoE2 preview content is embedded at build time; runtime startup
             // must not discover or load the legacy PoE1 vendor/resources.
             let cfg = config::load(app.handle());
-            let mut pipeline = Pipeline::new_poe2().expect("PoE2 observation data must load");
+            let mut pipeline = Pipeline::new_poe2().expect("PoE2 campaign data must load");
 
             // Restore the previous session's route/session progress from
             // the on-disk journal BEFORE the state is managed (and thus

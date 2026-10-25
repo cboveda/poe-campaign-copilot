@@ -173,3 +173,10 @@ Toggle compact mode (Alt+Shift+C). Expected: a campaign objective remains
 primary and a separate optional-item count appears. In an optional-only
 area such as Mud Burrow, the compact objective should be labeled Optional.
 Confirm the grouping/readability on Windows; no boss re-kill is required.
+
+## Remaining acts / alpha.3
+
+Use the [remaining campaign coverage and chapter checklist](POE2-CAMPAIGN-COVERAGE.md).
+It lists concise checks for Acts 2/3, Act 4 island ordering, all three
+Interludes, the endgame boundary and restart/resume. Use existing characters
+and mark inaccessible chapters unrun. No automated in-game validation exists.

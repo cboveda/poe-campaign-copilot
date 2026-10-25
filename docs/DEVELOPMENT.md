@@ -16,7 +16,7 @@ npm ci
 npm run tauri dev
 ```
 
-The current preview is 0.2.0-alpha.2. Use the source containing the PoE2
+The current preview is 0.2.0-alpha.3. Use the source containing the PoE2
 changes; an older main checkout is not equivalent. Select the real PoE2 log
 from Settings. Normal tailing starts at EOF; enter a zone after starting it.
 
@@ -39,7 +39,7 @@ results. Unit/replay tests do not establish in-game overlay correctness.
 From the repository root:
 
 ```text
-python tools/import_poe2_act1.py --check
+python tools/import_poe2_campaign.py --check
 npm test
 npm run build
 cargo fmt --all -- --check
@@ -74,13 +74,20 @@ support is outside the agreed scope; use Windows for gameplay checks.
 ## Route content
 
 `content/poe2/observed-areas.json` is a partial observation catalog from the
-supplied log. `content/poe2/act1-route.json` is generated from pinned source
-in `vendor/poe2-leveling/`, with its MIT license. Run
-`python tools/import_poe2_act1.py` after deliberately updating/reviewing the
-source, or `--check` to verify reproducibility. Only objective text is
-imported; inline scripts, build advice, diagrams and league-mechanic notes
-are not executed or imported. Guide directions within objective text still
-require live verification. No network is needed while using the preview.
+supplied log. `act1-route.json` and `remaining-campaign.json` are generated
+from pinned source in `vendor/poe2-leveling/`, with its MIT license. Run:
+
+```text
+python tools/import_poe2_campaign.py
+python tools/import_poe2_campaign.py --check
+```
+
+The generator verifies source step counts and excludes the source endgame
+section and explicit league-only Act 3 objectives. Source checksums use
+UTF-8/LF normalization to remain reproducible across Windows checkouts.
+It does not run embedded scripts or infer game IDs. See the
+[coverage matrix](POE2-CAMPAIGN-COVERAGE.md) for grouping, source ambiguities,
+synthetic-fixture limits and manual checks. Gameplay requires no network.
 
 The original `compile-content` binary remains a PoE1 test/reference tool;
 it does not generate or validate the PoE2 embedded preview. Do not use its

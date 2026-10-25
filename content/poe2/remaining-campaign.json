@@ -1,0 +1,2096 @@
+{
+  "format_version": 1,
+  "game": "poe2",
+  "target_patch": "0.5.5",
+  "validation": "source-imported; Windows gameplay verification pending",
+  "chapters": [
+    {
+      "id": "act2",
+      "label": "Act 2",
+      "act": 2,
+      "mode": "sequential",
+      "source": {
+        "project": "domistae/poe2-leveling",
+        "reference": "916bd138286fe1307113ec044bcb4d565432b516",
+        "file": "poe2_act2_guide.html",
+        "license": "MIT",
+        "claimed_patch": "0.5.5",
+        "checksum_normalization": "UTF-8 with LF line endings",
+        "sha256": "ae5104ff33736b420d2c37c25b8742e501624b06d95d4223603614dd3a915899"
+      },
+      "visits": [
+        {
+          "name": "Vastiri Outskirts",
+          "source_heading": "Vastiri Outskirts",
+          "is_town": false,
+          "source_steps": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "objectives": [
+            "Talk to The Hooded One",
+            "Kill Rathbreaker",
+            "TP back to start of zone",
+            "Talk to Zarka Uncut Skill Gem Lv5",
+            "Enter The Ardura Caravan"
+          ],
+          "aliases": [
+            "Vastiri Outskirts",
+            "The Vastiri Outskirts"
+          ]
+        },
+        {
+          "name": "The Ardura Caravan",
+          "source_heading": "The Ardura Caravan",
+          "is_town": true,
+          "source_steps": [
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "objectives": [
+            "Talk to Hooded One + Sekhema Asala (×2)",
+            "Use Desert Map → travel to Halani Gates",
+            "Enter Halani Gates → talk to Sekhema Asala",
+            "Back to Caravan → talk to Sekhema Asala",
+            "Travel to Mawdun Quarry"
+          ],
+          "aliases": [
+            "The Ardura Caravan",
+            "Ardura Caravan"
+          ]
+        },
+        {
+          "name": "Mawdun Quarry",
+          "source_heading": "Mawdun Quarry",
+          "is_town": false,
+          "source_steps": [
+            11,
+            12
+          ],
+          "objectives": [
+            "(Opt) Faridun War Cache near checkpoint Artificer's Orb",
+            "Enter Mawdun Mine (follow checkpoints)"
+          ],
+          "aliases": [
+            "Mawdun Quarry",
+            "The Mawdun Quarry"
+          ]
+        },
+        {
+          "name": "Mawdun Mine",
+          "source_heading": "Mawdun Mine",
+          "is_town": false,
+          "source_steps": [
+            13,
+            14,
+            15
+          ],
+          "objectives": [
+            "Kill Rudja Uncut Skill Gem Lv6",
+            "Talk to Risu in cage",
+            "TP back to town"
+          ],
+          "aliases": [
+            "Mawdun Mine",
+            "The Mawdun Mine"
+          ]
+        },
+        {
+          "name": "The Ardura Caravan",
+          "source_heading": "The Ardura Caravan",
+          "is_town": true,
+          "source_steps": [
+            16,
+            17
+          ],
+          "objectives": [
+            "Talk to Risu + Sekhema Asala",
+            "Travel to Traitor's Passage"
+          ],
+          "aliases": [
+            "The Ardura Caravan",
+            "Ardura Caravan"
+          ]
+        },
+        {
+          "name": "Traitor's Passage",
+          "source_heading": "Traitor's Passage",
+          "is_town": false,
+          "source_steps": [
+            18,
+            19,
+            20,
+            21
+          ],
+          "objectives": [
+            "Interact with Ancient Seal door + Runic Seals",
+            "(Opt) Kill Balbala, the Traitor Djinn Barya Uncut Skill Gem Lv6",
+            "(Opt) Bell Chest in dead end Random loot",
+            "Enter The Halani Gates (stairs up)"
+          ],
+          "aliases": [
+            "Traitor's Passage",
+            "The Traitor's Passage"
+          ]
+        },
+        {
+          "name": "The Halani Gates",
+          "source_heading": "The Halani Gates",
+          "is_town": false,
+          "source_steps": [
+            22,
+            23,
+            24,
+            25
+          ],
+          "objectives": [
+            "Summon Asala to open gates",
+            "Kill Jamanra (first encounter)",
+            "Stairs down, search checkpoint",
+            "TP back to town"
+          ],
+          "aliases": [
+            "The Halani Gates",
+            "Halani Gates"
+          ]
+        },
+        {
+          "name": "The Ardura Caravan",
+          "source_heading": "The Ardura Caravan",
+          "is_town": true,
+          "source_steps": [
+            26,
+            27,
+            28
+          ],
+          "objectives": [
+            "Talk to Shambrin, Zarka, Sekhema Asala",
+            "Travel to Trial of Sekhemas → take WP Run later at Lvl 28",
+            "TP back → travel to Mastodon Badlands"
+          ],
+          "aliases": [
+            "The Ardura Caravan",
+            "Ardura Caravan"
+          ]
+        },
+        {
+          "name": "Mastodon Badlands",
+          "source_heading": "Mastodon Badlands",
+          "is_town": false,
+          "source_steps": [
+            29,
+            30
+          ],
+          "objectives": [
+            "(Opt) Shrine of Bones (Effigy) near checkpoint Support Gem Lv2",
+            "Enter The Bone Pits"
+          ],
+          "aliases": [
+            "Mastodon Badlands",
+            "The Mastodon Badlands"
+          ]
+        },
+        {
+          "name": "The Bone Pits",
+          "source_heading": "The Bone Pits",
+          "is_town": false,
+          "source_steps": [
+            31,
+            32,
+            33
+          ],
+          "objectives": [
+            "Kill hyenas until Sun Clan Relic drops",
+            "Kill Iktab & Ekbab → loot Mastodon Tusks",
+            "TP back to town"
+          ],
+          "aliases": [
+            "The Bone Pits",
+            "Bone Pits"
+          ]
+        },
+        {
+          "name": "The Ardura Caravan",
+          "source_heading": "The Ardura Caravan",
+          "is_town": true,
+          "source_steps": [
+            34,
+            35
+          ],
+          "objectives": [
+            "Talk to Zarka",
+            "Travel to Keth"
+          ],
+          "aliases": [
+            "The Ardura Caravan",
+            "Ardura Caravan"
+          ]
+        },
+        {
+          "name": "Keth",
+          "source_heading": "Keth",
+          "is_town": false,
+          "source_steps": [
+            36,
+            37,
+            38,
+            39
+          ],
+          "objectives": [
+            "Kill snakes until Kabala Clan Relic drops",
+            "(Opt) Abandoned Prayer (down the stairs) Magic Amulet",
+            "Kill Kabala, Constrictor Queen (the Venom Pit) +2 Skill Points",
+            "Enter The Lost City"
+          ],
+          "aliases": [
+            "Keth",
+            "The Keth"
+          ]
+        },
+        {
+          "name": "The Lost City",
+          "source_heading": "The Lost City",
+          "is_town": false,
+          "source_steps": [
+            40,
+            41,
+            42
+          ],
+          "objectives": [
+            "(Opt) Kill Ninth Treasure of Keth (the Galleria) Jewel",
+            "(Opt) Golden Tomb Spirit Gem Lv7",
+            "Enter Buried Shrines"
+          ],
+          "aliases": [
+            "The Lost City",
+            "Lost City"
+          ]
+        },
+        {
+          "name": "Buried Shrines",
+          "source_heading": "Buried Shrines",
+          "is_town": false,
+          "source_steps": [
+            43,
+            44,
+            45
+          ],
+          "objectives": [
+            "(Opt) Guarded sarcophagus Support Gem (Lesser Jeweller's Orb)",
+            "(Opt) Choose Offering (fire/water/lightning) Resist Ring",
+            "Enter The Heart of Keth"
+          ],
+          "aliases": [
+            "Buried Shrines",
+            "The Buried Shrines"
+          ]
+        },
+        {
+          "name": "The Heart of Keth",
+          "source_heading": "The Heart of Keth",
+          "is_town": false,
+          "source_steps": [
+            46,
+            47,
+            48
+          ],
+          "objectives": [
+            "Kill Azarian",
+            "Talk Water Goddess (Halani) → Everburning Cinders → ignite Goddess Essence of Water",
+            "TP back to town"
+          ],
+          "aliases": [
+            "The Heart of Keth",
+            "Heart of Keth"
+          ]
+        },
+        {
+          "name": "The Ardura Caravan",
+          "source_heading": "The Ardura Caravan",
+          "is_town": true,
+          "source_steps": [
+            49,
+            50
+          ],
+          "objectives": [
+            "Talk to Zarka",
+            "Travel to Valley of the Titans"
+          ],
+          "aliases": [
+            "The Ardura Caravan",
+            "Ardura Caravan"
+          ]
+        },
+        {
+          "name": "Valley of the Titans",
+          "source_heading": "Valley of the Titans",
+          "is_town": false,
+          "source_steps": [
+            51,
+            52,
+            53
+          ],
+          "objectives": [
+            "Find 3 Ancient Seals (perimeter)",
+            "Find Medallion (Relic Altar), place both relics +1 Charm Slot + choose buff",
+            "Enter The Titan Grotto"
+          ],
+          "aliases": [
+            "Valley of the Titans",
+            "The Valley of the Titans"
+          ]
+        },
+        {
+          "name": "The Titan Grotto",
+          "source_heading": "The Titan Grotto",
+          "is_town": false,
+          "source_steps": [
+            54,
+            55
+          ],
+          "objectives": [
+            "Kill Zalmarath, the Colossus → loot Flame Ruby",
+            "TP back to town"
+          ],
+          "aliases": [
+            "The Titan Grotto",
+            "Titan Grotto"
+          ]
+        },
+        {
+          "name": "The Ardura Caravan",
+          "source_heading": "The Ardura Caravan",
+          "is_town": true,
+          "source_steps": [
+            56,
+            57,
+            58,
+            59,
+            60
+          ],
+          "objectives": [
+            "Talk to Zarka + Sekhema Asala",
+            "Travel to Traitor's Passage (don't enter)",
+            "Sound Horn at top of caravan",
+            "Talk to Sekhema Asala",
+            "Travel to Deshar"
+          ],
+          "aliases": [
+            "The Ardura Caravan",
+            "Ardura Caravan"
+          ]
+        },
+        {
+          "name": "Deshar",
+          "source_heading": "Deshar",
+          "is_town": false,
+          "source_steps": [
+            61,
+            62,
+            63,
+            64
+          ],
+          "objectives": [
+            "Find/loot Fallen Dekhara near tower +2 Skill Points",
+            "Kill 2 Vultures on side area Backup Djinn Barya (Lvl 28)",
+            "(Opt) The Unremembered (skeleton) near checkpoint Artificer's Orb",
+            "Enter Path of Mourning"
+          ],
+          "aliases": [
+            "Deshar",
+            "The Deshar"
+          ]
+        },
+        {
+          "name": "Path of Mourning",
+          "source_heading": "Path of Mourning",
+          "is_town": false,
+          "source_steps": [
+            65,
+            66
+          ],
+          "objectives": [
+            "(Opt) Shifting Vases / Hushed Urn encounter 4 rares + Support Gem Lv2",
+            "Enter The Spires of Deshar"
+          ],
+          "aliases": [
+            "Path of Mourning",
+            "The Path of Mourning"
+          ]
+        },
+        {
+          "name": "The Spires of Deshar",
+          "source_heading": "The Spires of Deshar",
+          "is_town": false,
+          "source_steps": [
+            67,
+            68,
+            69
+          ],
+          "objectives": [
+            "Interact with Sisters of Garukhan shrine +10% Lightning Res",
+            "Kill Tor Gul",
+            "TP back to town → speak with Sekhema Asala (×2)"
+          ],
+          "aliases": [
+            "The Spires of Deshar",
+            "Spires of Deshar"
+          ]
+        },
+        {
+          "name": "Trial of the Sekhemas",
+          "source_heading": "Trial of the Sekhemas",
+          "is_town": false,
+          "source_steps": [
+            70,
+            71,
+            72,
+            73
+          ],
+          "objectives": [
+            "On entry, manually pick the Lvl 28 Djinn Barya (Deshar vultures) — not the default Lvl 22 Balbala one",
+            "Set relic affinity to keep your inventory clean",
+            "Room priority: Ritual > Chalice > Hourglass > Gauntlet",
+            "Complete the trial → 1st Ascendancy"
+          ],
+          "aliases": [
+            "Trial of the Sekhemas",
+            "The Trial of the Sekhemas"
+          ]
+        },
+        {
+          "name": "The Dreadnought",
+          "source_heading": "The Dreadnought",
+          "is_town": false,
+          "source_steps": [
+            74,
+            75,
+            76
+          ],
+          "objectives": [
+            "Travel to The Dreadnought",
+            "Kill Jamanra, the Abomination (Act Boss)",
+            "TP back to town"
+          ],
+          "aliases": [
+            "The Dreadnought",
+            "Dreadnought"
+          ]
+        },
+        {
+          "name": "The Ardura Caravan",
+          "source_heading": "The Ardura Caravan (End of Act)",
+          "is_town": true,
+          "source_steps": [
+            77,
+            78
+          ],
+          "objectives": [
+            "Exit caravan (top left) → talk Hooded One → wait animation",
+            "Back → talk Sekhema Asala → \"Travel to the Sandswept Marsh\""
+          ],
+          "aliases": [
+            "The Ardura Caravan",
+            "Ardura Caravan"
+          ]
+        }
+      ],
+      "context_objectives": [],
+      "excluded_source_steps": []
+    },
+    {
+      "id": "act3",
+      "label": "Act 3",
+      "act": 3,
+      "mode": "sequential",
+      "source": {
+        "project": "domistae/poe2-leveling",
+        "reference": "916bd138286fe1307113ec044bcb4d565432b516",
+        "file": "poe2_act3_guide.html",
+        "license": "MIT",
+        "claimed_patch": "0.5.5",
+        "checksum_normalization": "UTF-8 with LF line endings",
+        "sha256": "baf1f1dde8e4fc7811473a50342ac8c33412b554a2fd11a101d546b1f23f118b"
+      },
+      "visits": [
+        {
+          "name": "Sandswept Marsh",
+          "source_heading": "Sandswept Marsh",
+          "is_town": false,
+          "source_steps": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "objectives": [
+            "Talk to The Hooded One",
+            "(Opt) Kill Rootdredge Skill Gem Lv9",
+            "(Opt) Basket at Orok Campsite Lesser Jeweller's Orb",
+            "(Opt) Hanging tree corpse Magic Ring Skill Gem Lv9",
+            "Enter Ziggurat Encampment"
+          ],
+          "aliases": [
+            "Sandswept Marsh",
+            "The Sandswept Marsh"
+          ]
+        },
+        {
+          "name": "Ziggurat Encampment",
+          "source_heading": "Ziggurat Encampment",
+          "is_town": true,
+          "source_steps": [
+            6,
+            7,
+            8
+          ],
+          "objectives": [
+            "Talk Alva, Oswald, The Hooded One",
+            "Lvl 30 flask upgrade from the town vendor (Servi) — increased recovery + charges",
+            "Enter Jungle Ruins (top exit)"
+          ],
+          "aliases": [
+            "Ziggurat Encampment",
+            "The Ziggurat Encampment"
+          ]
+        },
+        {
+          "name": "Jungle Ruins",
+          "source_heading": "Jungle Ruins",
+          "is_town": false,
+          "source_steps": [
+            10,
+            11,
+            12,
+            14
+          ],
+          "objectives": [
+            "Kill Mighty Silverfist +2 Skill Points",
+            "Jungle Grave (ravaged corpse) → Servi gives Rare Belt (choice)",
+            "(Opt) Troubled Camp (Gwendolyn Albright) Guaranteed Rare Gloves",
+            "Find WP near Venom Crypts → Enter The Venom Crypts"
+          ],
+          "aliases": [
+            "Jungle Ruins",
+            "The Jungle Ruins"
+          ]
+        },
+        {
+          "name": "The Venom Crypts",
+          "source_heading": "The Venom Crypts ⚠",
+          "is_town": false,
+          "source_steps": [
+            15,
+            16,
+            18
+          ],
+          "objectives": [
+            "(Opt) Sarcophagus event Guaranteed Lv3 Support",
+            "Find corpse → loot Orok Poison → head to the safe zone A Reprieve",
+            "TP back to town"
+          ],
+          "aliases": [
+            "The Venom Crypts",
+            "Venom Crypts"
+          ]
+        },
+        {
+          "name": "Ziggurat Encampment",
+          "source_heading": "Ziggurat Encampment",
+          "is_town": true,
+          "source_steps": [
+            19,
+            20
+          ],
+          "objectives": [
+            "Hand Orok Poison to Servi PERMANENT CHOICE Artificer's Orb",
+            "Head to the Infested Barrens (via the Jungle Ruins for now)"
+          ],
+          "aliases": [
+            "Ziggurat Encampment",
+            "The Ziggurat Encampment"
+          ]
+        },
+        {
+          "name": "Infested Barrens",
+          "source_heading": "Infested Barrens",
+          "is_town": false,
+          "source_steps": [
+            21,
+            22,
+            23
+          ],
+          "objectives": [
+            "Find/talk Alva, take WP near her",
+            "(Opt) Troubled Camp (Sebastian Carroway) Guaranteed Rare Boots",
+            "Enter Chimeral Wetlands"
+          ],
+          "aliases": [
+            "Infested Barrens",
+            "The Infested Barrens"
+          ]
+        },
+        {
+          "name": "Chimeral Wetlands",
+          "source_heading": "Chimeral Wetlands",
+          "is_town": false,
+          "source_steps": [
+            26,
+            27,
+            29,
+            30,
+            31
+          ],
+          "objectives": [
+            "(Opt) Ravaged Camp → Lost Temple Logbook (reveals the Temple of Chaos) + gold chest Guaranteed Rare Armour",
+            "(Opt) Toxic Bloom point of interest (Noxious Behemoth) Magic Amulet",
+            "Enter Temple of Chaos → take WP → return 2nd Ascendancy",
+            "Kill Xyclucian, the Chimera → loot Inscribed Ultimatum",
+            "Enter Jiquani's Machinarium behind boss"
+          ],
+          "aliases": [
+            "Chimeral Wetlands",
+            "The Chimeral Wetlands"
+          ]
+        },
+        {
+          "name": "Trial of Chaos",
+          "source_heading": "Trial of Chaos",
+          "is_town": false,
+          "source_steps": [
+            32,
+            33,
+            34
+          ],
+          "objectives": [
+            "Use Inscribed Ultimatum at trial entrance",
+            "Pick favorable mods (avoid lightning runes if low Lightning Res)",
+            "Complete trial → 2nd Ascendancy"
+          ],
+          "aliases": [
+            "Trial of Chaos",
+            "The Trial of Chaos",
+            "Temple of Chaos",
+            "The Temple of Chaos"
+          ]
+        },
+        {
+          "name": "Jiquani's Machinarium",
+          "source_heading": "Jiquani's Machinarium",
+          "is_town": false,
+          "source_steps": [
+            35,
+            36,
+            37,
+            38,
+            39
+          ],
+          "objectives": [
+            "Summon/talk Alva",
+            "Loot Small Soul Core → use on Stone Altar next to Alva",
+            "Loot the remaining Small Soul Cores (4 total) — 1 opens Jiquani's Sanctum, 2 for the optional Blackjaw door or a secret loot room",
+            "Open the Blackjaw door → kill Blackjaw, the Remnant → use Flame Core +10% Fire Res",
+            "Open another door → enter Jiquani's Sanctum"
+          ],
+          "aliases": [
+            "Jiquani's Machinarium",
+            "The Jiquani's Machinarium"
+          ]
+        },
+        {
+          "name": "Jiquani's Sanctum",
+          "source_heading": "Jiquani's Sanctum",
+          "is_town": false,
+          "source_steps": [
+            40,
+            41,
+            42,
+            43
+          ],
+          "objectives": [
+            "Summon/talk Alva",
+            "Loot 2 Medium Soul Cores, place in Generators",
+            "Back to start → click Large Soul Core → kill Zicoatl, Warden of the Core → loot core",
+            "TP to the Jungle Ruins"
+          ],
+          "aliases": [
+            "Jiquani's Sanctum",
+            "The Jiquani's Sanctum"
+          ]
+        },
+        {
+          "name": "Jungle Ruins",
+          "source_heading": "Jungle Ruins (Return)",
+          "is_town": false,
+          "source_steps": [
+            44,
+            45
+          ],
+          "objectives": [
+            "Use the Large Soul Core on the Stone Altar → resurfaces the Matlan Waterways entrance",
+            "Enter The Matlan Waterways"
+          ],
+          "aliases": [
+            "Jungle Ruins",
+            "The Jungle Ruins"
+          ]
+        },
+        {
+          "name": "The Matlan Waterways",
+          "source_heading": "The Matlan Waterways",
+          "is_town": false,
+          "source_steps": [
+            46,
+            47,
+            48,
+            88,
+            49
+          ],
+          "objectives": [
+            "(Opt) Narag's Hut → kill Narag of the Vile Word Rare Weapon Blacksmith's Whetstone",
+            "Walk over pressure pads (6–8 per layout) — auto-activate on contact",
+            "Proceed to end of zone — final section is now pre-drained",
+            "(Opt) Ravaged Corpse at the Azak Bog entrance → summon Servi Unidentified Rare Belt",
+            "Take the Azak Bog side entrance (off the Waterways)"
+          ],
+          "aliases": [
+            "The Matlan Waterways",
+            "Matlan Waterways"
+          ]
+        },
+        {
+          "name": "Azak Bog",
+          "source_heading": "Azak Bog",
+          "is_town": false,
+          "source_steps": [
+            56,
+            57,
+            58,
+            59
+          ],
+          "objectives": [
+            "(Opt) Flameskin rituals Ignagduk's Harvest (Fire Res + Rarity)",
+            "Kill Ignagduk, the Bog Witch → use Gemrot Skull +30 Spirit Uncut Spirit Gem Lv10",
+            "Return Ignagduk's Ghastly Spear to Servi in town Charm (choice of 3)",
+            "TP back to town"
+          ],
+          "aliases": [
+            "Azak Bog",
+            "The Azak Bog"
+          ]
+        },
+        {
+          "name": "Ziggurat Encampment",
+          "source_heading": "Ziggurat Encampment",
+          "is_town": true,
+          "source_steps": [
+            50,
+            51
+          ],
+          "objectives": [
+            "Downstairs → talk Alva",
+            "Enter The Drowned City (bottom exit)"
+          ],
+          "aliases": [
+            "Ziggurat Encampment",
+            "The Ziggurat Encampment"
+          ]
+        },
+        {
+          "name": "The Drowned City",
+          "source_heading": "The Drowned City",
+          "is_town": false,
+          "source_steps": [
+            52,
+            53,
+            90,
+            54
+          ],
+          "objectives": [
+            "Find Apex of Filth → take WP → return",
+            "Find The Molten Vault → take WP → return",
+            "(Opt) Drowned Quarters — hidden rooms/doors with rare monsters, gold & chests Rune drops",
+            "TP to The Molten Vault (1st char) or town"
+          ],
+          "aliases": [
+            "The Drowned City",
+            "Drowned City"
+          ]
+        },
+        {
+          "name": "The Molten Vault",
+          "source_heading": "The Molten Vault",
+          "is_town": false,
+          "source_steps": [
+            60,
+            61
+          ],
+          "objectives": [
+            "(1st char) Kill Mektul, the Forgemaster Reforging Bench Uncut Skill Gem Lv10 Artificer's Orb",
+            "TP back to town"
+          ],
+          "aliases": [
+            "The Molten Vault",
+            "Molten Vault"
+          ]
+        },
+        {
+          "name": "Ziggurat Encampment",
+          "source_heading": "Ziggurat Encampment",
+          "is_town": true,
+          "source_steps": [
+            62,
+            63
+          ],
+          "objectives": [
+            "Talk to Oswald",
+            "TP to Apex of Filth"
+          ],
+          "aliases": [
+            "Ziggurat Encampment",
+            "The Ziggurat Encampment"
+          ]
+        },
+        {
+          "name": "Apex of Filth",
+          "source_heading": "Apex of Filth",
+          "is_town": false,
+          "source_steps": [
+            64,
+            65,
+            66
+          ],
+          "objectives": [
+            "(Opt) Find 3 Mushrooms → use the Cauldron (Cauldron Keeper) Quality Life/Mana Flasks",
+            "Kill Queen of Filth → loot Temple Door Idol",
+            "TP back to town"
+          ],
+          "aliases": [
+            "Apex of Filth",
+            "The Apex of Filth"
+          ]
+        },
+        {
+          "name": "Ziggurat Encampment",
+          "source_heading": "Ziggurat Encampment",
+          "is_town": true,
+          "source_steps": [
+            67,
+            68
+          ],
+          "objectives": [
+            "Downstairs → talk Alva",
+            "Door behind her → enter Temple of Kopec"
+          ],
+          "aliases": [
+            "Ziggurat Encampment",
+            "The Ziggurat Encampment"
+          ]
+        },
+        {
+          "name": "Temple of Kopec",
+          "source_heading": "Temple of Kopec",
+          "is_town": false,
+          "source_steps": [
+            69,
+            70
+          ],
+          "objectives": [
+            "Kill Ketzuli, High Priest of the Sun (upstairs)",
+            "Talk Alva, wait for lore"
+          ],
+          "aliases": [
+            "Temple of Kopec",
+            "The Temple of Kopec"
+          ]
+        },
+        {
+          "name": "Ziggurat Encampment",
+          "source_heading": "Ziggurat Encampment",
+          "is_town": true,
+          "source_steps": [
+            71,
+            72
+          ],
+          "objectives": [
+            "Take the Gateway",
+            "Downstairs → enter Utzaal"
+          ],
+          "aliases": [
+            "Ziggurat Encampment",
+            "The Ziggurat Encampment"
+          ]
+        },
+        {
+          "name": "Utzaal",
+          "source_heading": "Utzaal",
+          "is_town": false,
+          "source_steps": [
+            73,
+            76,
+            77,
+            78
+          ],
+          "objectives": [
+            "(Opt) Farm Sacrificial Heart from Vaal Goliaths (canister on shoulder)",
+            "(Opt) Side doors for idols (sell to Oswald for gold)",
+            "Kill Viper Napuatzi",
+            "Enter Aggorat"
+          ],
+          "aliases": [
+            "Utzaal",
+            "The Utzaal"
+          ]
+        },
+        {
+          "name": "Aggorat",
+          "source_heading": "Aggorat",
+          "is_town": false,
+          "source_steps": [
+            79,
+            80,
+            82
+          ],
+          "objectives": [
+            "Find Sacrificial Altar (top right of map)",
+            "Place Sacrificial Heart → stab with Dagger +2 Skill Points",
+            "Enter The Black Chambers (top left of map)"
+          ],
+          "aliases": [
+            "Aggorat",
+            "The Aggorat"
+          ]
+        },
+        {
+          "name": "The Black Chambers",
+          "source_heading": "The Black Chambers",
+          "is_town": false,
+          "source_steps": [
+            83,
+            84,
+            85
+          ],
+          "objectives": [
+            "Kill Doryani, Royal Thaumaturge (Act Boss)",
+            "Wait for loot (~30s)",
+            "TP back to town"
+          ],
+          "aliases": [
+            "The Black Chambers",
+            "Black Chambers"
+          ]
+        },
+        {
+          "name": "Ziggurat Encampment",
+          "source_heading": "Ziggurat Encampment (End of Act)",
+          "is_town": true,
+          "source_steps": [
+            86,
+            87
+          ],
+          "objectives": [
+            "Talk to Doryani",
+            "Talk Doryani again → Alva → Hooded One → Alva"
+          ],
+          "aliases": [
+            "Ziggurat Encampment",
+            "The Ziggurat Encampment"
+          ]
+        }
+      ],
+      "context_objectives": [],
+      "excluded_source_steps": [
+        28,
+        81
+      ]
+    },
+    {
+      "id": "act4",
+      "label": "Act 4",
+      "act": 4,
+      "mode": "area_guidance",
+      "source": {
+        "project": "domistae/poe2-leveling",
+        "reference": "916bd138286fe1307113ec044bcb4d565432b516",
+        "file": "poe2_act4_guide.html",
+        "license": "MIT",
+        "claimed_patch": "0.5.5",
+        "checksum_normalization": "UTF-8 with LF line endings",
+        "sha256": "eb66301fdd3b9af4372eeb555969743df6195fc27b1037712df1df004f9fc2c3"
+      },
+      "visits": [
+        {
+          "name": "Kingsmarch",
+          "source_heading": "Kingsmarch",
+          "is_town": true,
+          "source_steps": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "objectives": [
+            "Talk to Doryani",
+            "Continue to town, talk to Alva (with Rog)",
+            "Talk to Tujen → accept quest",
+            "Talk to Farrow → accept the Runeseeker quest Unlocks Verisium Anvil",
+            "Talk to Makoru on ship, choose destination",
+            "After all 3 interludes, talk to The Hooded One in Kingsmarch +2 Skill Points"
+          ],
+          "aliases": [
+            "Kingsmarch",
+            "The Kingsmarch"
+          ],
+          "completion_source": {
+            "file": "poe2_interludes_guide.html",
+            "step": 33
+          },
+          "completion_condition": "After all three Interludes; user-verified, never inferred"
+        },
+        {
+          "name": "Whakapanu Island",
+          "source_heading": "Whakapanu Island",
+          "is_town": false,
+          "source_steps": [
+            6,
+            7,
+            8,
+            9
+          ],
+          "objectives": [
+            "Petrified Pirate on coast Torn Map (4 in total)",
+            "(Opt) Shark Pit: Great White One Shark Fin",
+            "(Opt) Crabshell Cavern: Clawcrunch Support Gem 4",
+            "Enter Singing Caverns"
+          ],
+          "aliases": [
+            "Whakapanu Island",
+            "The Whakapanu Island"
+          ]
+        },
+        {
+          "name": "Singing Caverns",
+          "source_heading": "Singing Caverns",
+          "is_town": false,
+          "source_steps": [
+            10,
+            11,
+            12
+          ],
+          "objectives": [
+            "(Opt) Beckoning Clam → Humming Pearl (give to Rog)",
+            "Kill Diamora, Song of Death Fragment?",
+            "Talk to Hooded One, TP to town"
+          ],
+          "aliases": [
+            "Singing Caverns",
+            "The Singing Caverns"
+          ]
+        },
+        {
+          "name": "Kingsmarch",
+          "source_heading": "Kingsmarch — Hideout",
+          "is_town": true,
+          "source_steps": [
+            13,
+            14
+          ],
+          "objectives": [
+            "Talk to Ange → Shoreline Hideout",
+            "Clear hideout, talk to Ange Hideout + Trading"
+          ],
+          "aliases": [
+            "Kingsmarch",
+            "The Kingsmarch"
+          ]
+        },
+        {
+          "name": "Shrike Island",
+          "source_heading": "Shrike Island",
+          "is_town": false,
+          "source_steps": [
+            15,
+            16,
+            17
+          ],
+          "objectives": [
+            "Corpse Nest (Impaled Karui) Torn Map (4 in total)",
+            "Kill Scourge of the Skies Fragment?",
+            "Talk to Hooded One, TP, sail next"
+          ],
+          "aliases": [
+            "Shrike Island",
+            "The Shrike Island"
+          ]
+        },
+        {
+          "name": "Abandoned Prison",
+          "source_heading": "Abandoned Prison",
+          "is_town": false,
+          "source_steps": [
+            18,
+            19,
+            20,
+            21
+          ],
+          "objectives": [
+            "Kill mobs until Chapel Key drops",
+            "(Opt) Side areas: Armoury (kill the elite for a Jewel + Blackstone) & Forgotten Cells (loot)",
+            "Open Chapel, kill Forael, use Goddess of Justice Flask choice",
+            "Enter Solitary Confinement"
+          ],
+          "aliases": [
+            "Abandoned Prison",
+            "The Abandoned Prison"
+          ]
+        },
+        {
+          "name": "Solitary Confinement",
+          "source_heading": "Solitary Confinement",
+          "is_town": false,
+          "source_steps": [
+            22,
+            23
+          ],
+          "objectives": [
+            "Kill The Prisoner Fragment?",
+            "Talk to Hooded One, sail to Isle of Kin"
+          ],
+          "aliases": [
+            "Solitary Confinement",
+            "The Solitary Confinement"
+          ]
+        },
+        {
+          "name": "Isle of Kin",
+          "source_heading": "Isle of Kin",
+          "is_town": false,
+          "source_steps": [
+            24,
+            25,
+            26,
+            27,
+            28,
+            29
+          ],
+          "objectives": [
+            "Flayed Sailor near shore Torn Map (4 in total)",
+            "(Opt) Doomed Mine — abandoned delving site (Fossilised Formation) Lesser Jeweller's Orb",
+            "(Opt) Beast Pen Skill + Support Gem",
+            "Kill Mimok the Enslaved (Beast Pen boss) Tier 4 Support Gem",
+            "(Opt) Primal Arena: Blind Beast Greater Blank Rune",
+            "Enter Volcanic Warrens"
+          ],
+          "aliases": [
+            "Isle of Kin",
+            "The Isle of Kin"
+          ]
+        },
+        {
+          "name": "Volcanic Warrens",
+          "source_heading": "Volcanic Warrens",
+          "is_town": false,
+          "source_steps": [
+            30,
+            31,
+            32
+          ],
+          "objectives": [
+            "(Opt) Volcanic Nest: Magma Twins — kill order matters: Lightning first → Ruby Ring · Fire first → Topaz Ring Ruby / Topaz Ring",
+            "Kill Krutog, Lord of Kin (The Tyrant Throne)",
+            "TP to Kingsmarch"
+          ],
+          "aliases": [
+            "Volcanic Warrens",
+            "The Volcanic Warrens"
+          ]
+        },
+        {
+          "name": "Eye of Hinekora",
+          "source_heading": "Eye of Hinekora",
+          "is_town": false,
+          "source_steps": [
+            33,
+            34,
+            35,
+            36,
+            37
+          ],
+          "objectives": [
+            "Talk to Matiki at the well (he's at the well, not in town), click well",
+            "(Opt) Chest behind waterfall Spirit Gem 12",
+            "Complete 3 Tests: Fire, Nature, Cold",
+            "Silent Hall altar (Pay Respects), talk to Navali +5% Max Mana",
+            "Enter Halls of the Dead"
+          ],
+          "aliases": [
+            "Eye of Hinekora",
+            "The Eye of Hinekora"
+          ]
+        },
+        {
+          "name": "Halls of the Dead",
+          "source_heading": "Halls of the Dead",
+          "is_town": false,
+          "source_steps": [
+            38,
+            39,
+            40
+          ],
+          "objectives": [
+            "Trial of Ngakanu (3 tests in clover-leaf), loot Tattoos — choose +5% Fire/Cold/Lightning Res (recommended) or +5 Str/Dex/Int",
+            "Fight Yama the White (low life pool — easy stun)",
+            "Enter Trial of Ancestors"
+          ],
+          "aliases": [
+            "Halls of the Dead",
+            "The Halls of the Dead"
+          ]
+        },
+        {
+          "name": "Trial of the Ancestors",
+          "source_heading": "Trial of the Ancestors",
+          "is_town": false,
+          "source_steps": [
+            41,
+            42
+          ],
+          "objectives": [
+            "Talk to Navali & Hinekora +2 Skill Points",
+            "TP, sail to Kedge Bay"
+          ],
+          "aliases": [
+            "Trial of the Ancestors",
+            "The Trial of the Ancestors",
+            "Trial of Ancestors"
+          ]
+        },
+        {
+          "name": "Kedge Bay",
+          "source_heading": "Kedge Bay",
+          "is_town": false,
+          "source_steps": [
+            43,
+            44,
+            45,
+            47,
+            46
+          ],
+          "objectives": [
+            "Dead Man's Chest / Smuggler's Stash Torn Map (4 in total)",
+            "(Opt) Abandoned Ship (loot)",
+            "(Opt) Tidal Cay with Tombgrowl (loot)",
+            "(Opt) Doran, the Deft — challenging, highly mobile Rogue Exile near the entrance (loot)",
+            "Enter Journey's End"
+          ],
+          "aliases": [
+            "Kedge Bay",
+            "The Kedge Bay"
+          ]
+        },
+        {
+          "name": "Journey's End",
+          "source_heading": "Journey's End",
+          "is_town": false,
+          "source_steps": [
+            48,
+            49,
+            50,
+            51,
+            52,
+            53,
+            54
+          ],
+          "objectives": [
+            "Talk to Tujen",
+            "Kill Captain Harlin, loot Verisium",
+            "Talk to Freya Hartlin",
+            "Town → Dannig → Verisium Spikes",
+            "Back to Journey's End → Freya",
+            "Totem → kill Omniphobia",
+            "Talk to Tujen in town for reward +2 Skill Points"
+          ],
+          "aliases": [
+            "Journey's End",
+            "The Journey's End"
+          ]
+        },
+        {
+          "name": "Plunder's Point",
+          "source_heading": "Plunder's Point",
+          "is_town": false,
+          "source_steps": [
+            55
+          ],
+          "objectives": [
+            "Give 4 maps to Makoru → sail → Dannig → Expedition → Deserted Post → summon Farrow"
+          ],
+          "aliases": [
+            "Plunder's Point",
+            "The Plunder's Point"
+          ]
+        },
+        {
+          "name": "Arastas",
+          "source_heading": "Arastas",
+          "is_town": false,
+          "source_steps": [
+            56,
+            57,
+            58
+          ],
+          "objectives": [
+            "Missionari Lorandis → follow → destroy shield",
+            "(Opt) Evening / Morning Bells Evening → 3 Exalted · Morning → 3 Regal",
+            "Kill Torvian → enter Excavation"
+          ],
+          "aliases": [
+            "Arastas",
+            "The Arastas"
+          ]
+        },
+        {
+          "name": "The Excavation",
+          "source_heading": "The Excavation",
+          "is_town": false,
+          "source_steps": [
+            59,
+            60,
+            61
+          ],
+          "objectives": [
+            "Kill Benedictus (Precursor Forge), talk to Hooded One",
+            "(Opt) Excavated Cache at the checkpoint (loot)",
+            "TP to Kingsmarch → sail to Ngakanu"
+          ],
+          "aliases": [
+            "The Excavation",
+            "Excavation"
+          ]
+        },
+        {
+          "name": "Ngakanu",
+          "source_heading": "Ngakanu",
+          "is_town": false,
+          "source_steps": [
+            63,
+            64,
+            62
+          ],
+          "objectives": [
+            "(Opt) Abyss → Abyssal Depths (loot)",
+            "(Opt) Mad Butcher in the large hut (loot)",
+            "Enter Heart of the Tribe"
+          ],
+          "aliases": [
+            "Ngakanu",
+            "The Ngakanu"
+          ]
+        },
+        {
+          "name": "Heart of the Tribe",
+          "source_heading": "Heart of the Tribe",
+          "is_town": false,
+          "source_steps": [
+            65,
+            66,
+            67
+          ],
+          "objectives": [
+            "(Opt) Meeting House in the Heart of the Tribe has chests (loot)",
+            "Kill Tavakai (Final Act 4 Boss), talk to him",
+            "Return, talk to Hooded One → unlocks Interludes"
+          ],
+          "aliases": [
+            "Heart of the Tribe",
+            "The Heart of the Tribe"
+          ]
+        }
+      ],
+      "context_objectives": [],
+      "excluded_source_steps": []
+    },
+    {
+      "id": "act2-side-areas",
+      "label": "Act 2",
+      "act": 2,
+      "mode": "area_guidance",
+      "source": {
+        "project": "domistae/poe2-leveling",
+        "reference": "916bd138286fe1307113ec044bcb4d565432b516",
+        "file": "poe2_act2_guide.html",
+        "license": "MIT",
+        "claimed_patch": "0.5.5",
+        "checksum_normalization": "UTF-8 with LF line endings",
+        "sha256": "ae5104ff33736b420d2c37c25b8742e501624b06d95d4223603614dd3a915899"
+      },
+      "visits": [
+        {
+          "name": "The Venom Pit",
+          "source_heading": "Keth",
+          "aliases": [
+            "The Venom Pit",
+            "Venom Pit"
+          ],
+          "parent": "Keth",
+          "is_town": false,
+          "source_steps": [
+            38
+          ],
+          "objectives": [
+            "Kill Kabala, Constrictor Queen (the Venom Pit) +2 Skill Points"
+          ]
+        },
+        {
+          "name": "The Galleria",
+          "source_heading": "The Lost City",
+          "aliases": [
+            "The Galleria",
+            "Galleria"
+          ],
+          "parent": "The Lost City",
+          "is_town": false,
+          "source_steps": [
+            40
+          ],
+          "objectives": [
+            "(Opt) Kill Ninth Treasure of Keth (the Galleria) Jewel"
+          ]
+        }
+      ],
+      "context_objectives": [],
+      "excluded_source_steps": []
+    },
+    {
+      "id": "act4-side-areas",
+      "label": "Act 4",
+      "act": 4,
+      "mode": "area_guidance",
+      "source": {
+        "project": "domistae/poe2-leveling",
+        "reference": "916bd138286fe1307113ec044bcb4d565432b516",
+        "file": "poe2_act4_guide.html",
+        "license": "MIT",
+        "claimed_patch": "0.5.5",
+        "checksum_normalization": "UTF-8 with LF line endings",
+        "sha256": "eb66301fdd3b9af4372eeb555969743df6195fc27b1037712df1df004f9fc2c3"
+      },
+      "visits": [
+        {
+          "name": "Shark Pit",
+          "source_heading": "Whakapanu Island",
+          "aliases": [
+            "Shark Pit",
+            "The Shark Pit"
+          ],
+          "parent": "Whakapanu Island",
+          "is_town": false,
+          "source_steps": [
+            7
+          ],
+          "objectives": [
+            "(Opt) Shark Pit: Great White One Shark Fin"
+          ]
+        },
+        {
+          "name": "Crabshell Cavern",
+          "source_heading": "Whakapanu Island",
+          "aliases": [
+            "Crabshell Cavern",
+            "The Crabshell Cavern"
+          ],
+          "parent": "Whakapanu Island",
+          "is_town": false,
+          "source_steps": [
+            8
+          ],
+          "objectives": [
+            "(Opt) Crabshell Cavern: Clawcrunch Support Gem 4"
+          ]
+        },
+        {
+          "name": "Armoury",
+          "source_heading": "Abandoned Prison",
+          "aliases": [
+            "Armoury",
+            "The Armoury"
+          ],
+          "parent": "Abandoned Prison",
+          "is_town": false,
+          "source_steps": [
+            19
+          ],
+          "objectives": [
+            "(Opt) Side areas: Armoury (kill the elite for a Jewel + Blackstone) & Forgotten Cells (loot)"
+          ]
+        },
+        {
+          "name": "Forgotten Cells",
+          "source_heading": "Abandoned Prison",
+          "aliases": [
+            "Forgotten Cells",
+            "The Forgotten Cells"
+          ],
+          "parent": "Abandoned Prison",
+          "is_town": false,
+          "source_steps": [
+            19
+          ],
+          "objectives": [
+            "(Opt) Side areas: Armoury (kill the elite for a Jewel + Blackstone) & Forgotten Cells (loot)"
+          ]
+        },
+        {
+          "name": "Doomed Mine",
+          "source_heading": "Isle of Kin",
+          "aliases": [
+            "Doomed Mine",
+            "The Doomed Mine"
+          ],
+          "parent": "Isle of Kin",
+          "is_town": false,
+          "source_steps": [
+            25
+          ],
+          "objectives": [
+            "(Opt) Doomed Mine — abandoned delving site (Fossilised Formation) Lesser Jeweller's Orb"
+          ]
+        },
+        {
+          "name": "Beast Pen",
+          "source_heading": "Isle of Kin",
+          "aliases": [
+            "Beast Pen",
+            "The Beast Pen"
+          ],
+          "parent": "Isle of Kin",
+          "is_town": false,
+          "source_steps": [
+            26,
+            27
+          ],
+          "objectives": [
+            "(Opt) Beast Pen Skill + Support Gem",
+            "Kill Mimok the Enslaved (Beast Pen boss) Tier 4 Support Gem"
+          ]
+        },
+        {
+          "name": "Primal Arena",
+          "source_heading": "Isle of Kin",
+          "aliases": [
+            "Primal Arena",
+            "The Primal Arena"
+          ],
+          "parent": "Isle of Kin",
+          "is_town": false,
+          "source_steps": [
+            28
+          ],
+          "objectives": [
+            "(Opt) Primal Arena: Blind Beast Greater Blank Rune"
+          ]
+        },
+        {
+          "name": "Volcanic Nest",
+          "source_heading": "Volcanic Warrens",
+          "aliases": [
+            "Volcanic Nest",
+            "The Volcanic Nest"
+          ],
+          "parent": "Volcanic Warrens",
+          "is_town": false,
+          "source_steps": [
+            30
+          ],
+          "objectives": [
+            "(Opt) Volcanic Nest: Magma Twins — kill order matters: Lightning first → Ruby Ring · Fire first → Topaz Ring Ruby / Topaz Ring"
+          ]
+        },
+        {
+          "name": "Abandoned Ship",
+          "source_heading": "Kedge Bay",
+          "aliases": [
+            "Abandoned Ship",
+            "The Abandoned Ship"
+          ],
+          "parent": "Kedge Bay",
+          "is_town": false,
+          "source_steps": [
+            44
+          ],
+          "objectives": [
+            "(Opt) Abandoned Ship (loot)"
+          ]
+        },
+        {
+          "name": "Tidal Cay",
+          "source_heading": "Kedge Bay",
+          "aliases": [
+            "Tidal Cay",
+            "The Tidal Cay"
+          ],
+          "parent": "Kedge Bay",
+          "is_town": false,
+          "source_steps": [
+            45
+          ],
+          "objectives": [
+            "(Opt) Tidal Cay with Tombgrowl (loot)"
+          ]
+        }
+      ],
+      "context_objectives": [],
+      "excluded_source_steps": []
+    },
+    {
+      "id": "interlude51",
+      "label": "Interlude 5.1",
+      "act": 5,
+      "mode": "area_guidance",
+      "source": {
+        "project": "domistae/poe2-leveling",
+        "reference": "916bd138286fe1307113ec044bcb4d565432b516",
+        "file": "poe2_interludes_guide.html",
+        "license": "MIT",
+        "claimed_patch": "0.5.5",
+        "checksum_normalization": "UTF-8 with LF line endings",
+        "sha256": "0de0fe5ea8ef36fa8be411f778a6e0ee3918aa3eea48dee16bfb55fcce1e9fa2"
+      },
+      "visits": [
+        {
+          "name": "The Refuge",
+          "source_heading": "Interlude 5.1",
+          "aliases": [
+            "The Refuge",
+            "Refuge"
+          ],
+          "is_town": false,
+          "source_steps": [
+            1
+          ],
+          "objectives": [
+            "Arrive at The Refuge (Ogham) via The Hooded One — talk to The Hooded One"
+          ]
+        },
+        {
+          "name": "Scorched Farmlands",
+          "source_heading": "Interlude 5.1",
+          "aliases": [
+            "Scorched Farmlands",
+            "The Scorched Farmlands"
+          ],
+          "is_town": false,
+          "source_steps": [
+            2,
+            37
+          ],
+          "objectives": [
+            "Enter Scorched Farmlands (WP). The Blackwood entrance (N) is sealed by Darkness — clear it via Stones of Serle first",
+            "(Opt) boss duo Isolde & Heldra (E)"
+          ]
+        },
+        {
+          "name": "Stones of Serle",
+          "source_heading": "Interlude 5.1",
+          "aliases": [
+            "Stones of Serle",
+            "The Stones of Serle"
+          ],
+          "is_town": false,
+          "source_steps": [
+            3
+          ],
+          "objectives": [
+            "Stones of Serle (S) — activate the 6 Runed Megaliths to lift the Darkness curse"
+          ]
+        },
+        {
+          "name": "Blackwood",
+          "source_heading": "Interlude 5.1",
+          "aliases": [
+            "Blackwood",
+            "The Blackwood"
+          ],
+          "is_town": false,
+          "source_steps": [
+            5
+          ],
+          "objectives": [
+            "Through Blackwood → reach Holten. Altars of Omen here drop Omens / Dark Omens"
+          ]
+        },
+        {
+          "name": "Holten",
+          "source_heading": "Interlude 5.1",
+          "aliases": [
+            "Holten",
+            "The Holten"
+          ],
+          "is_town": false,
+          "source_steps": [
+            4,
+            6
+          ],
+          "objectives": [
+            "(Opt) Soul of the Ferryman (docks, inside Holten) Greater Runes ~2000g (cheap)",
+            "In Holten: boss duo Godwin & Sigbert (drops a Blacksmith's Whetstone — currency). Two routes branch here — clear both: Wolvenhold (Oswin) and Holten Estate (story)"
+          ]
+        },
+        {
+          "name": "Wolvenhold",
+          "source_heading": "Interlude 5.1",
+          "aliases": [
+            "Wolvenhold",
+            "The Wolvenhold"
+          ],
+          "is_town": false,
+          "source_steps": [
+            7
+          ],
+          "objectives": [
+            "Wolvenhold → slay Oswin, the Dread Warden → Warden's Ledger (use for +2 Skill Points); also drops a unique + Vaal Orb +2 Skill Points"
+          ]
+        },
+        {
+          "name": "Holten Estate",
+          "source_heading": "Interlude 5.1",
+          "aliases": [
+            "Holten Estate",
+            "The Holten Estate"
+          ],
+          "is_town": false,
+          "source_steps": [
+            8,
+            9
+          ],
+          "objectives": [
+            "Holten Estate → up two staircases (maze → upper floor) → slay Thane Wulfric & Lady Elswyth (manor courtyard) — 5.1 story bosses",
+            "Complete interlude 5.1, return to town"
+          ]
+        }
+      ],
+      "context_objectives": [],
+      "context_source_steps": [],
+      "excluded_source_steps": []
+    },
+    {
+      "id": "interlude52",
+      "label": "Interlude 5.2",
+      "act": 5,
+      "mode": "area_guidance",
+      "source": {
+        "project": "domistae/poe2-leveling",
+        "reference": "916bd138286fe1307113ec044bcb4d565432b516",
+        "file": "poe2_interludes_guide.html",
+        "license": "MIT",
+        "claimed_patch": "0.5.5",
+        "checksum_normalization": "UTF-8 with LF line endings",
+        "sha256": "0de0fe5ea8ef36fa8be411f778a6e0ee3918aa3eea48dee16bfb55fcce1e9fa2"
+      },
+      "visits": [
+        {
+          "name": "Khari Bazaar",
+          "source_heading": "Interlude 5.2",
+          "aliases": [
+            "Khari Bazaar",
+            "The Khari Bazaar"
+          ],
+          "is_town": false,
+          "source_steps": [
+            10
+          ],
+          "objectives": [
+            "Travel to Khari Crossing via Hooded One"
+          ]
+        },
+        {
+          "name": "Khari Crossing",
+          "source_heading": "Interlude 5.2",
+          "aliases": [
+            "Khari Crossing",
+            "The Khari Crossing"
+          ],
+          "is_town": false,
+          "source_steps": [
+            11,
+            12,
+            13
+          ],
+          "objectives": [
+            "Slay Akthi & Anundr (Worm + Scorpion, SE) → talk to Risu. Nav: beetle chests / rune drop up the stairs (E); Wayfinder's Seals point W to Pools of Kathal +2 Skill Points",
+            "(Opt) Torbek (Khari Crossing) Discount rare caster weapons",
+            "Travel to Pools of Kathal (WP) — guaranteed Expedition spawn; entrance to Sel Khari Sanctuary here (needed to progress)"
+          ]
+        },
+        {
+          "name": "Pools of Kathal",
+          "source_heading": "Interlude 5.2",
+          "aliases": [
+            "Pools of Kathal",
+            "The Pools of Kathal"
+          ],
+          "is_town": false,
+          "source_steps": [
+            14
+          ],
+          "objectives": [
+            "Enter Sel Khari Sanctuary → take the waypoint"
+          ]
+        },
+        {
+          "name": "Sel Khari Sanctuary",
+          "source_heading": "Interlude 5.2",
+          "aliases": [
+            "Sel Khari Sanctuary",
+            "The Sel Khari Sanctuary"
+          ],
+          "is_town": false,
+          "source_steps": [
+            38,
+            15
+          ],
+          "objectives": [
+            "(Opt) Two Wishes — place Yoon's Barya & Rangeen's Barya on their pedestals for 2 rare jewelry picks (each: ring/amulet/jewel; 2nd wish excludes the 1st category) 2× Rare Ring/Amulet/Jewel",
+            "End of Sel Khari Sanctuary → slay Elzarah, the Cobra Lord → Asala & Jado appear; then back to Khari Bazaar / further into Khari Crossing"
+          ]
+        },
+        {
+          "name": "Molten Shrine",
+          "source_heading": "Interlude 5.2",
+          "aliases": [
+            "Molten Shrine",
+            "The Molten Shrine"
+          ],
+          "is_town": false,
+          "source_steps": [
+            16
+          ],
+          "objectives": [
+            "Activate Molten One's Gift — enter the Skullmaw Stairway in the Molten Shrine (NE; Galai Gate is the northern landmark); find seals, reset instance if bugged +5% Maximum Life"
+          ]
+        },
+        {
+          "name": "Skullmaw Stairway",
+          "source_heading": "Interlude 5.2",
+          "aliases": [
+            "Skullmaw Stairway",
+            "The Skullmaw Stairway"
+          ],
+          "is_town": false,
+          "source_steps": [
+            16
+          ],
+          "objectives": [
+            "Activate Molten One's Gift — enter the Skullmaw Stairway in the Molten Shrine (NE; Galai Gate is the northern landmark); find seals, reset instance if bugged +5% Maximum Life"
+          ]
+        },
+        {
+          "name": "Qimah",
+          "source_heading": "Interlude 5.2",
+          "aliases": [
+            "Qimah",
+            "The Qimah"
+          ],
+          "is_town": false,
+          "source_steps": [
+            17,
+            18
+          ],
+          "objectives": [
+            "Enter Qimah → use Orbala's Pillar — pick 1 of 7 Boons (swap anytime) Permanent Boon",
+            "Summon Jado to open the entrance to Qimah Reservoir (if Jado is absent, finish the Sel Khari Sanctuary quest first)"
+          ]
+        },
+        {
+          "name": "Qimah Reservoir",
+          "source_heading": "Interlude 5.2",
+          "aliases": [
+            "Qimah Reservoir",
+            "The Qimah Reservoir"
+          ],
+          "is_town": false,
+          "source_steps": [
+            19,
+            20
+          ],
+          "objectives": [
+            "(Opt) Qimah Reservoir — 2× Sacred Wells (loot Vials of Sacred Water, use in wells) Currency (Regal/Exalt/Alchemy)",
+            "(Opt) rare Bloodbilge (Qimah Reservoir) — click the giant vase to spawn it; safe to skip Exalt + Vaal Orb + Skill Gem"
+          ]
+        }
+      ],
+      "context_objectives": [
+        "Slay final boss Azmadi, the Faridun Prince (≈70% HP: Zarokh appears and stops time) → interact with the Grand Barya → Jado / Asala",
+        "Complete interlude 5.2, return to town"
+      ],
+      "context_source_steps": [
+        21,
+        22
+      ],
+      "excluded_source_steps": []
+    },
+    {
+      "id": "interlude53",
+      "label": "Interlude 5.3",
+      "act": 5,
+      "mode": "area_guidance",
+      "source": {
+        "project": "domistae/poe2-leveling",
+        "reference": "916bd138286fe1307113ec044bcb4d565432b516",
+        "file": "poe2_interludes_guide.html",
+        "license": "MIT",
+        "claimed_patch": "0.5.5",
+        "checksum_normalization": "UTF-8 with LF line endings",
+        "sha256": "0de0fe5ea8ef36fa8be411f778a6e0ee3918aa3eea48dee16bfb55fcce1e9fa2"
+      },
+      "visits": [
+        {
+          "name": "The Glade",
+          "source_heading": "Interlude 5.3",
+          "aliases": [
+            "The Glade",
+            "Glade"
+          ],
+          "is_town": false,
+          "source_steps": [
+            23
+          ],
+          "objectives": [
+            "Travel to Mount Kriar via Hooded One → enter Ashen Forest through The Glade (no waypoint in Ashen Forest)"
+          ]
+        },
+        {
+          "name": "Ashen Forest",
+          "source_heading": "Interlude 5.3",
+          "aliases": [
+            "Ashen Forest",
+            "The Ashen Forest"
+          ],
+          "is_town": false,
+          "source_steps": [
+            24
+          ],
+          "objectives": [
+            "Find the Ancient Monument in Ashen Forest (a Vaal Beacon is also here — skippable: Vaal Chest or quadrilla encounter) Skill Gem (level scales with interlude order)"
+          ]
+        },
+        {
+          "name": "Kriar Village",
+          "source_heading": "Interlude 5.3",
+          "aliases": [
+            "Kriar Village",
+            "The Kriar Village"
+          ],
+          "is_town": false,
+          "source_steps": [
+            25
+          ],
+          "objectives": [
+            "Travel to Kriar Village (roving wisps — 2 to follow — show the way; Abyss + Vaal Beacon present) → slay Lythara, the Wayward Spear +40 Spirit Spirit Gem (order-dependent) + Gemcrust Skull"
+          ]
+        },
+        {
+          "name": "Glacial Tarn",
+          "source_heading": "Interlude 5.3",
+          "aliases": [
+            "Glacial Tarn",
+            "The Glacial Tarn"
+          ],
+          "is_town": false,
+          "source_steps": [
+            26,
+            28
+          ],
+          "objectives": [
+            "Travel to Glacial Tarn (guaranteed Expedition + Vaal Beacon) → enter Howling Caves (Vaal Beacon) → slay The Abominable Yeti → loot Icy Tusks",
+            "Back to Glacial Tarn → slay Rakkar, the Frozen Talon (NW) to reveal the passage to Kriar Peaks"
+          ]
+        },
+        {
+          "name": "Howling Caves",
+          "source_heading": "Interlude 5.3",
+          "aliases": [
+            "Howling Caves",
+            "The Howling Caves"
+          ],
+          "is_town": false,
+          "source_steps": [
+            26
+          ],
+          "objectives": [
+            "slay The Abominable Yeti → loot Icy Tusks"
+          ]
+        },
+        {
+          "name": "Kriar Peaks",
+          "source_heading": "Interlude 5.3",
+          "aliases": [
+            "Kriar Peaks",
+            "The Kriar Peaks"
+          ],
+          "is_town": false,
+          "source_steps": [
+            29
+          ],
+          "objectives": [
+            "Kriar Peaks (Vaal Beacon) → find Elder Maddox (10–11 o'clock; watch for blue spirit owls) Free Unique Item"
+          ]
+        },
+        {
+          "name": "Etched Ravine",
+          "source_heading": "Interlude 5.3",
+          "aliases": [
+            "Etched Ravine",
+            "The Etched Ravine"
+          ],
+          "is_town": false,
+          "source_steps": [
+            30
+          ],
+          "objectives": [
+            "Travel to Etched Ravine (far end; Vaal Beacon) → slay Stormgore, the Guardian (lightning + reanimating robots) → unlocks The Cuachic Vault"
+          ]
+        },
+        {
+          "name": "The Cuachic Vault",
+          "source_heading": "Interlude 5.3",
+          "aliases": [
+            "The Cuachic Vault",
+            "Cuachic Vault"
+          ],
+          "is_town": false,
+          "source_steps": [
+            31,
+            39,
+            32
+          ],
+          "objectives": [
+            "Enter The Cuachic Vault — maze halls",
+            "(Opt) Ancient Treasures: open Sealed Vaults at Stone Altars using Small Soul Cores found in the area Currency / loot",
+            "Reach the final boss Zolin & Zelina (\"Blood Priest\" duo) → defeat to advance the Fate of the Vaal storyline"
+          ]
+        }
+      ],
+      "context_objectives": [
+        "Return Icy Tusks to Hilda → Book of Specialization +2 Skill Points"
+      ],
+      "context_source_steps": [
+        27
+      ],
+      "excluded_source_steps": []
+    }
+  ],
+  "excluded_endgame_source_steps": [
+    34,
+    35,
+    36
+  ]
+}

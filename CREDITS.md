@@ -31,3 +31,9 @@ registered trademark of Grinding Gear Games.
   Source patch/reward claims await live-game verification. Existing PoE1
   content above remains only as legacy code/test references; the PoE2 app
   does not display its diagrams or build reminders.
+
+- **Remaining PoE2 campaign guidance** — Acts 2–4 and Interludes adapted
+  from the same domistae/poe2-leveling revision and MIT license above.
+  `tools/import_poe2_campaign.py` records per-file source checksums and
+  step references. Endgame content is excluded. Source claims remain
+  advisory pending patch 0.5.5 gameplay review.

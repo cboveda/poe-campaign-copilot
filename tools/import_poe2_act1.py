@@ -61,7 +61,7 @@ class Document(HTMLParser):
 
 def generate():
     doc = Document()
-    doc.feed(SOURCE.read_text())
+    doc.feed(SOURCE.read_text(encoding='utf-8'))
     visits = []
     source_steps = {}
     for node in doc.root.walk():
@@ -107,7 +107,8 @@ def generate():
             'project': 'domistae/poe2-leveling', 'reference': REF,
             'url': 'https://domistae.github.io/poe2-leveling/poe2_act1_guide.html',
             'claimed_patch': '0.5.5', 'license': 'MIT',
-            'sha256': hashlib.sha256(SOURCE.read_bytes()).hexdigest(),
+            'checksum_normalization': 'UTF-8 with LF line endings',
+            'sha256': hashlib.sha256(SOURCE.read_text(encoding='utf-8').encode('utf-8')).hexdigest(),
         },
         'visits': visits,
         'side_areas': side_areas,
@@ -119,9 +120,9 @@ if __name__ == '__main__':
     args = parser.parse_args()
     result = json.dumps(generate(), ensure_ascii=False, indent=2) + '\n'
     if args.check:
-        if OUTPUT.read_text() != result:
+        if OUTPUT.read_text(encoding='utf-8') != result:
             raise SystemExit('Act 1 route differs; regenerate and review the changes')
         print('Act 1 route matches pinned source')
     else:
-        OUTPUT.write_text(result)
+        OUTPUT.write_text(result, encoding='utf-8')
         print(f'wrote {OUTPUT}')

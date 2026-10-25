@@ -36,6 +36,7 @@ pub struct UiModel {
     pub images: Vec<UiImage>,
     pub waiting_for_log: bool,
     pub pending_town_return: bool,
+    pub chapter_label: Option<String>,
     /// Short label for the imported leveling build, e.g. "Ranger (Deadeye)
     /// — 12 milestones". `None` when no build has been imported.
     pub build_summary: Option<String>,
@@ -62,6 +63,8 @@ struct ObservedLocation {
 pub struct Pipeline {
     poe2_mode: bool,
     side_area_guidance: Vec<content::poe2::SideAreaGuidance>,
+    campaign_aliases: std::collections::BTreeMap<String, Vec<String>>,
+    local_guidance: Vec<content::poe2::LocalGuidance>,
     pending_town_return: Option<String>,
     observed_location: Option<ObservedLocation>,
     tracker: SessionTracker,
@@ -90,6 +93,8 @@ impl Pipeline {
         Ok(Self {
             poe2_mode: false,
             side_area_guidance: Vec::new(),
+            campaign_aliases: Default::default(),
+            local_guidance: Vec::new(),
             pending_town_return: None,
             observed_location: None,
             tracker: SessionTracker::new(areas.clone()),
@@ -106,10 +111,17 @@ impl Pipeline {
     /// PoE2's first vertical slice: actual location tracking, with no legacy
     /// routes, images, gem data or automatic quest completion attached.
     pub fn new_poe2() -> Result<Self, PipelineError> {
-        let (areas, steps) = content::poe2::load_act1_preview()?;
+        let content::poe2::CampaignPreview {
+            areas,
+            steps,
+            aliases,
+            local_guidance,
+        } = content::poe2::load_campaign_preview()?;
         Ok(Self {
             poe2_mode: true,
             side_area_guidance: content::poe2::load_side_area_guidance()?,
+            campaign_aliases: aliases,
+            local_guidance,
             pending_town_return: None,
             observed_location: None,
             tracker: SessionTracker::new(content::poe2::load_observed_areas()?),
@@ -208,23 +220,7 @@ impl Pipeline {
     }
 
     fn observe_poe2(&mut self, raw_id: &str, name: &str, new_instance: bool) {
-        let known = self
-            .areas
-            .get(raw_id)
-            .filter(|area| area.name == name)
-            .or_else(|| {
-                // The preview only allows name matching within the observed
-                // Act 1 ID family. Endgame/hideout names must never select a
-                // campaign route just because a label happens to coincide.
-                raw_id
-                    .starts_with("G1_")
-                    .then(|| {
-                        self.areas
-                            .values()
-                            .find(|area| area.act == 1 && area.name == name)
-                    })
-                    .flatten()
-            });
+        let known = self.resolve_campaign_area(raw_id, name);
         let route_id = known
             .filter(|area| {
                 self.engine
@@ -265,6 +261,26 @@ impl Pipeline {
         self.seen_area_event = true;
     }
 
+    fn resolve_campaign_area(&self, raw_id: &str, name: &str) -> Option<&content::game_data::Area> {
+        let family = content::poe2::campaign_namespace(raw_id)?;
+        let key = content::poe2::normalize_area_name(name);
+        if let Some(area) = self.areas.get(raw_id)
+            && content::poe2::normalize_area_name(&area.name) == key
+        {
+            return Some(area);
+        }
+        let ids = self.campaign_aliases.get(&key)?;
+        if ids.len() == 1 {
+            return self.areas.get(&ids[0]);
+        }
+        let mut matches = ids
+            .iter()
+            .filter_map(|id| self.areas.get(id))
+            .filter(|area| area.act == family);
+        let first = matches.next()?;
+        matches.next().is_none().then_some(first)
+    }
+
     fn side_guidance_for(&self, id: &str, name: &str) -> Option<&content::poe2::SideAreaGuidance> {
         // Never apply campaign-name hints to an endgame/hideout label.
         if !self.poe2_mode || !id.starts_with("G1_") {
@@ -301,6 +317,7 @@ impl Pipeline {
             .build
             .as_ref()
             .map(|plan| BuildContext { plan, player_level });
+        let mut chapter_label = None;
         let mut overlay = compose(
             &self.engine,
             &self.tasks,
@@ -313,15 +330,25 @@ impl Pipeline {
             let showing_route = location
                 .and_then(|loc| loc.route_area_id.as_deref())
                 .is_some_and(|id| self.engine.focus_area() == Some(id));
-            // This is an Act 1 preview, not proof of full campaign completion.
+            // Travel is not proof that campaign objectives/rewards are complete.
             overlay.route_complete = false;
             overlay.zone_name = location.map(|loc| loc.name.clone()).unwrap_or_default();
             overlay.area_id = location.map(|loc| loc.area_id.clone()).unwrap_or_default();
             overlay.act = location.map(|loc| loc.act).unwrap_or(0);
             overlay.is_town = location.is_some_and(|loc| loc.is_town);
+            let local = location
+                .and_then(|loc| self.resolve_campaign_area(&loc.area_id, &loc.name))
+                .and_then(|area| {
+                    self.local_guidance
+                        .iter()
+                        .find(|guide| guide.area_id == area.id)
+                });
+            if let Some(guide) = local {
+                chapter_label = Some(guide.label.clone());
+            }
             if showing_route {
                 overlay.sub_hints.push(
-                    "Act 1 preview · objectives are guidance, not confirmed completion."
+                    "Campaign preview · objectives are guidance, not confirmed completion."
                         .to_string(),
                 );
             } else {
@@ -338,6 +365,21 @@ impl Pipeline {
                 overlay.off_route_zone = None;
                 overlay.location_status = "on_track".to_string();
                 overlay.groups_behind = 0;
+                if let Some(guide) = local {
+                    overlay.primary = guide.objectives[0].clone();
+                    overlay.steps_in_zone = guide.objectives.clone();
+                    overlay.next_zone = guide.return_to.clone();
+                    overlay.sub_hints = vec![format!(
+                        "{} · objectives are guidance, not confirmed completion.",
+                        guide.label
+                    )];
+                    overlay.sub_hints.extend(
+                        guide
+                            .context_objectives
+                            .iter()
+                            .map(|text| format!("Chapter reminder: {text}")),
+                    );
+                }
                 if let Some(side) =
                     location.and_then(|loc| self.side_guidance_for(&loc.area_id, &loc.name))
                 {
@@ -365,6 +407,7 @@ impl Pipeline {
             images,
             waiting_for_log: !self.seen_area_event,
             pending_town_return: self.has_pending_town_return(),
+            chapter_label,
             build_summary: self.build.as_ref().map(build_summary),
         }
     }
@@ -887,5 +930,168 @@ mod side_area_tests {
         assert!(!model.overlay.primary.contains("Asinia"));
         assert!(model.overlay.next_zone.is_none());
         assert_eq!(p.engine.cursor(), 0);
+    }
+}
+
+#[cfg(test)]
+mod remaining_campaign_tests {
+    use super::*;
+    fn travel(p: &mut Pipeline, tick: u64, id: &str, name: &str) -> UiModel {
+        for message in [
+            format!("Generating level 45 area \"{id}\" with seed 7"),
+            format!("[SCENE] Set Source [{name}]"),
+        ] {
+            p.on_line(&format!(
+                "2026/10/24 12:00:00 {tick} abc [INFO Client 100] {message}"
+            ));
+        }
+        p.on_line(&format!("2026/10/24 12:00:00 {} abc [INFO Client 100] [LOADING SCREEN] ({name}) Duration = 1 seconds",tick+1)).unwrap()
+    }
+    // IDs below explicitly belong to synthetic fixtures. The supplied log
+    // does not establish these game IDs; runtime must retain actual raw IDs.
+    #[test]
+    fn act2_town_returns_keep_the_early_visit_guard_and_show_correct_handin_on_confirmation() {
+        let mut p = Pipeline::new_poe2().unwrap();
+        let outskirts = travel(&mut p, 1, "G2_test_outskirts", "Vastiri Outskirts");
+        assert!(
+            outskirts
+                .overlay
+                .steps_in_zone
+                .iter()
+                .any(|s| s.contains("Rathbreaker"))
+        );
+        let caravan = travel(&mut p, 10, "G2_test_caravan", "The Ardura Caravan");
+        assert!(caravan.overlay.is_town);
+        assert_eq!(caravan.overlay.act, 2);
+        assert!(!caravan.pending_town_return);
+        travel(&mut p, 20, "G2_test_mine", "The Mawdun Mine");
+        let cursor = p.engine.cursor();
+        let early = travel(&mut p, 30, "G2_test_caravan", "Ardura Caravan");
+        assert_eq!(p.engine.cursor(), cursor);
+        assert!(early.pending_town_return);
+        let field = travel(&mut p, 40, "G2_test_mine", "Mawdun Mine");
+        assert!(!field.pending_town_return);
+        assert!(field.overlay.primary.contains("Rudja"));
+        travel(&mut p, 50, "G2_test_caravan", "Ardura Caravan");
+        let confirmed = p.confirm_town_return().unwrap();
+        assert!(confirmed.overlay.primary.contains("Risu"));
+    }
+    #[test]
+    fn act3_and_chapter_transitions_resolve_guide_names_without_changing_observed_ids() {
+        let mut p = Pipeline::new_poe2().unwrap();
+        for (tick, id, name, act, expected) in [
+            (1, "G2_test_boss", "The Dreadnought", 2, "Jamanra"),
+            (10, "G3_test_marsh", "The Sandswept Marsh", 3, "Hooded One"),
+            (20, "G3_town", "Ziggurat Encampment", 3, "Alva"),
+            (30, "G3_test_end", "Black Chambers", 3, "Doryani"),
+        ] {
+            let model = travel(&mut p, tick, id, name);
+            assert_eq!(model.overlay.area_id, id);
+            assert_eq!(model.overlay.act, act);
+            assert!(
+                model
+                    .overlay
+                    .steps_in_zone
+                    .iter()
+                    .any(|s| s.contains(expected)),
+                "{name}"
+            );
+        }
+    }
+    #[test]
+    fn act4_islands_and_interludes_can_be_visited_in_any_order_without_consuming_other_branches() {
+        let mut p = Pipeline::new_poe2().unwrap();
+        let start = p.engine.cursor();
+        for (i, (name, label, expected)) in [
+            ("Kedge Bay", "Act 4", "Torn Map"),
+            ("Whakapanu Island", "Act 4", "Petrified Pirate"),
+            ("Kriar Village", "Interlude 5.3", "Lythara"),
+            ("Wolvenhold", "Interlude 5.1", "Oswin"),
+            ("Qimah", "Interlude 5.2", "Boons"),
+            ("The Cuachic Vault", "Interlude 5.3", "Zolin"),
+        ]
+        .iter()
+        .enumerate()
+        {
+            // Nonlinear areas may retain older chapter-prefixed namespaces.
+            let model = travel(&mut p, (i * 10 + 1) as u64, &format!("G4_test_{i}"), name);
+            assert_eq!(model.chapter_label.as_deref(), Some(*label));
+            assert!(
+                model
+                    .overlay
+                    .steps_in_zone
+                    .iter()
+                    .any(|s| s.contains(expected)),
+                "{name}"
+            );
+            assert_eq!(p.engine.cursor(), start);
+            assert!(!model.overlay.route_complete);
+            assert!(!model.pending_town_return);
+        }
+    }
+    #[test]
+    fn side_areas_restore_their_parent_route_and_endgame_name_collisions_remain_unmapped() {
+        let mut p = Pipeline::new_poe2().unwrap();
+        travel(&mut p, 1, "G2_test_keth", "Keth");
+        let cursor = p.engine.cursor();
+        let side = travel(&mut p, 10, "G2_test_venom", "Venom Pit");
+        assert!(side.overlay.primary.contains("Kabala"));
+        assert_eq!(side.overlay.next_zone.as_deref(), Some("Keth"));
+        assert_eq!(p.engine.cursor(), cursor);
+        for (i, name) in ["Kingsmarch", "Kriar Village", "The Cuachic Vault"]
+            .iter()
+            .enumerate()
+        {
+            let model = travel(&mut p, (20 + i * 10) as u64, "MapFuture", name);
+            assert!(model.overlay.steps_in_zone.is_empty());
+            assert!(model.chapter_label.is_none());
+            assert_eq!(model.overlay.act, 0);
+            assert_eq!(p.engine.cursor(), cursor);
+        }
+    }
+}
+
+#[cfg(test)]
+mod campaign_catalog_tests {
+    use super::*;
+    #[test]
+    fn every_local_guide_resolves_by_its_source_name_and_keeps_the_main_frontier() {
+        let mut p = Pipeline::new_poe2().unwrap();
+        let cases: Vec<_> = p
+            .local_guidance
+            .iter()
+            .map(|guide| {
+                (
+                    p.areas[&guide.area_id].name.clone(),
+                    guide.label.clone(),
+                    guide.objectives.clone(),
+                )
+            })
+            .collect();
+        assert!(cases.len() >= 50);
+        for (i, (name, label, objectives)) in cases.iter().enumerate() {
+            // Synthetic IDs exercise name-based resolution, including a
+            // namespace number different from a source chapter number.
+            let id = format!("G7_fixture_{i}");
+            let tick = i * 10 + 1;
+            for msg in [
+                format!("Generating level 50 area \"{id}\" with seed 7"),
+                format!("[SCENE] Set Source [{name}]"),
+                format!("[LOADING SCREEN] ({name}) Duration = 1 seconds"),
+            ] {
+                p.on_line(&format!(
+                    "2026/10/24 12:00:00 {tick} abc [INFO Client 100] {msg}"
+                ));
+            }
+            let model = p.current_model();
+            assert_eq!(model.chapter_label.as_ref(), Some(label), "{name}");
+            assert_eq!(&model.overlay.steps_in_zone, objectives, "{name}");
+            assert_eq!(
+                p.engine.cursor(),
+                0,
+                "{name} consumed unrelated main-route progress"
+            );
+            assert!(!model.overlay.route_complete);
+        }
     }
 }

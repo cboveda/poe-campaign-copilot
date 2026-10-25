@@ -210,3 +210,13 @@ overlay confirmation working. Detailed side-area content validation remains
 pending under the Windows checklist. Supplemental side-area guidance now
 covers Mud Burrow, Mausoleum of the Praetor and Tomb of the Consort without
 inserting inferred route progress or fabricated game IDs.
+
+## Remaining campaign checkpoint: 0.2.0-alpha.3
+
+Acts 2–3 now have source-imported sequential visits. Act 4 and all three
+Interludes have independent local guidance so an alternate branch order
+cannot mark other content complete. Original Act 1 behavior, explicit town
+confirmation and Campaign/Optional grouping remain. Endgame guide content
+is excluded. See [coverage and user validation](POE2-CAMPAIGN-COVERAGE.md).
+This advances M3 implementation coverage; it does not close its in-game
+accuracy/complete-walkthrough acceptance gate or claim Windows certification.

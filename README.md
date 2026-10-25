@@ -3,40 +3,39 @@
 A passive Windows overlay for the English Path of Exile 2 client. It reads
 `Client.txt`; it does not read game memory or automate inputs.
 
-**0.2.0-alpha.2 — development preview, not a complete campaign release.**
+**0.2.0-alpha.3 — campaign guide preview; Windows gameplay validation pending.**
 
-The preview tracks completed zone loads, level-up/death events and instance
-revisits. It displays Act 1 objectives adapted from a pinned, licensed
-[community guide](https://domistae.github.io/poe2-leveling/poe2_act1_guide.html).
-Objectives are suggestions, not proof that a boss, quest or reward is done.
-Campaign and optional objectives are displayed in separate sections; compact
-mode prioritizes campaign guidance and summarizes optional items.
-The target client patch is **0.5.5**, confirmed by the user; the guide’s
-objectives and rewards still need gameplay review.
+The preview tracks completed zone loads and instance revisits on the English
+**0.5.5** client. Acts 1–3 use sequential source-guided route visits; Act 4
+islands and Interludes 5.1–5.3 use area guidance so choosing a different
+order cannot complete unrelated branches. Campaign and Optional objectives
+are separate; compact mode prioritizes campaign guidance.
 
-Mud Burrow, Mausoleum of the Praetor and Tomb of the Consort show side-area
-objectives without advancing the main route.
+Content is adapted from a pinned, licensed
+[community guide](https://domistae.github.io/poe2-leveling/poe2_leveling_guide.html).
+Objectives/rewards/directions are advisory and still need in-game review.
+Entering an area does not confirm a boss kill, quest hand-in or reward.
+Unknown/endgame areas do not select campaign guidance. No endgame Atlas/map
+guide, build imports/reminders or diagrams are included. PoE1 state is
+separate; automatic updates are disabled. No installer is published here.
 
-Later campaign chapters, diagrams, build imports/reminders and endgame
-guidance are not provided. Unknown/endgame locations show their observed
-name without moving the campaign route. PoE1 settings and progress use a
-separate app namespace and are not imported. Automatic updates are disabled
-until a PoE2 release channel is configured. No Windows release is published
-by these changes.
+Start with [Run on Windows](docs/RUN-ON-WINDOWS.md). Existing testers can
+stay on `codex/poe2-preview-alpha2`, stop the app, run `git pull --ff-only`,
+then `npm.cmd run tauri dev`.
 
-See the [alpha.2 security update](docs/SECURITY-UPDATE-alpha2.md).
-
-Start with [Run on Windows](docs/RUN-ON-WINDOWS.md). Also see
+See [chapter coverage and validation](docs/POE2-CAMPAIGN-COVERAGE.md),
 [development](docs/DEVELOPMENT.md), the
 [conversion plan](docs/POE2-CONVERSION-PLAN.md), and the
-[Windows validation checklist](docs/POE2-WINDOWS-VALIDATION.md).
+[Windows checklist](docs/POE2-WINDOWS-VALIDATION.md). The earlier
+[security update](docs/SECURITY-UPDATE-alpha2.md) remains applicable;
+remaining audit findings have not been silently marked fixed.
 
 ## Using the preview
 
-1. Build from the current preview source as described in the development guide.
+1. Build from this branch using the Windows instructions.
 2. Open tray → Settings and browse to the PoE2 installation's `logs/Client.txt`.
-3. Run the game in windowed fullscreen and enter another area. Existing log
-   history is skipped during normal use.
+3. Use windowed fullscreen and enter another area after startup; normal use
+   skips existing game-log history.
 
 Settings retain opacity, hotkeys and timer controls. The default hotkeys are
 Alt+Shift+S (move/resize setup), Z (zoom), C (compact), H (hide), O (settings)
