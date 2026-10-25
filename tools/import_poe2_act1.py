@@ -63,7 +63,12 @@ def generate():
     doc = Document()
     doc.feed(SOURCE.read_text())
     visits = []
+    source_steps = {}
     for node in doc.root.walk():
+        if node.has('step') and 'data-step' in node.attrs:
+            content = next((child for child in node.walk() if child.has('step-content')), None)
+            if content is not None:
+                source_steps[int(node.attrs['data-step'])] = ' '.join(content.text().split())
         if node.has('zone-header'):
             title = ''.join(c for c in node.children if isinstance(c, str)).strip()
             name = re.sub(r'\s*\((Return|End of Act)\)\s*$', '', title).strip()
@@ -77,10 +82,26 @@ def generate():
     steps = sum(len(v['objectives']) for v in visits)
     if steps != 65:
         raise ValueError(f'guide structure changed: expected 65 objectives, found {steps}')
+    # These objectives occur inside parent-zone text rather than as route
+    # visit headings. Keep them separate so entering a side area cannot
+    # falsely consume the parent visit or reorder the main campaign.
+    side_areas = []
+    for name, aliases, parent, refs in [
+        ('Mud Burrow', ['Mud Burrow', 'The Mud Burrow'], 'Clearfell', [9]),
+        ('Mausoleum of the Praetor', ['Mausoleum of the Praetor'], 'Cemetery of the Eternals', [33, 34]),
+        ('Tomb of the Consort', ['Tomb of the Consort'], 'Cemetery of the Eternals', [35]),
+    ]:
+        objectives = [source_steps[ref] for ref in refs]
+        if not all(name in text for text in objectives):
+            raise ValueError(f'guide side-area references changed: {name}')
+        side_areas.append({'name': name, 'aliases': aliases, 'parent': parent,
+                           'source_steps': refs, 'objectives': objectives})
     return {
         'format_version': 1,
         'game': 'poe2',
         'coverage': 'act1-preview',
+        'target_patch': '0.5.5',
+        'target_confirmation': 'user-reported client patch; gameplay content verification pending',
         'validation': 'source-imported; live-patch and gameplay review pending',
         'source': {
             'project': 'domistae/poe2-leveling', 'reference': REF,
@@ -89,6 +110,7 @@ def generate():
             'sha256': hashlib.sha256(SOURCE.read_bytes()).hexdigest(),
         },
         'visits': visits,
+        'side_areas': side_areas,
     }
 
 if __name__ == '__main__':

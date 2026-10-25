@@ -19,6 +19,43 @@ struct Act1Route {
     game: String,
     coverage: String,
     visits: Vec<Visit>,
+    #[serde(default)]
+    side_areas: Vec<SideAreaGuidance>,
+}
+
+#[derive(Debug, Clone, Deserialize)]
+pub struct SideAreaGuidance {
+    pub name: String,
+    pub aliases: Vec<String>,
+    pub parent: String,
+    pub source_steps: Vec<u16>,
+    pub objectives: Vec<String>,
+}
+
+/// Supplemental objectives do not become route steps or inferred game IDs.
+pub fn load_side_area_guidance() -> Result<Vec<SideAreaGuidance>, GameDataError> {
+    let route: Act1Route =
+        serde_json::from_str(include_str!("../../../content/poe2/act1-route.json"))?;
+    let mut names = std::collections::BTreeSet::new();
+    for side in &route.side_areas {
+        if side.name.trim().is_empty()
+            || side.aliases.is_empty()
+            || side.objectives.is_empty()
+            || side.source_steps.len() != side.objectives.len()
+            || !route.visits.iter().any(|visit| visit.name == side.parent)
+            || side
+                .aliases
+                .iter()
+                .any(|name| name.trim().is_empty() || !names.insert(name.clone()))
+        {
+            return Err(std::io::Error::new(
+                std::io::ErrorKind::InvalidData,
+                "invalid PoE2 side-area guidance",
+            )
+            .into());
+        }
+    }
+    Ok(route.side_areas)
 }
 
 #[derive(Deserialize)]
@@ -114,5 +151,22 @@ mod tests {
             !text.contains("Frost bomb"),
             "build-specific notes must not become route objectives"
         );
+    }
+}
+
+#[cfg(test)]
+mod side_area_tests {
+    use super::*;
+    #[test]
+    fn supplemental_objectives_are_sourced_without_inserting_route_visits() {
+        let sides = load_side_area_guidance().unwrap();
+        assert_eq!(sides.len(), 3);
+        assert_eq!(load_act1_preview().unwrap().1.len(), 65);
+        assert_eq!(sides[0].source_steps, [9]);
+        assert!(sides[0].objectives[0].contains("Devourer"));
+        assert_eq!(sides[1].source_steps, [33, 34]);
+        assert!(sides[1].objectives[0].contains("Draven"));
+        assert_eq!(sides[2].source_steps, [35]);
+        assert!(sides[2].objectives[0].contains("Asinia"));
     }
 }

@@ -134,3 +134,29 @@ When a planned town confirmation is pending:
 These native click/focus behaviors are pending Windows validation. Report
 any click falling through the button, blocked game clicks elsewhere, or
 focus loss. Settings remains a fallback if direct interaction fails.
+
+## Side-area guidance: patch 0.5.5
+
+Target patch is now user-confirmed as **0.5.5**. When convenient, use existing
+Act 1 access; no new character or boss re-kill is required just to test
+location/guidance. Restart the overlay after pulling the update.
+
+1. Enter Cemetery of the Eternals, then Mausoleum of the Praetor. Expected:
+   the actual zone name and Draven/key objective appear; optional cache
+   guidance is separate. Main-route progress and town confirmation must not
+   advance merely because you entered.
+2. Return to Cemetery, then enter Tomb of the Consort. Expected: Cemetery
+   instructions restore, then the Tomb shows Asinia/key guidance. Returning
+   to Cemetery restores its instructions again. No boss/reward is marked done.
+3. If accessible, enter Mud Burrow from Clearfell. Expected: optional Devourer
+   guidance, with Clearfell identified as the parent route. Returning restores
+   Clearfell instructions. If unavailable, mark this step unrun.
+4. Check the objective text against actual patch 0.5.5 gameplay during your
+   normal run; report incorrect reward/direction claims without deliberately
+   resetting a completed run.
+
+Report the zone, failed step, displayed text and timestamp. If Mud Burrow
+shows guidance unavailable, include only its sanitized generation, scene and
+loading-completion lines so the display name/ID can be verified. Parent-zone
+labels describe route context; they do not instruct a specific portal method.
+These Windows/gameplay checks remain pending until reported.

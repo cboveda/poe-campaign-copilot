@@ -21,3 +21,12 @@ source revision, SHA-256 and claimed patch. The embedded route uses internal
 `poe2-guide:` keys for names whose game IDs have not been observed; these
 keys must never be represented as real game IDs. Full campaign coverage and
 live-patch/gameplay verification are outstanding.
+
+Target client patch **0.5.5** is user-confirmed. This matches the guide's
+claimed patch but is not a substitute for gameplay validation. The generator
+also exports `side_areas`: objective text from source steps 9, 33–35 for Mud
+Burrow, Mausoleum of the Praetor and Tomb of the Consort. These do not add
+main-route visits, advance progress or confirm rewards. A parent-zone label
+indicates where the main guidance resumes, not an asserted portal mechanic
+or guaranteed exit location. Mud Burrow's two supported display-name aliases
+still need a real game-log capture; its game ID is deliberately unspecified.

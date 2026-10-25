@@ -61,6 +61,7 @@ struct ObservedLocation {
 
 pub struct Pipeline {
     poe2_mode: bool,
+    side_area_guidance: Vec<content::poe2::SideAreaGuidance>,
     pending_town_return: Option<String>,
     observed_location: Option<ObservedLocation>,
     tracker: SessionTracker,
@@ -88,6 +89,7 @@ impl Pipeline {
         let layouts = layouts_by_area(load_all_layouts()?);
         Ok(Self {
             poe2_mode: false,
+            side_area_guidance: Vec::new(),
             pending_town_return: None,
             observed_location: None,
             tracker: SessionTracker::new(areas.clone()),
@@ -107,6 +109,7 @@ impl Pipeline {
         let (areas, steps) = content::poe2::load_act1_preview()?;
         Ok(Self {
             poe2_mode: true,
+            side_area_guidance: content::poe2::load_side_area_guidance()?,
             pending_town_return: None,
             observed_location: None,
             tracker: SessionTracker::new(content::poe2::load_observed_areas()?),
@@ -230,10 +233,13 @@ impl Pipeline {
                     .any(|step| step.area_context == area.id)
             })
             .map(|area| area.id.clone());
+        let side = self.side_guidance_for(raw_id, name);
         let location = ObservedLocation {
             area_id: raw_id.to_string(),
             name: name.to_string(),
-            act: known.map(|area| area.act).unwrap_or(0),
+            act: known
+                .map(|area| area.act)
+                .unwrap_or(if side.is_some() { 1 } else { 0 }),
             is_town: known.is_some_and(|area| area.is_town_area),
             route_area_id: route_id.clone(),
         };
@@ -257,6 +263,16 @@ impl Pipeline {
         }
         self.observed_location = Some(location);
         self.seen_area_event = true;
+    }
+
+    fn side_guidance_for(&self, id: &str, name: &str) -> Option<&content::poe2::SideAreaGuidance> {
+        // Never apply campaign-name hints to an endgame/hideout label.
+        if !self.poe2_mode || !id.starts_with("G1_") {
+            return None;
+        }
+        self.side_area_guidance
+            .iter()
+            .find(|side| side.aliases.iter().any(|alias| alias == name))
     }
 
     pub fn has_pending_town_return(&self) -> bool {
@@ -322,6 +338,17 @@ impl Pipeline {
                 overlay.off_route_zone = None;
                 overlay.location_status = "on_track".to_string();
                 overlay.groups_behind = 0;
+                if let Some(side) =
+                    location.and_then(|loc| self.side_guidance_for(&loc.area_id, &loc.name))
+                {
+                    overlay.primary = side.objectives[0].clone();
+                    overlay.steps_in_zone = side.objectives.clone();
+                    overlay.sub_hints = vec![format!(
+                        "Act 1 side area · parent route: {}. Objectives are guidance, not confirmed completion.",
+                        side.parent
+                    )];
+                    overlay.next_zone = Some(side.parent.clone());
+                }
             }
         }
         let images = overlay
@@ -794,5 +821,71 @@ mod incidental_town_tests {
             assert!(!p.has_pending_town_return());
         }
         assert!(p.current_model().overlay.primary.contains("Una"));
+    }
+}
+
+#[cfg(test)]
+mod side_area_tests {
+    use super::*;
+    fn travel(p: &mut Pipeline, tick: u64, id: &str, name: &str) -> UiModel {
+        for message in [
+            format!("Generating level 8 area \"{id}\" with seed 7"),
+            format!("[SCENE] Set Source [{name}]"),
+        ] {
+            p.on_line(&format!(
+                "2026/10/24 12:00:00 {tick} abc [INFO Client 100] {message}"
+            ));
+        }
+        p.on_line(&format!("2026/10/24 12:00:00 {} abc [INFO Client 100] [LOADING SCREEN] ({name}) Duration = 1 seconds",tick+1)).unwrap()
+    }
+    #[test]
+    fn cemetery_side_areas_display_their_objectives_without_consuming_parent_progress() {
+        for (id, name, boss) in [
+            ("G1_8", "Mausoleum of the Praetor", "Draven"),
+            ("G1_9", "Tomb of the Consort", "Asinia"),
+        ] {
+            let mut p = Pipeline::new_poe2().unwrap();
+            let parent = travel(&mut p, 1, "G1_7", "Cemetery of the Eternals");
+            let cursor = p.engine.cursor();
+            let side = travel(&mut p, 10, id, name);
+            assert_eq!(side.overlay.area_id, id);
+            assert_eq!(side.overlay.zone_name, name);
+            assert_eq!(side.overlay.act, 1);
+            assert!(side.overlay.primary.contains(boss));
+            assert_eq!(
+                side.overlay.next_zone.as_deref(),
+                Some("Cemetery of the Eternals")
+            );
+            assert_eq!(p.engine.cursor(), cursor);
+            assert!(!side.pending_town_return);
+            assert!(!side.overlay.route_complete);
+            let returned = travel(&mut p, 20, "G1_7", "Cemetery of the Eternals");
+            assert_eq!(returned.overlay.steps_in_zone, parent.overlay.steps_in_zone);
+            assert_eq!(p.engine.cursor(), cursor);
+        }
+    }
+    #[test]
+    fn mud_burrow_uses_name_evidence_without_inventing_a_game_id() {
+        for name in ["Mud Burrow", "The Mud Burrow"] {
+            let mut p = Pipeline::new_poe2().unwrap();
+            travel(&mut p, 1, "G1_2", "Clearfell");
+            let cursor = p.engine.cursor();
+            // Synthetic ID: the supplied log did not capture Mud Burrow.
+            let side = travel(&mut p, 10, "G1_test_mud", name);
+            assert_eq!(side.overlay.area_id, "G1_test_mud");
+            assert!(side.overlay.primary.contains("Devourer"));
+            assert!(side.overlay.primary.contains("(Opt)"));
+            assert_eq!(side.overlay.next_zone.as_deref(), Some("Clearfell"));
+            assert_eq!(p.engine.cursor(), cursor);
+        }
+    }
+    #[test]
+    fn a_matching_endgame_label_cannot_select_campaign_side_area_guidance() {
+        let mut p = Pipeline::new_poe2().unwrap();
+        let model = travel(&mut p, 1, "MapFuture", "Tomb of the Consort");
+        assert_eq!(model.overlay.act, 0);
+        assert!(!model.overlay.primary.contains("Asinia"));
+        assert!(model.overlay.next_zone.is_none());
+        assert_eq!(p.engine.cursor(), 0);
     }
 }

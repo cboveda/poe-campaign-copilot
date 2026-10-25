@@ -9,7 +9,11 @@ The preview tracks completed zone loads, level-up/death events and instance
 revisits. It displays Act 1 objectives adapted from a pinned, licensed
 [community guide](https://domistae.github.io/poe2-leveling/poe2_act1_guide.html).
 Objectives are suggestions, not proof that a boss, quest or reward is done.
-The guide's patch compatibility and rewards still need gameplay review.
+The target client patch is **0.5.5**, confirmed by the user; the guide’s
+objectives and rewards still need gameplay review.
+
+Mud Burrow, Mausoleum of the Praetor and Tomb of the Consort show side-area
+objectives without advancing the main route.
 
 Later campaign chapters, diagrams, build imports/reminders and endgame
 guidance are not provided. Unknown/endgame locations show their observed

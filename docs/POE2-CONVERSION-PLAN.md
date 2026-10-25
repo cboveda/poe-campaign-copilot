@@ -14,7 +14,7 @@ Confirmed decisions and remaining questions:
 2. **Release definition — confirmed:** campaign routing and desktop distribution. Layouts and build features follow separately. Remove or disable incompatible PoE1 diagrams and build controls in the initial release.
 3. **Platforms — confirmed:** Windows only. Linux and macOS runtime/package validation are outside this conversion's acceptance criteria.
 4. **Language — confirmed:** English only. Document this requirement and fail safely for unrecognized/localized messages.
-5. **Campaign coverage — confirmed:** target the current live patch at implementation start and its full available campaign. Research and record the exact patch/build and campaign structure in M0. Do not assume PoE1's ten acts or an older PoE2 campaign structure.
+5. **Campaign coverage — confirmed:** target **0.5.5**, confirmed by the user, and its full available campaign. Record the campaign structure and verify source content against that client. Do not assume PoE1's ten acts or an older PoE2 campaign structure.
 6. **Routing goals — confirmed:** a fresh-character general-purpose route with permanent-bonus detours explicitly labeled. Hardcore/SSF-specific variants and speedrun optimization are deferred.
 7. **Endgame — confirmed exclusion:** no Atlas, mapping or endgame boss guidance. Entering endgame must be handled gracefully without advancing campaign progress incorrectly.
 8. **Build support — deferred:** identify the intended PoE2 build planner and export versions when the follow-on milestone begins; this research does not block the initial release.
@@ -202,3 +202,11 @@ development toolchain, removes diagnostic URL prefill and unused updater
 dependencies/permissions. Fresh npm scan: zero matches. Rust scan: two
 remaining matches in the disabled legacy PoB library. Full campaign scope
 and pending Windows validation are unchanged.
+
+Target-patch confirmation: the user reports PoE2 **0.5.5**, matching the
+starting guide's claimed version. This confirms the target version, not all
+guide rewards/directions. The user reports the early-town fix and direct
+overlay confirmation working. Detailed side-area content validation remains
+pending under the Windows checklist. Supplemental side-area guidance now
+covers Mud Burrow, Mausoleum of the Praetor and Tomb of the Consort without
+inserting inferred route progress or fabricated game IDs.

@@ -2,6 +2,8 @@
   "format_version": 1,
   "game": "poe2",
   "coverage": "act1-preview",
+  "target_patch": "0.5.5",
+  "target_confirmation": "user-reported client patch; gameplay content verification pending",
   "validation": "source-imported; live-patch and gameplay review pending",
   "source": {
     "project": "domistae/poe2-leveling",
@@ -183,6 +185,50 @@
       "objectives": [
         "Talk to all NPCs",
         "Talk to The Hooded One → \"Follow the Beast's Trail\""
+      ]
+    }
+  ],
+  "side_areas": [
+    {
+      "name": "Mud Burrow",
+      "aliases": [
+        "Mud Burrow",
+        "The Mud Burrow"
+      ],
+      "parent": "Clearfell",
+      "source_steps": [
+        9
+      ],
+      "objectives": [
+        "(Opt) Mud Burrow → The Devourer Skill Gem Lv2"
+      ]
+    },
+    {
+      "name": "Mausoleum of the Praetor",
+      "aliases": [
+        "Mausoleum of the Praetor"
+      ],
+      "parent": "Cemetery of the Eternals",
+      "source_steps": [
+        33,
+        34
+      ],
+      "objectives": [
+        "Mausoleum of the Praetor → Draven → Draven's Memorial Key Piece, TP back",
+        "(Opt) Mausoleum of the Praetor — Forgotten Riches hidden cache Support Gem 1 Loot Gold"
+      ]
+    },
+    {
+      "name": "Tomb of the Consort",
+      "aliases": [
+        "Tomb of the Consort"
+      ],
+      "parent": "Cemetery of the Eternals",
+      "source_steps": [
+        35
+      ],
+      "objectives": [
+        "Tomb of the Consort → Asinia → Asinia's Memorial Key Piece, TP back"
       ]
     }
   ]
