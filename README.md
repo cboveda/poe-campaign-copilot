@@ -3,7 +3,7 @@
 A passive Windows overlay for the English Path of Exile 2 client. It reads
 `Client.txt`; it does not read game memory or automate inputs.
 
-**0.2.0-alpha.5 — campaign guide preview; Windows gameplay validation pending.**
+**0.2.0-alpha.6 — campaign guide preview; Windows gameplay validation pending.**
 
 The preview tracks completed zone loads and instance revisits on the English
 **0.5.5** client. Acts 1–3 use sequential source-guided route visits; Act 4

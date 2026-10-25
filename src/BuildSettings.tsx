@@ -8,6 +8,7 @@ export function BuildSettings() {
   const [saved, setSaved] = useState<SavedBuild | null>(null);
   const [preview, setPreview] = useState<BuildPlan | null>(null);
   const [url, setUrl] = useState("");
+  const [pageSource, setPageSource] = useState("");
   const [profile, setProfile] = useState("");
   const [act, setAct] = useState<number | null>(null);
   const [busy, setBusy] = useState(false);
@@ -49,6 +50,13 @@ export function BuildSettings() {
     try { setPreview(await invoke<BuildPlan | null>("preview_mobalytics_file", {url})); }
     catch (e) { setError(String(e)); } finally { setBusy(false); }
   }
+  async function previewSource() {
+    setBusy(true); setError(null); setPreview(null);
+    try {
+      setPreview(await invoke<BuildPlan>("preview_mobalytics_source", {url, html: pageSource}));
+      setPageSource("");
+    } catch (e) { setError(String(e)); } finally { setBusy(false); }
+  }
   const plan = saved?.plan;
   const progress = saved?.profiles[saved.profile];
   const matches = plan?.stages.filter(stage => act !== null && stage.acts.includes(act)) ?? [];
@@ -69,9 +77,21 @@ export function BuildSettings() {
       {plan && <button type="button" className="btn btn-secondary" disabled={busy}
         onClick={() => { setUrl(plan.source_url); fetchPreview(plan.source_url); }}>Check for guide update</button>}
     </div>
-    <p>If direct import is blocked, open this build in your browser, press Ctrl+S,
-      save as Webpage, HTML Only (or Webpage, Complete), then choose Preview saved page.
-      Keep the original build link above. PDF and MHTML files are not supported.</p>
+    <details>
+      <summary>Paste page source instead (no download)</summary>
+      <p>Open the build in your browser. Press Ctrl+U to view its page source,
+        then Ctrl+A and Ctrl+C. Paste it below, keep the original build link above,
+        and click Preview pasted source. Copy the source, not the visible article text.</p>
+      <label className="settings-label" htmlFor="build-source">Page source HTML</label>
+      <textarea id="build-source" className="build-input" rows={5} value={pageSource}
+        disabled={busy} maxLength={8 * 1024 * 1024} spellCheck={false}
+        onChange={e => { setPageSource(e.target.value); setPreview(null); }} />
+      <button type="button" className="btn btn-secondary" disabled={busy || !saved || !url.trim() || !pageSource.trim()}
+        onClick={previewSource}>Preview pasted source</button>
+    </details>
+    <p>You can also save the page as Webpage, HTML Only and choose Preview saved page.
+      If a Complete save stalls while downloading assets, cancel it and use HTML Only
+      or paste the source above. PDF and MHTML files are not supported.</p>
     {busy && <p role="status">Working…</p>}
     {error && <p role="alert" className="preview-error">{error}</p>}
     {!saved && !error && <p>Loading saved build…</p>}

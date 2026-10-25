@@ -1,4 +1,4 @@
-# Mobalytics campaign build import (alpha.5)
+# Mobalytics campaign build import (alpha.6)
 
 The app can import a public English Mobalytics PoE2 build page directly,
 without PoB, a Mobalytics account, browser automation, or executing page
@@ -56,6 +56,23 @@ load its companion folder, execute scripts, reuse browser cookies, or fetch
 linked assets. The same URL/document matching and explicit-save rules apply.
 A cancelled picker or invalid file leaves the saved build unchanged.
 To refresh a blocked build, save a new copy from the browser and repeat.
+
+## If saving the page stalls
+
+A Complete save can wait on remote images, ads or other assets. Cancel it
+and try **Webpage, HTML Only**, or use the no-download option in alpha.6:
+
+1. Open the build page in your normal browser and press **Ctrl+U**.
+2. In the source tab, press **Ctrl+A**, then **Ctrl+C**.
+3. In Settings, expand **Paste page source instead (no download)**.
+4. Paste into **Page source HTML**, keeping the original build URL above.
+5. Click **Preview pasted source**, review, then **Save imported build**.
+
+Copy the source HTML, not the rendered article's visible text. This sends
+text only to the local native parser; there is no external fetch, automatic
+clipboard access, or script execution. The same 8 MiB cap and matching-build
+checks apply. The text field clears after a successful preview. Nothing is
+saved until the explicit Save action.
 
 ## Scope and limitations
 

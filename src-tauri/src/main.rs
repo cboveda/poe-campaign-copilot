@@ -102,6 +102,18 @@ fn preview_mobalytics_file(
     Ok(Some(plan))
 }
 
+#[tauri::command]
+fn preview_mobalytics_source(
+    app: tauri::AppHandle,
+    url: String,
+    html: String,
+) -> Result<build_plan::BuildPlan, String> {
+    *app.state::<AppState>().pending_build.lock().unwrap() = None;
+    let plan = mobalytics::parse_page(&html, &url)?;
+    *app.state::<AppState>().pending_build.lock().unwrap() = Some(plan.clone());
+    Ok(plan)
+}
+
 fn mutate_build(
     app: &tauri::AppHandle,
     mutate: impl FnOnce(&mut build_plan::SavedBuild) -> Result<(), String>,
@@ -1137,6 +1149,7 @@ fn main() {
             get_build,
             preview_mobalytics,
             preview_mobalytics_file,
+            preview_mobalytics_source,
             save_imported_build,
             set_build_profile,
             set_build_item,

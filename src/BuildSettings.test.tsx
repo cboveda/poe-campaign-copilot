@@ -24,7 +24,8 @@ beforeEach(() => {
       case "get_build": return structuredClone(saved);
       case "get_model": return {build_act: 1};
       case "preview_mobalytics":
-      case "preview_mobalytics_file": return structuredClone(plan);
+      case "preview_mobalytics_file":
+      case "preview_mobalytics_source": return structuredClone(plan);
       case "save_imported_build": saved.plan = structuredClone(plan); return structuredClone(saved);
       case "remove_build": saved.plan = null; return structuredClone(saved);
       case "set_build_profile": {
@@ -83,6 +84,20 @@ describe("Mobalytics build settings", () => {
     await waitFor(() => expect(screen.queryByText("Working…")).not.toBeInTheDocument());
     expect(screen.queryByRole("region", {name: "Import preview"})).not.toBeInTheDocument();
     expect(screen.getByLabelText("Build checklist")).toBeInTheDocument();
+  });
+  it("previews pasted source without fetching the link or automatically saving", async () => {
+    render(<BuildSettings />);
+    await waitFor(() => expect(screen.queryByText("Loading saved build…")).not.toBeInTheDocument());
+    fireEvent.change(screen.getByLabelText("Mobalytics PoE2 build link"), {target: {value: plan.source_url}});
+    fireEvent.click(screen.getByText("Paste page source instead (no download)"));
+    const html = '<html><script>window.__PRELOADED_STATE__={}</script></html>';
+    fireEvent.change(screen.getByLabelText("Page source HTML"), {target: {value: html}});
+    fireEvent.click(screen.getByRole("button", {name: "Preview pasted source"}));
+    await screen.findByRole("region", {name: "Import preview"});
+    expect(invoke).toHaveBeenCalledWith("preview_mobalytics_source", {url: plan.source_url, html});
+    expect(invoke.mock.calls.some(call => call[0] === "preview_mobalytics")).toBe(false);
+    expect(invoke.mock.calls.some(call => call[0] === "save_imported_build")).toBe(false);
+    expect(screen.getByLabelText("Page source HTML")).toHaveValue("");
   });
   it("keeps the saved build when a refresh fails", async () => {
     saved.plan = structuredClone(plan);
