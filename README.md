@@ -36,7 +36,8 @@ Settings retain opacity, hotkeys and timer controls. The default hotkeys are
 Alt+Shift+S (move/resize setup), Z (zoom), C (compact), H (hide), O (settings)
 and T (timer). Use Reset progress when intentionally starting a new run. Planned returns to
 a revisited town preserve progress until you confirm the previous zone
-objectives in Settings; early shopping trips do not advance the route.
+objectives with **Continue town step** on the overlay (or in Settings);
+early shopping trips do not advance the route.
 Login/process changes start a fresh route session to avoid mixing characters;
 per-character resume across game sessions is not implemented yet.
 

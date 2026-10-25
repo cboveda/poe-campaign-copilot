@@ -310,7 +310,7 @@ impl Pipeline {
                 );
             } else {
                 overlay.primary = if self.pending_town_return.is_some() {
-                    "Town visit — campaign progress unchanged. After completing the previous zone's objectives, open Settings to confirm this return.".to_string()
+                    "Town visit — campaign progress unchanged. Complete the previous zone's objectives before confirming this return.".to_string()
                 } else if location.is_some_and(|loc| loc.is_town) {
                     "Town visit — campaign progress unchanged.".to_string()
                 } else {

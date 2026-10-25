@@ -350,3 +350,16 @@ body,
 .run-timer-pause-icon {
   font-size: 10px;
 }
+
+/* Kept near the top in both normal and compact modes, outside the drag layer. */
+.town-return-action { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; }
+.town-return-button {
+  max-width: min(100%, 400px); min-height: 34px; padding: 6px 12px;
+  border: 1px solid var(--gold); border-radius: 4px;
+  background: #342916; color: var(--gold-bright); font: inherit;
+  font-weight: 600; cursor: pointer;
+}
+.town-return-button:hover { background: #49391c; }
+.town-return-button:disabled { opacity: 0.65; cursor: default; }
+.town-return-help { font-size: 11px; color: var(--parch-dim); }
+.town-return-error { color: var(--coral); font-size: 12px; }

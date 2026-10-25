@@ -1,3 +1,4 @@
+import { invoke } from "@tauri-apps/api/core";
 import { FilmstripBar } from "./FilmstripBar";
 import { useOverlay } from "./useOverlay";
 import { useOverlayHeight } from "./useOverlayHeight";
@@ -28,6 +29,7 @@ export default function App() {
         runTimer={runTimer}
         showRunTimer={showRunTimer}
         nowMs={nowMs}
+        onConfirmTownReturn={() => invoke<void>("confirm_town_return")}
       />
     </div>
   );

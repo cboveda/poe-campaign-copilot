@@ -102,8 +102,11 @@ not confirm that you killed its boss or collected its rewards.
 An early town visit does not prove you completed the previous zone's
 objectives. For planned returns to a town already in the route, the overlay
 preserves progress. After completing those objectives and returning to town,
-open Settings (Alt+Shift+O) and click **Confirm objectives completed — continue
-town step**. Leave this untouched during early shopping trips. Returning to
+click **Continue town step** directly on the overlay. It is clickable in
+normal play mode; the rest of the overlay still passes clicks through to the
+game. In setup mode, turn setup off first (Alt+Shift+S). Settings retains
+**Confirm objectives completed — continue town step** as a fallback. Leave
+confirmation untouched during early shopping trips. Returning to
 the field restores its objectives. Final town instructions remain advisory;
 arrival alone never completes the campaign.
 

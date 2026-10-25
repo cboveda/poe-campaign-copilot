@@ -1,4 +1,5 @@
 import "./FilmstripBar.css";
+import { TownReturnButton } from "./TownReturnButton";
 import {
   elapsedMs,
   formatElapsed,
@@ -22,6 +23,7 @@ const NOTE_LABEL: Record<NoteCategory, string> = {
 };
 
 export interface FilmstripBarProps {
+  onConfirmTownReturn?: () => Promise<void>;
   model: UiModel;
   zoom: boolean;
   setupMode: boolean;
@@ -39,6 +41,7 @@ export function FilmstripBar({
   runTimer,
   showRunTimer,
   nowMs,
+  onConfirmTownReturn,
 }: FilmstripBarProps) {
   const rootClass = [
     "filmstrip",
@@ -99,6 +102,10 @@ export function FilmstripBar({
     <div className={rootClass}>
       {setupMode && (
         <div className="setup-hint">drag to move &middot; resize edges &middot; toggle via tray</div>
+      )}
+
+      {model.pending_town_return && onConfirmTownReturn && (
+        <TownReturnButton onConfirm={onConfirmTownReturn} setupMode={setupMode} />
       )}
 
       {/* Compact only strips the normal-playing layout; the build summary

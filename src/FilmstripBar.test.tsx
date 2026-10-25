@@ -1,8 +1,10 @@
 import { render, screen } from "@testing-library/react";
-import { describe, expect, it } from "vitest";
+import { describe, expect, it, vi } from "vitest";
 import { FilmstripBar, type FilmstripBarProps } from "./FilmstripBar";
 import { IDLE_RUN_TIMER } from "./runTimer";
 import type { UiModel } from "./types";
+
+vi.mock("@tauri-apps/api/core", () => ({invoke:vi.fn().mockResolvedValue(undefined)}));
 
 const PIXEL =
   "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNsb2j4DwAFKAJ003oL8QAAAABJRU5ErkJggg==";
@@ -53,6 +55,14 @@ function renderBar(overrides: Partial<FilmstripBarProps> & { model: UiModel }) {
 }
 
 describe("FilmstripBar", () => {
+  it.each([false, true])("shows the pending confirmation directly on the overlay (compact=%s)", (compact) => {
+    renderBar({model:model({}, {pending_town_return:true}), compact, onConfirmTownReturn:async () => {}});
+    expect(screen.getByRole("button", {name:/continue town step/i})).toBeInTheDocument();
+  });
+  it("only offers overlay confirmation for a pending town return", () => {
+    renderBar({model:model(), onConfirmTownReturn:async () => {}});
+    expect(screen.queryByRole("button", {name:/continue town step/i})).not.toBeInTheDocument();
+  });
   it("renders zone, act, primary, next and pending badge", () => {
     renderBar({ model: model() });
     expect(screen.getByText("The Coast")).toBeInTheDocument();

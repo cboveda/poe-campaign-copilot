@@ -5,6 +5,7 @@ mod config;
 mod diagnostics;
 mod hotkeys;
 mod journal;
+mod overlay_hit_test;
 mod pipeline;
 mod run_timer;
 
@@ -25,6 +26,8 @@ use tauri_plugin_window_state::StateFlags;
 
 struct AppState {
     pipeline: Mutex<Pipeline>,
+    overlay_action_bounds: Mutex<Option<(overlay_hit_test::ActionBounds, std::time::Instant)>>,
+    overlay_pointer_policy: Mutex<Option<(bool, bool)>>,
     setup_mode: Mutex<bool>,
     zoom: Mutex<bool>,
     compact: Mutex<bool>,
@@ -510,20 +513,132 @@ fn map_variant(s: &str) -> Result<Variant, String> {
     }
 }
 
+/// Main-window-only, bounded geometry; never an unrestricted click-through toggle.
+#[tauri::command]
+fn set_overlay_action_bounds(
+    window: tauri::WebviewWindow,
+    bounds: Option<overlay_hit_test::ActionBounds>,
+) -> Result<(), String> {
+    if window.label() != "main" {
+        return Err("Only the overlay can register action bounds.".to_string());
+    }
+    let state: State<AppState> = window.state();
+    if let Some(rect) = bounds {
+        let scale = window.scale_factor().map_err(|error| error.to_string())?;
+        let size = window
+            .inner_size()
+            .map_err(|error| error.to_string())?
+            .to_logical::<f64>(scale);
+        if !rect.valid(size.width, size.height) {
+            return Err("Invalid overlay action bounds.".to_string());
+        }
+    }
+    *state.overlay_action_bounds.lock().unwrap() =
+        bounds.map(|rect| (rect, std::time::Instant::now()));
+    apply_overlay_pointer_policy(window.app_handle());
+    Ok(())
+}
+
+fn apply_overlay_pointer_policy(app: &tauri::AppHandle) {
+    let state: State<AppState> = app.state();
+    let Some(window) = app.get_webview_window("main") else {
+        return;
+    };
+    let setup = *state.setup_mode.lock().unwrap();
+    let hidden = *state.hidden.lock().unwrap();
+    let pending = state.pipeline.lock().unwrap().has_pending_town_return();
+    let bounds = {
+        let mut bounds = state.overlay_action_bounds.lock().unwrap();
+        if !pending
+            || bounds
+                .is_some_and(|(_, updated)| updated.elapsed() > std::time::Duration::from_secs(2))
+        {
+            *bounds = None;
+        }
+        *bounds
+    };
+    let hit = !hidden
+        && pending
+        && bounds.is_some_and(|(rect, updated)| {
+            // Fail closed if the webview stops refreshing or layout becomes stale.
+            if updated.elapsed() > std::time::Duration::from_secs(2) {
+                return false;
+            }
+            let (Ok(cursor), Ok(origin), Ok(scale), Ok(size)) = (
+                window.cursor_position(),
+                window.inner_position(),
+                window.scale_factor(),
+                window.inner_size(),
+            ) else {
+                return false;
+            };
+            let logical = size.to_logical::<f64>(scale);
+            rect.valid(logical.width, logical.height)
+                && rect.contains_cursor(
+                    (cursor.x, cursor.y),
+                    (origin.x as f64, origin.y as f64),
+                    scale,
+                )
+        });
+    let ignore = hidden || !(setup || hit);
+    let desired = (ignore, setup);
+    let mut previous = state.overlay_pointer_policy.lock().unwrap();
+    if *previous != Some(desired) {
+        // Play-mode button clicks should not activate the overlay over PoE2.
+        if let Err(error) = window
+            .set_focusable(setup)
+            .and_then(|_| window.set_ignore_cursor_events(ignore))
+        {
+            diagnostics::diag(&format!("overlay pointer policy: {error}"));
+        } else {
+            *previous = Some(desired);
+        }
+    }
+}
+
+fn start_overlay_pointer_tracking(app: &tauri::AppHandle) {
+    let app = app.clone();
+    std::thread::spawn(move || {
+        let queued = std::sync::Arc::new(AtomicBool::new(false));
+        loop {
+            std::thread::sleep(std::time::Duration::from_millis(33));
+            // No cursor polling/UI work during ordinary click-through play.
+            let has_action = {
+                let state: State<AppState> = app.state();
+                state.overlay_action_bounds.lock().unwrap().is_some()
+            };
+            if !has_action {
+                continue;
+            }
+            // At most one queued UI operation, even during a blocked window.
+            if queued.swap(true, Ordering::SeqCst) {
+                continue;
+            }
+            let ready = queued.clone();
+            let handle = app.clone();
+            if app
+                .run_on_main_thread(move || {
+                    apply_overlay_pointer_policy(&handle);
+                    ready.store(false, Ordering::SeqCst);
+                })
+                .is_err()
+            {
+                break;
+            }
+        }
+    });
+}
+
 fn apply_setup_mode(app: &tauri::AppHandle, enabled: bool) {
     let state: State<AppState> = app.state();
     *state.setup_mode.lock().unwrap() = enabled;
     if let Some(win) = app.get_webview_window("main") {
-        if let Err(e) = win.set_ignore_cursor_events(!enabled) {
-            diagnostics::diag(&format!(
-                "apply_setup_mode: failed to set ignore-cursor-events: {e}"
-            ));
-        }
         let _ = win.set_resizable(enabled);
     }
     if let Some(item) = state.setup_item.lock().unwrap().as_ref() {
         let _ = item.set_checked(enabled);
     }
+    apply_overlay_pointer_policy(app);
     let _ = app.emit("setup-mode", enabled);
 }
 
@@ -681,22 +796,11 @@ fn toggle_hide_impl(app: &tauri::AppHandle) -> bool {
             if let Err(e) = win.show() {
                 diagnostics::diag(&format!("toggle_hide: failed to show window: {e}"));
             }
-            // The overlay is transparent/always-on-top/click-through by
-            // design. `always_on_top`/`transparent` are static window
-            // attributes from tauri.conf.json that `show()` is expected to
-            // preserve on its own, but click-through is runtime state
-            // (`AppState.setup_mode`) applied via `set_ignore_cursor_events`
-            // — re-assert it defensively here in case a platform's `show()`
-            // doesn't fully preserve window attributes set before a hide.
-            let setup_mode = *state.setup_mode.lock().unwrap();
-            if let Err(e) = win.set_ignore_cursor_events(!setup_mode) {
-                diagnostics::diag(&format!(
-                    "toggle_hide: failed to restore ignore-cursor-events: {e}"
-                ));
-            }
         }
     }
     drop(hidden);
+    *state.overlay_pointer_policy.lock().unwrap() = None;
+    apply_overlay_pointer_policy(app);
 
     if let Some(item) = state.hide_item.lock().unwrap().as_ref() {
         let _ = item.set_checked(new_hidden);
@@ -927,6 +1031,7 @@ fn main() {
             open_settings,
             reset_progress,
             confirm_town_return,
+            set_overlay_action_bounds,
             reset_run_timer,
             set_overlay_opacity,
             set_overlay_height,
@@ -976,6 +1081,8 @@ fn main() {
 
             app.manage(AppState {
                 pipeline: Mutex::new(pipeline),
+                overlay_action_bounds: Mutex::new(None),
+                overlay_pointer_policy: Mutex::new(None),
                 setup_mode: Mutex::new(false),
                 zoom: Mutex::new(false),
                 compact: Mutex::new(false),
@@ -1079,12 +1186,8 @@ fn main() {
                 })
                 .build(app)?;
 
-            // Click-through by default (play mode).
-            if let Some(win) = app.get_webview_window("main")
-                && let Err(e) = win.set_ignore_cursor_events(true)
-            {
-                diagnostics::diag(&format!("setup: failed to set ignore-cursor-events: {e}"));
-            }
+            apply_overlay_pointer_policy(app.handle());
+            start_overlay_pointer_tracking(app.handle());
 
             // Tailer startup: POE_COPILOT_LOG (dev/demo override) beats the
             // configured client_log_path, which beats no tailer at all

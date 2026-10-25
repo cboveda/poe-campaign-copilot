@@ -107,3 +107,30 @@ returns. Incidental town visits before a field step should leave progress
 unchanged and offer no completion confirmation. First arrival in town from
 The Riverbank remains automatic. Report the failed step and displayed text
 if actual behavior differs; these checks are still user-executed.
+
+## Overlay button / click-through retest
+
+After pulling the overlay-button change and restarting, repeat the early
+Manor → town → Manor check without clicking confirmation; progress should
+still be preserved. No new character or deliberate death is needed.
+
+When a planned town confirmation is pending:
+
+1. Keep setup mode **off**. Move the pointer onto **Continue town step**.
+   Expected: the button highlights and is clickable without opening Settings.
+2. Click elsewhere on the overlay. Expected: the click reaches the game;
+   the overlay should not consume the entire panel's mouse input.
+3. Only after actually finishing the previous zone's objectives, click the
+   button once. Expected: next town instructions appear, the button disappears
+   and normal click-through resumes. The game should not lose focus.
+4. Repeat hide/show and compact-mode checks when convenient. With setup mode
+   on, clicking the panel should move it rather than confirm the route; turn
+   setup mode off to use the button.
+5. If using display scaling or multiple monitors, move the overlay in setup
+   mode, disable setup and verify the clickable area follows the visible
+   button, including at 125%/150% scaling. Do not change your display setup
+   just for this test; mark unavailable cases unrun.
+
+These native click/focus behaviors are pending Windows validation. Report
+any click falling through the button, blocked game clicks elsewhere, or
+focus loss. Settings remains a fallback if direct interaction fails.
