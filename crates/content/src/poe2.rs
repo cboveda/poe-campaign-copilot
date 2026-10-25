@@ -400,3 +400,37 @@ mod campaign_tests {
         );
     }
 }
+
+/// Source-backed directions are independent of objectives and route progress.
+#[derive(Debug, Clone, Deserialize)]
+pub struct NavigationCue {
+    pub act: u8,
+    pub area: String,
+    pub text: String,
+}
+
+pub fn load_navigation() -> Result<Vec<NavigationCue>, GameDataError> {
+    #[derive(Deserialize)]
+    struct Pack {
+        format_version: u32,
+        game: String,
+        target_patch: String,
+        entries: Vec<NavigationCue>,
+    }
+    let pack: Pack = serde_json::from_str(include_str!("../../../content/poe2/navigation.json"))?;
+    if pack.format_version != 1
+        || pack.game != "poe2"
+        || pack.target_patch != "0.5.5"
+        || pack
+            .entries
+            .iter()
+            .any(|cue| cue.act == 0 || cue.area.trim().is_empty() || cue.text.trim().is_empty())
+    {
+        return Err(std::io::Error::new(
+            std::io::ErrorKind::InvalidData,
+            "invalid PoE2 navigation pack",
+        )
+        .into());
+    }
+    Ok(pack.entries)
+}

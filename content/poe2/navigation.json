@@ -1,0 +1,56 @@
+{
+  "format_version": 1,
+  "game": "poe2",
+  "target_patch": "0.5.5",
+  "source": {
+    "url": "https://domistae.github.io/poe2-leveling/poe2_act1_guide.html",
+    "revision": "916bd138286fe1307113ec044bcb4d565432b516",
+    "license": "MIT",
+    "sha256_utf8_lf": "2de9136e350034c05028f4d905a4b57c032e25f5871991dfda199222a57533e0"
+  },
+  "status": "source_guidance_not_gameplay_verified",
+  "entries": [
+    {
+      "act": 1,
+      "area": "Clearfell",
+      "text": "A waypoint sits right next to Mud Burrow; the bridge onward leads to The Grelwood",
+      "source_anchor": "clearfell"
+    },
+    {
+      "act": 1,
+      "area": "The Grelwood",
+      "text": "Glowing roots. Magical roots with a subtle glow thread through the Grelwood and all lead the same way — toward the Tree of Souls. Separately, follow the river upstream and it always brings you to the Red Vale entrance.",
+      "source_anchor": "grelwood"
+    },
+    {
+      "act": 1,
+      "area": "Cemetery of the Eternals",
+      "text": "Lit pillar switch. The Forgotten Riches cache sits behind a large sarcophagus near a checkpoint. The hidden switch is on a nearby pillar and lights up as you approach it — that glow is the tell. Pure loot (gold + rare chests, no guaranteed item), and it is repeatable by resetting the zone from the waypoint.",
+      "source_anchor": "cemetery"
+    },
+    {
+      "act": 1,
+      "area": "Hunting Grounds",
+      "text": "Locust trail. Completing this zone's small ritual encounter spawns a trail of locusts running straight to the Freythorn entrance. Ritual chains always point to the next-closest one — the same trick carries into endgame rituals.",
+      "source_anchor": "hunting"
+    },
+    {
+      "act": 1,
+      "area": "Hunting Grounds",
+      "text": "Blood trails + signpost. Crowbells peck at dead livestock and leave blood trails leading directly to the boss — a \"farm-to-table\" path straight to The Crowbell. A signpost on the road points the way onward to Ogham Farmlands — the Farmlands come first, the Village is the zone after.",
+      "source_anchor": "hunting"
+    },
+    {
+      "act": 1,
+      "area": "Freythorn",
+      "text": "Smoke tendrils. The big central altar trails smoke that reaches out toward each of the three small Ritual Altars — follow a tendril and it leads you straight to one. No need to sweep the zone.",
+      "source_anchor": "freythorn"
+    },
+    {
+      "act": 1,
+      "area": "Ogham Village",
+      "text": "Cobble road. Follow the paved cobble road through the village — it runs straight to the smithing house. Stay on the stone rather than cutting between buildings and you land on the Smithing Tools and the Blacksmith's Chest without searching.",
+      "source_anchor": "oghamvillage"
+    }
+  ]
+}

@@ -37,6 +37,7 @@ pub struct UiModel {
     pub waiting_for_log: bool,
     pub pending_town_return: bool,
     pub chapter_label: Option<String>,
+    pub navigation: Vec<String>,
     /// Short label for the imported leveling build, e.g. "Ranger (Deadeye)
     /// — 12 milestones". `None` when no build has been imported.
     pub build_summary: Option<String>,
@@ -62,6 +63,7 @@ struct ObservedLocation {
 
 pub struct Pipeline {
     poe2_mode: bool,
+    navigation: Vec<content::poe2::NavigationCue>,
     side_area_guidance: Vec<content::poe2::SideAreaGuidance>,
     campaign_aliases: std::collections::BTreeMap<String, Vec<String>>,
     local_guidance: Vec<content::poe2::LocalGuidance>,
@@ -92,6 +94,7 @@ impl Pipeline {
         let layouts = layouts_by_area(load_all_layouts()?);
         Ok(Self {
             poe2_mode: false,
+            navigation: Vec::new(),
             side_area_guidance: Vec::new(),
             campaign_aliases: Default::default(),
             local_guidance: Vec::new(),
@@ -119,6 +122,7 @@ impl Pipeline {
         } = content::poe2::load_campaign_preview()?;
         Ok(Self {
             poe2_mode: true,
+            navigation: content::poe2::load_navigation()?,
             side_area_guidance: content::poe2::load_side_area_guidance()?,
             campaign_aliases: aliases,
             local_guidance,
@@ -393,6 +397,24 @@ impl Pipeline {
                 }
             }
         }
+        // Match the actual resolved location, never the route frontier or an
+        // untrusted scene name alone. This also clears cues in towns/endgame.
+        let navigation = self
+            .observed_location
+            .as_ref()
+            .and_then(|loc| self.resolve_campaign_area(&loc.area_id, &loc.name))
+            .map(|area| {
+                self.navigation
+                    .iter()
+                    .filter(|cue| {
+                        cue.act == area.act
+                            && content::poe2::normalize_area_name(&cue.area)
+                                == content::poe2::normalize_area_name(&area.name)
+                    })
+                    .map(|cue| cue.text.clone())
+                    .collect()
+            })
+            .unwrap_or_default();
         let images = overlay
             .layout_images
             .iter()
@@ -408,6 +430,7 @@ impl Pipeline {
             waiting_for_log: !self.seen_area_event,
             pending_town_return: self.has_pending_town_return(),
             chapter_label,
+            navigation,
             build_summary: self.build.as_ref().map(build_summary),
         }
     }
@@ -732,6 +755,30 @@ mod town_return_tests {
         ))
         .unwrap()
     }
+    #[test]
+    fn navigation_follows_actual_location_and_clears_in_town_unknown_and_endgame() {
+        let mut p = Pipeline::new_poe2().unwrap();
+        // Synthetic IDs test alias matching; these are not captured game IDs.
+        let grelwood = travel(&mut p, 1, "G1_test_grelwood", "The Grelwood");
+        assert!(
+            grelwood
+                .navigation
+                .iter()
+                .any(|cue| cue.contains("river upstream"))
+        );
+        let cursor = p.engine.cursor();
+        let town = travel(&mut p, 10, "G1_town", "Clearfell Encampment");
+        assert!(town.navigation.is_empty());
+        assert_eq!(p.engine.cursor(), cursor);
+        let unknown = travel(&mut p, 20, "G1_test_unknown", "Unknown Woods");
+        assert!(unknown.navigation.is_empty());
+        let endgame = travel(&mut p, 30, "Map_test_grelwood", "The Grelwood");
+        assert!(endgame.navigation.is_empty());
+        let restored = travel(&mut p, 40, "G1_test_grelwood", "The Grelwood");
+        assert_eq!(restored.navigation, grelwood.navigation);
+        assert_eq!(p.engine.cursor(), cursor);
+    }
+
     // The log sample has no Manor generation. This synthetic fixture uses an
     // explicit test ID, resolved to the guide name only after scene+load evidence.
     const MANOR: &str = "G1_test_manor";

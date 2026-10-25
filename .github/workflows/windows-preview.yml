@@ -22,6 +22,7 @@ jobs:
       - uses: Swatinem/rust-cache@v2
       - run: npm ci
       - run: python tools/import_poe2_campaign.py --check
+      - run: python tools/import_poe2_navigation.py --check
       - run: npm test
       - run: cargo test --locked --workspace
       # A test installer, no release publication or signing secrets.

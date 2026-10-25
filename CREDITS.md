@@ -37,3 +37,7 @@ registered trademark of Grinding Gear Games.
   `tools/import_poe2_campaign.py` records per-file source checksums and
   step references. Endgame content is excluded. Source claims remain
   advisory pending patch 0.5.5 gameplay review.
+
+PoE2 within-zone navigation cues are extracted from the same pinned MIT
+Act 1 guide by domistae. Source revision, checksum and section anchors are
+recorded in `content/poe2/navigation.json`.

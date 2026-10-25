@@ -199,6 +199,18 @@ export function FilmstripBar({
               </div>
             </section>
           )}
+          {model.navigation && model.navigation.length > 0 && (
+            <section className="note-card layout" aria-label="Zone navigation">
+              <span className="nc-ic" aria-hidden="true">◇</span>
+              <div className="nc-body">
+                <div className="nc-kicker">Navigation</div>
+                <ul className="nc-sub">
+                  {model.navigation.map((cue, i) => <li key={i}>{cue}</li>)}
+                </ul>
+                <div className="nc-hint">Source: domistae · 0.5.5 guide</div>
+              </div>
+            </section>
+          )}
           {overlay.sub_hints.map((hint, i) => <div key={i} className="nc-hint">{hint}</div>)}
 
           {/* Layout / danger note cards — colour-coded by category.

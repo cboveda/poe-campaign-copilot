@@ -468,3 +468,24 @@ describe("remaining chapter labels", () => {
     expect(screen.queryByText("ACT 5")).not.toBeInTheDocument();
   });
 });
+
+
+describe("zone navigation", () => {
+  it("keeps landmark directions separate from campaign and optional objectives", () => {
+    renderBar({ model: model({ steps_in_zone: ["Find Una", "(Opt) Kill Beira"] }, {
+      navigation: ["Follow glowing roots to the Tree of Souls."],
+    }) });
+    const navigation = screen.getByRole("region", { name: "Zone navigation" });
+    expect(within(navigation).getByText(/Follow glowing roots/)).toBeInTheDocument();
+    expect(within(navigation).queryByText("Find Una")).not.toBeInTheDocument();
+    expect(screen.getByRole("region", { name: "Campaign objectives" })).toBeInTheDocument();
+    expect(screen.getByRole("region", { name: "Optional objectives" })).toBeInTheDocument();
+  });
+  it("omits navigation for missing content and in compact mode", () => {
+    const view = renderBar({ model: model() });
+    expect(screen.queryByRole("region", { name: "Zone navigation" })).not.toBeInTheDocument();
+    view.unmount();
+    renderBar({ model: model({}, { navigation: ["Follow the river"] }), compact: true });
+    expect(screen.queryByRole("region", { name: "Zone navigation" })).not.toBeInTheDocument();
+  });
+});

@@ -46,6 +46,7 @@ export interface UiModel {
   waiting_for_log: boolean;
   pending_town_return?: boolean;
   chapter_label?: string | null;
+  navigation?: string[];
   build_summary: string | null;
 }
 
