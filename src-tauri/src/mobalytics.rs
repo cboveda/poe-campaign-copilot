@@ -45,9 +45,14 @@ pub async fn fetch(input: &str) -> Result<BuildPlan, String> {
         .map_err(|e| format!("Could not initialize HTTPS: {e}"))?;
     let mut response = client
         .get(&url)
+        .header(reqwest::header::ACCEPT, "text/html,application/xhtml+xml")
+        .header(reqwest::header::ACCEPT_LANGUAGE, "en-US,en;q=0.9")
         .send()
         .await
         .map_err(|e| format!("Could not fetch Mobalytics: {e}"))?;
+    if response.status().as_u16() == 403 {
+        return Err("Mobalytics denied the direct request (HTTP 403). Open the build in your browser, save it as an HTML page, then choose Preview saved page. Your saved build was not changed.".into());
+    }
     if !response.status().is_success() {
         return Err(format!(
             "Mobalytics returned HTTP {}. Your saved build was not changed.",
@@ -73,6 +78,27 @@ pub async fn fetch(input: &str) -> Result<BuildPlan, String> {
     }
     let html = std::str::from_utf8(&bytes).map_err(|_| "Build page is not UTF-8.")?;
     parse_page(html, &url)
+}
+
+/// Read only the file explicitly chosen in the native dialog; no linked assets.
+pub fn parse_saved_page(path: &std::path::Path, url: &str) -> Result<BuildPlan, String> {
+    use std::io::Read;
+    canonical_url(url)?;
+    let file = std::fs::File::open(path).map_err(|e| format!("Could not open saved page: {e}"))?;
+    let metadata = file.metadata().map_err(|e| e.to_string())?;
+    if !metadata.is_file() || metadata.len() > MAX_HTML as u64 {
+        return Err("Choose an HTML file smaller than 8 MiB.".into());
+    }
+    let mut bytes = Vec::new();
+    file.take(MAX_HTML as u64 + 1)
+        .read_to_end(&mut bytes)
+        .map_err(|e| e.to_string())?;
+    if bytes.len() > MAX_HTML {
+        return Err("Saved page is too large.".into());
+    }
+    let html = std::str::from_utf8(&bytes)
+        .map_err(|_| "Save the page as UTF-8 HTML, not PDF or an archive.")?;
+    parse_page(html.trim_start_matches('\u{feff}'), url)
 }
 
 fn text(value: &Value) -> String {
@@ -456,12 +482,35 @@ mod tests {
         assert!(parse_page(&invalid, URL).is_err());
     }
     #[test]
+    fn saved_html_is_bounded_validated_and_can_include_a_utf8_bom() {
+        let dir = std::env::temp_dir().join(format!(
+            "poe-saved-html-{}-{}",
+            std::process::id(),
+            std::time::SystemTime::now()
+                .duration_since(std::time::UNIX_EPOCH)
+                .unwrap()
+                .as_nanos()
+        ));
+        std::fs::create_dir_all(&dir).unwrap();
+        let path = dir.join("build.html");
+        std::fs::write(&path, format!("\u{feff}{PAGE}")).unwrap();
+        assert_eq!(parse_saved_page(&path, URL).unwrap().stages.len(), 4);
+        assert!(parse_saved_page(&path, "https://mobalytics.gg/poe-2/builds/wrong-build").is_err());
+        assert!(parse_saved_page(&dir, URL).is_err());
+        std::fs::write(&path, b"not a saved build").unwrap();
+        assert!(parse_saved_page(&path, URL).is_err());
+        std::fs::write(&path, vec![0xff, 0xfe]).unwrap();
+        assert!(parse_saved_page(&path, URL).is_err());
+        std::fs::write(&path, vec![b'x'; MAX_HTML + 1]).unwrap();
+        assert!(parse_saved_page(&path, URL).is_err());
+        std::fs::remove_dir_all(dir).unwrap();
+    }
+    #[test]
     #[ignore = "optional local capture supplied through POE_MOBALYTICS_HTML; no network"]
     fn captured_real_build_smoke() {
         let path = std::env::var("POE_MOBALYTICS_HTML").unwrap();
-        let html = std::fs::read_to_string(path).unwrap();
-        let plan = parse_page(
-            &html,
+        let plan = parse_saved_page(
+            std::path::Path::new(&path),
             "https://mobalytics.gg/poe-2/builds/deadrabbit-grenades-gemling-league-starter",
         )
         .unwrap();

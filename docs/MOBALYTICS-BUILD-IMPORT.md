@@ -1,4 +1,4 @@
-# Mobalytics campaign build import (alpha.4)
+# Mobalytics campaign build import (alpha.5)
 
 The app can import a public English Mobalytics PoE2 build page directly,
 without PoB, a Mobalytics account, browser automation, or executing page
@@ -38,6 +38,24 @@ build intact. Replacing a snapshot clears its checkmarks to avoid retaining
 completion against changed targets; the UI states this before saving.
 **Remove saved build** removes its snapshot and build checkmarks without
 changing campaign guidance, the timer, or Client.txt selection.
+
+## If Mobalytics returns HTTP 403
+
+Access may differ between the app and your browser. A successful development
+fetch does not guarantee access from every Windows PC.
+
+1. Open the original build link in your normal browser and let it finish loading.
+2. Press Ctrl+S. Choose **Webpage, HTML Only** or **Webpage, Complete**, and
+   save the `.html` file. Do not choose PDF or Webpage, Single File (`.mhtml`).
+3. In Settings, keep the original build URL in the link field. Click
+   **Preview saved page** and select the saved `.html` file.
+4. Review the preview, then click **Save imported build**.
+
+The app reads only the chosen local HTML file, capped at 8 MiB. It does not
+load its companion folder, execute scripts, reuse browser cookies, or fetch
+linked assets. The same URL/document matching and explicit-save rules apply.
+A cancelled picker or invalid file leaves the saved build unchanged.
+To refresh a blocked build, save a new copy from the browser and repeat.
 
 ## Scope and limitations
 

@@ -1,6 +1,6 @@
 # Run PoE2 Campaign Copilot on Windows
 
-These instructions are for **0.2.0-alpha.4**, a campaign-guide development preview for Acts 1–4 and Interludes.
+These instructions are for **0.2.0-alpha.5**, a campaign-guide development preview for Acts 1–4 and Interludes.
 It has not yet been validated on a Windows gaming PC. Campaign content is source-imported and still needs gameplay validation.
 Build imports, diagrams, endgame guidance and automatic updates remain unavailable.
 
@@ -61,7 +61,7 @@ Confirm that this is the preview:
 (Get-Content .\package.json -Raw | ConvertFrom-Json).version
 ```
 
-Expected: `0.2.0-alpha.4`.
+Expected: `0.2.0-alpha.5`.
 
 ## 3. Install dependencies and launch
 

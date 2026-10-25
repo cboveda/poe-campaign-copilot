@@ -23,7 +23,8 @@ beforeEach(() => {
     switch (command) {
       case "get_build": return structuredClone(saved);
       case "get_model": return {build_act: 1};
-      case "preview_mobalytics": return structuredClone(plan);
+      case "preview_mobalytics":
+      case "preview_mobalytics_file": return structuredClone(plan);
       case "save_imported_build": saved.plan = structuredClone(plan); return structuredClone(saved);
       case "remove_build": saved.plan = null; return structuredClone(saved);
       case "set_build_profile": {
@@ -61,6 +62,27 @@ describe("Mobalytics build settings", () => {
     fireEvent.click(within(checklist).getByRole("checkbox"));
     await waitFor(() => expect(invoke).toHaveBeenCalledWith("set_build_item", {stage: "act1", item: "gem", done: true}));
     await waitFor(() => expect(screen.getByRole("checkbox")).toBeChecked());
+  });
+  it("previews a saved HTML file after a blocked direct import", async () => {
+    render(<BuildSettings />);
+    await waitFor(() => expect(screen.queryByText("Loading saved build…")).not.toBeInTheDocument());
+    fireEvent.change(screen.getByLabelText("Mobalytics PoE2 build link"), {target: {value: plan.source_url}});
+    fireEvent.click(screen.getByRole("button", {name: "Preview saved page"}));
+    await screen.findByRole("region", {name: "Import preview"});
+    expect(invoke).toHaveBeenCalledWith("preview_mobalytics_file", {url: plan.source_url});
+    expect(invoke).not.toHaveBeenCalledWith("save_imported_build", undefined);
+    fireEvent.click(screen.getByRole("button", {name: "Save imported build"}));
+    await screen.findByLabelText("Build checklist");
+  });
+  it("leaves the saved build alone when the file picker is cancelled", async () => {
+    saved.plan = structuredClone(plan);
+    render(<BuildSettings />);
+    await screen.findByLabelText("Build checklist");
+    invoke.mockImplementationOnce(async () => null);
+    fireEvent.click(screen.getByRole("button", {name: "Preview saved page"}));
+    await waitFor(() => expect(screen.queryByText("Working…")).not.toBeInTheDocument());
+    expect(screen.queryByRole("region", {name: "Import preview"})).not.toBeInTheDocument();
+    expect(screen.getByLabelText("Build checklist")).toBeInTheDocument();
   });
   it("keeps the saved build when a refresh fails", async () => {
     saved.plan = structuredClone(plan);

@@ -44,6 +44,11 @@ export function BuildSettings() {
     try { setPreview(await invoke<BuildPlan>("preview_mobalytics", {url: target})); }
     catch (e) { setError(String(e)); } finally { setBusy(false); }
   }
+  async function previewSavedPage() {
+    setBusy(true); setError(null); setPreview(null);
+    try { setPreview(await invoke<BuildPlan | null>("preview_mobalytics_file", {url})); }
+    catch (e) { setError(String(e)); } finally { setBusy(false); }
+  }
   const plan = saved?.plan;
   const progress = saved?.profiles[saved.profile];
   const matches = plan?.stages.filter(stage => act !== null && stage.acts.includes(act)) ?? [];
@@ -59,9 +64,14 @@ export function BuildSettings() {
     <div className="build-actions">
       <button type="button" className="btn btn-secondary" disabled={busy || !saved || !url.trim()}
         onClick={() => fetchPreview(url)}>Preview import</button>
+      <button type="button" className="btn btn-secondary" disabled={busy || !saved || !url.trim()}
+        onClick={previewSavedPage}>Preview saved page</button>
       {plan && <button type="button" className="btn btn-secondary" disabled={busy}
         onClick={() => { setUrl(plan.source_url); fetchPreview(plan.source_url); }}>Check for guide update</button>}
     </div>
+    <p>If direct import is blocked, open this build in your browser, press Ctrl+S,
+      save as Webpage, HTML Only (or Webpage, Complete), then choose Preview saved page.
+      Keep the original build link above. PDF and MHTML files are not supported.</p>
     {busy && <p role="status">Working…</p>}
     {error && <p role="alert" className="preview-error">{error}</p>}
     {!saved && !error && <p>Loading saved build…</p>}

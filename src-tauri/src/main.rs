@@ -80,6 +80,28 @@ async fn preview_mobalytics(
     Ok(plan)
 }
 
+#[tauri::command]
+fn preview_mobalytics_file(
+    app: tauri::AppHandle,
+    url: String,
+) -> Result<Option<build_plan::BuildPlan>, String> {
+    mobalytics::canonical_url(&url)?;
+    *app.state::<AppState>().pending_build.lock().unwrap() = None;
+    let Some(file) = app
+        .dialog()
+        .file()
+        .set_title("Select saved Mobalytics build page")
+        .add_filter("HTML page", &["html", "htm"])
+        .blocking_pick_file()
+    else {
+        return Ok(None);
+    };
+    let path = file.into_path().map_err(|_| "Choose a local HTML file.")?;
+    let plan = mobalytics::parse_saved_page(&path, &url)?;
+    *app.state::<AppState>().pending_build.lock().unwrap() = Some(plan.clone());
+    Ok(Some(plan))
+}
+
 fn mutate_build(
     app: &tauri::AppHandle,
     mutate: impl FnOnce(&mut build_plan::SavedBuild) -> Result<(), String>,
@@ -1114,6 +1136,7 @@ fn main() {
             import_pob,
             get_build,
             preview_mobalytics,
+            preview_mobalytics_file,
             save_imported_build,
             set_build_profile,
             set_build_item,

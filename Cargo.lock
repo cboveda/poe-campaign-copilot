@@ -2607,7 +2607,7 @@ dependencies = [
 
 [[package]]
 name = "poe-copilot-app"
-version = "0.2.0-alpha.4"
+version = "0.2.0-alpha.5"
 dependencies = [
  "base64 0.22.1",
  "composer",
