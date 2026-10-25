@@ -81,3 +81,29 @@ messages from Client.txt plus a screenshot if it clarifies the issue. Remove
 chat, player/account names and server addresses; keep event ordering,
 timestamps, area names/IDs, seeds and process markers. Use tray → Open logs
 for app diagnostics, reviewing paths/names before sharing.
+
+## Regression retest: early town return from Ogham Manor
+
+This check was reported failed in the original alpha.2 preview. After
+pulling the town-return fix, restart the app. No new character or deliberate
+death is required. Use your current Manor access; do not reset your game log.
+
+1. Enter Ogham Manor while its Geonor/return-to-town objectives are active.
+2. Return to Clearfell Encampment **before** defeating Geonor.
+   Expected: actual town name, progress unchanged, and a notice to confirm
+   only after finishing the previous zone's objectives. Do **not** confirm.
+3. Return to Manor. Expected: Manor/Geonor objectives remain, the town
+   confirmation disappears, and campaign completion is not asserted.
+4. After legitimately completing Manor's objectives, return to town. Open
+   Settings (Alt+Shift+O) and click **Confirm objectives completed — continue
+   town step**. Expected: final town/NPC instructions appear, with no
+   automatic claim that the campaign is complete.
+5. Restart only the overlay. Expected: the confirmed town instructions
+   persist. Before explicit confirmation, a restart must preserve the pending
+   choice instead. Mark step 4/5 pending if you have not yet finished Manor.
+
+The same explicit confirmation applies to other planned **revisited-town**
+returns. Incidental town visits before a field step should leave progress
+unchanged and offer no completion confirmation. First arrival in town from
+The Riverbank remains automatic. Report the failed step and displayed text
+if actual behavior differs; these checks are still user-executed.

@@ -300,3 +300,21 @@ describe("PoE2 settings", () => {
     expect(onSave).toHaveBeenCalledWith(expect.objectContaining({ pob_code: null, variant: "league-start" }));
   });
 });
+
+describe("planned town return confirmation", () => {
+  it("only advances when the pending-town action is explicitly clicked", () => {
+    const onConfirmTownReturn = vi.fn();
+    renderPage({poe2Only:true, pendingTownReturn:true, onConfirmTownReturn});
+    expect(onConfirmTownReturn).not.toHaveBeenCalled();
+    fireEvent.click(screen.getByRole("button", {name:/confirm objectives completed/i}));
+    expect(onConfirmTownReturn).toHaveBeenCalledTimes(1);
+  });
+  it("does not offer town confirmation away from a pending return", () => {
+    renderPage({poe2Only:true, pendingTownReturn:false});
+    expect(screen.queryByRole("button", {name:/confirm objectives completed/i})).not.toBeInTheDocument();
+  });
+  it("shows confirmation errors in the PoE2 settings view", () => {
+    renderPage({poe2Only:true, previewError:"No planned town return is awaiting confirmation."});
+    expect(screen.getByRole("alert")).toHaveTextContent(/No planned town return/);
+  });
+});

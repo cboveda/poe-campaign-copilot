@@ -14,6 +14,9 @@ const OPACITY_SLIDER_STEP_PCT = 5;
 export interface SettingsPageProps {
   /** PoE2 release surface: legacy route variants and PoB are unavailable. */
   poe2Only?: boolean;
+  pendingTownReturn?: boolean;
+  confirmingTownReturn?: boolean;
+  onConfirmTownReturn?: () => void;
   config: AppConfig;
   // Opens the file picker and resolves to the chosen path (or null if the
   // user cancelled). SettingsPage autosaves the picked path itself, so the
@@ -70,6 +73,9 @@ export function SettingsPage({
   onOpacityPreview,
   banner,
   poe2Only = false,
+  pendingTownReturn = false,
+  confirmingTownReturn = false,
+  onConfirmTownReturn,
 }: SettingsPageProps) {
   const [variant, setVariant] = useState<RouteVariant>(config.variant);
   const [pobText, setPobText] = useState(config.pob_code ?? "");
@@ -205,6 +211,19 @@ export function SettingsPage({
       </section>
 
       </>}
+
+      {poe2Only && previewError && <div role="alert" className="preview-error">{previewError}</div>}
+      {poe2Only && pendingTownReturn && (
+        <section className="settings-row">
+          <div className="settings-label">Planned town return</div>
+          <p>Only confirm after completing the objectives in the zone you just left. An early shopping trip should not advance the route.</p>
+          <button type="button" className="btn btn-secondary"
+            disabled={confirmingTownReturn || !onConfirmTownReturn}
+            onClick={onConfirmTownReturn}>
+            Confirm objectives completed — continue town step
+          </button>
+        </section>
+      )}
 
       <section className="settings-row">
         <label className="settings-label" htmlFor="opacity-slider">

@@ -200,16 +200,22 @@ pub fn clear(path: &Path) -> Result<(), String> {
     }
 }
 
-/// Feeds journaled lines through the pipeline exactly as live tailing
-/// would, discarding the intermediate UI models. Returns the number of
-/// lines fed (for startup logging).
+/// App-only record. Never interpreted as acknowledgment by the game-log path.
+pub const CONFIRM_TOWN_RETURN: &str = "@copilot/confirm-town-return/v1";
+
+/// Replays game lines plus explicit app acknowledgments from our local journal.
+/// Returns the number of records fed (for startup logging).
 pub fn replay_into<'a>(
     pipeline: &mut Pipeline,
     lines: impl IntoIterator<Item = &'a String>,
 ) -> usize {
     let mut count = 0usize;
     for line in lines {
-        let _ = pipeline.on_line(line);
+        if line == CONFIRM_TOWN_RETURN {
+            let _ = pipeline.confirm_town_return();
+        } else {
+            let _ = pipeline.on_line(line);
+        }
         count += 1;
     }
     count

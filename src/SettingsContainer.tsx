@@ -1,7 +1,8 @@
+import { listen, type UnlistenFn } from "@tauri-apps/api/event";
 import { invoke } from "@tauri-apps/api/core";
 import { useEffect, useState } from "react";
 import { SettingsPage } from "./SettingsPage";
-import type { AppConfig, PobSummary } from "./types";
+import type { AppConfig, PobSummary, UiModel } from "./types";
 
 /// Thin, untested wiring layer (same split as useOverlay/FilmstripBar): all
 /// `invoke` calls and settings-window-local state live here, so the
@@ -16,6 +17,8 @@ import type { AppConfig, PobSummary } from "./types";
 /// the loaded config sidesteps that resync problem entirely rather than
 /// papering over it with an effect that re-seeds local state later.
 export function SettingsContainer() {
+  const [pendingTownReturn, setPendingTownReturn] = useState(false);
+  const [confirmingTownReturn, setConfirmingTownReturn] = useState(false);
   const [config, setConfig] = useState<AppConfig | null>(null);
   const [preview, setPreview] = useState<PobSummary | null>(null);
   const [previewError, setPreviewError] = useState<string | null>(null);
@@ -34,6 +37,35 @@ export function SettingsContainer() {
       disposed = true;
     };
   }, []);
+
+  useEffect(() => {
+    let disposed = false;
+    let eventArrived = false;
+    let unlisten: UnlistenFn | undefined;
+    listen<UiModel>("overlay-model", ({ payload }) => {
+      eventArrived = true;
+      if (!disposed) setPendingTownReturn(Boolean(payload.pending_town_return));
+    }).then(async (stop) => {
+      if (disposed) { stop(); return; }
+      unlisten = stop;
+      const model = await invoke<UiModel>("get_model");
+      if (!disposed && !eventArrived) setPendingTownReturn(Boolean(model.pending_town_return));
+    }).catch((error) => { if (!disposed) setPreviewError(String(error)); });
+    return () => { disposed = true; unlisten?.(); };
+  }, []);
+
+  async function handleConfirmTownReturn() {
+    setConfirmingTownReturn(true);
+    setPreviewError(null);
+    try {
+      await invoke("confirm_town_return");
+      setPendingTownReturn(false);
+    } catch (error) {
+      setPreviewError(String(error));
+    } finally {
+      setConfirmingTownReturn(false);
+    }
+  }
 
   // Runs the native file dialog and returns the chosen path. SettingsPage
   // autosaves it (committing the full config), which flows back through
@@ -131,6 +163,9 @@ export function SettingsContainer() {
   return (
     <SettingsPage
       poe2Only
+      pendingTownReturn={pendingTownReturn}
+      confirmingTownReturn={confirmingTownReturn}
+      onConfirmTownReturn={handleConfirmTownReturn}
       config={config}
       onPick={handlePick}
       onImportPreview={handleImportPreview}

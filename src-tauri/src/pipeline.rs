@@ -35,6 +35,7 @@ pub struct UiModel {
     pub overlay: OverlayModel,
     pub images: Vec<UiImage>,
     pub waiting_for_log: bool,
+    pub pending_town_return: bool,
     /// Short label for the imported leveling build, e.g. "Ranger (Deadeye)
     /// — 12 milestones". `None` when no build has been imported.
     pub build_summary: Option<String>,
@@ -60,6 +61,7 @@ struct ObservedLocation {
 
 pub struct Pipeline {
     poe2_mode: bool,
+    pending_town_return: Option<String>,
     observed_location: Option<ObservedLocation>,
     tracker: SessionTracker,
     engine: RouteEngine,
@@ -86,6 +88,7 @@ impl Pipeline {
         let layouts = layouts_by_area(load_all_layouts()?);
         Ok(Self {
             poe2_mode: false,
+            pending_town_return: None,
             observed_location: None,
             tracker: SessionTracker::new(areas.clone()),
             engine,
@@ -104,9 +107,10 @@ impl Pipeline {
         let (areas, steps) = content::poe2::load_act1_preview()?;
         Ok(Self {
             poe2_mode: true,
+            pending_town_return: None,
             observed_location: None,
             tracker: SessionTracker::new(content::poe2::load_observed_areas()?),
-            engine: RouteEngine::new(steps, areas.clone()),
+            engine: RouteEngine::new(steps, areas.clone()).with_retained_final_group(),
             tasks: TaskEngine::new(areas.clone()),
             layouts: Default::default(),
             areas,
@@ -126,6 +130,7 @@ impl Pipeline {
     /// `encoded` image cache — is kept.
     pub fn reset(&mut self) {
         self.observed_location = None;
+        self.pending_town_return = None;
         self.engine.restart();
         self.tasks = TaskEngine::new(self.areas.clone());
         self.tracker = SessionTracker::new(if self.poe2_mode {
@@ -143,6 +148,7 @@ impl Pipeline {
                 match &ev {
                     SessionEvent::SessionStarted { .. } => {
                         self.observed_location = None;
+                        self.pending_town_return = None;
                         self.engine.restart();
                         self.seen_area_event = false;
                         area_changed = true;
@@ -163,6 +169,7 @@ impl Pipeline {
                         area_changed = true;
                     }
                     SessionEvent::UnresolvedArea { display_name, .. } => {
+                        self.pending_town_return = None;
                         // A catalog/name mismatch is not permission to advance a route.
                         self.observed_location = Some(ObservedLocation {
                             area_id: String::new(),
@@ -230,11 +237,46 @@ impl Pipeline {
             is_town: known.is_some_and(|area| area.is_town_area),
             route_area_id: route_id.clone(),
         };
+        self.pending_town_return = None;
         if let Some(id) = route_id {
-            self.engine.on_area_entered(&id, new_instance);
+            let repeated_town = location.is_town
+                && self.engine.steps()[..self.engine.cursor()]
+                    .iter()
+                    .any(|step| step.area_context == id);
+            let planned_return = self.engine.focus_area() == self.engine.active_area()
+                && self.engine.next_transition_area() == Some(id.as_str());
+            if repeated_town && self.engine.active_area() != Some(id.as_str()) {
+                // A shopping trip and a post-boss return have identical log
+                // evidence. Preserve the field frontier until explicit input.
+                if planned_return {
+                    self.pending_town_return = Some(id);
+                }
+            } else {
+                self.engine.on_area_entered(&id, new_instance);
+            }
         }
         self.observed_location = Some(location);
         self.seen_area_event = true;
+    }
+
+    pub fn has_pending_town_return(&self) -> bool {
+        self.pending_town_return.is_some()
+            && self.observed_location.as_ref().is_some_and(|location| {
+                location.is_town
+                    && self.tracker.current_area_id() == Some(location.area_id.as_str())
+            })
+    }
+
+    pub fn confirm_town_return(&mut self) -> Result<UiModel, String> {
+        if !self.has_pending_town_return() {
+            return Err("No planned town return is awaiting confirmation.".to_string());
+        }
+        let id = self
+            .pending_town_return
+            .take()
+            .ok_or("No planned town return is awaiting confirmation.")?;
+        self.engine.on_area_entered(&id, false);
+        Ok(self.current_model())
     }
 
     pub fn current_model(&mut self) -> UiModel {
@@ -267,7 +309,13 @@ impl Pipeline {
                         .to_string(),
                 );
             } else {
-                overlay.primary = "Campaign guidance is not available for this area.".to_string();
+                overlay.primary = if self.pending_town_return.is_some() {
+                    "Town visit — campaign progress unchanged. After completing the previous zone's objectives, open Settings to confirm this return.".to_string()
+                } else if location.is_some_and(|loc| loc.is_town) {
+                    "Town visit — campaign progress unchanged.".to_string()
+                } else {
+                    "Campaign guidance is not available for this area.".to_string()
+                };
                 overlay.steps_in_zone.clear();
                 overlay.sub_hints.clear();
                 overlay.next_zone = None;
@@ -289,6 +337,7 @@ impl Pipeline {
             overlay,
             images,
             waiting_for_log: !self.seen_area_event,
+            pending_town_return: self.has_pending_town_return(),
             build_summary: self.build.as_ref().map(build_summary),
         }
     }
@@ -590,5 +639,160 @@ mod poe2_tests {
             p.on_line(input);
         }
         assert_eq!(p.current_model().overlay, before);
+    }
+}
+
+#[cfg(test)]
+mod town_return_tests {
+    use super::*;
+
+    fn input(tick: u64, message: &str) -> String {
+        format!("2026/10/24 12:00:00 {tick} abc [INFO Client 100] {message}")
+    }
+    fn travel(p: &mut Pipeline, tick: u64, id: &str, name: &str) -> UiModel {
+        for message in [
+            format!("Generating level 15 area \"{id}\" with seed 7"),
+            format!("[SCENE] Set Source [{name}]"),
+        ] {
+            p.on_line(&input(tick, &message));
+        }
+        p.on_line(&input(
+            tick + 1,
+            &format!("[LOADING SCREEN] ({name}) Duration = 1 seconds"),
+        ))
+        .unwrap()
+    }
+    // The log sample has no Manor generation. This synthetic fixture uses an
+    // explicit test ID, resolved to the guide name only after scene+load evidence.
+    const MANOR: &str = "G1_test_manor";
+
+    #[test]
+    fn early_manor_town_return_does_not_advance_or_complete_and_return_restores_geonor() {
+        let mut p = Pipeline::new_poe2().unwrap();
+        travel(&mut p, 1, MANOR, "Ogham Manor");
+        let frontier = p.engine.cursor();
+        let town = travel(&mut p, 10, "G1_town", "Clearfell Encampment");
+        assert_eq!(town.overlay.zone_name, "Clearfell Encampment");
+        assert!(town.pending_town_return);
+        assert_eq!(p.engine.cursor(), frontier);
+        assert!(!p.engine.is_complete());
+        assert!(town.overlay.primary.contains("progress unchanged"));
+        let manor = travel(&mut p, 20, MANOR, "Ogham Manor");
+        assert_eq!(p.engine.cursor(), frontier);
+        assert!(!manor.pending_town_return);
+        assert!(
+            manor
+                .overlay
+                .steps_in_zone
+                .iter()
+                .any(|step| step.contains("Geonor"))
+        );
+        assert!(!manor.overlay.route_complete);
+        assert!(p.confirm_town_return().is_err());
+    }
+
+    #[test]
+    fn explicit_confirmation_retains_final_town_instructions_and_is_one_time() {
+        let mut p = Pipeline::new_poe2().unwrap();
+        travel(&mut p, 1, MANOR, "Ogham Manor");
+        travel(&mut p, 10, "G1_town", "Clearfell Encampment");
+        let model = p.confirm_town_return().unwrap();
+        assert!(!model.pending_town_return);
+        assert!(
+            model
+                .overlay
+                .steps_in_zone
+                .iter()
+                .any(|step| step.contains("Follow the Beast"))
+        );
+        assert!(
+            !p.engine.is_complete(),
+            "arrival must not automatically finish the final objectives"
+        );
+        assert!(p.confirm_town_return().is_err());
+    }
+
+    #[test]
+    fn initial_town_entry_remains_automatic_but_repeated_planned_returns_require_input() {
+        let mut p = Pipeline::new_poe2().unwrap();
+        travel(&mut p, 1, "G1_1", "The Riverbank");
+        let initial = travel(&mut p, 10, "G1_town", "Clearfell Encampment");
+        assert!(!initial.pending_town_return);
+        assert!(initial.overlay.primary.contains("Renly"));
+        travel(&mut p, 20, "G1_5", "The Red Vale");
+        let frontier = p.engine.cursor();
+        let town = travel(&mut p, 30, "G1_town", "Clearfell Encampment");
+        assert!(town.pending_town_return);
+        assert_eq!(p.engine.cursor(), frontier);
+        let model = p.confirm_town_return().unwrap();
+        assert!(model.overlay.primary.contains("Runed Spikes"));
+    }
+
+    #[test]
+    fn confirmation_restores_only_from_the_app_journal_not_raw_game_lines() {
+        let mut p = Pipeline::new_poe2().unwrap();
+        let messages = [
+            input(
+                1,
+                &format!("Generating level 15 area \"{MANOR}\" with seed 7"),
+            ),
+            input(1, "[SCENE] Set Source [Ogham Manor]"),
+            input(2, "[LOADING SCREEN] (Ogham Manor) Duration = 1 seconds"),
+            input(10, "Generating level 15 area \"G1_town\" with seed 7"),
+            input(
+                11,
+                "[LOADING SCREEN] (Clearfell Encampment) Duration = 1 seconds",
+            ),
+        ];
+        for line in &messages {
+            p.on_line(line);
+        }
+        assert!(p.has_pending_town_return());
+        p.on_line(crate::journal::CONFIRM_TOWN_RETURN);
+        assert!(
+            p.has_pending_town_return(),
+            "game logs cannot manufacture user acknowledgment"
+        );
+        let mut journal = messages.to_vec();
+        journal.push(crate::journal::CONFIRM_TOWN_RETURN.to_string());
+        let mut restored = Pipeline::new_poe2().unwrap();
+        crate::journal::replay_into(&mut restored, &journal);
+        assert!(!restored.has_pending_town_return());
+        assert!(
+            restored
+                .current_model()
+                .overlay
+                .primary
+                .contains("Talk to all NPCs")
+        );
+    }
+}
+
+#[cfg(test)]
+mod incidental_town_tests {
+    use super::*;
+    #[test]
+    fn shopping_trip_before_a_field_step_never_skips_ahead_to_a_future_town_visit() {
+        let mut p = Pipeline::new_poe2().unwrap();
+        let mut tick = 0;
+        for (id, name) in [
+            ("G1_4", "The Grelwood"),
+            ("G1_town", "Clearfell Encampment"),
+            ("G1_4", "The Grelwood"),
+        ] {
+            for msg in [
+                format!("Generating level 4 area \"{id}\" with seed 7"),
+                format!("[SCENE] Set Source [{name}]"),
+                format!("[LOADING SCREEN] ({name}) Duration = 1 seconds"),
+            ] {
+                tick += 1;
+                p.on_line(&format!(
+                    "2026/10/24 12:00:00 {tick} abc [INFO Client 100] {msg}"
+                ));
+            }
+            assert_eq!(p.engine.active_area(), Some("G1_4"));
+            assert!(!p.has_pending_town_return());
+        }
+        assert!(p.current_model().overlay.primary.contains("Una"));
     }
 }

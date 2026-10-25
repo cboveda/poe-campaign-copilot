@@ -277,6 +277,24 @@ fn open_settings(app: tauri::AppHandle) {
     open_settings_window(&app);
 }
 
+/// Explicit acknowledgment only; raw game logs cannot invoke this action.
+#[tauri::command]
+fn confirm_town_return(app: tauri::AppHandle) -> Result<(), String> {
+    let model = {
+        let state: State<AppState> = app.state();
+        let mut pipeline = state.pipeline.lock().unwrap();
+        if !pipeline.has_pending_town_return() {
+            return Err("No planned town return is awaiting confirmation.".to_string());
+        }
+        if let Some(path) = journal::journal_path(&app) {
+            journal::append_line(&path, journal::CONFIRM_TOWN_RETURN)?;
+        }
+        pipeline.confirm_town_return()?
+    };
+    app.emit("overlay-model", &model)
+        .map_err(|error| error.to_string())
+}
+
 /// Manual "Reset progress": drop all live run state back to a fresh start
 /// (route to Act 1, cleared reminders/level, run timer to 0:00, waiting for
 /// the first zone), keeping the configured route/build. Wipes the session
@@ -908,6 +926,7 @@ fn main() {
             apply_settings,
             open_settings,
             reset_progress,
+            confirm_town_return,
             reset_run_timer,
             set_overlay_opacity,
             set_overlay_height,

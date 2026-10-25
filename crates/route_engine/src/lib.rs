@@ -60,6 +60,7 @@ pub struct Advance {
 }
 
 pub struct RouteEngine {
+    complete_on_final_entry: bool,
     steps: Vec<CompiledStep>,
     statuses: Vec<StepStatus>,
     areas: AreaMap,
@@ -114,6 +115,7 @@ impl RouteEngine {
     pub fn new(steps: Vec<CompiledStep>, areas: AreaMap) -> Self {
         let statuses = vec![StepStatus::Pending; steps.len()];
         Self {
+            complete_on_final_entry: true,
             steps,
             statuses,
             areas,
@@ -124,6 +126,12 @@ impl RouteEngine {
             visited_contexts: std::collections::HashSet::new(),
             detoured_contexts: std::collections::HashSet::new(),
         }
+    }
+
+    /// Location entry alone must not claim completion for an advisory route.
+    pub fn with_retained_final_group(mut self) -> Self {
+        self.complete_on_final_entry = false;
+        self
     }
 
     pub fn from_pack(pack: &ContentPack, areas: AreaMap) -> Self {
@@ -324,7 +332,7 @@ impl RouteEngine {
         // subsequent advance). So: if the group we just entered is the
         // last group, mark its steps Done and set frontier = steps.len()
         // now.
-        if self.group_end(target) == self.steps.len() {
+        if self.complete_on_final_entry && self.group_end(target) == self.steps.len() {
             let last_end = self.steps.len();
             for i in target..last_end {
                 self.visited_contexts

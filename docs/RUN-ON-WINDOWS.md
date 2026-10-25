@@ -97,6 +97,16 @@ also show advisory route objectives and an **Act 1 preview** note. Other
 areas show their location with guidance unavailable. Entering an area does
 not confirm that you killed its boss or collected its rewards.
 
+### Planned town returns
+
+An early town visit does not prove you completed the previous zone's
+objectives. For planned returns to a town already in the route, the overlay
+preserves progress. After completing those objectives and returning to town,
+open Settings (Alt+Shift+O) and click **Confirm objectives completed — continue
+town step**. Leave this untouched during early shopping trips. Returning to
+the field restores its objectives. Final town instructions remain advisory;
+arrival alone never completes the campaign.
+
 ## 5. Basic controls
 
 | Shortcut | Action |

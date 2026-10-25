@@ -44,6 +44,7 @@ export interface UiModel {
   overlay: OverlayModel;
   images: UiImage[];
   waiting_for_log: boolean;
+  pending_town_return?: boolean;
   build_summary: string | null;
 }
 
