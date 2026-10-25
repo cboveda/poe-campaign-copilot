@@ -41,3 +41,10 @@ registered trademark of Grinding Gear Games.
 PoE2 within-zone navigation cues are extracted from the same pinned MIT
 Act 1 guide by domistae. Source revision, checksum and section anchors are
 recorded in `content/poe2/navigation.json`.
+
+Act 1 layout comparison and independently worded navigation summaries also
+reference [Lolcohol's Mobalytics guide](https://mobalytics.gg/poe-2/guides/campaign-layout-act-1),
+which credits Campaign Codex, Haddoq, Guitaraholic and other contributors.
+Original Mobalytics prose and diagrams are not redistributed. Source date,
+review checksum, headings and confidence are recorded in
+`content/poe2/navigation-review.json`.

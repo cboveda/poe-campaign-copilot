@@ -46,7 +46,9 @@ precise area is not established by the source, separate chapter reminders
 retain the source text without claiming a boss-arena ID. All mappings need
 Windows/gameplay validation. See docs/POE2-CAMPAIGN-COVERAGE.md.
 
-`navigation.json` contains seven source-backed landmark/direction cues for
-six Act 1 areas. It is independent of campaign objectives and progress.
+`navigation.json` contains twenty landmark/direction cues for thirteen Act 1
+areas, combining pinned MIT content with reviewed Mobalytics summaries.
+The Mobalytics source warns of 0.5 layout changes; it is not certified for
+0.5.5. Curated corrections live in `navigation-review.json`. It is independent of campaign objectives and progress.
 Generate/check with `python tools/import_poe2_navigation.py [--check]`.
 See docs/POE2-NAVIGATION.md for coverage, source gaps and extension guidance.

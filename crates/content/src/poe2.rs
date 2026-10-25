@@ -407,6 +407,8 @@ pub struct NavigationCue {
     pub act: u8,
     pub area: String,
     pub text: String,
+    pub source_label: String,
+    pub patch_caveat: String,
 }
 
 pub fn load_navigation() -> Result<Vec<NavigationCue>, GameDataError> {
@@ -421,10 +423,12 @@ pub fn load_navigation() -> Result<Vec<NavigationCue>, GameDataError> {
     if pack.format_version != 1
         || pack.game != "poe2"
         || pack.target_patch != "0.5.5"
-        || pack
-            .entries
-            .iter()
-            .any(|cue| cue.act == 0 || cue.area.trim().is_empty() || cue.text.trim().is_empty())
+        || pack.entries.iter().any(|cue| {
+            cue.act == 0
+                || cue.area.trim().is_empty()
+                || cue.text.trim().is_empty()
+                || cue.source_label.trim().is_empty()
+        })
     {
         return Err(std::io::Error::new(
             std::io::ErrorKind::InvalidData,

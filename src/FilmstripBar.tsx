@@ -207,7 +207,10 @@ export function FilmstripBar({
                 <ul className="nc-sub">
                   {model.navigation.map((cue, i) => <li key={i}>{cue}</li>)}
                 </ul>
-                <div className="nc-hint">Source: domistae · 0.5.5 guide</div>
+                {model.navigation_sources && model.navigation_sources.length > 0 && (
+                  <div className="nc-hint">Source: {model.navigation_sources.join("; ")}</div>
+                )}
+                {model.navigation_caveat && <div className="nc-hint">{model.navigation_caveat}</div>}
               </div>
             </section>
           )}

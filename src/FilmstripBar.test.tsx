@@ -481,6 +481,17 @@ describe("zone navigation", () => {
     expect(screen.getByRole("region", { name: "Campaign objectives" })).toBeInTheDocument();
     expect(screen.getByRole("region", { name: "Optional objectives" })).toBeInTheDocument();
   });
+  it("shows the actual source and its patch caveat without a hardcoded attribution", () => {
+    renderBar({ model: model({}, {
+      navigation: ["Try a loop; layout varies."],
+      navigation_sources: ["Mobalytics / Lolcohol"],
+      navigation_caveat: "Guide warns of 0.5 layout changes.",
+    }) });
+    const navigation = screen.getByRole("region", { name: "Zone navigation" });
+    expect(within(navigation).getByText("Source: Mobalytics / Lolcohol")).toBeInTheDocument();
+    expect(within(navigation).getByText("Guide warns of 0.5 layout changes.")).toBeInTheDocument();
+    expect(within(navigation).queryByText(/domistae/)).not.toBeInTheDocument();
+  });
   it("omits navigation for missing content and in compact mode", () => {
     const view = renderBar({ model: model() });
     expect(screen.queryByRole("region", { name: "Zone navigation" })).not.toBeInTheDocument();

@@ -1,0 +1,202 @@
+{
+  "format_version": 1,
+  "source": {
+    "id": "mobalytics-act1",
+    "title": "Campaign Layout Guide: Act 1",
+    "author": "Lolcohol; Campaign Codex contributors",
+    "url": "https://mobalytics.gg/poe-2/guides/campaign-layout-act-1",
+    "page_updated": "2026-05-23",
+    "reviewed_utc": "2026-10-25",
+    "retrieved_html_sha256": "c6b7f06a835b85b44b42c4af62caaafb7e04c3ca9a1bfc7ac6cc116e318cab71",
+    "patch_status": "Page warns of layout reworks in 0.5; not verified for target 0.5.5.",
+    "reuse": "Original factual summaries; no source prose or diagrams redistributed."
+  },
+  "replace_areas": [
+    "The Grelwood",
+    "Hunting Grounds",
+    "Freythorn",
+    "Ogham Village"
+  ],
+  "entries": [
+    {
+      "act": 1,
+      "area": "Clearfell",
+      "text": "In the illustrated layouts, Beira is north of the entrance. Mud Burrow and the Mysterious Campsite can exchange sides; do not assume a fixed left/right placement.",
+      "source_heading": "Clearfell",
+      "source_confidence": "Very high",
+      "source_id": "mobalytics-act1",
+      "source_label": "Mobalytics / Lolcohol",
+      "patch_caveat": "Mobalytics warns of 0.5 layout changes; patterns may differ in 0.5.5."
+    },
+    {
+      "act": 1,
+      "area": "The Grelwood",
+      "text": "Follow glowing roots toward the Tree of Souls. Follow the river to find the Red Vale entrance; the guide does not require a particular river-flow direction.",
+      "source_heading": "The Grelwood",
+      "source_confidence": "High",
+      "source_id": "mobalytics-act1",
+      "source_label": "Mobalytics / Lolcohol",
+      "patch_caveat": "Mobalytics warns of 0.5 layout changes; patterns may differ in 0.5.5."
+    },
+    {
+      "act": 1,
+      "area": "The Grelwood",
+      "text": "Orange magical mushrooms mark the route to the Grim Tangle entrance. Major landmarks often form a diamond; use that as a search pattern if the visible trails run out.",
+      "source_heading": "The Grelwood",
+      "source_confidence": "High",
+      "source_id": "mobalytics-act1",
+      "source_label": "Mobalytics / Lolcohol",
+      "patch_caveat": "Mobalytics warns of 0.5 layout changes; patterns may differ in 0.5.5."
+    },
+    {
+      "act": 1,
+      "area": "The Red Vale",
+      "text": "Try a broad loop while searching for the three Rust Altars. Their arrangement varies; there is no reliable fixed turn sequence in this source.",
+      "source_heading": "The Red Vale",
+      "source_confidence": "Low",
+      "source_id": "mobalytics-act1",
+      "source_label": "Mobalytics / Lolcohol",
+      "patch_caveat": "Mobalytics warns of 0.5 layout changes; patterns may differ in 0.5.5."
+    },
+    {
+      "act": 1,
+      "area": "The Grim Tangle",
+      "text": "Travel away from the entrance toward the side where the area opens up. The illustrated layouts put the exit opposite the entrance, with the pattern reversed for the other starting side.",
+      "source_heading": "The Grim Tangle",
+      "source_confidence": "Average",
+      "source_id": "mobalytics-act1",
+      "source_label": "Mobalytics / Lolcohol",
+      "patch_caveat": "Mobalytics warns of 0.5 layout changes; patterns may differ in 0.5.5."
+    },
+    {
+      "act": 1,
+      "area": "Cemetery of the Eternals",
+      "text": "Search the side walls for both tomb entrances. Try the wall beside Lachlann first, then sweep the other side if needed; the source found no dependable tomb arrangement.",
+      "source_heading": "Cemetery of the Eternals",
+      "source_confidence": "Low",
+      "source_id": "mobalytics-act1",
+      "source_label": "Mobalytics / Lolcohol",
+      "patch_caveat": "Mobalytics warns of 0.5 layout changes; patterns may differ in 0.5.5."
+    },
+    {
+      "act": 1,
+      "area": "Mausoleum of the Praetor",
+      "text": "Find the central wheel-shaped room, then search along the line from your entrance through that room toward the far wall. If Draven is absent, check the long wall aligned with the entrance. Ribbed arena edges can reveal his room.",
+      "source_heading": "Mausoleum of the Praetor",
+      "source_confidence": "High",
+      "source_id": "mobalytics-act1",
+      "source_label": "Mobalytics / Lolcohol",
+      "patch_caveat": "Mobalytics warns of 0.5 layout changes; patterns may differ in 0.5.5."
+    },
+    {
+      "act": 1,
+      "area": "Tomb of the Consort",
+      "text": "Try corridors toward the upper part of the area for Asinia, then widen the search. The guide records exceptions, including a central arena, so this is only a search preference.",
+      "source_heading": "Tomb of the Consort",
+      "source_confidence": "Low",
+      "source_id": "mobalytics-act1",
+      "source_label": "Mobalytics / Lolcohol",
+      "patch_caveat": "Mobalytics warns of 0.5 layout changes; patterns may differ in 0.5.5."
+    },
+    {
+      "act": 1,
+      "area": "Hunting Grounds",
+      "text": "Check the outer edges and corners for exits and major landmarks. Follow the road sign toward Ogham Farmlands; bloody tracks and a narrow approach lead toward the Crowbell arena.",
+      "source_heading": "Hunting Grounds",
+      "source_confidence": "High",
+      "source_id": "mobalytics-act1",
+      "source_label": "Mobalytics / Lolcohol",
+      "patch_caveat": "Mobalytics warns of 0.5 layout changes; patterns may differ in 0.5.5."
+    },
+    {
+      "act": 1,
+      "area": "Hunting Grounds",
+      "text": "If you complete the central ritual, follow its locust trail toward Freythorn. This is a detour clue, not a requirement to search the middle before taking another exit.",
+      "source_heading": "Hunting Grounds",
+      "source_confidence": "High",
+      "source_id": "mobalytics-act1",
+      "source_label": "Mobalytics / Lolcohol",
+      "patch_caveat": "Mobalytics warns of 0.5 layout changes; patterns may differ in 0.5.5."
+    },
+    {
+      "act": 1,
+      "area": "Freythorn",
+      "text": "After completing a ritual, look for locusts indicating the next nearby ritual. If no trail is visible, search in a loop. Do not rely on smoke at the boss arena: the guide marks that older clue as potentially obsolete.",
+      "source_heading": "Freythorn",
+      "source_confidence": "Low",
+      "source_id": "mobalytics-act1",
+      "source_label": "Mobalytics / Lolcohol",
+      "patch_caveat": "Mobalytics warns of 0.5 layout changes; patterns may differ in 0.5.5."
+    },
+    {
+      "act": 1,
+      "area": "Ogham Farmlands",
+      "text": "Look for a long hut with carts obstructing the approach; go around it to reach Una's hut and the Lute Box.",
+      "source_heading": "Ogham Farmlands",
+      "source_confidence": "Very high",
+      "source_id": "mobalytics-act1",
+      "source_label": "Mobalytics / Lolcohol",
+      "patch_caveat": "Mobalytics warns of 0.5 layout changes; patterns may differ in 0.5.5."
+    },
+    {
+      "act": 1,
+      "area": "Ogham Farmlands",
+      "text": "Head away from the entrance toward the opposite boundary, then search that wall for Ogham Village. The illustrated variants rotate the same general pattern, so avoid a fixed compass heading.",
+      "source_heading": "Ogham Farmlands",
+      "source_confidence": "Very high",
+      "source_id": "mobalytics-act1",
+      "source_label": "Mobalytics / Lolcohol",
+      "patch_caveat": "Mobalytics warns of 0.5 layout changes; patterns may differ in 0.5.5."
+    },
+    {
+      "act": 1,
+      "area": "Ogham Village",
+      "text": "From the entrance, try following the right-hand boundary toward the northern boss area. For Renly's Tools, look for the checkpoint opening into a side room along the northern wall; if missed, search back from the waypoint.",
+      "source_heading": "Ogham Village",
+      "source_confidence": "Very high",
+      "source_id": "mobalytics-act1",
+      "source_label": "Mobalytics / Lolcohol",
+      "patch_caveat": "Mobalytics warns of 0.5 layout changes; patterns may differ in 0.5.5."
+    },
+    {
+      "act": 1,
+      "area": "The Manor Ramparts",
+      "text": "Follow the U-shaped route toward Ogham Manor. The pattern can be mirrored; an early dead end is a reason to reverse your search rather than force a fixed compass direction.",
+      "source_heading": "The Manor Ramparts",
+      "source_confidence": "Very high",
+      "source_id": "mobalytics-act1",
+      "source_label": "Mobalytics / Lolcohol",
+      "patch_caveat": "Mobalytics warns of 0.5 layout changes; patterns may differ in 0.5.5."
+    },
+    {
+      "act": 1,
+      "area": "Ogham Manor",
+      "text": "Floor 1: cross the bridge and search the northern boundary for Candlemass. Entrance and stair positions can swap, so locate the stairs to floor 2 relative to your actual entrance rather than always heading northeast.",
+      "source_heading": "The Ogham Manor: First Floor",
+      "source_confidence": "High",
+      "source_id": "mobalytics-act1",
+      "source_label": "Mobalytics / Lolcohol",
+      "patch_caveat": "Mobalytics warns of 0.5 layout changes; patterns may differ in 0.5.5."
+    },
+    {
+      "act": 1,
+      "area": "Ogham Manor",
+      "text": "Floor 2: search across the bridge, generally away from your entrance, for the stairs onward. Some layouts loop rather than forming a direct crossing.",
+      "source_heading": "Ogham Manor: Second Floor",
+      "source_confidence": "High / medium",
+      "source_id": "mobalytics-act1",
+      "source_label": "Mobalytics / Lolcohol",
+      "patch_caveat": "Mobalytics warns of 0.5 layout changes; patterns may differ in 0.5.5."
+    },
+    {
+      "act": 1,
+      "area": "Ogham Manor",
+      "text": "Floor 3: look across the area from your entrance for the bridge toward the Count, then use the elevator to reach the fight. Floor hints are conditional; the app does not detect your floor.",
+      "source_heading": "Ogham Manor: Third Floor",
+      "source_confidence": "High",
+      "source_id": "mobalytics-act1",
+      "source_label": "Mobalytics / Lolcohol",
+      "patch_caveat": "Mobalytics warns of 0.5 layout changes; patterns may differ in 0.5.5."
+    }
+  ]
+}

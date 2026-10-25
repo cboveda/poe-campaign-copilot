@@ -38,6 +38,8 @@ pub struct UiModel {
     pub pending_town_return: bool,
     pub chapter_label: Option<String>,
     pub navigation: Vec<String>,
+    pub navigation_sources: Vec<String>,
+    pub navigation_caveat: Option<String>,
     /// Short label for the imported leveling build, e.g. "Ranger (Deadeye)
     /// — 12 milestones". `None` when no build has been imported.
     pub build_summary: Option<String>,
@@ -399,22 +401,39 @@ impl Pipeline {
         }
         // Match the actual resolved location, never the route frontier or an
         // untrusted scene name alone. This also clears cues in towns/endgame.
-        let navigation = self
+        let navigation_cues: Vec<_> = self
             .observed_location
             .as_ref()
-            .and_then(|loc| self.resolve_campaign_area(&loc.area_id, &loc.name))
-            .map(|area| {
+            .and_then(|loc| {
+                self.resolve_campaign_area(&loc.area_id, &loc.name)
+                    .map(|area| (area.act, area.name.as_str()))
+                    .or_else(|| {
+                        self.side_guidance_for(&loc.area_id, &loc.name)
+                            .map(|side| (1, side.name.as_str()))
+                    })
+            })
+            .map(|(act, name)| {
                 self.navigation
                     .iter()
                     .filter(|cue| {
-                        cue.act == area.act
+                        cue.act == act
                             && content::poe2::normalize_area_name(&cue.area)
-                                == content::poe2::normalize_area_name(&area.name)
+                                == content::poe2::normalize_area_name(name)
                     })
-                    .map(|cue| cue.text.clone())
                     .collect()
             })
             .unwrap_or_default();
+        let navigation = navigation_cues.iter().map(|cue| cue.text.clone()).collect();
+        let navigation_sources = navigation_cues
+            .iter()
+            .map(|cue| cue.source_label.clone())
+            .collect::<std::collections::BTreeSet<_>>()
+            .into_iter()
+            .collect();
+        let navigation_caveat = navigation_cues
+            .iter()
+            .find(|cue| !cue.patch_caveat.is_empty())
+            .map(|cue| cue.patch_caveat.clone());
         let images = overlay
             .layout_images
             .iter()
@@ -431,6 +450,8 @@ impl Pipeline {
             pending_town_return: self.has_pending_town_return(),
             chapter_label,
             navigation,
+            navigation_sources,
+            navigation_caveat,
             build_summary: self.build.as_ref().map(build_summary),
         }
     }
@@ -764,11 +785,13 @@ mod town_return_tests {
             grelwood
                 .navigation
                 .iter()
-                .any(|cue| cue.contains("river upstream"))
+                .any(|cue| cue.contains("Follow the river"))
         );
         let cursor = p.engine.cursor();
         let town = travel(&mut p, 10, "G1_town", "Clearfell Encampment");
         assert!(town.navigation.is_empty());
+        assert!(town.navigation_sources.is_empty());
+        assert!(town.navigation_caveat.is_none());
         assert_eq!(p.engine.cursor(), cursor);
         let unknown = travel(&mut p, 20, "G1_test_unknown", "Unknown Woods");
         assert!(unknown.navigation.is_empty());
@@ -777,6 +800,46 @@ mod town_return_tests {
         let restored = travel(&mut p, 40, "G1_test_grelwood", "The Grelwood");
         assert_eq!(restored.navigation, grelwood.navigation);
         assert_eq!(p.engine.cursor(), cursor);
+    }
+
+    #[test]
+    fn reviewed_navigation_resolves_side_areas_and_keeps_mushrooms_in_grelwood() {
+        let mut p = Pipeline::new_poe2().unwrap();
+        let grelwood = travel(&mut p, 1, "G1_test_grelwood", "The Grelwood");
+        assert!(
+            grelwood
+                .navigation
+                .iter()
+                .any(|cue| cue.contains("mushrooms"))
+        );
+        assert_eq!(grelwood.navigation_sources, ["Mobalytics / Lolcohol"]);
+        assert!(
+            grelwood
+                .navigation_caveat
+                .as_deref()
+                .unwrap()
+                .contains("0.5")
+        );
+        let grim = travel(&mut p, 10, "G1_test_grim", "The Grim Tangle");
+        assert!(!grim.navigation.is_empty());
+        assert!(grim.navigation.iter().all(|cue| !cue.contains("mushrooms")));
+        for (index, name, clue) in [
+            (20, "Mausoleum of the Praetor", "wheel-shaped"),
+            (30, "Tomb of the Consort", "Asinia"),
+            (40, "Ogham Farmlands", "carts"),
+            (50, "The Manor Ramparts", "U-shaped"),
+        ] {
+            let model = travel(&mut p, index, "G1_test_navigation", name);
+            assert!(
+                model.navigation.iter().any(|cue| cue.contains(clue)),
+                "{name}"
+            );
+            assert_eq!(model.navigation_sources, ["Mobalytics / Lolcohol"]);
+        }
+        let endgame = travel(&mut p, 60, "Map_test_praetor", "Mausoleum of the Praetor");
+        assert!(endgame.navigation.is_empty());
+        assert!(endgame.navigation_sources.is_empty());
+        assert!(endgame.navigation_caveat.is_none());
     }
 
     // The log sample has no Manor generation. This synthetic fixture uses an

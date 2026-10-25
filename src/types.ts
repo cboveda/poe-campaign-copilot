@@ -47,6 +47,8 @@ export interface UiModel {
   pending_town_return?: boolean;
   chapter_label?: string | null;
   navigation?: string[];
+  navigation_sources?: string[];
+  navigation_caveat?: string | null;
   build_summary: string | null;
 }
 
