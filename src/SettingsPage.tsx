@@ -45,6 +45,7 @@ export interface SettingsPageProps {
   // picks up the dark/gold settings background rather than sitting outside
   // it. Left undefined in existing callers/tests, which render nothing here.
   banner?: ReactNode;
+  buildPanel?: ReactNode;
 }
 
 const VARIANTS: { value: RouteVariant; label: string }[] = [
@@ -72,6 +73,7 @@ export function SettingsPage({
   savedAt,
   onOpacityPreview,
   banner,
+  buildPanel,
   poe2Only = false,
   pendingTownReturn = false,
   confirmingTownReturn = false,
@@ -147,6 +149,8 @@ export function SettingsPage({
           </button>
         </div>
       </section>
+
+      {buildPanel}
 
       {!poe2Only && <>
       <section className="settings-row">

@@ -1,6 +1,7 @@
 import { listen, type UnlistenFn } from "@tauri-apps/api/event";
 import { invoke } from "@tauri-apps/api/core";
 import { useEffect, useState } from "react";
+import { BuildSettings } from "./BuildSettings";
 import { SettingsPage } from "./SettingsPage";
 import type { AppConfig, PobSummary, UiModel } from "./types";
 
@@ -163,6 +164,7 @@ export function SettingsContainer() {
   return (
     <SettingsPage
       poe2Only
+      buildPanel={<BuildSettings />}
       pendingTownReturn={pendingTownReturn}
       confirmingTownReturn={confirmingTownReturn}
       onConfirmTownReturn={handleConfirmTownReturn}

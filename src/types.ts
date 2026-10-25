@@ -50,6 +50,8 @@ export interface UiModel {
   navigation_sources?: string[];
   navigation_caveat?: string | null;
   build_summary: string | null;
+  build_guide?: BuildView | null;
+  build_act?: number | null;
 }
 
 export type RouteVariant = "league-start" | "standard";
@@ -83,4 +85,36 @@ export interface PobSummary {
   ascend_name: string | null;
   milestone_count: number;
   reliability: Reliability;
+}
+
+export interface BuildItem { id: string; category: string; text: string }
+export interface BuildStage {
+  id: string;
+  title: string;
+  acts: number[];
+  items: BuildItem[];
+  notes: string[];
+  passive_nodes: string[];
+}
+export interface BuildPlan {
+  format_version: number;
+  source_url: string;
+  title: string;
+  author: string;
+  source_updated: string;
+  imported_at: number;
+  stages: BuildStage[];
+  skipped_stages: string[];
+}
+export interface SavedBuild {
+  plan: BuildPlan | null;
+  profile: string;
+  profiles: Record<string, {stage_override: string | null; completed: string[]}>;
+}
+export interface BuildView {
+  title: string;
+  stage: string;
+  pending: string[];
+  completed_count: number;
+  total_count: number;
 }

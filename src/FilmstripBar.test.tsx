@@ -500,3 +500,17 @@ describe("zone navigation", () => {
     expect(screen.queryByRole("region", { name: "Zone navigation" })).not.toBeInTheDocument();
   });
 });
+
+
+describe("imported build guidance", () => {
+  it("renders build targets separately from campaign and optional objectives", () => {
+    renderBar({ model: model({steps_in_zone: ["Enter Grelwood", "(Opt) Find cache"]}, {
+      build_guide: {title: "Grenade starter", stage: "ACT 1", pending: ["Skill: Grenade + Support"], completed_count: 1, total_count: 3},
+    }) });
+    const build = screen.getByRole("region", {name: "Build guidance"});
+    expect(within(build).getByText("Skill: Grenade + Support")).toBeInTheDocument();
+    expect(within(build).queryByText("Enter Grelwood")).not.toBeInTheDocument();
+    expect(screen.getByRole("region", {name: "Campaign objectives"})).toBeInTheDocument();
+    expect(screen.getByRole("region", {name: "Optional objectives"})).toBeInTheDocument();
+  });
+});

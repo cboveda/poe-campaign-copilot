@@ -1,6 +1,6 @@
 [package]
 name = "poe-copilot-app"
-version = "0.2.0-alpha.3"
+version = "0.2.0-alpha.4"
 edition = "2024"
 license = "MIT"
 
@@ -25,3 +25,7 @@ task_engine = { path = "../crates/task_engine" }
 composer = { path = "../crates/composer" }
 input_log = { path = "../crates/input_log" }
 pob_import = { path = "../crates/pob_import" }
+
+reqwest = { version = "0.13", default-features = false, features = ["rustls-no-provider", "system-proxy"] }
+# Use ring so Windows development does not acquire a new CMake/NASM prerequisite.
+rustls = { version = "0.23", default-features = false, features = ["ring", "std", "tls12"] }

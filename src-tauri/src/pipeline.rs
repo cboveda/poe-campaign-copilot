@@ -40,6 +40,8 @@ pub struct UiModel {
     pub navigation: Vec<String>,
     pub navigation_sources: Vec<String>,
     pub navigation_caveat: Option<String>,
+    pub build_guide: Option<crate::build_plan::BuildView>,
+    pub build_act: Option<u8>,
     /// Short label for the imported leveling build, e.g. "Ranger (Deadeye)
     /// — 12 milestones". `None` when no build has been imported.
     pub build_summary: Option<String>,
@@ -64,6 +66,7 @@ struct ObservedLocation {
 }
 
 pub struct Pipeline {
+    pub saved_build: crate::build_plan::SavedBuild,
     poe2_mode: bool,
     navigation: Vec<content::poe2::NavigationCue>,
     side_area_guidance: Vec<content::poe2::SideAreaGuidance>,
@@ -95,6 +98,7 @@ impl Pipeline {
         let engine = RouteEngine::from_pack(&pack, areas.clone());
         let layouts = layouts_by_area(load_all_layouts()?);
         Ok(Self {
+            saved_build: Default::default(),
             poe2_mode: false,
             navigation: Vec::new(),
             side_area_guidance: Vec::new(),
@@ -123,6 +127,7 @@ impl Pipeline {
             local_guidance,
         } = content::poe2::load_campaign_preview()?;
         Ok(Self {
+            saved_build: Default::default(),
             poe2_mode: true,
             navigation: content::poe2::load_navigation()?,
             side_area_guidance: content::poe2::load_side_area_guidance()?,
@@ -187,6 +192,9 @@ impl Pipeline {
                         ..
                     } => {
                         self.observe_poe2(area_id, display_name, *new_instance);
+                        area_changed = true;
+                    }
+                    SessionEvent::LevelUp { .. } => {
                         area_changed = true;
                     }
                     SessionEvent::UnresolvedArea { display_name, .. } => {
@@ -434,6 +442,13 @@ impl Pipeline {
             .iter()
             .find(|cue| !cue.patch_caveat.is_empty())
             .map(|cue| cue.patch_caveat.clone());
+        let build_act = self.observed_location.as_ref().and_then(|loc| {
+            self.resolve_campaign_area(&loc.area_id, &loc.name)
+                .map(|area| area.act)
+                .or_else(|| self.side_guidance_for(&loc.area_id, &loc.name).map(|_| 1))
+        });
+        // Unknown/endgame locations must not select an automatic campaign stage.
+        let build_guide = self.saved_build.view(build_act);
         let images = overlay
             .layout_images
             .iter()
@@ -452,6 +467,8 @@ impl Pipeline {
             navigation,
             navigation_sources,
             navigation_caveat,
+            build_guide,
+            build_act,
             build_summary: self.build.as_ref().map(build_summary),
         }
     }
@@ -840,6 +857,36 @@ mod town_return_tests {
         assert!(endgame.navigation.is_empty());
         assert!(endgame.navigation_sources.is_empty());
         assert!(endgame.navigation_caveat.is_none());
+    }
+
+    #[test]
+    fn imported_build_follows_campaign_act_without_advancing_route_and_manual_override_survives() {
+        let mut p = Pipeline::new_poe2().unwrap();
+        p.saved_build.replace(
+            crate::mobalytics::parse_page(
+                include_str!("../fixtures/mobalytics-build.html"),
+                "https://mobalytics.gg/poe-2/builds/example-starter",
+            )
+            .unwrap(),
+        );
+        assert!(p.current_model().build_guide.is_none());
+        let act1 = travel(&mut p, 1, "G1_test_grelwood", "The Grelwood");
+        assert_eq!(act1.build_guide.unwrap().stage, "ACT 1");
+        let act2 = travel(&mut p, 10, "G2_test_mine", "The Mawdun Mine");
+        assert_eq!(act2.build_guide.unwrap().stage, "ACT 2");
+        let frontier = p.engine.cursor();
+        p.saved_build
+            .set_profile("My character", Some("0".into()))
+            .unwrap();
+        p.saved_build.complete("0", "skill-0", true).unwrap();
+        let manual = p.current_model().build_guide.unwrap();
+        assert_eq!(manual.stage, "ACT 1");
+        assert_eq!(manual.completed_count, 1);
+        assert_eq!(p.engine.cursor(), frontier);
+        p.saved_build.set_profile("My character", None).unwrap();
+        let endgame = travel(&mut p, 20, "Map_test_mine", "The Mawdun Mine");
+        assert!(endgame.build_guide.is_none());
+        assert_eq!(p.engine.cursor(), frontier);
     }
 
     // The log sample has no Manor generation. This synthetic fixture uses an

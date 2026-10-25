@@ -1,6 +1,6 @@
 # Run PoE2 Campaign Copilot on Windows
 
-These instructions are for **0.2.0-alpha.3**, a campaign-guide development preview for Acts 1–4 and Interludes.
+These instructions are for **0.2.0-alpha.4**, a campaign-guide development preview for Acts 1–4 and Interludes.
 It has not yet been validated on a Windows gaming PC. Campaign content is source-imported and still needs gameplay validation.
 Build imports, diagrams, endgame guidance and automatic updates remain unavailable.
 
@@ -61,7 +61,7 @@ Confirm that this is the preview:
 (Get-Content .\package.json -Raw | ConvertFrom-Json).version
 ```
 
-Expected: `0.2.0-alpha.3`.
+Expected: `0.2.0-alpha.4`.
 
 ## 3. Install dependencies and launch
 
@@ -110,6 +110,14 @@ game. In setup mode, turn setup off first (Alt+Shift+S). Settings retains
 confirmation untouched during early shopping trips. Returning to
 the field restores its objectives. Final town instructions remain advisory;
 arrival alone never completes the campaign.
+
+### Importing a campaign build
+
+Settings → **Build guide** accepts a public Mobalytics PoE2 build URL.
+Preview and save it, choose a named character profile, and check completed
+build targets manually. Automatic stage selection follows the current
+campaign area; a manual stage override is available. See
+[Mobalytics build import](MOBALYTICS-BUILD-IMPORT.md) for steps and limitations.
 
 ## 5. Basic controls
 

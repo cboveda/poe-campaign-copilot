@@ -199,6 +199,19 @@ export function FilmstripBar({
               </div>
             </section>
           )}
+          {model.build_guide && (
+            <section className="note-card objective" aria-label="Build guidance">
+              <span className="nc-ic" aria-hidden="true">⚒</span>
+              <div className="nc-body">
+                <div className="nc-kicker">Build · {model.build_guide.stage}</div>
+                <div className="nc-text">{model.build_guide.title}</div>
+                {model.build_guide.pending.length > 0 ? (
+                  <ul className="nc-sub">{model.build_guide.pending.map((item, i) => <li key={i}>{item}</li>)}</ul>
+                ) : <div className="nc-hint">{model.build_guide.total_count === 0 ? "Read the stage instructions in Settings" : "Stage checklist complete"}</div>}
+                <div className="nc-hint">{model.build_guide.completed_count}/{model.build_guide.total_count} checked · manage targets in Settings</div>
+              </div>
+            </section>
+          )}
           {model.navigation && model.navigation.length > 0 && (
             <section className="note-card layout" aria-label="Zone navigation">
               <span className="nc-ic" aria-hidden="true">◇</span>

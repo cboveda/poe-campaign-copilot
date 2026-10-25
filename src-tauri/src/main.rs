@@ -1,10 +1,13 @@
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 
 mod bug_report;
+mod build_plan;
+mod build_store;
 mod config;
 mod diagnostics;
 mod hotkeys;
 mod journal;
+mod mobalytics;
 mod overlay_hit_test;
 mod pipeline;
 mod run_timer;
@@ -25,6 +28,7 @@ use tauri_plugin_opener::OpenerExt;
 use tauri_plugin_window_state::StateFlags;
 
 struct AppState {
+    pending_build: Mutex<Option<build_plan::BuildPlan>>,
     pipeline: Mutex<Pipeline>,
     overlay_action_bounds: Mutex<Option<(overlay_hit_test::ActionBounds, std::time::Instant)>>,
     overlay_pointer_policy: Mutex<Option<(bool, bool)>>,
@@ -58,6 +62,85 @@ struct PobSummary {
     ascend_name: Option<String>,
     milestone_count: usize,
     reliability: String,
+}
+
+#[tauri::command]
+fn get_build(state: State<AppState>) -> build_plan::SavedBuild {
+    state.pipeline.lock().unwrap().saved_build.clone()
+}
+
+#[tauri::command]
+async fn preview_mobalytics(
+    app: tauri::AppHandle,
+    url: String,
+) -> Result<build_plan::BuildPlan, String> {
+    *app.state::<AppState>().pending_build.lock().unwrap() = None;
+    let plan = mobalytics::fetch(&url).await?;
+    *app.state::<AppState>().pending_build.lock().unwrap() = Some(plan.clone());
+    Ok(plan)
+}
+
+fn mutate_build(
+    app: &tauri::AppHandle,
+    mutate: impl FnOnce(&mut build_plan::SavedBuild) -> Result<(), String>,
+) -> Result<build_plan::SavedBuild, String> {
+    let state = app.state::<AppState>();
+    let mut pipeline = state.pipeline.lock().unwrap();
+    let mut saved = pipeline.saved_build.clone();
+    mutate(&mut saved)?;
+    build_store::store(app, &saved)?;
+    pipeline.saved_build = saved.clone();
+    let model = pipeline.current_model();
+    drop(pipeline);
+    let _ = app.emit("overlay-model", model);
+    Ok(saved)
+}
+
+#[tauri::command]
+fn save_imported_build(app: tauri::AppHandle) -> Result<build_plan::SavedBuild, String> {
+    let plan = app
+        .state::<AppState>()
+        .pending_build
+        .lock()
+        .unwrap()
+        .clone()
+        .ok_or("Preview a build before saving it.")?;
+    let result = mutate_build(&app, |saved| {
+        saved.replace(plan);
+        Ok(())
+    });
+    if result.is_ok() {
+        *app.state::<AppState>().pending_build.lock().unwrap() = None;
+    }
+    result
+}
+
+#[tauri::command]
+fn set_build_profile(
+    app: tauri::AppHandle,
+    profile: String,
+    stage: Option<String>,
+) -> Result<build_plan::SavedBuild, String> {
+    mutate_build(&app, |saved| saved.set_profile(&profile, stage))
+}
+
+#[tauri::command]
+fn set_build_item(
+    app: tauri::AppHandle,
+    stage: String,
+    item: String,
+    done: bool,
+) -> Result<build_plan::SavedBuild, String> {
+    mutate_build(&app, |saved| saved.complete(&stage, &item, done))
+}
+
+#[tauri::command]
+fn remove_build(app: tauri::AppHandle) -> Result<build_plan::SavedBuild, String> {
+    *app.state::<AppState>().pending_build.lock().unwrap() = None;
+    mutate_build(&app, |saved| {
+        *saved = build_plan::SavedBuild::default();
+        Ok(())
+    })
 }
 
 #[tauri::command]
@@ -168,7 +251,7 @@ fn apply_settings(app: tauri::AppHandle, cfg: AppConfig) -> Result<(), String> {
         // bad settings submission can't leave the live app (or the next
         // launch, which re-`Pipeline::new`s from the saved config and
         // `.expect()`s success) in a broken state.
-        let new_pipeline = Pipeline::new_poe2().map_err(|e| e.to_string())?;
+        let mut new_pipeline = Pipeline::new_poe2().map_err(|e| e.to_string())?;
 
         // (c) Stop the OLD tailer's producer thread BEFORE swapping the
         // pipeline into state.pipeline. This ordering matters: the tailer's
@@ -196,7 +279,9 @@ fn apply_settings(app: tauri::AppHandle, cfg: AppConfig) -> Result<(), String> {
         // (d) Now it's safe to swap the pipeline: the old producer is gone.
         {
             let state: State<AppState> = app.state();
-            *state.pipeline.lock().unwrap() = new_pipeline;
+            let mut pipeline = state.pipeline.lock().unwrap();
+            new_pipeline.saved_build = pipeline.saved_build.clone();
+            *pipeline = new_pipeline;
         }
 
         // (d2) The new pipeline starts with fresh route/session state, so the
@@ -1027,6 +1112,12 @@ fn main() {
             get_config,
             pick_log_file,
             import_pob,
+            get_build,
+            preview_mobalytics,
+            save_imported_build,
+            set_build_profile,
+            set_build_item,
+            remove_build,
             apply_settings,
             open_settings,
             reset_progress,
@@ -1051,6 +1142,7 @@ fn main() {
             // must not discover or load the legacy PoE1 vendor/resources.
             let cfg = config::load(app.handle());
             let mut pipeline = Pipeline::new_poe2().expect("PoE2 campaign data must load");
+            pipeline.saved_build = build_store::load(app.handle());
 
             // Restore the previous session's route/session progress from
             // the on-disk journal BEFORE the state is managed (and thus
@@ -1080,6 +1172,7 @@ fn main() {
             }
 
             app.manage(AppState {
+                pending_build: Mutex::new(None),
                 pipeline: Mutex::new(pipeline),
                 overlay_action_bounds: Mutex::new(None),
                 overlay_pointer_policy: Mutex::new(None),

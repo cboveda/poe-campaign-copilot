@@ -3,7 +3,7 @@
 A passive Windows overlay for the English Path of Exile 2 client. It reads
 `Client.txt`; it does not read game memory or automate inputs.
 
-**0.2.0-alpha.3 — campaign guide preview; Windows gameplay validation pending.**
+**0.2.0-alpha.4 — campaign guide preview; Windows gameplay validation pending.**
 
 The preview tracks completed zone loads and instance revisits on the English
 **0.5.5** client. Acts 1–3 use sequential source-guided route visits; Act 4
@@ -16,7 +16,9 @@ Content is adapted from a pinned, licensed
 Objectives/rewards/directions are advisory and still need in-game review.
 Entering an area does not confirm a boss kill, quest hand-in or reward.
 Unknown/endgame areas do not select campaign guidance. No endgame Atlas/map
-guide, build imports/reminders or diagrams are included. PoE1 state is
+guide or diagrams are included. Mobalytics campaign build links can be
+imported as saved snapshots with manual target checklists and act-based
+stages; PoE2 PoB import remains deferred. PoE1 state is
 separate; automatic updates are disabled. No installer is published here.
 
 Start with [Run on Windows](docs/RUN-ON-WINDOWS.md). Existing testers can
@@ -45,6 +47,10 @@ objectives with **Continue town step** on the overlay (or in Settings);
 early shopping trips do not advance the route.
 Login/process changes start a fresh route session to avoid mixing characters;
 per-character resume across game sessions is not implemented yet.
+
+Import a build from Settings → **Build guide** → **Preview import**, then
+**Save imported build**. Use a named character profile and check targets
+manually. See [Mobalytics build import](docs/MOBALYTICS-BUILD-IMPORT.md).
 
 ## Credits
 

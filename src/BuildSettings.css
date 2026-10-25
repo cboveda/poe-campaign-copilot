@@ -1,0 +1,8 @@
+.build-settings h2, .build-settings h3 { color: #ddc28c; margin: 12px 0; }
+.build-input { display: block; box-sizing: border-box; width: 100%; padding: 8px; margin: 8px 0; background: #211b15; color: #e7d8bd; border: 1px solid #65533b; border-radius: 4px; }
+.build-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+.build-preview { margin: 12px 0; padding: 12px; border: 1px solid #8a7045; }
+.build-check { display: flex; gap: 8px; margin: 9px 0; align-items: flex-start; }
+.build-check input { margin-top: 4px; flex-shrink: 0; }
+.build-notes { white-space: pre-wrap; overflow-wrap: anywhere; }
+.build-source { overflow-wrap: anywhere; color: #a99b84; font-size: 12px; }
